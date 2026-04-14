@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ── Swedish homepage ── -->
+  <url>
+    <loc>https://medibalans.com/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://medibalans.com/en/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ── English homepage ── -->
+  <url>
+    <loc>https://medibalans.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://medibalans.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ── ALCAT Test ── -->
+  <url>
+    <loc>https://medibalans.com/alcat/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/alcat/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ── CMA — Cellulär Mikronäringsanalys ── -->
+  <url>
+    <loc>https://medibalans.com/cma/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/cma/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ── MethylDetox ── -->
+  <url>
+    <loc>https://medibalans.com/methyldetox/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/methyldetox/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ── HRV-analys ── -->
+  <url>
+    <loc>https://medibalans.com/hrv-analys/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/hrv-analys/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── Baby Balans ── -->
+  <url>
+    <loc>https://medibalans.com/baby-balans/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/baby-balans/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── IV therapy — Swedish ── -->
+  <url>
+    <loc>https://medibalans.com/iv-terapi/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/iv-terapi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://medibalans.com/en/iv-therapy/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ── IV therapy — English ── -->
+  <url>
+    <loc>https://medibalans.com/en/iv-therapy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://medibalans.com/en/iv-therapy/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/iv-terapi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ── IBS Utredning ── -->
+  <url>
+    <loc>https://medibalans.com/ibs-utredning-och-behandling/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/ibs-utredning-och-behandling/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── Utredningsprotokoll ── -->
+  <url>
+    <loc>https://medibalans.com/utredningsprotokoll/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/utredningsprotokoll/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── Research — Swedish ── -->
+  <url>
+    <loc>https://medibalans.com/forskning.html</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/forskning.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://medibalans.com/en/research/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── Research — English ── -->
+  <url>
+    <loc>https://medibalans.com/en/research/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://medibalans.com/en/research/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/forskning.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── NLS Body Scan — Swedish ── -->
+  <url>
+    <loc>https://medibalans.com/nls-skanning-och-utredning/</loc>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/nls-skanning-och-utredning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://medibalans.com/en/nls-body-scan/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── NLS Body Scan — English ── -->
+  <url>
+    <loc>https://medibalans.com/en/nls-body-scan/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://medibalans.com/en/nls-body-scan/"/>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://medibalans.com/nls-skanning-och-utredning/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── Clinical Notes (EN only) ── -->
+  <url>
+    <loc>https://medibalans.com/clinical-notes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://medibalans.com/clinical-notes/"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="sv" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kliniska Utredningsprotokoll — MediBalans Stockholm</title>
+<meta name="description" content="MediBalans evidensbaserade utredningsprotokoll för HRV, LDL-kolesterol, IBS, matintolerans och autoimmunitet. Strukturerade kliniska steg från diagnostik till behandling. Boka i Stockholm.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://medibalans.com/utredningsprotokoll/">
+<meta property="og:title" content="Kliniska Utredningsprotokoll — MediBalans Stockholm">
+<meta property="og:description" content="Strukturerade kliniska protokoll för komplexa kroniska tillstånd. HRV, LDL, IBS, matintolerans. MediBalans, Karlavägen 89, Stockholm.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://medibalans.com/utredningsprotokoll/">
+<meta property="og:image" content="https://medibalans.com/og-image.jpg">
+<meta property="og:locale" content="sv_SE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="sv" href="https://medibalans.com/utredningsprotokoll/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "Kliniska Utredningsprotokoll — MediBalans",
+  "description": "Evidensbaserade kliniska protokoll för HRV-analys, LDL-kardiovaskulär risk, IBS, matintolerans och autoimmunitet.",
+  "url": "https://medibalans.com/utredningsprotokoll/",
+  "inLanguage": "sv",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Hem", "item": "https://medibalans.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Utredningsprotokoll", "item": "https://medibalans.com/utredningsprotokoll/" }
+    ]
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #0B1D33;
+  --navy-mid: #132B4A;
+  --blue: #2E6B9E;
+  --blue-light: #4A9FD4;
+  --ice: #D8EAF5;
+  --ice-faint: #EDF5FA;
+  --white: #FAFCFE;
+  --text: #1A2A3A;
+  --text-mid: #4A5A6A;
+  --text-light: #7A8A9A;
+  --border: #D0DBE5;
+  --fd: 'DM Serif Display', Georgia, serif;
+  --fb: 'IBM Plex Sans', sans-serif;
+  --fm: 'IBM Plex Mono', monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--fb);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+.container{max-width:1140px;margin:0 auto;padding:0 2rem;}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.no-js .reveal{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:.08s;}.rd2{transition-delay:.16s;}.rd3{transition-delay:.24s;}.rd4{transition-delay:.32s;}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,252,254,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(208,219,229,.5);transition:box-shadow .3s;}
+header.scrolled{box-shadow:0 1px 20px rgba(11,29,51,.07);}
+.hi{display:flex;align-items:center;justify-content:space-between;height:66px;}
+.logo{font-family:var(--fb);font-weight:600;font-size:.9rem;letter-spacing:.14em;color:var(--navy);text-transform:uppercase;text-decoration:none;}
+.logo span{color:var(--blue);}
+footer .logo{color:rgba(250,252,254,.7);}
+footer .logo span{color:var(--blue-light);}
+.logo span{color:var(--blue);}
+nav.top{display:flex;gap:1.8rem;align-items:center;}
+nav.top a{font-size:.82rem;font-weight:500;color:var(--text-mid);text-decoration:none;transition:color .2s;}
+nav.top a:hover{color:var(--navy);}
+.nav-cta{background:var(--navy);color:var(--white)!important;padding:.5rem 1.2rem;border-radius:6px;font-size:.78rem!important;letter-spacing:.04em;}
+.nav-cta:hover{background:var(--navy-mid)!important;}
+
+/* HERO */
+.hero{padding:10rem 0 5.5rem;background:linear-gradient(162deg,var(--white) 0%,var(--ice-faint) 55%,var(--white) 100%);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-120px;right:-160px;width:700px;height:700px;background:radial-gradient(circle,rgba(46,107,158,.05) 0%,transparent 65%);pointer-events:none;}
+.bc{font-family:var(--fm);font-size:.7rem;letter-spacing:.1em;color:var(--text-light);margin-bottom:1.8rem;display:flex;align-items:center;gap:.5rem;}
+.bc a{color:var(--blue);text-decoration:none;}
+.eyebrow{font-family:var(--fm);font-size:.72rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:1.3rem;}
+.hero h1{font-family:var(--fd);font-size:3.1rem;line-height:1.16;color:var(--navy);margin-bottom:1.3rem;max-width:660px;}
+.hero h1 em{font-style:italic;color:var(--blue);}
+.hero-sub{font-size:1.02rem;font-weight:300;line-height:1.75;color:var(--text-mid);max-width:560px;margin-bottom:2.6rem;}
+.hero-meta{display:flex;gap:2.5rem;flex-wrap:wrap;}
+.hm-item{display:flex;flex-direction:column;gap:2px;}
+.hm-val{font-family:var(--fd);font-size:1.55rem;color:var(--navy);line-height:1;}
+.hm-lbl{font-size:.68rem;color:var(--text-light);letter-spacing:.07em;text-transform:uppercase;font-family:var(--fm);}
+
+/* CONDITION NAV */
+.cnav{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:66px;z-index:90;}
+.cnav-inner{display:flex;overflow-x:auto;scrollbar-width:none;}
+.cnav-inner::-webkit-scrollbar{display:none;}
+.ctab{font-size:.8rem;font-weight:500;color:var(--text-mid);text-decoration:none;padding:1rem 1.4rem;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s;letter-spacing:.02em;display:flex;align-items:center;gap:.45rem;}
+.ctab:hover{color:var(--navy);}
+.ctab.active{color:var(--navy);border-bottom-color:var(--blue);}
+.ctab-n{font-family:var(--fm);font-size:.64rem;color:var(--blue);background:var(--ice-faint);padding:1px 5px;border-radius:3px;}
+
+/* PROTOCOL SECTION */
+.ps{padding:5.5rem 0;border-bottom:1px solid var(--border);scroll-margin-top:115px;}
+.ps:last-of-type{border-bottom:none;}
+.st{font-family:var(--fd);font-size:2.15rem;color:var(--navy);line-height:1.2;font-weight:400;margin-bottom:.85rem;}
+.sl{font-size:1rem;color:var(--text-mid);line-height:1.75;max-width:580px;font-weight:300;margin-bottom:3rem;}
+
+/* PROTOCOL INTRO */
+.pi{display:grid;grid-template-columns:1fr 1fr;gap:2.8rem;margin-bottom:3.2rem;padding-bottom:2.8rem;border-bottom:1px solid var(--border);}
+@media(max-width:760px){.pi{grid-template-columns:1fr;}}
+.pi-lbl{font-family:var(--fm);font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin-bottom:.45rem;}
+.pi-val{font-size:.92rem;color:var(--text-mid);line-height:1.72;font-weight:300;}
+.pi-val strong{color:var(--text);font-weight:500;}
+
+/* LAYOUT */
+.pl{display:grid;grid-template-columns:1fr 330px;gap:3.5rem;align-items:start;}
+@media(max-width:900px){.pl{grid-template-columns:1fr;gap:2.5rem;}}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;}
+.step{display:grid;grid-template-columns:46px 1fr;gap:0 1.3rem;position:relative;}
+.step:not(:last-child)::before{content:'';position:absolute;left:22px;top:46px;bottom:-20px;width:1px;background:var(--border);}
+.sn{width:46px;height:46px;border-radius:50%;background:var(--ice-faint);border:1px solid var(--ice);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.72rem;font-weight:500;color:var(--blue);flex-shrink:0;position:relative;z-index:1;}
+.sb{padding:.55rem 0 2.3rem;}
+.stitle{font-size:.93rem;font-weight:600;color:var(--navy);margin-bottom:.35rem;}
+.stext{font-size:.87rem;color:var(--text-mid);line-height:1.7;font-weight:300;}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:.75rem;}
+.chip{font-family:var(--fm);font-size:.67rem;letter-spacing:.06em;color:var(--blue);background:var(--ice-faint);border:1px solid var(--ice);padding:3px 9px;border-radius:4px;text-decoration:none;transition:background .15s;}
+.chip:hover{background:var(--ice);}
+.obox{background:var(--ice-faint);border:1px solid var(--ice);border-left:3px solid var(--blue);border-radius:6px;padding:1rem 1.2rem;margin-top:1.2rem;}
+.obox-lbl{font-family:var(--fm);font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.3rem;}
+.obox-txt{font-size:.86rem;color:var(--text-mid);line-height:1.65;font-weight:300;}
+.obox-txt a{color:var(--blue);}
+
+/* SIDEBAR */
+.sc{background:var(--navy);border-radius:10px;padding:1.8rem;position:sticky;top:138px;}
+.sc-ey{font-family:var(--fm);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(216,234,245,.5);margin-bottom:.9rem;}
+.sc h3{font-family:var(--fd);font-size:1.42rem;font-weight:400;color:var(--white);line-height:1.25;margin-bottom:1rem;}
+.sigs{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.6rem;}
+.sig{display:flex;align-items:flex-start;gap:.55rem;font-size:.81rem;color:rgba(250,252,254,.7);font-weight:300;line-height:1.5;}
+.sig::before{content:'→';font-family:var(--fm);color:rgba(216,234,245,.4);flex-shrink:0;margin-top:1px;}
+.scta{display:block;width:100%;background:var(--blue);color:var(--white);text-align:center;padding:.8rem 1rem;border-radius:6px;font-size:.84rem;font-weight:500;text-decoration:none;transition:background .2s;margin-bottom:.7rem;}
+.scta:hover{background:var(--blue-light);}
+.scta2{display:block;width:100%;text-align:center;padding:.7rem 1rem;border-radius:6px;font-size:.78rem;font-weight:400;color:rgba(216,234,245,.55);text-decoration:none;border:1px solid rgba(216,234,245,.15);transition:border-color .2s,color .2s;}
+.scta2:hover{border-color:rgba(216,234,245,.35);color:rgba(216,234,245,.9);}
+.sdiv{border:none;border-top:1px solid rgba(216,234,245,.1);margin:1.3rem 0;}
+.sal{display:flex;align-items:center;gap:.45rem;font-size:.76rem;color:rgba(216,234,245,.45);text-decoration:none;transition:color .2s;font-family:var(--fm);letter-spacing:.04em;}
+.sal:hover{color:rgba(216,234,245,.82);}
+.sal::before{content:'↗';font-size:.68rem;}
+
+/* SIDEBAR PATIENT QUOTE */
+.sc-quote{margin-top:1rem;padding:.9rem 1rem;background:rgba(255,255,255,.04);border-left:2px solid rgba(216,234,245,.2);border-radius:0 6px 6px 0;}
+.sc-quote-text{font-size:.78rem;color:rgba(250,252,254,.6);font-style:italic;line-height:1.65;font-weight:300;margin-bottom:.45rem;}
+.sc-quote-attr{font-family:var(--fm);font-size:.63rem;color:rgba(216,234,245,.3);letter-spacing:.06em;}
+
+/* RECO MINI (sidebar) */
+.reco-mini{display:flex;align-items:center;gap:.5rem;margin-top:1rem;padding-top:.9rem;border-top:1px solid rgba(216,234,245,.1);}
+.reco-mini-stars{font-size:.72rem;color:#e8a020;letter-spacing:1px;}
+.reco-mini-text{font-size:.68rem;color:rgba(216,234,245,.35);font-family:var(--fm);letter-spacing:.04em;}
+
+/* REVIEWS STRIP */
+.reviews-strip{background:var(--navy);padding:4.5rem 0;}
+.reviews-ey{font-family:var(--fm);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(216,234,245,.45);text-align:center;margin-bottom:.6rem;}
+.reviews-title{font-family:var(--fd);font-size:1.65rem;color:var(--white);text-align:center;font-weight:400;margin-bottom:.4rem;line-height:1.25;}
+.reviews-title em{font-style:italic;color:var(--blue-light);}
+.reviews-sub{font-size:.8rem;color:rgba(216,234,245,.4);text-align:center;margin-bottom:2.8rem;font-weight:300;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+@media(max-width:860px){.reviews-grid{grid-template-columns:1fr;}}
+.review-card{background:rgba(255,255,255,.04);border:1px solid rgba(216,234,245,.1);border-radius:10px;padding:1.6rem 1.8rem;display:flex;flex-direction:column;gap:1rem;}
+.review-stars{font-size:.8rem;color:#e8a020;letter-spacing:2px;}
+.review-quote{font-size:.88rem;color:rgba(250,252,254,.78);line-height:1.72;font-weight:300;font-style:italic;flex:1;}
+.review-quote::before{content:'"';font-family:var(--fd);font-size:1.8rem;color:rgba(216,234,245,.2);display:block;margin-bottom:.2rem;line-height:1;}
+.review-meta{display:flex;align-items:center;justify-content:space-between;}
+.review-author{font-size:.74rem;font-weight:500;color:rgba(250,252,254,.55);font-family:var(--fm);}
+.review-condition{font-size:.68rem;color:rgba(216,234,245,.3);font-family:var(--fm);letter-spacing:.06em;border:1px solid rgba(216,234,245,.12);padding:2px 8px;border-radius:4px;}
+.reviews-cta{text-align:center;margin-top:2.2rem;}
+.reviews-link{font-size:.78rem;color:rgba(216,234,245,.4);text-decoration:none;font-family:var(--fm);letter-spacing:.06em;border-bottom:1px solid rgba(216,234,245,.15);padding-bottom:1px;transition:color .2s;}
+.reviews-link:hover{color:rgba(216,234,245,.75);}
+
+/* MEASURE GRID */
+.mg{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-top:2rem;}
+.mc{background:var(--white);padding:1rem 1.2rem;}
+.mc-lbl{font-family:var(--fm);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.28rem;}
+.mc-val{font-size:.86rem;font-weight:500;color:var(--navy);line-height:1.4;}
+
+/* MID CTA */
+.mcta{background:var(--navy-mid);padding:3.2rem 0;}
+.mcta-in{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.mcta-text h2{font-family:var(--fd);font-size:1.7rem;color:var(--white);font-weight:400;margin-bottom:.35rem;}
+.mcta-text p{font-size:.88rem;color:rgba(250,252,254,.5);font-weight:300;}
+.mcta-btn{background:var(--white);color:var(--navy);padding:.8rem 1.8rem;border-radius:6px;font-size:.86rem;font-weight:500;text-decoration:none;white-space:nowrap;transition:opacity .2s;flex-shrink:0;}
+.mcta-btn:hover{opacity:.9;}
+
+/* BOOKING */
+.bsec{padding:6.5rem 0;background:linear-gradient(162deg,var(--white) 0%,var(--ice-faint) 100%);}
+.bg{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center;}
+@media(max-width:760px){.bg{grid-template-columns:1fr;gap:3rem;}}
+.bl h2{font-family:var(--fd);font-size:2.5rem;color:var(--navy);line-height:1.2;font-weight:400;margin-bottom:1.1rem;}
+.bl h2 em{font-style:italic;color:var(--blue);}
+.bl p{font-size:.94rem;color:var(--text-mid);line-height:1.75;font-weight:300;margin-bottom:1.8rem;}
+.btn-p{display:inline-flex;align-items:center;gap:.55rem;background:var(--navy);color:var(--white);padding:.95rem 1.8rem;border-radius:7px;font-size:.88rem;font-weight:500;text-decoration:none;transition:background .2s;width:fit-content;margin-bottom:.75rem;display:block;}
+.btn-p:hover{background:var(--navy-mid);}
+.btn-s{display:inline-flex;align-items:center;gap:.5rem;color:var(--blue);font-size:.83rem;font-weight:500;text-decoration:none;}
+.btn-s:hover{color:var(--navy);}
+.br{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:2rem;}
+.bd{display:flex;gap:.9rem;padding:1rem 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.bd:last-child{border-bottom:none;}
+.bd-icon{width:34px;height:34px;background:var(--ice-faint);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;color:var(--blue);font-family:var(--fm);font-weight:500;}
+.bd-lbl{font-size:.76rem;color:var(--text-light);margin-bottom:.18rem;}
+.bd-val{font-size:.88rem;font-weight:500;color:var(--navy);}
+
+/* FOOTER */
+footer{background:var(--navy);padding:3.2rem 0 1.8rem;}
+.fi{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;margin-bottom:2rem;}
+.fb p{font-size:.76rem;color:rgba(250,252,254,.32);margin-top:.55rem;font-weight:300;line-height:1.6;}
+.flinks{display:flex;gap:2.8rem;flex-wrap:wrap;}
+.fc h4{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,252,254,.38);margin-bottom:.75rem;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:.38rem;}
+.fc a{font-size:.8rem;color:rgba(250,252,254,.58);text-decoration:none;font-weight:300;transition:color .2s;}
+.fc a:hover{color:rgba(250,252,254,.9);}
+.fbot{border-top:1px solid rgba(216,234,245,.08);padding-top:1.4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.fbot span{font-size:.73rem;color:rgba(250,252,254,.22);font-weight:300;}
+
+@media(max-width:768px){
+  .hero h1{font-size:2.2rem;}
+  .st{font-size:1.75rem;}
+  nav.top{display:none;}
+  .hero-meta{gap:1.5rem;}
+  .reco-right{display:none;}
+  .quiz-opts{grid-template-columns:1fr;}
+}
+
+/* ── FIX 1: RECO TRUST BAR ── */
+.reco-bar{background:var(--white);border-bottom:1px solid var(--border);padding:.9rem 0;}
+.reco-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.reco-left{display:flex;align-items:center;gap:1.4rem;}
+.reco-stars{display:flex;gap:2px;line-height:1;}
+.reco-star{color:#e8a020;font-size:.95rem;}
+.reco-score{font-family:var(--fd);font-size:1.4rem;color:var(--navy);line-height:1;}
+.reco-detail{font-size:.78rem;color:var(--text-mid);font-weight:300;line-height:1.45;}
+.reco-detail strong{color:var(--navy);font-weight:500;display:block;}
+.reco-badge{background:#f0f7f0;border:1px solid #b8dbb8;border-radius:5px;padding:.35rem .85rem;font-size:.7rem;font-weight:600;color:#2a7a2a;letter-spacing:.05em;font-family:var(--fm);}
+.reco-right{font-size:.75rem;color:var(--text-light);font-style:italic;}
+
+/* ── FIX 2: QUIZ ── */
+.quiz-wrap{background:var(--ice-faint);border-bottom:1px solid var(--ice);padding:2.4rem 0;}
+.quiz-label{font-family:var(--fm);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.7rem;text-align:center;}
+.quiz-q{font-family:var(--fd);font-size:1.12rem;color:var(--navy);margin-bottom:1.1rem;font-weight:400;text-align:center;line-height:1.35;}
+.quiz-opts{display:grid;grid-template-columns:repeat(2,1fr);gap:.55rem;}
+.qopt{background:var(--white);border:1.5px solid var(--border);border-radius:8px;padding:.8rem 1rem;font-size:.84rem;color:var(--text-mid);cursor:pointer;transition:all .18s;text-align:left;display:flex;align-items:flex-start;gap:.7rem;line-height:1.45;}
+.qopt:hover{border-color:var(--blue);color:var(--navy);background:var(--ice-faint);}
+.qopt.selected{border-color:var(--blue);background:rgba(46,107,158,.06);color:var(--navy);font-weight:500;}
+.qopt-icon{font-size:1rem;flex-shrink:0;margin-top:1px;}
+.quiz-result{display:none;background:var(--white);border:1.5px solid var(--blue);border-radius:9px;padding:1.4rem 1.6rem;text-align:center;margin-top:1.1rem;}
+.quiz-result.show{display:block;animation:fadeup .3s ease;}
+@keyframes fadeup{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+.qr-eyebrow{font-family:var(--fm);font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem;}
+.qr-title{font-family:var(--fd);font-size:1.18rem;color:var(--navy);margin-bottom:.45rem;line-height:1.25;}
+.qr-desc{font-size:.83rem;color:var(--text-mid);font-weight:300;margin-bottom:.95rem;line-height:1.65;max-width:440px;margin-left:auto;margin-right:auto;}
+.qr-actions{display:flex;align-items:center;justify-content:center;gap:.9rem;flex-wrap:wrap;}
+.qr-btn{display:inline-block;background:var(--navy);color:var(--white);padding:.7rem 1.6rem;border-radius:6px;font-size:.83rem;font-weight:500;text-decoration:none;transition:background .2s;}
+.qr-btn:hover{background:var(--navy-mid);}
+.qr-soft{font-size:.78rem;color:var(--blue);text-decoration:none;font-weight:400;border-bottom:1px solid rgba(46,107,158,.3);}
+.qr-soft:hover{color:var(--navy);}
+.qr-reset{font-size:.72rem;color:var(--text-light);cursor:pointer;text-decoration:none;display:block;margin-top:.65rem;}
+
+/* ── FIX 3: PRICE TAG in sidebar ── */
+.price-tag{display:flex;flex-direction:column;gap:.1rem;margin-bottom:1rem;padding:.75rem .9rem;background:rgba(216,234,245,.07);border-radius:7px;border:1px solid rgba(216,234,245,.14);}
+.price-row{display:flex;align-items:baseline;gap:.45rem;}
+.price-from{font-family:var(--fm);font-size:.6rem;color:rgba(216,234,245,.4);letter-spacing:.08em;text-transform:uppercase;}
+.price-amt{font-family:var(--fd);font-size:1.65rem;color:var(--white);line-height:1;}
+.price-unit{font-size:.7rem;color:rgba(216,234,245,.45);font-weight:300;}
+.price-note{font-size:.71rem;color:rgba(216,234,245,.38);margin-top:.2rem;font-weight:300;line-height:1.4;}
+
+/* ── FIX 4: SOFT CTA ── */
+.soft-cta{display:block;width:100%;text-align:center;padding:.72rem 1rem;border-radius:6px;font-size:.78rem;font-weight:400;color:rgba(216,234,245,.65);text-decoration:none;border:1px solid rgba(216,234,245,.16);transition:all .2s;margin-bottom:.7rem;}
+.soft-cta:hover{border-color:rgba(216,234,245,.4);color:var(--white);background:rgba(216,234,245,.05);}
+</style>
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X8ZN38EGYY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X8ZN38EGYY');
+</script>
+<!-- Facebook Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','836514963742786');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=836514963742786&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="container">
+    <div class="hi">
+      <a href="/" class="logo">Medi<span>Balans</span></a>
+      <nav class="top">
+        <a href="/#about">Kliniken</a>
+        <a href="/#process">Metoden</a>
+        <a href="/utredningsprotokoll/" style="color:var(--navy);">Protokoll</a>
+        <a href="/#testing">Diagnostik</a>
+        <a href="/#families">Familjer</a>
+        <a href="/boka-ditt-besok/" class="nav-cta">Boka Konsultation</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="bc"><a href="/">Hem</a> / Utredningsprotokoll</div>
+    <div class="eyebrow">Kliniska Protokoll — MediBalans</div>
+    <h1 class="reveal">Från symptom till<br><em>grundorsak.</em></h1>
+    <p class="hero-sub reveal rd1">Varje tillstånd vi utreder följer ett strukturerat kliniskt protokoll. Steg-för-steg diagnostik som identifierar den specifika biologiska drivkraften bakom dina besvär — och ett behandlingsprotokoll anpassat efter vad mätdata visar. Inte vad som borde fungera i teorin.</p>
+    <div class="hero-meta reveal rd2">
+      <div class="hm-item"><span class="hm-val">4</span><span class="hm-lbl">Protokollområden</span></div>
+      <div class="hm-item"><span class="hm-val">7</span><span class="hm-lbl">Patent</span></div>
+      <div class="hm-item"><span class="hm-val">4.8</span><span class="hm-lbl">Nr 1 hälsoklinik · Reco.se</span></div>
+      <div class="hm-item"><span class="hm-val">25k+</span><span class="hm-lbl">Patienter</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIX 1: RECO TRUST BAR -->
+<div class="reco-bar">
+  <div class="container">
+    <div class="reco-inner">
+      <div class="reco-left">
+        <div>
+          <div class="reco-stars">
+            <span class="reco-star">★</span><span class="reco-star">★</span><span class="reco-star">★</span><span class="reco-star">★</span><span class="reco-star">★</span>
+          </div>
+        </div>
+        <div class="reco-score">4.8</div>
+        <div class="reco-detail">
+          <strong>Nr 1 hälsoklinik i Sverige</strong>
+          Verifierade patientomdömen · Reco.se
+        </div>
+        <div class="reco-badge">✓ Verifierat</div>
+      </div>
+      <div class="reco-right">Oberoende verifiering av Reco.se — alla omdömen kopplade till verkliga patienter</div>
+    </div>
+  </div>
+</div>
+
+<!-- FIX 2: TRIAGE QUIZ -->
+<div class="quiz-wrap">
+  <div class="quiz-inner">
+    <div class="quiz-label">Hitta rätt protokoll</div>
+    <div class="quiz-q">Vilket av dessa stämmer bäst in på dig?</div>
+    <div class="quiz-opts">
+      <button class="qopt" data-protocol="hrv" data-anchor="#hrv" data-title="HRV & Autonom Obalans" data-price="Paket från 22 000 kr" data-desc="Dina symptom pekar på autonom dysreglering och cellulär utmattning. Protokoll 01 börjar med en HRV-mätning och kartlägger metyleringskapacitet, intracellulär näring och organiska syror.">
+        <span class="qopt-icon">😮‍💨</span>
+        <span>Utmattad trots normala prover — sömnen hjälper inte</span>
+      </button>
+      <button class="qopt" data-protocol="ldl" data-anchor="#ldl" data-title="LDL & Kardiovaskulär Risk" data-price="Paket från 22 000 kr" data-desc="Ditt mönster tyder på att en djupare kardiovaskulär analys är motiverad — bortom standard LDL. Vi mäter partikelstorlek, oxiderad LDL, homocystein och inflammationsmarkörer.">
+        <span class="qopt-icon">❤️</span>
+        <span>Förhöjt kolesterol eller hjärt-kärlrisk som oroar mig</span>
+      </button>
+      <button class="qopt" data-protocol="ibs" data-anchor="#ibs" data-title="IBS & Tarmhälsa" data-price="Paket från 22 000 kr" data-desc="IBS är en symptombeskrivning, inte en diagnos. Protokoll 03 identifierar den specifika drivkraften — dysbiomönster, barriärdefekt, SIBO eller immunreaktivitet — och behandlar orsaken.">
+        <span class="qopt-icon">🔬</span>
+        <span>Magen krånglar — IBS, uppblåsthet, oregelbunden tarm</span>
+      </button>
+      <button class="qopt" data-protocol="mat" data-anchor="#mat" data-title="Matintolerans & ALCAT" data-price="Paket från 22 000 kr" data-desc="Försenade immunreaktioner mot livsmedel syns inte på allergitest men kan driva dina symptom. ALCAT-analys kartlägger reaktivitet mot 200–483 livsmedel och kemikalier på cellulär nivå.">
+        <span class="qopt-icon">🌾</span>
+        <span>Reagerar på mat — men allergitestet var negativt</span>
+      </button>
+    </div>
+    <div class="quiz-result" id="quiz-result">
+      <div class="qr-eyebrow">Rekommenderat protokoll</div>
+      <div class="qr-title" id="qr-title"></div>
+      <div class="qr-desc" id="qr-desc"></div>
+      <div class="qr-actions">
+        <a href="/boka-ditt-besok/" class="qr-btn" id="qr-btn">Boka konsultation</a>
+        <a href="#" class="qr-soft" id="qr-anchor">Läs protokollet</a>
+      </div>
+      <span class="qr-reset" onclick="resetQuiz()">← Välj om</span>
+    </div>
+  </div>
+</div>
+
+<!-- CONDITION NAV -->
+<nav class="cnav" aria-label="Protokoll">
+  <div class="container">
+    <div class="cnav-inner">
+      <a href="#hrv" class="ctab active"><span class="ctab-n">01</span>HRV & Autonom Obalans</a>
+      <a href="#ldl" class="ctab"><span class="ctab-n">02</span>LDL & Kardiovaskulär Risk</a>
+      <a href="#ibs" class="ctab"><span class="ctab-n">03</span>IBS & Tarmhälsa</a>
+      <a href="#mat" class="ctab"><span class="ctab-n">04</span>Matintolerans</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══ PROTOKOLL 01: HRV ═══ -->
+<section class="ps" id="hrv">
+  <div class="container">
+    <div class="eyebrow">Protokoll 01</div>
+    <h2 class="st reveal">HRV & Autonom Obalans</h2>
+    <p class="sl reveal rd1">Kronisk trötthet, utbrändhet och stressrelaterade tillstånd har en mätbar biokemisk grund. HRV-analys är startpunkten — men protokollet går djupare än pulsvariabilitet.</p>
+
+    <div class="pi reveal rd2">
+      <div>
+        <div class="pi-lbl">Vilka söker detta protokoll</div>
+        <div class="pi-val">Patienter med <strong>utmattning trots normala blodprover</strong>, stresskänslighet, sömnproblem, hjärndimma och återhämtningssvårigheter. Ofta genomfört standardutredningar utan att få svar på varför de inte återhämtar sig.</div>
+      </div>
+      <div>
+        <div class="pi-lbl">Vad konventionell vård missar</div>
+        <div class="pi-val">Standardblodprov mäter serum — inte vad som händer inuti cellerna. <strong>Mitokondriefunktion, intracellulär näringsstatus och metyleringskapacitet</strong> syns inte i rutinprover men är avgörande för energiproduktion och autonomt nervsystem.</div>
+      </div>
+    </div>
+
+    <div class="pl">
+      <div class="steps">
+        <div class="step reveal">
+          <div class="sn">01</div>
+          <div class="sb">
+            <div class="stitle">Klinisk konsultation & autonom screening</div>
+            <div class="stext">Detaljerad anamnes med fokus på autonoma symtom, sömnkvalitet, stressbelastning och energimönster. Vi kartlägger mönster som pekar mot specifika biologiska mekanismer — inte en generisk utbrändhetsbedömning.</div>
+          </div>
+        </div>
+        <div class="step reveal rd1">
+          <div class="sn">02</div>
+          <div class="sb">
+            <div class="stitle">HRV-mätning & autonom analys</div>
+            <div class="stext">Hjärtfrekvensvariabilitet mäter balansen mellan det sympatiska och parasympatiska nervsystemet. Vi analyserar SDNN, RMSSD och LF/HF-kvot för att objektivisera stressbelastning och återhämtningskapacitet.</div>
+            <div class="chips"><a href="/hrv-test/" class="chip">HRV-test</a><span class="chip">Autonom analys</span><span class="chip">Circadian mätning</span></div>
+            <div class="obox">
+              <div class="obox-lbl">Fördjupning</div>
+              <div class="obox-txt">Vi har skrivit en klinisk genomgång av vad HRV mäter och varför det är relevant. <a href="/pulsvariationhrv-ett-nytt-satt-att-spara-valbefinnande/">Läs artikeln om pulsvariabilitet →</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="step reveal rd2">
+          <div class="sn">03</div>
+          <div class="sb">
+            <div class="stitle">Intracellulär näringsstatus (CMA)</div>
+            <div class="stext">Cellulär mikronäringsanalys mäter vitaminer, mineraler och antioxidanter inuti lymfocyterna — inte i serum. Visar funktionell näringsstatus som avgör om mitokondrierna har kofaktorer för ATP-produktion.</div>
+            <div class="chips"><a href="/cellulara-naringsanalyser/" class="chip">CMA-analys</a><span class="chip">Mg, CoQ10, B-vitaminer</span><span class="chip">Glutationsstatus</span></div>
+          </div>
+        </div>
+        <div class="step reveal rd3">
+          <div class="sn">04</div>
+          <div class="sb">
+            <div class="stitle">Metyleringskapacitet & genetisk kartläggning</div>
+            <div class="stext">MethylDetox analyserar 38 gener och samtliga SNPs för att kartlägga metyleringskapacitet, neurotransmittorsyntes och avgiftningsvägar. Genetiska varianter i MTHFR, COMT och MAO påverkar direkt hur nervsystemet regleras.</div>
+            <div class="chips"><a href="/methyldetox/" class="chip">MethylDetox</a><span class="chip">MTHFR, COMT, MAO</span><span class="chip">Neurotransmittorer</span></div>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="sn">05</div>
+          <div class="sb">
+            <div class="stitle">Individanpassat behandlingsprotokoll</div>
+            <div class="stext">Baserat på samtliga mätvärden: individanpassade vitaminer utan fyllnadsmedel, eventuell IV-terapi för snabbare intracellulär tillförsel och uppföljningsmätningar vid vecka 8 och 16.</div>
+            <div class="chips"><a href="/iv-och-im-vitaminterapi/" class="chip">IV-vitaminterapi</a><span class="chip">Skräddarsydda vitaminer</span><span class="chip">HRV-uppföljning</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="sc reveal rd2">
+          <div class="sc-quote">
+            <div class="sc-quote-text">"Trötthet som inte försvann trots sömn, hjärndimma, stresskänslighet. MediBalans hittade grundorsaken — idag har jag energin tillbaka."</div>
+            <div class="sc-quote-attr">Peter B. · Verifierad patient · Reco.se</div>
+          </div>
+          <div class="sc-ey">Det här protokollet passar om du</div>
+          <h3>Är utmattad trots att proverna ser normala ut</h3>
+          <div class="sigs">
+            <div class="sig">Trötthet som inte går över med sömn</div>
+            <div class="sig">Stresskänslighet och långsam återhämtning</div>
+            <div class="sig">Hjärndimma, koncentrationssvårigheter</div>
+            <div class="sig">Sömnproblem trots utmattning</div>
+            <div class="sig">Normala TSH, Hb, ferritin — men du mår ändå dåligt</div>
+          </div>
+          <a href="/boka-ditt-besok/" class="scta">Boka HRV-utredning</a>
+          <a href="tel:08-53021020" class="soft-cta">📞 Ring oss — 08-530 210 20</a>
+          <div class="price-tag">
+            <div class="price-row"><span class="price-from">Paket från</span><span class="price-amt">22 000</span><span class="price-unit">kr</span></div>
+            <div class="price-note">Inkl. HRV, CMA & MethylDetox 38 gener · Inga bindningstider</div>
+          </div>
+          <a href="/nls-skanning-och-utredning/" class="scta2">Se alla utredningspaket</a>
+          <hr class="sdiv">
+          <a href="/pulsvariationhrv-ett-nytt-satt-att-spara-valbefinnande/" class="sal">Läs: Vad är HRV och varför mäter vi det?</a>
+          <div class="reco-mini">
+            <span class="reco-mini-stars">★★★★★</span>
+            <span class="reco-mini-text">NR 1 HÄLSOKLINIK · RECO.SE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mg reveal">
+      <div class="mc"><div class="mc-lbl">Test 1</div><div class="mc-val">HRV — Autonom balans</div></div>
+      <div class="mc"><div class="mc-lbl">Test 2</div><div class="mc-val">CMA — Intracellulär näring</div></div>
+      <div class="mc"><div class="mc-lbl">Test 3</div><div class="mc-val">MethylDetox — 38 gener</div></div>
+      <div class="mc"><div class="mc-lbl">Test 4</div><div class="mc-val">Organiska syror (Genova)</div></div>
+      <div class="mc"><div class="mc-lbl">Resultat om</div><div class="mc-val">2–3 veckor</div></div>
+      <div class="mc"><div class="mc-lbl">Uppföljning</div><div class="mc-val">Vecka 8 &amp; 16</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- MID CTA -->
+<div class="mcta">
+  <div class="container">
+    <div class="mcta-in">
+      <div class="mcta-text">
+        <h2>Osäker på vilket protokoll?</h2>
+        <p>Ring oss direkt — vi hjälper dig avgöra om en utredning är motiverad och vilket protokoll som passar din situation.</p>
+      </div>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap;align-items:center;">
+        <a href="tel:08-53021020" class="mcta-btn">📞 08-530 210 20</a>
+        <a href="/boka-ditt-besok/" style="font-size:.82rem;color:rgba(250,252,254,.5);text-decoration:none;border-bottom:1px solid rgba(250,252,254,.2);">Eller boka konsultation</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ PROTOKOLL 02: LDL ═══ -->
+<section class="ps" id="ldl">
+  <div class="container">
+    <div class="eyebrow">Protokoll 02</div>
+    <h2 class="st reveal">LDL & Kardiovaskulär Risk</h2>
+    <p class="sl reveal rd1">LDL-kolesterol är en markör — inte en sjukdom. Frågan är inte bara hur högt eller lågt det är, utan i vilket biologiskt sammanhang det förekommer. Vi utreder den fullständiga kardiovaskulära bilden.</p>
+
+    <div class="pi reveal rd2">
+      <div>
+        <div class="pi-lbl">Vilka söker detta protokoll</div>
+        <div class="pi-val">Patienter med <strong>förhöjt LDL, familjär hyperkolesterolemi</strong> eller frågor om hur lågt LDL man säkert kan ha. Ofta patienter som ifrågasätter standardbehandling eller vill förstå sin kardiovaskulära risk på djupet.</div>
+      </div>
+      <div>
+        <div class="pi-lbl">Vad konventionell vård missar</div>
+        <div class="pi-val">LDL-C i serum är ett grovt mått. <strong>LDL-partikelstorlek, oxiderat LDL, Lp(a), APO-B och inflammationsmarkörer</strong> ger en mer precis bild av faktisk kardiovaskulär risk — och behandlingsbehov.</div>
+      </div>
+    </div>
+
+    <div class="pl">
+      <div class="steps">
+        <div class="step reveal">
+          <div class="sn">01</div>
+          <div class="sb">
+            <div class="stitle">Fullständig kardiovaskulär anamnes</div>
+            <div class="stext">Familjehistorik, livsstilsfaktorer, befintliga markörer och symptombild. Vi identifierar om riskprofilen pekar mot genetisk hyperkolesterolemi, metabol dysfunktion eller inflammationsdrivet LDL-mönster.</div>
+          </div>
+        </div>
+        <div class="step reveal rd1">
+          <div class="sn">02</div>
+          <div class="sb">
+            <div class="stitle">Avancerad lipidprofil & vaskulär inflammation</div>
+            <div class="stext">Vi går bortom standard lipidpanel. LDL-partikelstorlek (NMR), oxiderat LDL, Lp(a), APO-B/APO-A1-kvot, hs-CRP, homocystein och fibrinogen ger en precis bild av den aterosklerotiska risken.</div>
+            <div class="chips"><span class="chip">NMR Lipoprofilanalys</span><span class="chip">Lp(a), APO-B</span><span class="chip">ox-LDL, hs-CRP</span><span class="chip">Homocystein</span></div>
+            <div class="obox">
+              <div class="obox-lbl">Fördjupning</div>
+              <div class="obox-txt">Klinisk genomgång av evidensen kring LDL-nivåer och säkerhetsmarkörer. <a href="/ldl-kolesterol-hur-lagt-kan-du-sakert-ga/">Hur lågt LDL kan du säkert ha? →</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="step reveal rd2">
+          <div class="sn">03</div>
+          <div class="sb">
+            <div class="stitle">Metyleringsanalys & kardiovaskulär genetik</div>
+            <div class="stext">Homocystein är en stark kardiovaskulär riskmarkör — direkt kopplad till metyleringskapacitet. MethylDetox kartlägger MTHFR och COMT-varianter som påverkar homocysteinmetabolismen och endotelial funktion.</div>
+            <div class="chips"><a href="/methyldetox/" class="chip">MethylDetox</a><span class="chip">MTHFR-analys</span><span class="chip">B12, Folat, B6</span></div>
+          </div>
+        </div>
+        <div class="step reveal rd3">
+          <div class="sn">04</div>
+          <div class="sb">
+            <div class="stitle">Intracellulär CoQ10 & antioxidantstatus</div>
+            <div class="stext">CoQ10 är kritiskt för mitokondriell energiproduktion och kardiell funktion — och utarmas av statiner. Vi mäter intracellulär CoQ10, magnesium, selen och E-vitamin som antioxidativa skyddsfaktorer för kärlväggen.</div>
+            <div class="chips"><a href="/cellulara-naringsanalyser/" class="chip">CMA-analys</a><span class="chip">CoQ10, Mg, Se</span><span class="chip">Vitamin E</span></div>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="sn">05</div>
+          <div class="sb">
+            <div class="stitle">Individanpassat kardiovaskulärt protokoll</div>
+            <div class="stext">Baserat på hela profilen — inte enbart LDL-C: kostkorrektion, riktad supplementering, eventuell IV-terapi och uppföljningsplan med objektiva markörer vid vecka 12.</div>
+            <div class="chips"><span class="chip">Skräddarsydda vitaminer</span><a href="/iv-och-im-vitaminterapi/" class="chip">IV-terapi</a><span class="chip">Uppföljning 12 veckor</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="sc reveal rd2">
+          <div class="sc-quote">
+            <div class="sc-quote-text">"12 kg ner och slutat med blodtrycksmedicinen på 4 månader. Äntligen fick jag svar på varför ingenting fungerat tidigare."</div>
+            <div class="sc-quote-attr">Ann-Charlotte S. · Verifierad patient · Reco.se</div>
+          </div>
+          <div class="sc-ey">Det här protokollet passar om du</div>
+          <h3>Vill förstå din kardiovaskulära risk på riktigt</h3>
+          <div class="sigs">
+            <div class="sig">Förhöjt LDL men osäker på vad det faktiskt innebär</div>
+            <div class="sig">Familjehistorik av hjärt-kärlsjukdom</div>
+            <div class="sig">Ifrågasätter statinbehandling</div>
+            <div class="sig">Vill veta hur lågt LDL du säkert kan ha</div>
+            <div class="sig">Homocystein aldrig mätt av din läkare</div>
+          </div>
+          <a href="/boka-ditt-besok/" class="scta">Boka kardiovaskulär utredning</a>
+          <a href="tel:08-53021020" class="soft-cta">📞 Ring oss — 08-530 210 20</a>
+          <div class="price-tag">
+            <div class="price-row"><span class="price-from">Paket från</span><span class="price-amt">22 000</span><span class="price-unit">kr</span></div>
+            <div class="price-note">Inkl. utökad lipidpanel, homocystein & metyleringsanalys · Inga bindningstider</div>
+          </div>
+          <a href="/nls-skanning-och-utredning/" class="scta2">Se alla utredningspaket</a>
+          <hr class="sdiv">
+          <a href="/ldl-kolesterol-hur-lagt-kan-du-sakert-ga/" class="sal">Läs: Hur lågt LDL-kolesterol är säkert?</a>
+          <div class="reco-mini">
+            <span class="reco-mini-stars">★★★★★</span>
+            <span class="reco-mini-text">NR 1 HÄLSOKLINIK · RECO.SE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mg reveal">
+      <div class="mc"><div class="mc-lbl">Test 1</div><div class="mc-val">NMR Lipoprofilanalys</div></div>
+      <div class="mc"><div class="mc-lbl">Test 2</div><div class="mc-val">Lp(a), APO-B, ox-LDL</div></div>
+      <div class="mc"><div class="mc-lbl">Test 3</div><div class="mc-val">Homocystein, hs-CRP</div></div>
+      <div class="mc"><div class="mc-lbl">Test 4</div><div class="mc-val">MethylDetox — MTHFR</div></div>
+      <div class="mc"><div class="mc-lbl">Resultat om</div><div class="mc-val">2–3 veckor</div></div>
+      <div class="mc"><div class="mc-lbl">Uppföljning</div><div class="mc-val">Vecka 12</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PROTOKOLL 03: IBS ═══ -->
+<section class="ps" id="ibs">
+  <div class="container">
+    <div class="eyebrow">Protokoll 03</div>
+    <h2 class="st reveal">IBS & Tarmhälsa</h2>
+    <p class="sl reveal rd1">IBS är en symptomdiagnos — inte en förklaring. Vi utreder de faktiska biologiska mekanismerna bakom dina tarmbesvär: mikrobiom, barriärintegritet, immunreaktivitet och SIBO.</p>
+
+    <div class="pi reveal rd2">
+      <div>
+        <div class="pi-lbl">Vilka söker detta protokoll</div>
+        <div class="pi-val">Patienter med <strong>uppblåsthet, diarré, förstoppning och reflux</strong> som inte fått svar av gastroenterolog. Ofta har de fått IBS-diagnosen utan förklaring på varför — och utan en specifik behandlingsplan.</div>
+      </div>
+      <div>
+        <div class="pi-lbl">Vad konventionell vård missar</div>
+        <div class="pi-val">Koloskopi och gastroskopi ser tarmens struktur. De ser inte <strong>mikrobiomet, barriärpermeabilitet, SIBO eller immunreaktioner mot livsmedel</strong> — de vanligaste drivkrafterna bakom kroniska tarmbesvär.</div>
+      </div>
+    </div>
+
+    <div class="pl">
+      <div class="steps">
+        <div class="step reveal"><div class="sn">01</div><div class="sb"><div class="stitle">Klinisk tarmutredning & symptomkartläggning</div><div class="stext">Detaljerad genomgång av symptommönster, utlösande faktorer och kosthistorik. Vi kartlägger vilket av de vanliga IBS-drivmönstren — mikrobiom, barriär, immunreaktivitet eller SIBO — som är mest sannolikt.</div></div></div>
+        <div class="step reveal rd1"><div class="sn">02</div><div class="sb"><div class="stitle">Tarmmikrobiom & barriäranalys</div><div class="stext">GI Effects från Genova Diagnostics kartlägger mikrobiell sammansättning, diversitet, patogener, svamp och barriärmarkörer som zonulin, calprotectin och I-FABP. En av marknadens mest omfattande tarmanalyser.</div><div class="chips"><span class="chip">GI Effects (Genova)</span><span class="chip">Zonulin, Calprotectin</span><span class="chip">Mikrobiomanalys</span></div></div></div>
+        <div class="step reveal rd2"><div class="sn">03</div><div class="sb"><div class="stitle">SIBO-test</div><div class="stext">Bacterial overgrowth i tunntarmen är en vanlig men underdiagnostiserad IBS-drivkraft. Lactulose-andningstest identifierar hydrogen- och metanproducerande bakterier.</div><div class="chips"><span class="chip">SIBO-test (Genova)</span><span class="chip">Hydrogen / Metan</span></div></div></div>
+        <div class="step reveal rd3"><div class="sn">04</div><div class="sb"><div class="stitle">Immunreaktivitet mot livsmedel</div><div class="stext">ALCAT identifierar försenade cellulära immunreaktioner mot 200+ livsmedel, tillsatser och kemikalier — reaktioner som inte fångas av IgE-tester men som ofta driver kronisk tarmaktivering. Officiell distributör i Sverige.</div><div class="chips"><a href="/alcat-test/" class="chip">ALCAT-test</a><span class="chip">200+ livsmedel</span><span class="chip">Kemikalier &amp; tillsatser</span></div></div></div>
+        <div class="step reveal"><div class="sn">05</div><div class="sb"><div class="stitle">Individanpassat tarmprotokoll</div><div class="stext">Eliminationsdiet byggd på ALCAT-resultat, riktad probiotika baserad på mikrobiomanalys, barriärstöd vid zonulinförhöjning, SIBO-behandling om indicerat och ett strukturerat återintroduktionsschema.</div><div class="chips"><span class="chip">Individanpassad elimineringsdiet</span><span class="chip">Riktad probiotika</span><span class="chip">Barriärstöd</span></div></div></div>
+      </div>
+      <div>
+        <div class="sc reveal rd2">
+          <div class="sc-quote">
+            <div class="sc-quote-text">"Har haft IBS i stort sett hela livet. Efter kostförändringen är min tarm äntligen läkt och fungerande."</div>
+            <div class="sc-quote-attr">Anna-karin H. · Verifierad patient · Reco.se</div>
+          </div>
+          <div class="sc-ey">Det här protokollet passar om du</div>
+          <h3>Har fått IBS-diagnosen utan en förklaring</h3>
+          <div class="sigs">
+            <div class="sig">Uppblåsthet, diarré eller förstoppning som varierar</div>
+            <div class="sig">Magbesvär kopplade till kosten — men du vet inte hur</div>
+            <div class="sig">Koloskopi visade inget — men du mår ändå dåligt</div>
+            <div class="sig">Provat kostförändringar utan varaktig effekt</div>
+          </div>
+          <a href="/boka-ditt-besok/" class="scta">Boka tarmutredning</a>
+          <a href="tel:08-53021020" class="soft-cta">📞 Ring oss — 08-530 210 20</a>
+          <div class="price-tag">
+            <div class="price-row"><span class="price-from">Paket från</span><span class="price-amt">22 000</span><span class="price-unit">kr</span></div>
+            <div class="price-note">Inkl. tarmmikrobiom (Genova), ALCAT & metyleringsanalys · Inga bindningstider</div>
+          </div>
+          <a href="/matintolerans-utredning-och-behandling/" class="scta2">Läs om matintolerans</a>
+          <hr class="sdiv">
+          <a href="/alcat-test/" class="sal">Läs: Vad är ALCAT-testet?</a>
+          <div class="reco-mini">
+            <span class="reco-mini-stars">★★★★★</span>
+            <span class="reco-mini-text">NR 1 HÄLSOKLINIK · RECO.SE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mg reveal">
+      <div class="mc"><div class="mc-lbl">Test 1</div><div class="mc-val">GI Effects — Genova</div></div>
+      <div class="mc"><div class="mc-lbl">Test 2</div><div class="mc-val">SIBO-andningstest</div></div>
+      <div class="mc"><div class="mc-lbl">Test 3</div><div class="mc-val">ALCAT — Immunreaktivitet</div></div>
+      <div class="mc"><div class="mc-lbl">Test 4</div><div class="mc-val">Zonulin, Calprotectin</div></div>
+      <div class="mc"><div class="mc-lbl">Resultat om</div><div class="mc-val">3–4 veckor</div></div>
+      <div class="mc"><div class="mc-lbl">Uppföljning</div><div class="mc-val">Vecka 8 &amp; 16</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PROTOKOLL 04: MATINTOLERANS ═══ -->
+<section class="ps" id="mat">
+  <div class="container">
+    <div class="eyebrow">Protokoll 04</div>
+    <h2 class="st reveal">Matintolerans & Immunreaktivitet</h2>
+    <p class="sl reveal rd1">Försenade immunreaktioner mot livsmedel är osynliga för standardallergitester. De kan driva kronisk inflammation, hudbesvär, trötthet och tarmbesvär i månader utan att kopplingen blir uppenbar.</p>
+
+    <div class="pi reveal rd2">
+      <div>
+        <div class="pi-lbl">Vilka söker detta protokoll</div>
+        <div class="pi-val">Patienter med <strong>eksem, urtikaria, kronisk trötthet, migrän eller IBS</strong> som misstänker en koppling till kosten. Ofta negativa på IgE-allergitest men reagerar tydligt på bestämda livsmedel.</div>
+      </div>
+      <div>
+        <div class="pi-lbl">Vad konventionell vård missar</div>
+        <div class="pi-val">IgE-allergitest mäter omedelbara reaktioner. ALCAT mäter <strong>försenade cellulära immunreaktioner</strong> — reaktioner som inträffar 24–72 timmar efter intag och som är näst intill omöjliga att identifiera utan test.</div>
+      </div>
+    </div>
+
+    <div class="pl">
+      <div class="steps">
+        <div class="step reveal"><div class="sn">01</div><div class="sb"><div class="stitle">Symptom- & kostanalys</div><div class="stext">Vi kartlägger symptommönster, rotationskost, eliminationsförsök och reaktionstider. Symptombilden ger ledtrådar om vilka reaktionsmönster vi letar efter och vilken ALCAT-panel som är kliniskt motiverad.</div></div></div>
+        <div class="step reveal rd1"><div class="sn">02</div><div class="sb"><div class="stitle">ALCAT-test — cellulär immunreaktivitet</div><div class="stext">ALCAT mäter hur dina vita blodkroppar reagerar på specifika livsmedel, kemikalier och tillsatser. Reaktioner graderas (stark, måttlig, svag) och ger ett konkret underlag för elimineringsprotokoll. Vi är officiell distributör av Cell Science Systems i Sverige.</div><div class="chips"><a href="/alcat-test/" class="chip">ALCAT 200+</a><span class="chip">ALCAT 483 — Utökad</span><span class="chip">Kemikalier &amp; tillsatser</span></div></div></div>
+        <div class="step reveal rd2"><div class="sn">03</div><div class="sb"><div class="stitle">Tarmmikrobiom & barriärstatus (vid behov)</div><div class="stext">Ökad tarmpermeabilitet förstärker immunreaktioner mot livsmedelsantigener. Om barriärproblematik misstänks kompletterar vi med zonulin, calprotectin och GI Effects-analys.</div><div class="chips"><span class="chip">Zonulin, Calprotectin</span><span class="chip">GI Effects (vid behov)</span></div></div></div>
+        <div class="step reveal rd3"><div class="sn">04</div><div class="sb"><div class="stitle">Eliminations- och återintroduktionsprotokoll</div><div class="stext">ALCAT-resultaten översätts till ett tydligt kostprotokoll: prioriterade elimineringar baserade på reaktionsgrad, rotationsschema för tolererade livsmedel och ett systematiskt återintroduktionsprogram efter 3–6 månader.</div><div class="chips"><span class="chip">Individanpassad rotationsdiet</span><span class="chip">Återintroduktionsplan</span><span class="chip">Uppföljningskonsultation</span></div></div></div>
+      </div>
+      <div>
+        <div class="sc reveal rd2">
+          <div class="sc-quote">
+            <div class="sc-quote-text">"Protokollen förändrade mitt liv — från att kunna äta ett begränsat urval pga intoleranser till att nästan kunna äta allt."</div>
+            <div class="sc-quote-attr">Ilka B. · Verifierad patient · Reco.se</div>
+          </div>
+          <div class="sc-ey">Det här protokollet passar om du</div>
+          <h3>Reagerar på mat men inte vet på vad</h3>
+          <div class="sigs">
+            <div class="sig">Eksem, akne eller urtikaria utan tydlig orsak</div>
+            <div class="sig">Kronisk trötthet eller migrän med kostmönster</div>
+            <div class="sig">IgE-allergitest negativt men reaktioner finns</div>
+            <div class="sig">Vill ha ett konkret underlag för kostförändringar</div>
+          </div>
+          <a href="/boka-ditt-besok/" class="scta">Boka matintoleransutredning</a>
+          <a href="tel:08-53021020" class="soft-cta">📞 Ring oss — 08-530 210 20</a>
+          <div class="price-tag">
+            <div class="price-row"><span class="price-from">Paket från</span><span class="price-amt">22 000</span><span class="price-unit">kr</span></div>
+            <div class="price-note">Inkl. ALCAT 200 livsmedel, CMA & tarmbarriärstatus · Inga bindningstider</div>
+          </div>
+          <a href="/matintolerans-utredning-och-behandling/" class="scta2">Läs mer om utredningen</a>
+          <hr class="sdiv">
+          <a href="/alcat-test/" class="sal">Läs: Hur fungerar ALCAT-testet?</a>
+          <div class="reco-mini">
+            <span class="reco-mini-stars">★★★★★</span>
+            <span class="reco-mini-text">NR 1 HÄLSOKLINIK · RECO.SE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mg reveal">
+      <div class="mc"><div class="mc-lbl">Test 1</div><div class="mc-val">ALCAT — 200 eller 483</div></div>
+      <div class="mc"><div class="mc-lbl">Test 2</div><div class="mc-val">Kemikalier &amp; tillsatser</div></div>
+      <div class="mc"><div class="mc-lbl">Test 3</div><div class="mc-val">Zonulin (vid behov)</div></div>
+      <div class="mc"><div class="mc-lbl">Protokolllängd</div><div class="mc-val">3–6 månader</div></div>
+      <div class="mc"><div class="mc-lbl">Resultat om</div><div class="mc-val">2 veckor</div></div>
+      <div class="mc"><div class="mc-lbl">Uppföljning</div><div class="mc-val">Vecka 6 &amp; 12</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- REVIEWS STRIP -->
+<section class="reviews-strip">
+  <div class="container">
+    <div class="reviews-ey">Verifierade patientomdömen · Reco.se</div>
+    <h2 class="reviews-title">Patienter som <em>fått svar.</em></h2>
+    <p class="reviews-sub">Nr 1 hälsoklinik i Sverige — alla omdömen kopplade till verkliga patienter av Reco.se</p>
+    <div class="reviews-grid">
+
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-quote">I 15 år sökte jag hjälp inom sjukvården för min mag- och huvudvärk. Först när jag kom till MediBalans började min kropp självläka på riktigt. I dag är värken borta, jag sover bättre, har mer energi och mitt blodtryck har normaliserats.</div>
+        <div class="review-meta">
+          <span class="review-author">Karin L.</span>
+          <span class="review-condition">Mag- & huvudvärk · 15 år</span>
+        </div>
+      </div>
+
+      <div class="review-card reveal rd1">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-quote">Jag har gått ner 12 kg och slutat med min blodtrycksmedicin på bara 4 månader. Äntligen fick jag svar på varför jag inte kunnat gå ner i vikt — trots att jag försökt allt.</div>
+        <div class="review-meta">
+          <span class="review-author">Ann-Charlotte S.</span>
+          <span class="review-condition">Vikt · Blodtryck</span>
+        </div>
+      </div>
+
+      <div class="review-card reveal rd2">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-quote">De är de enda som verkligen har kunnat hjälpa mig med mina magproblem — som jag haft i över 12 år. Idag är jag fri från magbesvär, diabetes och hormonella obalanser.</div>
+        <div class="review-meta">
+          <span class="review-author">Lizelotte F.</span>
+          <span class="review-condition">IBS · Diabetes · Hormoner · 12 år</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="reviews-cta">
+      <a href="https://www.reco.se/medibalans-christina-biri-ab" target="_blank" rel="noopener" class="reviews-link">Läs alla omdömen på Reco.se →</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="bsec" id="boka">
+  <div class="container">
+    <div class="bg">
+      <div class="bl reveal">
+        <div class="eyebrow">Nästa steg</div>
+        <h2>Börja med att<br><em>mäta rätt saker.</em></h2>
+        <p>En initial konsultation på 45 minuter kartlägger din kliniska bild, din symptomhistorik och vilka protokollsteg som är motiverade för dig. Du får en fullständig kostnadsöversikt innan något testas — inga förbindelser.</p>
+        <a href="/boka-ditt-besok/" class="btn-p">Boka konsultation →</a>
+        <a href="tel:08-53021020" class="btn-s">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.7 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.6 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.6a16 16 0 006.46 6.46l.97-.97a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          08-530 210 20
+        </a>
+      </div>
+      <div class="br reveal rd2">
+        <div class="bd"><div class="bd-icon">01</div><div><div class="bd-lbl">Initial konsultation</div><div class="bd-val">45 min · Klinisk kartläggning & protokollplan</div></div></div>
+        <div class="bd"><div class="bd-icon">02</div><div><div class="bd-lbl">Diagnostik</div><div class="bd-val">Provtagning på kliniken · Resultat 2–4 veckor</div></div></div>
+        <div class="bd"><div class="bd-icon">03</div><div><div class="bd-lbl">Resultatgenomgång</div><div class="bd-val">60 min · Fullständig analys & behandlingsplan</div></div></div>
+        <div class="bd"><div class="bd-icon">→</div><div><div class="bd-lbl">Adress</div><div class="bd-val">Karlavägen 89, Stockholm · Mån–Fre 08–17</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="fi">
+      <div class="fb">
+        <a href="/" class="logo">Medi<span>Balans</span></a>
+        <p>Karlavägen 89 · 115 22 Stockholm<br>08-530 210 20 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4d24232b220d202829242f2c212c233e632e2220">[email&#160;protected]</a></p>
+      </div>
+      <div class="flinks">
+        <div class="fc"><h4>Protokoll</h4><ul><li><a href="#hrv">HRV & Autonom Obalans</a></li><li><a href="#ldl">LDL & Kardiovaskulär Risk</a></li><li><a href="#ibs">IBS & Tarmhälsa</a></li><li><a href="#mat">Matintolerans</a></li></ul></div>
+        <div class="fc"><h4>Diagnostik</h4><ul><li><a href="/alcat-test/">ALCAT Test</a></li><li><a href="/hrv-test/">HRV-test</a></li><li><a href="/methyldetox/">MethylDetox</a></li><li><a href="/iv-och-im-vitaminterapi/">IV-vitaminterapi</a></li></ul></div>
+        <div class="fc"><h4>Kliniken</h4><ul><li><a href="/">Hem</a></li><li><a href="/nls-skanning-och-utredning/">NLS Skanning</a></li><li><a href="/boka-ditt-besok/">Boka Konsultation</a></li></ul></div>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>&copy; 2026 MediBalans AB. Alla rättigheter förbehållna.</span>
+      <span>Karlavägen 89 · Stockholm</span>
+    </div>
+  </div>
+</footer>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" onerror="void(0)"></script>
+<script>
+document.documentElement.classList.remove('no-js');
+
+function initReveal() {
+  document.querySelectorAll('.reveal').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight + 100) el.classList.add('visible');
+  });
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => obs.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initReveal);
+} else { initReveal(); }
+window.addEventListener('load', initReveal);
+window.addEventListener('scroll', initReveal, { once: true });
+
+const hdr = document.getElementById('hdr');
+if (hdr) window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 10));
+
+const secs = document.querySelectorAll('.ps[id]');
+const tabs = document.querySelectorAll('.ctab');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if(s.getBoundingClientRect().top <= 160) cur = s.id; });
+  tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + cur));
+});
+
+document.querySelectorAll('.qopt').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.qopt').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    const res = document.getElementById('quiz-result');
+    document.getElementById('qr-title').textContent = btn.dataset.title;
+    document.getElementById('qr-desc').textContent = btn.dataset.desc;
+    document.getElementById('qr-anchor').href = btn.dataset.anchor;
+    document.getElementById('qr-anchor').textContent = 'Läs ' + btn.dataset.title + ' →';
+    res.classList.add('show');
+    setTimeout(() => res.scrollIntoView({behavior:'smooth', block:'nearest'}), 100);
+  });
+});
+
+function resetQuiz() {
+  document.querySelectorAll('.qopt').forEach(b => b.classList.remove('selected'));
+  document.getElementById('quiz-result').classList.remove('show');
+}
+</script>
+</body>
+</html>

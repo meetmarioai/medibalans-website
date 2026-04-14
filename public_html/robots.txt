@@ -1,0 +1,112 @@
+# MediBalans robots.txt
+# Updated: 2026-03-18
+
+# ── Search engines ──
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# ── OpenAI ──
+User-agent: GPTBot
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+User-agent: ChatGPT-User
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+User-agent: OAI-SearchBot
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── Anthropic ──
+User-agent: ClaudeBot
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+User-agent: Claude-SearchBot
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+User-agent: Claude-User
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── Perplexity ──
+User-agent: PerplexityBot
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+User-agent: Perplexity-User
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── Meta ──
+User-agent: Meta-ExternalAgent
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+User-agent: FacebookBot
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── Google AI ──
+User-agent: Google-CloudVertexBot
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── Apple ──
+User-agent: Applebot
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── Amazon ──
+User-agent: Amazonbot
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── Mistral ──
+User-agent: MistralAI-User
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── ByteDance ──
+User-agent: Bytespider
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── Huawei ──
+User-agent: PetalBot
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── Common Crawl (feeds many AI models) ──
+User-agent: CCBot
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── Cohere ──
+User-agent: cohere-ai
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── You.com ──
+User-agent: YouBot
+Disallow: /nls-skanning-och-utredning/
+Allow: /
+
+# ── Catch-all ──
+User-agent: *
+Allow: /
+
+# ── Sitemap ──
+Sitemap: https://medibalans.com/sitemap.xml

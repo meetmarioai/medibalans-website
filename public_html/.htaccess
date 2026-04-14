@@ -1,0 +1,35 @@
+# MediBalans .htaccess
+
+# HTTPS redirect
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# WWW to non-WWW
+RewriteCond %{HTTP_HOST} ^www\.medibalans\.com [NC]
+RewriteRule ^ https://medibalans.com%{REQUEST_URI} [R=301,L]
+
+# Legacy URL redirects using RedirectMatch (works without mod_rewrite)
+RedirectMatch 301 ^/iv-och-im-vitaminterapi/?$ /iv-terapi/
+RedirectMatch 301 ^/iv-och-im-vitaminterapi(/.*)?$ /iv-terapi/
+RedirectMatch 301 ^/filosofi-vision/?$ /
+RedirectMatch 301 ^/funtionsmedicin/?$ /
+RedirectMatch 301 ^/funktionsmedicin/?$ /
+RedirectMatch 301 ^/bio-hacking/?$ /
+RedirectMatch 301 ^/tjanster/?$ /
+RedirectMatch 301 ^/tarmmikrobiom-och-ibs/?$ /
+RedirectMatch 301 ^/fetma/?$ /
+RedirectMatch 301 ^/boka-ditt-besok/?$ /
+RedirectMatch 301 ^/boka-konsultation/?$ /
+RedirectMatch 301 ^/contact-us/?$ /
+RedirectMatch 301 ^/kontakta-oss/?$ /
+# RedirectMatch 301 ^/cellulara-naringsanalyser/?$ /cma/
+# RedirectMatch 301 ^/alcat-test/?$ /alcat/
+RedirectMatch 301 ^/testprofiler/?$ /
+RedirectMatch 301 ^/cica/?$ /
+RedirectMatch 301 ^/telomere/?$ /
+RedirectMatch 301 ^/hrv-test/?$ /hrv-analys/
+RedirectMatch 301 ^/genetiska-analyser/?$ /
+RedirectMatch 301 ^/skraddarsydda-vitaminer/?$ /
+RedirectMatch 301 ^/om-oss/?$ /
+DirectoryIndex index.html

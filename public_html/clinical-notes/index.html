@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="sv" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kliniska Noteringar — Dr Mario Anthis | MediBalans Stockholm</title>
+<meta name="description" content="Kliniska observationer och protokolluppdateringar från Dr Mario Anthis, MediBalans Stockholm. HRV-analys, metylering, biologisk ålder och GCR-ramverket.">
+<meta name="keywords" content="HRV klinisk analys, hjärtrytmvariabilitet autonomt nervsystem, biologisk ålder mätning, GCR global constraint rule, metylering MTHFR, precisionsmedicin Stockholm, funktionsmedicin forskning">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://medibalans.com/clinical-notes/">
+<link rel="alternate" hreflang="sv" href="https://medibalans.com/clinical-notes/">
+<link rel="alternate" hreflang="en" href="https://medibalans.com/en/clinical-notes/">
+<link rel="alternate" hreflang="x-default" href="https://medibalans.com/en/clinical-notes/">
+<meta property="og:title" content="Kliniska Noteringar — Dr Mario Anthis | MediBalans Stockholm">
+<meta property="og:description" content="Kliniska observationer och protokolluppdateringar från precisionsmedicinens frontlinje. Dr Mario Anthis, MediBalans.">
+<meta property="og:image" content="https://medibalans.com/wp-content/uploads/og-image.jpg">
+<meta property="og:url" content="https://medibalans.com/clinical-notes/">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kliniska Noteringar — Dr Mario Anthis | MediBalans Stockholm">
+<meta name="twitter:description" content="Kliniska observationer och protokolluppdateringar från Dr Mario Anthis, MediBalans Stockholm. HRV-analys, metylering, biologisk ålder och GCR-ramverket.">
+<meta name="twitter:image" content="https://medibalans.com/wp-content/uploads/og-image.jpg">
+
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','836514963742786');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=836514963742786&ev=PageView&noscript=1"/></noscript>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X8ZN38EGYY"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-X8ZN38EGYY');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#0B1D33;--navy-mid:#132B4A;--navy-light:#1A3A5E;
+  --blue:#2E6B9E;--blue-light:#4A9FD4;
+  --ice:#D8EAF5;--ice-faint:#EDF5FA;--white:#FAFCFE;--bg-warm:#F5F0E8;
+  --text:#1A2A3A;--text-mid:#4A5A6A;--text-light:#7A8A9A;--border:#D0DBE5;
+  --font-display:'DM Serif Display',Georgia,serif;
+  --font-body:'IBM Plex Sans',-apple-system,sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+.container{max-width:1200px;margin:0 auto;padding:0 2rem;}
+.container-narrow{max-width:780px;margin:0 auto;padding:0 2rem;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.no-js .reveal{opacity:1;transform:translateY(0);}
+.reveal-d1{transition-delay:.1s;}.reveal-d2{transition-delay:.2s;}.reveal-d3{transition-delay:.3s;}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:100;background:rgba(250,252,254,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:box-shadow .3s;}
+header.scrolled{box-shadow:0 2px 20px rgba(11,29,51,.08);}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-family:var(--font-body);font-size:1.1rem;font-weight:600;color:var(--navy);text-decoration:none;letter-spacing:.02em;}
+.logo span{color:var(--blue);}
+nav{display:flex;gap:1.6rem;align-items:center;}
+nav a{font-size:.82rem;font-weight:500;color:var(--text-mid);text-decoration:none;transition:color .2s;}
+nav a:hover,nav a.active{color:var(--navy);}
+.nav-dropdown{position:relative;}
+.nav-dropdown>a{display:flex;align-items:center;gap:.3rem;}
+.nav-dropdown>a::after{content:'▾';font-size:.6rem;opacity:.5;}
+.dropdown-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-4px);background:var(--white);border:1px solid var(--border);border-radius:8px;box-shadow:0 8px 24px rgba(11,29,51,.1);padding:.5rem 0;min-width:200px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s;z-index:200;}
+.nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+.dropdown-menu a{display:block;padding:.55rem 1.1rem;font-size:.8rem;color:var(--text-mid);white-space:nowrap;transition:background .15s,color .15s;}
+.dropdown-menu a:hover{background:var(--bg-warm);color:var(--navy);}
+.nav-cta{background:var(--navy);color:var(--white)!important;padding:.55rem 1.3rem;border-radius:6px;font-size:.8rem!important;}
+.mobile-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.mobile-toggle span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;background:var(--white);border-bottom:1px solid var(--border);padding:1rem 2rem;gap:.2rem;}
+.mobile-nav.active{display:flex;}
+.mobile-nav a{padding:.7rem 0;font-size:.9rem;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);}
+
+/* BREADCRUMB */
+.breadcrumb{padding:1rem 0;border-bottom:1px solid var(--border);background:var(--ice-faint);}
+.breadcrumb-inner{display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:var(--text-light);font-family:var(--font-mono);letter-spacing:.04em;}
+.breadcrumb-inner a{color:var(--blue);text-decoration:none;}
+
+/* HERO */
+.hub-hero{background:var(--navy);padding:4.5rem 0 3.5rem;position:relative;overflow:hidden;}
+.hub-hero::before{content:'';position:absolute;top:-40%;right:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(74,159,212,.08) 0%,transparent 70%);pointer-events:none;}
+.hub-eyebrow{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(216,234,245,.35);margin-bottom:.8rem;}
+.hub-title{font-family:var(--font-display);font-size:3rem;color:var(--white);font-weight:400;line-height:1.12;margin-bottom:1rem;}
+.hub-title em{font-style:italic;color:var(--blue-light);}
+.hub-lead{font-size:.95rem;color:rgba(216,234,245,.6);line-height:1.8;font-weight:300;max-width:580px;margin-bottom:2rem;}
+.hub-meta{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.hub-author{display:flex;align-items:center;gap:.8rem;}
+.author-avatar{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(216,234,245,.15);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:.7rem;color:rgba(216,234,245,.5);}
+.author-name{font-size:.8rem;font-weight:500;color:rgba(216,234,245,.7);}
+.author-title{font-size:.7rem;color:rgba(216,234,245,.35);font-family:var(--font-mono);}
+.hub-stats{display:flex;gap:1.5rem;}
+.hub-stat{font-family:var(--font-mono);font-size:.68rem;color:rgba(216,234,245,.3);letter-spacing:.06em;}
+.hub-stat strong{color:rgba(216,234,245,.6);display:block;font-size:.85rem;font-family:var(--font-body);}
+
+/* ARTICLE INDEX */
+.article-index{padding:4rem 0;background:var(--white);}
+.index-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+.index-card{border:1px solid var(--border);border-radius:14px;padding:1.8rem;transition:border-color .2s,box-shadow .2s;text-decoration:none;display:flex;flex-direction:column;gap:.8rem;background:var(--white);}
+.index-card:hover{border-color:var(--blue);box-shadow:0 4px 20px rgba(46,107,158,.08);}
+.card-issue{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);opacity:.7;}
+.card-title{font-family:var(--font-display);font-size:1.15rem;color:var(--navy);font-weight:400;line-height:1.35;}
+.card-summary{font-size:.82rem;color:var(--text-mid);line-height:1.65;font-weight:300;flex:1;}
+.card-tags{display:flex;gap:.4rem;flex-wrap:wrap;}
+.card-tag{font-size:.63rem;font-family:var(--font-mono);color:var(--blue);background:rgba(46,107,158,.07);padding:2px 8px;border-radius:4px;letter-spacing:.04em;}
+.card-read{font-size:.75rem;color:var(--blue);font-family:var(--font-mono);margin-top:.4rem;opacity:.6;}
+.index-card:hover .card-read{opacity:1;}
+
+/* DIVIDER */
+.section-divider{height:1px;background:var(--border);margin:0;}
+
+/* ARTICLE LAYOUT */
+.article-section{padding:5rem 0;background:var(--white);}
+.article-section:nth-child(even){background:var(--ice-faint);}
+.article-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border);}
+.article-issue{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem;}
+.article-title{font-family:var(--font-display);font-size:2.4rem;color:var(--navy);font-weight:400;line-height:1.2;margin-bottom:.8rem;}
+.article-title em{font-style:italic;color:var(--blue);}
+.article-deck{font-size:1.05rem;color:var(--text-mid);line-height:1.75;font-weight:300;max-width:660px;margin-bottom:1.2rem;}
+.article-byline{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.byline-author{font-size:.8rem;font-weight:500;color:var(--text-mid);}
+.byline-date{font-size:.75rem;font-family:var(--font-mono);color:var(--text-light);letter-spacing:.05em;}
+.byline-read{font-size:.72rem;font-family:var(--font-mono);color:var(--text-light);background:var(--ice-faint);padding:2px 10px;border-radius:4px;}
+
+/* ARTICLE BODY */
+.article-body{display:grid;grid-template-columns:1fr 300px;gap:4rem;align-items:start;}
+.article-prose h2{font-family:var(--font-display);font-size:1.6rem;color:var(--navy);font-weight:400;margin:2.5rem 0 .8rem;line-height:1.3;}
+.article-prose h2 em{font-style:italic;color:var(--blue);}
+.article-prose h3{font-size:1rem;font-weight:600;color:var(--navy);margin:1.8rem 0 .5rem;}
+.article-prose p{font-size:.92rem;color:var(--text);line-height:1.85;margin-bottom:1.1rem;font-weight:300;}
+.article-prose p strong{font-weight:600;color:var(--navy);}
+.article-prose ul{margin:.8rem 0 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.45rem;}
+.article-prose ul li{font-size:.9rem;color:var(--text);line-height:1.7;font-weight:300;}
+.article-prose ul li strong{font-weight:600;color:var(--navy);}
+.article-prose .clinical-note{background:var(--navy);border-radius:10px;padding:1.4rem 1.6rem;margin:2rem 0;}
+.article-prose .clinical-note p{color:rgba(216,234,245,.7);margin-bottom:0;}
+.article-prose .clinical-note strong{color:var(--ice);}
+.clinical-note-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(216,234,245,.3);margin-bottom:.6rem;}
+.article-prose .data-block{background:var(--ice-faint);border:1px solid var(--ice);border-radius:10px;padding:1.4rem 1.6rem;margin:1.5rem 0;}
+.data-block-title{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.8rem;}
+.data-row{display:flex;justify-content:space-between;align-items:baseline;padding:.4rem 0;border-bottom:1px solid rgba(208,219,229,.5);}
+.data-row:last-child{border-bottom:none;}
+.data-label{font-size:.8rem;color:var(--text-mid);}
+.data-value{font-family:var(--font-mono);font-size:.8rem;color:var(--navy);font-weight:500;}
+.article-prose blockquote{border-left:3px solid var(--blue);padding:.8rem 1.4rem;margin:1.5rem 0;background:var(--bg-warm);border-radius:0 8px 8px 0;}
+.article-prose blockquote p{font-family:var(--font-display);font-size:1rem;font-style:italic;color:var(--navy);margin-bottom:0;}
+
+/* SIDEBAR */
+.article-sidebar{position:sticky;top:80px;}
+.sidebar-card{background:var(--ice-faint);border:1px solid var(--border);border-radius:12px;padding:1.4rem;margin-bottom:1.2rem;}
+.sidebar-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-light);margin-bottom:.8rem;}
+.sidebar-toc{display:flex;flex-direction:column;gap:.5rem;}
+.toc-item{font-size:.8rem;color:var(--text-mid);text-decoration:none;padding:.3rem .5rem;border-radius:4px;transition:background .15s,color .15s;line-height:1.4;}
+.toc-item:hover{background:var(--border);color:var(--navy);}
+.sidebar-cta{background:var(--navy);border-radius:12px;padding:1.4rem;text-align:center;}
+.sidebar-cta p{font-size:.82rem;color:rgba(216,234,245,.6);line-height:1.6;margin-bottom:1rem;font-weight:300;}
+.sidebar-cta a{display:block;background:var(--white);color:var(--navy);padding:.7rem;border-radius:6px;font-size:.82rem;font-weight:600;text-decoration:none;transition:background .2s;}
+.sidebar-cta a:hover{background:var(--ice);}
+.sidebar-cta-title{font-family:var(--font-display);font-size:1rem;color:var(--white);font-weight:400;margin-bottom:.5rem;}
+.sidebar-refs{display:flex;flex-direction:column;gap:.5rem;}
+.ref-item{font-size:.72rem;color:var(--text-light);line-height:1.5;padding:.4rem 0;border-bottom:1px solid var(--border);}
+.ref-item:last-child{border-bottom:none;}
+.ref-num{font-family:var(--font-mono);color:var(--blue);margin-right:.3rem;}
+
+/* PLAIN LANGUAGE BOX */
+.plain-language{background:var(--bg-warm);border-radius:12px;padding:1.6rem 1.8rem;margin:2.5rem 0;}
+.pl-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-light);margin-bottom:.6rem;}
+.pl-title{font-family:var(--font-display);font-size:1.1rem;color:var(--navy);font-weight:400;margin-bottom:.7rem;}
+.plain-language p{font-size:.88rem;color:var(--text-mid);line-height:1.75;font-weight:300;margin-bottom:.6rem;}
+.plain-language p:last-child{margin-bottom:0;}
+
+/* ARTICLE FOOTER */
+.article-footer{border-top:1px solid var(--border);padding-top:1.5rem;margin-top:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.af-tags{display:flex;gap:.5rem;flex-wrap:wrap;}
+.af-tag{font-size:.67rem;font-family:var(--font-mono);color:var(--blue);background:rgba(46,107,158,.07);padding:3px 10px;border-radius:4px;}
+.af-cta{font-size:.8rem;color:var(--blue);text-decoration:none;font-family:var(--font-mono);border-bottom:1px solid rgba(46,107,158,.3);padding-bottom:1px;transition:border-color .2s;}
+.af-cta:hover{border-color:var(--blue);}
+
+/* SUBSCRIBE */
+.subscribe-section{padding:4rem 0;background:var(--navy);text-align:center;}
+.subscribe-section h2{font-family:var(--font-display);font-size:1.8rem;color:var(--white);font-weight:400;margin-bottom:.6rem;}
+.subscribe-section h2 em{font-style:italic;color:var(--blue-light);}
+.subscribe-section p{font-size:.88rem;color:rgba(216,234,245,.5);margin-bottom:1.5rem;font-weight:300;}
+.subscribe-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;}
+.subscribe-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--white);color:var(--navy);padding:.8rem 1.8rem;border-radius:6px;font-weight:600;font-size:.88rem;text-decoration:none;transition:background .2s;}
+.subscribe-btn:hover{background:var(--ice);}
+
+/* FOOTER */
+footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding:3rem 0 2rem;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
+.footer-brand p{font-size:.8rem;color:rgba(216,234,245,.35);line-height:1.7;margin-top:.8rem;font-weight:300;}
+.footer-col h4{font-size:.72rem;font-family:var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(216,234,245,.3);margin-bottom:1rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+.footer-col a{font-size:.82rem;color:rgba(216,234,245,.45);text-decoration:none;transition:color .2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-info{font-size:.8rem;color:rgba(216,234,245,.4);line-height:1.8;}
+.footer-bottom{border-top:1px solid rgba(216,234,245,.06);padding-top:1.4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-bottom span{font-size:.75rem;color:rgba(216,234,245,.25);font-family:var(--font-mono);}
+.footer-bottom a{color:rgba(216,234,245,.25);text-decoration:none;}
+
+@media(max-width:1024px){.article-body{grid-template-columns:1fr;}.article-sidebar{position:static;}.index-grid{grid-template-columns:1fr 1fr;}.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){nav{display:none;}.mobile-toggle{display:flex;}.hub-title{font-size:2.2rem;}.article-title{font-size:1.8rem;}.index-grid{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}}
+
+/* ── NAV PATCH ── */
+.nav-dd-btn{background:none;border:none;cursor:pointer;font-family:var(--font-body);font-size:.82rem;font-weight:500;color:var(--text-mid);letter-spacing:.02em;display:flex;align-items:center;gap:.3rem;padding:0;transition:color .2s;white-space:nowrap;}
+.nav-dd-btn:hover{color:var(--navy);}
+.dd-chevron{font-size:.6rem;opacity:.5;transition:transform .2s,opacity .2s;display:inline-block;}
+.nav-dropdown.open .dd-chevron{transform:rotate(180deg);opacity:1;}
+.nav-dropdown.open .dropdown-menu{opacity:1!important;visibility:visible!important;transform:translateX(-50%) translateY(0)!important;}
+.lang-toggle{font-size:.78rem!important;font-weight:500;color:var(--text-mid)!important;border:1px solid var(--border);padding:.4rem .9rem;border-radius:5px;transition:border-color .2s,color .2s!important;}
+.lang-toggle:hover{border-color:var(--blue);color:var(--navy)!important;}
+.mob-section-label{font-family:var(--font-mono,monospace);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue,#2E6B9E);font-weight:500;padding:.9rem 0 .2rem;border-bottom:none!important;}
+.mobile-nav .mob-cta{margin-top:.5rem;background:var(--navy,#0B1D33);color:#fff!important;border-radius:8px;text-align:center;font-weight:600!important;padding:1rem!important;border-bottom:none!important;letter-spacing:.03em;display:flex;justify-content:center;align-items:center;min-height:52px;}
+.mobile-nav .lang-link{color:var(--text-light,#7A8A9A)!important;font-size:.85rem!important;}
+@media(hover:hover)and(pointer:fine){
+  .nav-dropdown:hover .dropdown-menu{opacity:1!important;visibility:visible!important;transform:translateX(-50%) translateY(0)!important;}
+  .nav-dropdown:hover .dd-chevron{transform:rotate(180deg);opacity:1;}
+}
+@media(max-width:1100px){
+  .nav-dropdown:first-of-type .dropdown-menu{left:0;transform:translateX(0) translateY(-4px);}
+  .nav-dropdown:first-of-type.open .dropdown-menu{transform:translateX(0) translateY(0)!important;}
+  .nav-dropdown:last-of-type .dropdown-menu{left:auto;right:0;transform:translateX(0) translateY(-4px);}
+  .nav-dropdown:last-of-type.open .dropdown-menu{transform:translateX(0) translateY(0)!important;}
+}
+@media(max-width:900px){
+  .mobile-nav a{min-height:44px;display:flex;align-items:center;}
+  .mobile-nav .sub{min-height:40px;}
+  .mob-section-label{display:block;}
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "Kliniska Noteringar — MediBalans",
+  "url": "https://medibalans.com/clinical-notes/",
+  "description": "Kliniska observationer, protokolluppdateringar och forskningskommentarer från Dr Mario Anthis, grundare och medicinsk direktör vid MediBalans Stockholm.",
+  "inLanguage": "sv",
+  "author": {
+    "@type": "Person",
+    "name": "Dr Mario Anthis",
+    "jobTitle": "Grundare & Medicinsk Direktör",
+    "worksFor": {
+      "@type": "MedicalClinic",
+      "name": "MediBalans",
+      "url": "https://medibalans.com"
+    }
+  },
+  "publisher": {
+    "@type": "MedicalClinic",
+    "name": "MediBalans",
+    "url": "https://medibalans.com"
+  },
+  "about": [
+    {"@type": "MedicalCondition", "name": "IBS"},
+    {"@type": "MedicalCondition", "name": "Kronisk trötthet"},
+    {"@type": "MedicalCondition", "name": "Autoimmunitet"}
+  ],
+  "medicalAudience": {
+    "@type": "MedicalAudience",
+    "audienceType": "Patient"
+  }
+}
+</script>
+</head>
+<body>
+
+<header id="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">Medi<span>Balans</span></a>
+    <nav>
+      <a href="/#about">Kliniken</a>
+      <a href="/#process">Metoden</a>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Utredningar <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/ibs-tarmhalsa/">IBS &amp; Tarmhälsa</a>
+          <a href="/utmattning/">Kronisk Trötthet &amp; ME/CFS</a>
+          <a href="/autoimmun/">Autoimmunitet</a>
+          <a href="/hudsjukdomar/">Hudsjukdomar</a>
+          <a href="/adhd-neuropsykiatri/">ADHD &amp; Neuropsykiatri</a>
+          <a href="/hypothyreos/">Sköldkörtel &amp; Hormoner</a>
+          <a href="/kognitiv-halsa/">Kognitiv Hälsa &amp; Alzheimer</a>
+          <a href="/kvinnohalsa/">Kvinnohälsa</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Diagnostik <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/alcat-test/">ALCAT — Livsmedelsintolerans</a>
+          <a href="/cellulara-naringsanalyser/">CMA — Cellulär Mikronäring</a>
+          <a href="/methyldetox/">MethylDetox — 38 Gener</a>
+          <a href="/biologisk-alder/">Biologisk Ålder</a>
+          <a href="/alzheimers-test/">Alzheimer&#8217;s Assessment</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Genova <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/genova-diagnostics/">Alla tester</a>
+          <a href="/gi-effects-test/">GI Effects&#174;</a>
+          <a href="/nutreval-sverige/">NutrEval&#174;</a>
+          <a href="/metabolomik/">Metabolomik</a>
+          <a href="/sibo-test/">SIBO-test</a>
+          <a href="/genova-hormontest/">Hormonpaneler</a>
+        </div>
+      </div>
+      <a href="/#behandling">Behandling</a>
+      <a href="/#families">Familjer</a>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Forskning <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/forskning.html">Forskningsprogram</a>
+          <a href="/clinical-notes/">Clinical Notes</a>
+          <a href="/nls-skanning-och-utredning/">NLS Kroppsskanning</a>
+        </div>
+      </div>
+      <a href="/#faq">Frågor</a>
+      <a href="/en/" class="lang-toggle">EN</a>
+      <a href="/#booking" class="nav-cta">Boka Konsultation</a>
+    </nav>
+    <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/#about" onclick="closeMobile()">Kliniken</a>
+  <a href="/#process" onclick="closeMobile()">Metoden</a>
+  <div class="mob-section-label">— Utredningar —</div>
+  <a href="/ibs-tarmhalsa/" onclick="closeMobile()" class="sub">IBS &amp; Tarmhälsa</a>
+  <a href="/utmattning/" onclick="closeMobile()" class="sub">Kronisk Trötthet &amp; ME/CFS</a>
+  <a href="/autoimmun/" onclick="closeMobile()" class="sub">Autoimmunitet</a>
+  <a href="/hudsjukdomar/" onclick="closeMobile()" class="sub">Hudsjukdomar</a>
+  <a href="/adhd-neuropsykiatri/" onclick="closeMobile()" class="sub">ADHD &amp; Neuropsykiatri</a>
+  <a href="/hypothyreos/" onclick="closeMobile()" class="sub">Sköldkörtel &amp; Hormoner</a>
+  <a href="/kognitiv-halsa/" onclick="closeMobile()" class="sub">Kognitiv Hälsa &amp; Alzheimer</a>
+  <a href="/kvinnohalsa/" onclick="closeMobile()" class="sub">Kvinnohälsa</a>
+  <div class="mob-section-label">— Diagnostik —</div>
+  <a href="/alcat-test/" onclick="closeMobile()" class="sub">ALCAT — Livsmedelsintolerans</a>
+  <a href="/cellulara-naringsanalyser/" onclick="closeMobile()" class="sub">CMA — Cellulär Mikronäring</a>
+  <a href="/methyldetox/" onclick="closeMobile()" class="sub">MethylDetox — 38 Gener</a>
+  <a href="/biologisk-alder/" onclick="closeMobile()" class="sub">Biologisk Ålder</a>
+  <a href="/alzheimers-test/" onclick="closeMobile()" class="sub">Alzheimer&#8217;s Assessment</a>
+  <div class="mob-section-label">— Genova Diagnostics —</div>
+  <a href="/genova-diagnostics/" onclick="closeMobile()" class="sub">Alla tester</a>
+  <a href="/gi-effects-test/" onclick="closeMobile()" class="sub">GI Effects&#174;</a>
+  <a href="/nutreval-sverige/" onclick="closeMobile()" class="sub">NutrEval&#174;</a>
+  <a href="/metabolomik/" onclick="closeMobile()" class="sub">Metabolomik</a>
+  <a href="/sibo-test/" onclick="closeMobile()" class="sub">SIBO-test</a>
+  <a href="/genova-hormontest/" onclick="closeMobile()" class="sub">Hormonpaneler</a>
+  <a href="/#behandling" onclick="closeMobile()">Behandling</a>
+  <a href="/#families" onclick="closeMobile()">Familjer</a>
+  <a href="/forskning.html" onclick="closeMobile()">Forskning</a>
+  <a href="/nls-skanning-och-utredning/" onclick="closeMobile()" class="sub">NLS Kroppsskanning</a>
+  <a href="/clinical-notes/" onclick="closeMobile()" class="sub">Clinical Notes</a>
+  <a href="/#faq" onclick="closeMobile()">Frågor</a>
+  <a href="/en/" onclick="closeMobile()" class="lang-link">EN — English version</a>
+  <a href="/#booking" onclick="closeMobile()" class="mob-cta">Boka Konsultation</a>
+</div>
+
+<div class="breadcrumb">
+  <div class="container"><div class="breadcrumb-inner">
+    <a href="/">MediBalans</a><span style="opacity:.4;">›</span><span>Clinical Notes</span>
+  </div></div>
+</div>
+
+<!-- HUB HERO -->
+<section class="hub-hero">
+  <div class="container">
+    <div class="hub-eyebrow reveal">Kliniska Observationer · Protokolluppdateringar · Forskningskommentarer</div>
+    <h1 class="hub-title reveal reveal-d1">Clinical <em>Notes</em></h1>
+    <p class="hub-lead reveal reveal-d2">Kliniska observationer, protokolluppdateringar och kommentarer på publicerad forskning från MediBalans. Skrivet för patienter som vill förstå sin biologi — och för kliniker som vill förstå vår metod.</p>
+
+    <div class="reveal" style="background: rgba(192,57,43,0.12); border: 1px solid rgba(192,57,43,0.4); border-radius: 10px; padding: 1.4rem 1.8rem; margin-top: 1.8rem; max-width: 700px;">
+      <div style="font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,150,130,0.9); margin-bottom: 0.6rem;">Klinisk princip</div>
+      <p style="font-size: 0.9rem; color: rgba(216,234,245,0.85); line-height: 1.75; margin: 0;"><strong style="color: rgba(255,180,160,1);">Supplementering utan intracellulär testning är inte precisionsmedicin — det är gissning.</strong> Protokollen som beskrivs i dessa noteringar är diagnostik-först per design. Varje intervention följer mätning. Vitaminer, mineraler och kosttillskott är biokemiskt aktiva ämnen med dosberoende effekter och formspecifik metabolism. Att administrera dem utan bekräftad brist och utan kunskap om patientens genetiska metabola profil bär en verklig klinisk risk. Dessa noteringar beskriver vad vi mäter och varför — inte ett protokoll att följa utan testning.</p>
+    </div>
+    <div class="hub-meta reveal reveal-d3">
+      <div class="hub-author">
+        <div class="author-avatar">MA</div>
+        <div>
+          <div class="author-name">Dr Mario Anthis</div>
+          <div class="author-title">Grundare & Medicinsk Direktör · MediBalans</div>
+        </div>
+      </div>
+      <div class="hub-stats">
+        <div class="hub-stat"><strong>3</strong>Artiklar</div>
+        <div class="hub-stat"><strong>2026</strong>Startår</div>
+        <div class="hub-stat"><strong>SV/EN</strong>Språk</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLE INDEX -->
+<section class="article-index">
+  <div class="container">
+    <div class="reveal" style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem;">Alla artiklar</div>
+    <div class="index-grid">
+      <a href="#cn-001" class="index-card reveal">
+        <div class="card-issue">CN-001 · Februari 2026</div>
+        <div class="card-title">HRV som kliniskt mätvärde — bortom wellness-myten</div>
+        <div class="card-summary">Hjärtrytmvariabilitet mäter autonom nervfunktion med klinisk precision. Varför standard-HRV-tolkning missar det som faktiskt driver låga värden — och vad vi mäter istället.</div>
+        <div class="card-tags"><span class="card-tag">HRV</span><span class="card-tag">Autonomt NS</span><span class="card-tag">Mitokondrier</span></div>
+        <div class="card-read">Läs artikel →</div>
+      </a>
+      <a href="#cn-002" class="index-card reveal reveal-d1">
+        <div class="card-issue">CN-002 · Februari 2026</div>
+        <div class="card-title">Global Constraint Rule — varför samma symptom kräver olika behandling</div>
+        <div class="card-summary">Det kliniska ramverk som styr MediBalans diagnostik och protokolldesign. Varför behandling av det uppenbara sällan löser det grundläggande.</div>
+        <div class="card-tags"><span class="card-tag">GCR</span><span class="card-tag">Systembiologi</span><span class="card-tag">Protokoll</span></div>
+        <div class="card-read">Läs artikel →</div>
+      </a>
+      <a href="#cn-003" class="index-card reveal reveal-d2">
+        <div class="card-issue">CN-003 · Februari 2026 <span style="font-size:.58rem;background:rgba(46,107,158,.1);color:var(--blue);padding:1px 7px;border-radius:3px;margin-left:.4rem;">Patenterad formulering</span></div>
+        <div class="card-title">Biologisk ålder vs kronologisk ålder — vad BioAge™ faktiskt mäter</div>
+        <div class="card-summary">RNA-transkriptomanalys, proteomik och translationell gap-analys kombinerade i ett kliniskt meningsfullt biologiskt åldersmått. Metodologi och klinisk tillämpning.</div>
+        <div class="card-tags"><span class="card-tag">BioAge™</span><span class="card-tag">Longevity</span><span class="card-tag">Transkriptomik</span></div>
+        <div class="card-read">Läs artikel →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE 1: HRV
+════════════════════════════════════════════════════ -->
+<section class="article-section" id="cn-001">
+  <div class="container">
+    <div class="article-header reveal">
+      <div class="article-issue">CN-001 · Februari 2026 · 8 min läsning</div>
+      <h2 class="article-title">HRV som kliniskt mätvärde —<br><em>bortom wellness-myten</em></h2>
+      <p class="article-deck">Hjärtrytmvariabilitet har kidnappats av wellness-industrin. Det är ett precisionsmätvärde på autonom nervfunktion med direkt klinisk relevans för kardiovaskulär risk, kronisk inflammation och utmattningssyndrom. Här är vad vi faktiskt mäter — och varför det spelar roll.</p>
+      <div class="article-byline">
+        <span class="byline-author">Dr Mario Anthis</span>
+        <span class="byline-date">28 februari 2026</span>
+        <span class="byline-read">8 min läsning</span>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <div class="article-prose reveal">
+
+        <h2>Vad HRV faktiskt mäter</h2>
+        <p>Hjärtrytmvariabilitet (HRV) mäter variationen i tid mellan successiva hjärtslag — RR-intervallet. Det är inte ett mått på hjärtrytm eller hjärtfrekvens. Det är ett mått på <strong>det autonoma nervsystemets förmåga att anpassa sig i realtid.</strong></p>
+        <p>Det autonoma nervsystemet har två grenar: sympathikus (aktivering, fight-or-flight) och parasympathikus (återhämtning, vila). Hög HRV indikerar att dessa system är i dynamisk balans — kroppen kan växla snabbt mellan aktivering och återhämtning beroende på vad situationen kräver. Låg HRV indikerar att sympathikus dominerar kroniskt — kroppen är låst i ett aktiveringstillstånd oavsett omgivningens krav.</p>
+
+        <div class="data-block">
+          <div class="data-block-title">Primära HRV-mätvärden</div>
+          <div class="data-row"><span class="data-label">RMSSD</span><span class="data-value">Parasympatisk aktivitet · Vagal tonus</span></div>
+          <div class="data-row"><span class="data-label">SDNN</span><span class="data-value">Total autonom variabilitet · 24h-mått</span></div>
+          <div class="data-row"><span class="data-label">LF/HF-kvot</span><span class="data-value">Sympathikus/parasympathikus-balans</span></div>
+          <div class="data-row"><span class="data-label">pNN50</span><span class="data-value">Andel intervall &gt;50ms · Vagal funktion</span></div>
+          <div class="data-row"><span class="data-label">Dygnsvariation</span><span class="data-value">Normal cirkadian HRV-cykel · Stressmarkör</span></div>
+        </div>
+
+        <h2>Varför standard-HRV-tolkning missar <em>det som driver låga värden</em></h2>
+        <p>De flesta som mäter HRV — med smartklocka eller klinisk utrustning — får ett värde utan att förstå de biologiska mekanismer som styr det. Låg HRV behandlas som ett symptom att adressera med sömn, meditation och träning. Det är fel utgångspunkt.</p>
+        <p>Låg HRV är en <strong>biologisk konsekvens</strong> — inte en primär dysfunktion. Det autonoma nervsystemet är nedreglerat av en underliggande process. De vanligaste primära drivkrafterna vi ser i kliniken:</p>
+        <ul>
+          <li><strong>Intracellulär magnesiumbrist</strong> — magnesium är kritiskt för vagal tonus och parasympatisk funktion. Serummagnesiumnivåer korrelerar dåligt med intracellulär status. CMA-analys avslöjar bristnivåer som standard blodprover inte fångar.</li>
+          <li><strong>Kronisk låggradig inflammation</strong> — inflammatoriska cytokiner (TNF-α, IL-6, IL-1β) hämmar direkt vagal nervfunktion via centrala mekanismer. ALCAT-identifierade matintoleranser är en vanlig och underdiagnostiserad inflammationsdrivare.</li>
+          <li><strong>Metyleringsrubbningar</strong> — MTHFR-varianter och brister i metyleringscykeln påverkar neurotransmittorsyntes och autonomreglering. MethylDetox-analys är indicerat vid ihållande låg HRV utan annan förklaring.</li>
+          <li><strong>Mitokondriell dysfunktion</strong> — hjärtats sinoatrialknuta kräver adekvat ATP-produktion för normal rytmvariabilitet. Mitokondriell ineffektivitet syns i HRV-mönstret innan den syns kliniskt.</li>
+          <li><strong>Tarmdysbios och leaky gut</strong> — tarm-hjärnaxeln modulerar vagal nervfunktion direkt. Tarmmikrobiomets sammansättning påverkar HRV mätbart.</li>
+        </ul>
+
+        <div class="clinical-note">
+          <div class="clinical-note-label">Klinisk observation</div>
+          <p>I vår kohort ser vi konsekvent att patienter med låg RMSSD (&lt;25ms) och normal hjärtfrekvens ofta har <strong>intracellulär magnesiumbrist kombinerat med kronisk låggradig inflammation</strong> — ett mönster som inte synliggörs med standardblodprover men som svarar dramatiskt på intracellulär korrigering och elimineringsprotokoll.</p>
+        </div>
+
+        <h2>HRV i klinisk kontext — vad vi faktiskt gör</h2>
+        <p>På MediBalans används HRV aldrig som isolerat mätvärde. Det är ett av fem primära mätvärden i vår autonoma bedömning, tolkade mot:</p>
+        <ul>
+          <li>CMA-resultat (intracellulär magnesiumnivå, CoQ10, B-vitaminer)</li>
+          <li>ALCAT-profil (inflammationsdrivare via immunreaktivitet)</li>
+          <li>MethylDetox-panelen (autonoma regleringsgener inkl. COMT, MAO-A)</li>
+          <li>Tarmbarriärmarkörer (zonulin, sekretoriskt IgA)</li>
+          <li>Kortisolprofil dygnsvariation (DUTCH-panel)</li>
+        </ul>
+        <p>Behandlingen riktas mot den identifierade primärkonstrainen per GCR-ramverket — inte mot HRV-värdet i sig. Målet är att HRV normaliseras som en konsekvens av att den underliggande biologin korrigeras.</p>
+
+        <blockquote>
+          <p>HRV är termometern. Temperaturen berättar att något är fel — inte vad som är fel. Det kliniska arbetet börjar när man frågar varför.</p>
+        </blockquote>
+
+        <h2>Kliniska indikationer för HRV-utredning</h2>
+        <p>HRV-analys är indicerat när patienten presenterar med något av följande utan adekvat förklaring från standardprover:</p>
+        <ul>
+          <li>Kronisk trötthet och energibrist</li>
+          <li>Nedsatt återhämtningsförmåga efter träning eller stress</li>
+          <li>Sömnstörningar med bibehållen sömnhygien</li>
+          <li>Stressrelaterade kardiovaskulära symptom</li>
+          <li>Autoimmuna tillstånd med autonom komponent</li>
+          <li>Hjärtklappning utan arytmi vid EKG</li>
+          <li>Funktionell dyspepsi och IBS med autonom komponent</li>
+        </ul>
+
+        <div class="plain-language">
+          <div class="pl-label">Sammanfattning på klarspråk</div>
+          <div class="pl-title">Vad det här betyder för dig som patient</div>
+          <p>Om du har låg HRV — oavsett om du mätt det med en klocka eller fått det mätt kliniskt — betyder det att din kropp är i ett kroniskt stressläge. Det syns inte alltid i vanliga blodprover.</p>
+          <p>Det beror nästan aldrig på att du "stressar för mycket". Det beror ofta på att något inuti cellerna inte fungerar som det ska — brist på rätt mineraler, dolda matreaktioner, genetiska varianter som påverkar hur nervsystemet regleras.</p>
+          <p>Vi mäter det på cellulär nivå. Sedan behandlar vi det som orsakar problemet — inte siffran på klockan.</p>
+        </div>
+
+        <div class="article-footer">
+          <div class="af-tags">
+            <span class="af-tag">HRV</span>
+            <span class="af-tag">Autonomt nervsystem</span>
+            <span class="af-tag">Vagal tonus</span>
+            <span class="af-tag">Mitokondrier</span>
+            <span class="af-tag">CMA</span>
+            <span class="af-tag">MethylDetox</span>
+          </div>
+          <a href="/#booking" class="af-cta">Boka HRV-utredning →</a>
+        </div>
+      </div>
+
+      <div class="article-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-label">Innehåll</div>
+          <div class="sidebar-toc">
+            <a href="#cn-001" class="toc-item">Vad HRV faktiskt mäter</a>
+            <a href="#cn-001" class="toc-item">Varför standard-tolkning missar</a>
+            <a href="#cn-001" class="toc-item">HRV i klinisk kontext</a>
+            <a href="#cn-001" class="toc-item">Kliniska indikationer</a>
+          </div>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-label">Relaterade tester</div>
+          <div class="sidebar-toc">
+            <a href="/#testing" class="toc-item">HRV-analys</a>
+            <a href="/#testing" class="toc-item">CMA — Cellulär Mikronäringsanalys</a>
+            <a href="/#testing" class="toc-item">MethylDetox</a>
+            <a href="/#testing" class="toc-item">ALCAT — Matintolerans</a>
+          </div>
+        </div>
+        <div class="sidebar-cta">
+          <div class="sidebar-cta-title">HRV-utredning</div>
+          <p>Låg HRV med okänd orsak? Vi utreder på cellulär och genetisk nivå.</p>
+          <a href="/#booking">Boka konsultation</a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-label">Nyckelreferenser</div>
+          <div class="sidebar-refs">
+            <div class="ref-item"><span class="ref-num">[1]</span>Shaffer F, Ginsberg JP. An Overview of Heart Rate Variability Metrics and Norms. Front Public Health. 2017.</div>
+            <div class="ref-item"><span class="ref-num">[2]</span>Thayer JF et al. The relationship of autonomic imbalance, heart rate variability and cardiovascular disease risk factors. Int J Cardiol. 2010.</div>
+            <div class="ref-item"><span class="ref-num">[3]</span>Kolacz J, Porges SW. Chronic Diffuse Pain and Functional GI Disorders After Traumatic Stress. Front Med. 2018.</div>
+            <div class="ref-item"><span class="ref-num">[4]</span>Singh N et al. Heart rate variability: An old metric with new meaning in the era of using mHealth technologies. Curr Treat Options Cardiovasc Med. 2018.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE 2: GCR
+════════════════════════════════════════════════════ -->
+<section class="article-section" id="cn-002">
+  <div class="container">
+    <div class="article-header reveal">
+      <div class="article-issue">CN-002 · Februari 2026 · 7 min läsning</div>
+      <h2 class="article-title">Global Constraint Rule —<br><em>varför samma symptom kräver olika behandling</em></h2>
+      <p class="article-deck">Det kliniska ramverk som styr MediBalans diagnostik och protokolldesign. Biologiska system adapterar alltid till sin mest begränsande faktor — inte sin mest uppenbara. Varför det är avgörande för komplex kronisk sjukdom.</p>
+      <div class="article-byline">
+        <span class="byline-author">Dr Mario Anthis</span>
+        <span class="byline-date">28 februari 2026</span>
+        <span class="byline-read">7 min läsning</span>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <div class="article-prose reveal">
+
+        <h2>Problemet med symptombaserad medicin</h2>
+        <p>Konventionell medicinsk diagnostik är i grunden symptombaserad: patienten presenterar med ett symptom, klinikern matchar det mot en diagnos, behandlingen riktas mot diagnosen. För akuta tillstånd och enskilda organsystemsjukdomar fungerar det utmärkt.</p>
+        <p>För komplex kronisk sjukdom — IBS, kronisk trötthet, autoimmunitet, fibromyalgi, recidiverande infektioner — fungerar det systematiskt dåligt. Patienter återkommer med oförändrade eller förvärrade symptom trots adekvat behandling av den primära diagnosen. Förklaringen är nästan alltid densamma: <strong>behandlingen har riktat sig mot en kompensation, inte mot den primära biologiska konstrainten.</strong></p>
+
+        <h2>Global Constraint Rule — <em>definitionen</em></h2>
+        <p>Global Constraint Rule (GCR) är ett systembiologiskt princip som beskriver hur biologiska system hanterar begränsningar:</p>
+
+        <blockquote>
+          <p>Biologiska system adapterar alltid till sin mest begränsande faktor — inte sin mest uppenbara. Identifiering och korrigering av primärkonstrainten är mer effektivt än att behandla de adaptiva kompensationerna den har genererat.</p>
+        </blockquote>
+
+        <p>I praktiken betyder det att ett biologiskt systems synliga dysfunktion sällan är orsakat direkt av den primära konstrainten — det är ofta en sekundär kompensation som systemet genererat för att hantera en begränsning någon annanstans i nätverket.</p>
+
+        <h2>Ett kliniskt exempel</h2>
+        <p>Patient presenterar med IBS, kronisk trötthet och recidiverande urinvägsinfektioner. Standard utredning visar ingenting patologiskt. Behandling av IBS-symptomen ger tillfällig lindring men inget bestående resultat.</p>
+        <p>GCR-analys av den biologiska profilen identifierar:</p>
+        <ul>
+          <li><strong>Primärkonstraint:</strong> Svår intracellulär zinkbrist (verifierad via CMA) som försämrar tarmbarriärintegritet och immunfunktion</li>
+          <li><strong>Sekundär kompensation:</strong> Immunreaktivitet mot 47 livsmedel (ALCAT) — immunsystemet är hypersensibiliserat som svar på läckande tarm</li>
+          <li><strong>Tertiär effekt:</strong> Autonom dysreglering (låg HRV) som svar på kronisk inflammatorisk belastning</li>
+        </ul>
+        <p>Behandling av IBS-symptomen (tertiär effekt) eller till och med elimineringsprotokoll baserat på ALCAT (sekundär kompensation) utan att korrigera den intracellulära zinkbristen ger tillfällig förbättring. Så snart exponeringen återupptas, återkommer reaktiviteten — för zinkbristen är fortfarande där.</p>
+        <p>Korrekt GCR-protokoll: intracellulär zinkrepletion (IV om svår brist) → tarmslemhinnerestaurering → gradvis livsmedelsreintroduktion. Immunreaktiviteten sjunker av sig själv när barriärfunktionen återställs.</p>
+
+        <div class="clinical-note">
+          <div class="clinical-note-label">Klinisk princip</div>
+          <p>Den kliniska implikationen är att protokolldesign måste börja med att <strong>ranka biologiska konstraintier efter primäritet</strong> — inte efter symptomstyrka. Det mest störande symptomet är sällan det som kräver primär intervention.</p>
+        </div>
+
+        <h2>GCR i diagnostisk praktik</h2>
+        <p>GCR-ramverket kräver multi-omics data för korrekt tillämpning. En enskild test — oavsett hur bra — kan inte identifiera primärkonstrainten i ett komplext kroniskt tillstånd. Det kräver:</p>
+        <ul>
+          <li><strong>Cellulär nivå:</strong> CMA (55 intracellulära mikronäringsämnen) för att identifiera metabola flaskhalsar</li>
+          <li><strong>Immunologisk nivå:</strong> ALCAT för att kartlägga immunreaktivitetsmönster och identifiera sekundära kompensationer</li>
+          <li><strong>Genetisk nivå:</strong> MethylDetox för att förstå genetiska konstraintier som påverkar metyleringscykeln</li>
+          <li><strong>Mikrobiomnivå:</strong> GI Effects för tarmmikrobiomets roll i tarmbarriärfunktion och immunmodulering</li>
+          <li><strong>Autonom nivå:</strong> HRV för att kvantifiera den systemiska effekten av de biologiska konstrainterna</li>
+        </ul>
+        <p>Datapunkterna konvergerar mot en primärkonstraint-profil. Protokollet designas för att adressera konstrainterna i rätt ordning — inte simultant, vilket sällan är effektivt.</p>
+
+        <div class="clinical-note" style="border-left: 4px solid #c0392b; background: #fdf2f0;">
+          <div class="clinical-note-label" style="color: #c0392b;">Klinisk varning</div>
+          <p><strong>Supplementering utan intracellulär testning kan orsaka skada.</strong> Ämnena som är involverade i tarmepitelets energisvikt — CoQ10, zink, B1, B6, B12, magnesium — är inte utbytbara, och deras terapeutiska former är inte ekvivalenta. Zink i överskott hämmar kopparabsorption och förvärrar immunsrubbning. Höga doser B6 utan bekräftad brist orsakar perifer neuropati. Cyanokobalamin (den vanliga B12-formen) är metaboliskt inaktiv hos patienter med COMT- eller CBS-varianter. Folsyresupplementering hos odiagnostiserade MTHFR-homozygoter driver ansamling av ometaboliserat folat med proinflammatoriska konsekvenser.</p>
+          <p style="margin-top: 0.8rem;">Protokollsekvensen finns av en anledning. <strong>Steg 1 är inte valfritt.</strong> Att korrigera det du har mätt är precisionsmedicin. Att supplementera det du antar vara lågt är gissning — och i kontexten av mitokondriell och metyleringbiologi har gissning en verklig riskprofil.</p>
+        </div>
+
+        <div class="plain-language">
+          <div class="pl-label">Sammanfattning på klarspråk</div>
+          <div class="pl-title">Varför din kropp inte svarar som förväntat</div>
+          <p>Om du har provat behandlingar som borde fungera men som inte gett bestående resultat — är det inte nödvändigtvis för att behandlingarna är fel. Det kan vara för att de adresserar konsekvensen av ett problem, inte problemet självt.</p>
+          <p>Din kropp är ett nätverk, inte en samling separata delar. Något som är ur balans på ett ställe kan visa sig som symptom på ett helt annat. Vi letar efter ursprunget — inte bara efter nästa symptom att behandla.</p>
+        </div>
+
+        <div class="article-footer">
+          <div class="af-tags">
+            <span class="af-tag">GCR</span>
+            <span class="af-tag">Systembiologi</span>
+            <span class="af-tag">Multi-omics</span>
+            <span class="af-tag">Protokolldesign</span>
+          </div>
+          <a href="/forskning.html" class="af-cta">Läs om GCR-patentet →</a>
+        </div>
+      </div>
+
+      <div class="article-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-label">Innehåll</div>
+          <div class="sidebar-toc">
+            <a href="#cn-002" class="toc-item">Problemet med symptombaserad medicin</a>
+            <a href="#cn-002" class="toc-item">GCR — definitionen</a>
+            <a href="#cn-002" class="toc-item">Ett kliniskt exempel</a>
+            <a href="#cn-002" class="toc-item">GCR i diagnostisk praktik</a>
+          </div>
+        </div>
+        <div class="sidebar-cta">
+          <div class="sidebar-cta-title">GCR-utredning</div>
+          <p>Komplexa symptom utan svar? Vi tillämpar GCR-ramverket för att hitta primärkonstrainten.</p>
+          <a href="/#booking">Boka konsultation</a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-label">Nyckelreferenser</div>
+          <div class="sidebar-refs">
+            <div class="ref-item"><span class="ref-num">[1]</span>Kitano H. Systems biology: a brief overview. Science. 2002;295(5560):1662-1664.</div>
+            <div class="ref-item"><span class="ref-num">[2]</span>Barabási AL et al. Network medicine: a network-based approach to human disease. Nat Rev Genet. 2011.</div>
+            <div class="ref-item"><span class="ref-num">[3]</span>Anthis M. Global Constraint Rule in Systems Biology Diagnosis. Patent Portfolio, MediBalans AB. 2025.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     ARTICLE 3: BIOAGE
+════════════════════════════════════════════════════ -->
+<section class="article-section" id="cn-003">
+  <div class="container">
+    <div class="article-header reveal">
+      <div class="article-issue">CN-003 · Februari 2026 · 9 min läsning</div>
+      <h2 class="article-title">Biologisk ålder vs kronologisk ålder —<br><em>vad BioAge™ faktiskt mäter</em></h2>
+      <p class="article-deck">Ditt pass säger din kronologiska ålder. Din biologi berättar en annan historia. RNA-transkriptomanalys med 42 000 biomarkörer, proteomisk profilering och patenterad translationell gap-analys — hur vi mäter biologisk ålder med klinisk precision.</p>
+      <div class="article-byline">
+        <span class="byline-author">Dr Mario Anthis</span>
+        <span class="byline-date">28 februari 2026</span>
+        <span class="byline-read">9 min läsning</span>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <div class="article-prose reveal">
+
+        <h2>Varför kronologisk ålder inte berättar det viktiga</h2>
+        <p>Två 50-åriga patienter med identisk kronologisk ålder kan ha fundamentalt olika biologisk profil — en med cellulär åldringsmarkörprofil som motsvarar en 38-åring, den andra med markörprofil som motsvarar 64. Det är skillnaden mellan en kropp som åldras väl och en kropp som åldras för snabbt.</p>
+        <p>Kronologisk ålder är ett administrativt mätvärde. <strong>Biologisk ålder är ett kliniskt mätvärde.</strong> Den avgörande frågan är inte hur länge du har levt — det är hur dina celler åldras just nu, och om processen kan bromsa eller reverseras.</p>
+
+        <h2>Problemet med befintliga biologiska åldersmetoder</h2>
+        <p>De vanligaste biologiska åldersmarkörerna idag — telomerlängd, epigenetiska klockor (Horvath, Hannum, PhenoAge) — har kliniska begränsningar:</p>
+        <ul>
+          <li><strong>Telomerlängd:</strong> Mäter ackumulerad cellulär stress men inte aktuell biologisk funktion. Korrelerar dåligt med kliniskt utfall på individnivå.</li>
+          <li><strong>DNA-metylerings-klockor:</strong> Mäter epigenetiska förändringar men fångar inte translationell diskrepans — det vill säga glapet mellan vad generna säger och vad cellerna faktiskt producerar.</li>
+          <li><strong>Inflammationsmarkörer (GrimAge):</strong> Bättre klinisk prediktion men fortfarande en endimensionell approximation av en multidimensionell process.</li>
+        </ul>
+        <p>Ingen av dessa metoder mäter det kritiska steget i cellulär åldringsbiologi: <strong>det translationella gapet</strong> — diskrepansen mellan genuttryck (transkriptom) och proteinproduktion (proteom).</p>
+
+        <h2>BioAge™ — metodologin</h2>
+        <p>MediBalans BioAge™ kombinerar tre analytiska lager i ett konvergerat biologiskt åldersmått:</p>
+
+        <h3>Lager 1: RNA-transkriptomanalys</h3>
+        <p>Via Dante Labs plattform analyseras 42 000 RNA-biomarkörer som representerar hela det aktiva genuttrycket. Transkriptomet speglar cellens aktuella biologiska tillstånd — inte bara genetisk potential, utan vad generna faktiskt gör just nu. Vi jämför uttrycksprofilen mot ett longevity-referenspanel deriverat från välcharakteriserade åldringskohorter.</p>
+
+        <h3>Lager 2: Proteomisk profilering</h3>
+        <p>Proteinproduktionsprofilen analyseras separat. Proteinet är den funktionella enheten — det är proteiner som utför cellulärarbetet, inte generna. En gen kan vara aktiv (transkriberad) utan att producera normala proteinnivåer, och vice versa.</p>
+
+        <h3>Lager 3: Translationell gap-analys (patenterad)</h3>
+        <p>Det patenterade steget. Vi mäter systematiskt diskrepansen mellan transkriptom och proteom — det translationella gapet. Normalt åldrad biologi visar ett förutsägbart gap. Accelererat åldrande visar ett avvikande gap-mönster i specifika biologiska domäner.</p>
+        <p>Gap-mönstret identifierar <strong>var i cellens maskineri åldringsprocessen är mest aktiv</strong> — mitokondriell funktion, proteinfoldning, DNA-reparation, inflammationssignalering — vilket möjliggör precisionsinriktade interventioner.</p>
+
+        <div class="data-block">
+          <div class="data-block-title">BioAge™ — Analytiska lager</div>
+          <div class="data-row"><span class="data-label">RNA-transkriptom</span><span class="data-value">42 000 biomarkörer · Dante Labs</span></div>
+          <div class="data-row"><span class="data-label">Proteomisk profil</span><span class="data-value">Proteinproduktion vs. longevity-referens</span></div>
+          <div class="data-row"><span class="data-label">Translationell gap</span><span class="data-value">Patenterad diskrepansanalys</span></div>
+          <div class="data-row"><span class="data-label">GCR-åldringsvektor</span><span class="data-value">Primär biologisk åldringskonstraint</span></div>
+          <div class="data-row"><span class="data-label">Kliniskt protokoll</span><span class="data-value">Individanpassat longevity-program</span></div>
+        </div>
+
+        <h2>Vad resultatet berättar — och vad vi gör med det</h2>
+        <p>BioAge™-analysen levererar ett biologiskt åldersmått med specificerade avvikelsemönster per biologisk domän. Det är inte en siffra — det är en biologisk karta.</p>
+        <p>Om translationell gap-analysen identifierar avvikelse i mitokondriell domän, riktas protokollet mot mitokondriell support: CoQ10-nivåer via CMA, NAD+-supplementering, HRV-baserad träningsoptimering. Om avvikelsen primärt finns i inflammationssignalering, riktas protokollet mot immunmodulering och inflammationsreduktion.</p>
+        <p>Uppföljningsmätning sker efter 3 månader. Biologisk åldringsprocess är mätbart reverserbar — vi har sett biologisk åldersminskning på 3-7 år i kohorten efter 6 månaders målinriktad intervention.</p>
+
+        <div class="clinical-note">
+          <div class="clinical-note-label">Klinisk observation</div>
+          <p>Det konsekvent mest överraskande fyndet i BioAge™-kohorten är <strong>dissonansmönstret</strong> — patienter vars subjektiva åldringsupplevelse stämmer dåligt med biologisk ålder i båda riktningarna. Yngre biologisk ålder syns sällan i spegeln. Äldre biologisk ålder syns inte alltid i blodprover. Det är precis varför mätning är nödvändig.</p>
+        </div>
+
+        <div class="plain-language">
+          <div class="pl-label">Sammanfattning på klarspråk</div>
+          <div class="pl-title">Vad BioAge™ faktiskt ger dig</div>
+          <p>Du får ett svar på en fråga som inte går att svara på annars: åldras din kropp fortare eller långsammare än den borde? Och om fortare — var i kroppen händer det, och vad kan vi göra åt det?</p>
+          <p>Det är inte ett wellness-test. Det är en klinisk mätning med ett behandlingsprotokoll kopplat till sig. Vi mäter, vi behandlar, vi mäter igen. Det är precision — inte gissningar.</p>
+        </div>
+
+        <div class="article-footer">
+          <div class="af-tags">
+            <span class="af-tag">BioAge™</span>
+            <span class="af-tag">Transkriptomik</span>
+            <span class="af-tag">Proteomik</span>
+            <span class="af-tag">Longevity</span>
+            <span class="af-tag">Dante Labs</span>
+          </div>
+          <a href="/#booking" class="af-cta">Boka BioAge™-utredning →</a>
+        </div>
+      </div>
+
+      <div class="article-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-label">Innehåll</div>
+          <div class="sidebar-toc">
+            <a href="#cn-003" class="toc-item">Varför kronologisk ålder inte räcker</a>
+            <a href="#cn-003" class="toc-item">Problem med befintliga metoder</a>
+            <a href="#cn-003" class="toc-item">BioAge™ — metodologin</a>
+            <a href="#cn-003" class="toc-item">Vad resultatet berättar</a>
+          </div>
+        </div>
+        <div class="sidebar-cta">
+          <div class="sidebar-cta-title">BioAge™</div>
+          <p>Mät din biologiska ålder. Identifiera primärkonstrainten. Behandla precisionsinriktat.</p>
+          <a href="/#booking">Boka BioAge™</a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-label">Nyckelreferenser</div>
+          <div class="sidebar-refs">
+            <div class="ref-item"><span class="ref-num">[1]</span>Horvath S. DNA methylation age of human tissues and cell types. Genome Biol. 2013.</div>
+            <div class="ref-item"><span class="ref-num">[2]</span>Levine ME et al. An epigenetic biomarker of aging for lifespan and healthspan. Aging. 2018.</div>
+            <div class="ref-item"><span class="ref-num">[3]</span>Lopez-Otin C et al. The hallmarks of aging. Cell. 2013;153(6):1194-217.</div>
+            <div class="ref-item"><span class="ref-num">[4]</span>Anthis M. Biological Age Determination via RNA Transcriptome Analysis. Patent, MediBalans AB. 2025.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIBE -->
+<section class="subscribe-section">
+  <div class="container">
+    <h2 class="reveal">Nästa <em>Clinical Note</em></h2>
+    <p class="reveal reveal-d1">Metylering & MTHFR — vad SNPs faktiskt betyder kliniskt. Kommande mars 2026.</p>
+    <div class="subscribe-row reveal reveal-d2">
+      <a href="/#booking" class="subscribe-btn">Boka konsultation</a>
+      <a href="tel:+46853021020" style="display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(216,234,245,.2);color:rgba(216,234,245,.7);padding:.8rem 1.8rem;border-radius:6px;font-size:.88rem;text-decoration:none;">📞 08-530 210 20</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo" style="color:var(--white);">Medi<span>Balans</span></a>
+        <p>Klinik för precisions- och regenerativ medicin i Stockholm. Avancerad diagnostik, individanpassad behandling och regenerativa terapier baserade på mätbar biologi.</p>
+      </div>
+      <div class="footer-col"><h4>Kliniken</h4><ul>
+        <li><a href="/#about">Om oss</a></li>
+        <li><a href="/#testing">Diagnostik</a></li>
+        <li><a href="/nls-skanning-och-utredning/">NLS Kroppsskanning</a></li>
+        <li><a href="/forskning.html">Forskning</a></li>
+        <li><a href="/clinical-notes/">Clinical Notes</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Information</h4><ul>
+        <li><a href="/#faq">Vanliga frågor</a></li>
+        <li><a href="/#booking">Boka Konsultation</a></li>
+        <li><a href="/utredningsprotokoll/">Utredningsprotokoll</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Kontakt</h4>
+        <div class="footer-info">Karlavägen 89<br>115 22 Stockholm<br><br>
+          <a href="tel:+46853021020" style="color:rgba(255,255,255,.6);">08-530 210 20</a><br><br>
+          Mån-Fre: 08:00-17:00
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 MediBalans AB. Alla rättigheter förbehållna.</span>
+      <span><a href="#">Integritetspolicy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.remove('no-js');
+function initReveal(){
+  document.querySelectorAll('.reveal').forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight+100)el.classList.add('visible');});
+  if('IntersectionObserver' in window){
+    const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0,rootMargin:'0px 0px -30px 0px'});
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el));
+  } else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initReveal);else initReveal();
+window.addEventListener('load',initReveal);
+window.addEventListener('scroll',initReveal,{once:true});
+const header=document.getElementById('header');
+if(header)window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>10));
+const mt=document.getElementById('mobileToggle'),mn=document.getElementById('mobileNav');
+if(mt&&mn)mt.addEventListener('click',()=>mn.classList.toggle('active'));
+function closeMobile(){if(mn)mn.classList.remove('active');}
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9e07bf8e8ee1eb61',t:'MTc3NDIwOTI2Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>
+/* nav-patch */
+(function(){
+  // html overflow
+  document.documentElement.style.overflowX='hidden';
+
+  // header scroll
+  var hdr=document.getElementById('header');
+  if(hdr)window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>10);},{passive:true});
+
+  // mobile toggle
+  var mt=document.getElementById('mobileToggle'),mn=document.getElementById('mobileNav');
+  if(mt&&mn){
+    // remove any existing listeners by cloning
+    var mt2=mt.cloneNode(true);
+    mt.parentNode.replaceChild(mt2,mt);
+    mt2.addEventListener('click',function(){
+      var open=mn.classList.toggle('active');
+      mt2.setAttribute('aria-expanded',open);
+      document.body.style.overflow=open?'hidden':'';
+    });
+  }
+  function closeMobile(){
+    if(mn)mn.classList.remove('active');
+    var mt3=document.getElementById('mobileToggle');
+    if(mt3)mt3.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }
+  window.closeMobile=closeMobile;
+
+  // dropdown click/touch — replace any existing handlers
+  document.querySelectorAll('.nav-dropdown').forEach(function(dd){
+    var btn=dd.querySelector('.nav-dd-btn');
+    var menu=dd.querySelector('.dropdown-menu');
+    if(!btn||!menu)return;
+    var btn2=btn.cloneNode(true);
+    btn.parentNode.replaceChild(btn2,btn);
+    btn2.addEventListener('click',function(e){
+      e.stopPropagation();
+      var isOpen=dd.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown.open').forEach(function(o){
+        if(o!==dd){o.classList.remove('open');var b=o.querySelector('.nav-dd-btn');if(b)b.setAttribute('aria-expanded','false');}
+      });
+      dd.classList.toggle('open',!isOpen);
+      btn2.setAttribute('aria-expanded',String(!isOpen));
+    });
+  });
+  document.addEventListener('click',function(){
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
+      dd.classList.remove('open');
+      var b=dd.querySelector('.nav-dd-btn');if(b)b.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');});
+      closeMobile();
+    }
+  });
+})();
+</script>
+</body>
+</html>
