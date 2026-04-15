@@ -193,28 +193,59 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
     <nav>
       <a href="/#about">Kliniken</a>
       <a href="/#process">Metoden</a>
-      <a href="/#investigate">Utredningar</a>
       <div class="nav-dropdown">
-        <a href="/#testing">Diagnostik</a>
+        <button class="nav-dd-btn" aria-expanded="false">Utredningar <span class="dd-chevron">▾</span></button>
         <div class="dropdown-menu">
-          <a href="/methyldetox/">MethylDetox — 38 Gener</a>
-          <a href="/#testing">Alla diagnostiska paneler</a>
-          <a href="/alcat/">ALCAT-test</a>
-          <a href="/cma/" class="active">CMA — Cellulär näring</a>
-          <a href="/hrv-analys/">HRV-analys</a>
-          <a href="/baby-balans/">Baby Balans — Prekoncept Genetik</a>
+          <a href="/ibs-tarmhalsa/">IBS &amp; Tarmhälsa</a>
+          <a href="/utmattning/">Kronisk Trötthet &amp; ME/CFS</a>
+          <a href="/autoimmun/">Autoimmunitet</a>
+          <a href="/hudsjukdomar/">Hudsjukdomar</a>
+          <a href="/adhd-neuropsykiatri/">ADHD &amp; Neuropsykiatri</a>
+          <a href="/hypothyreos/">Sköldkörtel &amp; Hormoner</a>
+          <a href="/kognitiv-halsa/">Kognitiv Hälsa &amp; Alzheimer</a>
+          <a href="/kvinnohalsa/">Kvinnohälsa</a>
         </div>
       </div>
       <div class="nav-dropdown">
-        <a href="/#behandling">Behandling</a>
+        <button class="nav-dd-btn" aria-expanded="false">Diagnostik <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/alcat/">ALCAT — Livsmedelsintolerans</a>
+          <a href="/cma/">CMA — Cellulär Mikronäring</a>
+          <a href="/methyldetox/">MethylDetox — 38 Gener</a>
+          <a href="/biologisk-alder/">Biologisk Ålder</a>
+          <a href="/alzheimers-test/">Alzheimers-utredning</a>
+          <a href="/hrv-analys/">HRV-Analys</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Genova <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/genova-diagnostics/">Alla tester</a>
+          <a href="/gi-effects-test/">GI Effects&#174;</a>
+          <a href="/nutreval-sverige/">NutrEval&#174;</a>
+          <a href="/metabolomik/">Metabolomik</a>
+          <a href="/sibo-test/">SIBO-test</a>
+          <a href="/genova-hormontest/">Hormonpaneler</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Behandling <span class="dd-chevron">▾</span></button>
         <div class="dropdown-menu">
           <a href="/#behandling">Behandling</a>
           <a href="/iv-terapi/">IV-Behandling</a>
         </div>
       </div>
-      <a href="/forskning.html">Forskning</a>
+      <a href="/#families">Familjer</a>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Forskning <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/forskning.html">Forskningsprogram</a>
+          <a href="/clinical-notes/">Kliniska Noteringar</a>
+          <a href="/nls-skanning-och-utredning/">NLS Kroppsskanning</a>
+        </div>
+      </div>
       <a href="/#faq">Frågor</a>
-      <a href="/en/cma/" style="font-size:.8rem;font-weight:500;color:var(--text-mid);text-decoration:none;border:1px solid var(--border);padding:.4rem .9rem;border-radius:5px;margin-right:.3rem;">EN</a>
+      <a href="/en/" class="lang-toggle">EN</a>
       <a href="/#booking" class="nav-cta">Boka Konsultation</a>
     </nav>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Meny"><span></span><span></span><span></span></button>

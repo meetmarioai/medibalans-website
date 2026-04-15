@@ -585,10 +585,43 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
     <nav>
       <a href="/en/#about">The Clinic</a>
       <a href="/en/#process">Method</a>
-      <a href="/en/#investigate">Investigations</a>
-      <a href="/en/#testing">Diagnostics</a>
       <div class="nav-dropdown">
-        <a href="/en/#treatment">Treatment</a>
+        <button class="nav-dd-btn" aria-expanded="false">Conditions <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/en/ibs-gut-health/">IBS &amp; Gut Health</a>
+          <a href="/en/chronic-fatigue/">Chronic Fatigue &amp; ME/CFS</a>
+          <a href="/en/autoimmunity/">Autoimmunity</a>
+          <a href="/en/thyroid/">Thyroid Disorders</a>
+          <a href="/en/skin-conditions/">Skin Conditions</a>
+          <a href="/en/womens-health/">Women's Health</a>
+          <a href="/en/adhd-neuropsychiatry/">ADHD &amp; Neuropsychiatry</a>
+          <a href="/en/cognitive-health/">Cognitive Health</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Diagnostics <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/en/alcat-test/">ALCAT — Food Intolerance</a>
+          <a href="/en/cellular-nutrient-analysis/">CMA — Cellular Nutrients</a>
+          <a href="/en/methylation-test/">MethylDetox — 38 Genes</a>
+          <a href="/en/biological-age/">Biological Age Panel</a>
+          <a href="/en/alzheimers-assessment/">Alzheimer's Assessment</a>
+          <a href="/en/hrv-analysis/">HRV Analysis</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Genova <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/en/genova-diagnostics/">All Tests</a>
+          <a href="/en/gi-effects-test/">GI Effects&#174;</a>
+          <a href="/en/nutreval-test/">NutrEval&#174;</a>
+          <a href="/en/metabolomics/">Metabolomics</a>
+          <a href="/en/sibo-test/">SIBO Breath Test</a>
+          <a href="/en/genova-hormones/">Hormonal Panels</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Treatment <span class="dd-chevron">▾</span></button>
         <div class="dropdown-menu">
           <a href="/en/#treatment">Treatment</a>
           <a href="/en/iv-therapy/">IV Therapy</a>
@@ -596,14 +629,14 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
       </div>
       <a href="/en/#families">Families</a>
       <div class="nav-dropdown">
-        <a href="/en/research/">Research</a>
+        <button class="nav-dd-btn" aria-expanded="false">Research <span class="dd-chevron">▾</span></button>
         <div class="dropdown-menu">
           <a href="/en/research/">Research Programme</a>
-          <a href="/en/clinical-notes/" class="active">Clinical Notes</a>
+          <a href="/en/clinical-notes/">Clinical Notes</a>
         </div>
       </div>
       <a href="/en/#faq">FAQ</a>
-      <a href="/clinical-notes/" style="font-size:.8rem;font-weight:500;color:var(--text-mid);text-decoration:none;border:1px solid var(--border);padding:.4rem .9rem;border-radius:5px;margin-right:.3rem;">SV</a>
+      <a href="/" class="lang-toggle">SV</a>
       <a href="/en/#booking" class="nav-cta">Book Consultation</a>
     </nav>
     <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>

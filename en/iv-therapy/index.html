@@ -423,31 +423,61 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
 <header id="header" role="banner">
   <div class="container header-inner">
     <a href="/en/" class="logo" aria-label="MediBalans — home">Medi<span>Balans</span></a>
-    <nav role="navigation" aria-label="Main navigation">
+    <nav>
       <a href="/en/#about">The Clinic</a>
       <a href="/en/#process">Method</a>
-      <a href="/en/#investigate">Investigations</a>
-      <a href="/en/#testing">Diagnostics</a>
       <div class="nav-dropdown">
-        <a href="/en/iv-therapy/" aria-haspopup="true" class="active">Treatment</a>
-        <div class="dropdown-menu" role="menu">
-          <a href="/en/iv-therapy/" role="menuitem">IV &amp; IM Vitamin Therapy</a>
-          <a href="/en/iv-therapy/#glutathione" role="menuitem">Glutathione</a>
-          <a href="/en/iv-therapy/#treatments" role="menuitem">Price list</a>
-          <div class="dropdown-divider"></div>
-          <a href="/en/#treatment" role="menuitem">On homepage</a>
+        <button class="nav-dd-btn" aria-expanded="false">Conditions <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/en/ibs-gut-health/">IBS &amp; Gut Health</a>
+          <a href="/en/chronic-fatigue/">Chronic Fatigue &amp; ME/CFS</a>
+          <a href="/en/autoimmunity/">Autoimmunity</a>
+          <a href="/en/thyroid/">Thyroid Disorders</a>
+          <a href="/en/skin-conditions/">Skin Conditions</a>
+          <a href="/en/womens-health/">Women's Health</a>
+          <a href="/en/adhd-neuropsychiatry/">ADHD &amp; Neuropsychiatry</a>
+          <a href="/en/cognitive-health/">Cognitive Health</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Diagnostics <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/en/alcat-test/">ALCAT — Food Intolerance</a>
+          <a href="/en/cellular-nutrient-analysis/">CMA — Cellular Nutrients</a>
+          <a href="/en/methylation-test/">MethylDetox — 38 Genes</a>
+          <a href="/en/biological-age/">Biological Age Panel</a>
+          <a href="/en/alzheimers-assessment/">Alzheimer's Assessment</a>
+          <a href="/en/hrv-analysis/">HRV Analysis</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Genova <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/en/genova-diagnostics/">All Tests</a>
+          <a href="/en/gi-effects-test/">GI Effects&#174;</a>
+          <a href="/en/nutreval-test/">NutrEval&#174;</a>
+          <a href="/en/metabolomics/">Metabolomics</a>
+          <a href="/en/sibo-test/">SIBO Breath Test</a>
+          <a href="/en/genova-hormones/">Hormonal Panels</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Treatment <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/en/#treatment">Treatment</a>
+          <a href="/en/iv-therapy/">IV Therapy</a>
         </div>
       </div>
       <a href="/en/#families">Families</a>
       <div class="nav-dropdown">
-        <a href="/en/research/" aria-haspopup="true">Research</a>
-        <div class="dropdown-menu" role="menu">
-          <a href="/en/research/" role="menuitem">Research Programme</a>
-          <a href="/clinical-notes/" role="menuitem">Clinical Notes</a>
+        <button class="nav-dd-btn" aria-expanded="false">Research <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/en/research/">Research Programme</a>
+          <a href="/en/clinical-notes/">Clinical Notes</a>
         </div>
       </div>
       <a href="/en/#faq">FAQ</a>
-      <a href="/iv-terapi/" style="font-size:.8rem;font-weight:500;color:var(--text-mid);text-decoration:none;border:1px solid var(--border);padding:.4rem .9rem;border-radius:5px;margin-right:.3rem;" aria-label="Byt till svenska">SV</a>
+      <a href="/" class="lang-toggle">SV</a>
       <a href="/en/#booking" class="nav-cta">Book Consultation</a>
     </nav>
     <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">
