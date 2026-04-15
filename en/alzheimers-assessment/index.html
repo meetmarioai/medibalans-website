@@ -533,7 +533,42 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
       </div>
     </div>
   </div>
-</footer><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+</footer><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">
+// Dropdown — click/touch support (works on both desktop and mobile)
+document.querySelectorAll('.nav-dropdown').forEach(dd => {
+  const btn = dd.querySelector('.nav-dd-btn');
+  const menu = dd.querySelector('.dropdown-menu');
+  if (!btn || !menu) return;
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dd.classList.contains('open');
+    // Close all others
+    document.querySelectorAll('.nav-dropdown.open').forEach(other => {
+      if (other !== dd) {
+        other.classList.remove('open');
+        other.querySelector('.nav-dd-btn')?.setAttribute('aria-expanded', 'false');
+      }
+    });
+    dd.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', !isOpen);
+  });
+});
+// Close dropdowns on outside click
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+    dd.classList.remove('open');
+    dd.querySelector('.nav-dd-btn')?.setAttribute('aria-expanded', 'false');
+  });
+});
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
+    closeMobile();
+  }
+});
+</script><script>
 document.addEventListener('DOMContentLoaded',()=>{
   const obs=new IntersectionObserver(els=>els.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));

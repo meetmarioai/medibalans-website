@@ -2218,7 +2218,42 @@ fbq('track','PageView');
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" onerror="void(0)"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" onerror="void(0)">
+// Dropdown — click/touch support (works on both desktop and mobile)
+document.querySelectorAll('.nav-dropdown').forEach(dd => {
+  const btn = dd.querySelector('.nav-dd-btn');
+  const menu = dd.querySelector('.dropdown-menu');
+  if (!btn || !menu) return;
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dd.classList.contains('open');
+    // Close all others
+    document.querySelectorAll('.nav-dropdown.open').forEach(other => {
+      if (other !== dd) {
+        other.classList.remove('open');
+        other.querySelector('.nav-dd-btn')?.setAttribute('aria-expanded', 'false');
+      }
+    });
+    dd.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', !isOpen);
+  });
+});
+// Close dropdowns on outside click
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+    dd.classList.remove('open');
+    dd.querySelector('.nav-dd-btn')?.setAttribute('aria-expanded', 'false');
+  });
+});
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
+    closeMobile();
+  }
+});
+</script>
 <script>
 // Remove no-js class immediately
 document.documentElement.classList.remove('no-js');
