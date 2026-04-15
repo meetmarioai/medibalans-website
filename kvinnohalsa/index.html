@@ -102,9 +102,6 @@ header{position:sticky;top:0;z-index:100;background:rgba(250,252,254,.95);backdr
 header.scrolled{box-shadow:0 2px 20px rgba(11,29,51,.08);}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
 .logo{font-family:var(--font-body);font-size:1.1rem;font-weight:600;color:var(--navy);text-decoration:none;letter-spacing:.02em;}.logo span{color:var(--blue);}
-nav{display:flex;gap:1.8rem;align-items:center;}
-nav a{font-size:.82rem;font-weight:500;color:var(--text-mid);text-decoration:none;letter-spacing:.02em;transition:color .2s;}
-nav a:hover,nav a.active{color:var(--navy);}
 nav { display: flex; gap: 1.8rem; align-items: center; margin-left: 2.5rem; }
 nav a {
   font-size: 0.82rem;
@@ -540,7 +537,7 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
 
 <header id="header">
   <div class="container header-inner">
-    <a href="#" class="logo">Medi<span>Balans</span></a>
+    <a href="/" class="logo">Medi<span>Balans</span></a>
     <nav>
       <a href="/#about">Kliniken</a>
       <a href="/#process">Metoden</a>
@@ -624,7 +621,6 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
   <a href="/metabolomik/" onclick="closeMobile()" class="sub">Metabolomik</a>
   <a href="/sibo-test/" onclick="closeMobile()" class="sub">SIBO-test</a>
   <a href="/genova-hormontest/" onclick="closeMobile()" class="sub">Hormonpaneler</a>
-  <a href="/#behandling" onclick="closeMobile()">Behandling</a>
   <a href="/iv-terapi/" onclick="closeMobile()" class="sub">IV-Behandling</a>
   <a href="/#families" onclick="closeMobile()">Familjer</a>
   <a href="/forskning.html" onclick="closeMobile()">Forskning</a>
@@ -634,16 +630,6 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
   <a href="/en/" onclick="closeMobile()" class="lang-link">EN — English version</a>
   <a href="/#booking" onclick="closeMobile()" class="mob-cta">Boka Konsultation</a>
 </div>
-<div class="breadcrumb">
-  <div class="container">
-    <div class="breadcrumb-inner">
-      <a href="/">MediBalans</a>
-      <span style="opacity:.4;">›</span>
-      <span>Kvinnohälsa & Hormonbalans</span>
-    </div>
-  </div>
-</div>
-
 <!-- HERO -->
 <section style="background:linear-gradient(135deg,var(--navy) 0%,#2A1A30 60%,#1A1A3A 100%);padding:5.5rem 0 5rem;position:relative;overflow:hidden;">
   <div style="position:absolute;top:-20%;right:-5%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(139,74,107,.15) 0%,transparent 65%);pointer-events:none;"></div>
@@ -652,12 +638,16 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
       <div class="reveal">
         <div style="display:inline-flex;align-items:center;gap:.6rem;background:rgba(139,74,107,.15);border:1px solid rgba(176,112,144,.3);border-radius:20px;padding:.4rem 1rem;margin-bottom:1.8rem;">
           <div style="width:6px;height:6px;border-radius:50%;background:var(--rose-mid);"></div>
-          <span style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(216,234,245,.55);">Precisionsmedicin · Hormonbalans · Stockholm</span>
+          <span style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(216,234,245,.55);">Genova Diagnostics · Officiell Svensk Distributör</span>
         </div>
       </div>
       <div style="font-family:var(--font-mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(216,234,245,.3);margin-bottom:.8rem;" class="reveal reveal-d1">Funktionell Gynekologi · Multi-Omics Diagnostik</div>
       <h1 style="font-family:var(--font-display);font-size:3.1rem;color:var(--white);font-weight:400;line-height:1.12;margin-bottom:1.4rem;" class="reveal reveal-d1">Din hormonhälsa<br>förtjänar mer än ett<br><em style="font-style:italic;color:var(--rose-mid);">standardprov.</em></h1>
       <p style="font-size:.95rem;color:rgba(216,234,245,.62);line-height:1.82;font-weight:300;max-width:640px;margin-bottom:2rem;" class="reveal reveal-d2">Konventionella hormonprover mäter ett ögonblick. Vi mäter metabolismvägar, tarmbakteriernas påverkan på östrogenomloppet, genetisk metyleringskapacitet och immunologiska triggers — för att förstå varför dina hormoner är i obalans, inte bara att de är det.</p>
+      <div style="margin:0 0 28px;" class="reveal reveal-d2">
+        <a href="https://buy.stripe.com/7sY8wP0CM5I0d7y3sGbMQ0a" class="btn-hero" target="_blank" style="font-size:0.95rem;padding:0.75rem 1.8rem;">Beställ Women&#8217;s Health+ — 6 200 kr</a>
+        <p style="margin:10px 0 0;font-size:0.82rem;color:rgba(255,255,255,0.65);">Testkitet skickas hem. Inkluderar 2 månaders tillgång till meet mario.</p>
+      </div>
       <div style="display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem;" class="reveal reveal-d2">
         <span class="hero-condition">PMS / PMDD</span>
         <span class="hero-condition">Perimenopaus</span>
@@ -668,8 +658,7 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
       </div>
       <div class="hero-cta-row reveal reveal-d3">
         <a href="/#booking" class="btn-hero">Boka Konsultation →</a>
-      <a href="tel:+46853021020" style="display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(216,234,245,.2);color:rgba(216,234,245,.6);padding:.9rem 2rem;border-radius:6px;font-size:.9rem;text-decoration:none;">📞 08-530 210 20</a>
-        <a href="tel:+46853021020" class="btn-hero-ghost">📞 08-530 210 20</a>
+        <a href="tel:+46853021020" class="btn-hero-ghost">08-530 210 20</a>
       </div>
       <div style="display:flex;gap:2rem;flex-wrap:wrap;padding-top:2.5rem;border-top:1px solid rgba(216,234,245,.07);margin-top:1.5rem;" class="reveal reveal-d4">
         <div class="hero-stat">
@@ -906,6 +895,33 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
   </div>
 </section>
 
+<!-- ── SAMPLE REPORT SECTION ── -->
+<section style="background:var(--bg-warm);padding:5rem 0;">
+  <div class="container">
+    <p class="section-eyebrow rose">Exempelrapport</p>
+    <h2 class="section-title">Så ser ditt svar ut</h2>
+    <p class="section-lead">Women's Health+-rapporten ger dig en integrerad översikt av dina hormoner, stresssystem och metabola funktion — uppdelad i fem kliniska domäner med konkreta behandlingsrekommendationer.</p>
+    <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;margin-top:32px;">
+      <div style="flex:1;min-width:280px;max-width:480px;">
+        <img src="/downloads/womens-health-sample-p1.jpg"
+             alt="Women's Health+ exempelrapport"
+             style="width:100%;border-radius:8px;box-shadow:0 4px 24px rgba(0,0,0,0.12);border:1px solid var(--border);">
+      </div>
+      <div style="flex:1;min-width:260px;">
+        <h3 style="font-size:1.1rem;color:var(--navy);margin:0 0 16px;">Fem kliniska domäner</h3>
+        <ul style="list-style:none;padding:0;margin:0 0 24px;">
+          <li style="font-size:.83rem;color:var(--text-mid);padding:.5rem 0;border-bottom:1px solid var(--border);">01 Könshormoner — östrogen, progesteron, testosteron, DHEA</li>
+          <li style="font-size:.83rem;color:var(--text-mid);padding:.5rem 0;border-bottom:1px solid var(--border);">02 Kortisolrytm — dygnsvariation av stresshormon</li>
+          <li style="font-size:.83rem;color:var(--text-mid);padding:.5rem 0;border-bottom:1px solid var(--border);">03 Östrogenmetabolism — hur östrogen bryts ned</li>
+          <li style="font-size:.83rem;color:var(--text-mid);padding:.5rem 0;border-bottom:1px solid var(--border);">04 Näring &amp; Metabolism — vitaminer, mineraler, fettsyror</li>
+          <li style="font-size:.83rem;color:var(--text-mid);padding:.5rem 0;">05 Sköldkörtelmarkörer — TSH och relaterade biomarkörer</li>
+        </ul>
+        <a href="https://buy.stripe.com/7sY8wP0CM5I0d7y3sGbMQ0a" target="_blank" class="btn-secondary">Beställ Women&#8217;s Health+ — 6 200 kr →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROTOCOL STEPS -->
 <section class="protocol-section">
   <div class="container">
@@ -1038,10 +1054,11 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
     <div class="section-eyebrow rose reveal">Nästa steg</div>
     <h2 class="reveal reveal-d1">Din hormonhälsa<br>förtjänar ett <em>svar</em></h2>
     <p class="reveal reveal-d2">Boka en 45-minuters klinisk konsultation. Vi går igenom din situation, prioriterar rätt diagnostik och sätter ihop ett protokoll baserat på vad mätdata visar — inte på symptomgissningar.</p>
-    <div class="cta-buttons reveal reveal-d3">
-      <a href="/#booking" class="btn-rose">Boka Konsultation →</a>
-      <a href="tel:+46853021020" class="btn-secondary">📞 08-530 210 20</a>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:32px;" class="reveal reveal-d3">
+      <a href="https://buy.stripe.com/7sY8wP0CM5I0d7y3sGbMQ0a" class="btn-rose" target="_blank">Beställ Women&#8217;s Health+ — 6 200 kr</a>
+      <a href="/#booking" class="btn-primary">Boka Konsultation →</a>
     </div>
+    <p style="text-align:center;color:var(--text-mid);font-size:0.85rem;margin-top:16px;" class="reveal">Testkitet skickas hem till dig. Inkluderar 2 månaders tillgång till meet mario.</p>
   </div>
 </section>
 
@@ -1215,6 +1232,6 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   });
 })();
 </script>
-<style>#__mb_bubble{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#1a2744;border:none;cursor:pointer;z-index:99999;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.22);padding:0;transition:transform .15s,box-shadow .15s}#__mb_bubble:hover{transform:scale(1.08)}#__mb_panel{position:fixed;bottom:96px;right:24px;width:380px;height:560px;border-radius:16px;background:#fff;z-index:99999;box-shadow:0 8px 32px rgba(0,0,0,.18);display:none;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(12px);transition:opacity .2s,transform .2s}#__mb_panel.mbopen{opacity:1;transform:translateY(0)}#__mb_close{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:#1a2744;border:none;color:#fff;font-size:18px;cursor:pointer;z-index:1;display:flex;align-items:center;justify-content:center;opacity:.85;padding:0}#__mb_hdr{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid #e5e7eb;flex-shrink:0}#__mb_hdot{width:10px;height:10px;border-radius:50%;background:#1a6b5a;display:inline-block;flex-shrink:0}#__mb_htitle{font-size:15px;font-weight:600;color:#111827;font-family:system-ui,sans-serif}#__mb_msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}.mb-ru{display:flex;justify-content:flex-end}.mb-rb{display:flex;justify-content:flex-start}.mb-b{max-width:72%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.55;word-break:break-word;white-space:pre-wrap;font-family:system-ui,sans-serif}.mb-bu{background:#1a6b5a;color:#fff;border-bottom-right-radius:4px}.mb-bb{background:#f3f4f6;color:#111827;border-bottom-left-radius:4px}.mb-td{display:flex;align-items:center;gap:5px;padding:12px 16px}.mb-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#9ca3af;animation:mb-bn 1s infinite ease-in-out}.mb-dot:nth-child(2){animation-delay:160ms}.mb-dot:nth-child(3){animation-delay:320ms}@keyframes mb-bn{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}@keyframes mb-bl{0%,100%{opacity:1}50%{opacity:0}}.mb-cur{display:inline-block;width:2px;height:1em;background:#6b7280;margin-left:2px;vertical-align:text-bottom;animation:mb-bl 1s step-end infinite}#__mb_bar{display:flex;align-items:flex-end;gap:8px;padding:12px 16px;border-top:1px solid #e5e7eb;background:#fff;flex-shrink:0}#__mb_inp{flex:1;resize:none;border:1px solid #d1d5db;border-radius:12px;padding:10px 14px;font-size:14px;font-family:system-ui,sans-serif;line-height:1.5;outline:none;background:#f9fafb;color:#111827;max-height:120px;overflow-y:auto}#__mb_inp:focus{border-color:#1a6b5a}#__mb_snd{flex-shrink:0;width:40px;height:40px;border-radius:12px;border:none;background:#1a6b5a;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}#__mb_snd:disabled{opacity:.4;cursor:default}@media(max-width:440px){#__mb_panel{width:calc(100vw - 16px);right:8px}}</style><button id="__mb_bubble" aria-label="Open meet mario chat" aria-expanded="false"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button><div id="__mb_panel"><button id="__mb_close" aria-label="Close chat">&#xD7;</button><div id="__mb_hdr"><span id="__mb_hdot"></span><span id="__mb_htitle"><a href="https://meetmario.ai" target="_blank" style="color:inherit;text-decoration:none;">meet mario</a></span></div><div id="__mb_msgs"></div><div id="__mb_bar"><textarea id="__mb_inp" placeholder="Skriv ett meddelande / Type a message" rows="1"></textarea><button id="__mb_snd" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div></div><script>(function(){if(window.__mbLoaded)return;window.__mbLoaded=true;var API='https://www.meetmario.ai/api/public-chat';var SK='__mbClosed';var GREET='Hej! Jag är Meet Mario. Hur kan jag hjälpa dig idag?\n/ Hello! I am Meet Mario. How can I help you today?';var msgs=[{role:'assistant',content:GREET}];var loading=false;var sid=(typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():Math.random().toString(36).slice(2);var panel=document.getElementById('__mb_panel');var bubble=document.getElementById('__mb_bubble');var closeBtn=document.getElementById('__mb_close');var msgsEl=document.getElementById('__mb_msgs');var inp=document.getElementById('__mb_inp');var snd=document.getElementById('__mb_snd');function render(){msgsEl.innerHTML='';msgs.forEach(function(m){var row=document.createElement('div');row.className=m.role==='user'?'mb-ru':'mb-rb';var bub=document.createElement('div');bub.className='mb-b '+(m.role==='user'?'mb-bu':'mb-bb');if(m.role==='user'){bub.textContent=m.content;}else{var t=m.content.replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" style="color:#1a6b5a;text-decoration:underline;">$1</a>');bub.innerHTML=t;}if(m.streaming){var c=document.createElement('span');c.className='mb-cur';bub.appendChild(c);}row.appendChild(bub);msgsEl.appendChild(row);});if(loading&&!msgs.some(function(m){return m.streaming;})){var tr=document.createElement('div');tr.className='mb-rb';var tb=document.createElement('div');tb.className='mb-b mb-bb mb-td';for(var i=0;i<3;i++){var d=document.createElement('span');d.className='mb-dot';tb.appendChild(d);}tr.appendChild(tb);msgsEl.appendChild(tr);}msgsEl.scrollTop=msgsEl.scrollHeight;}function send(){var t=inp.value.trim();if(!t||loading)return;msgs.push({role:'user',content:t});var sid2=Date.now();msgs.push({id:sid2,role:'assistant',content:'',streaming:true});inp.value='';loading=true;snd.disabled=true;render();var payload=JSON.stringify({messages:msgs.filter(function(m){return!m.streaming;}).map(function(m){return{role:m.role,content:m.content};}),sessionId:sid});fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:payload}).then(function(res){if(!res.ok){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:'Something went wrong. Please try again.'}:m;});loading=false;snd.disabled=false;render();return;}var reader=res.body.getReader();var decoder=new TextDecoder();var raw='';function pump(){return reader.read().then(function(chunk){if(chunk.done){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:raw}:m;});loading=false;snd.disabled=false;render();return;}raw+=decoder.decode(chunk.value,{stream:true});msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:raw,streaming:true,id:sid2}:m;});render();return pump();});}return pump();}).catch(function(){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:'Connection error. Please try again.'}:m;});loading=false;snd.disabled=false;render();});}function show(){panel.style.display='flex';requestAnimationFrame(function(){panel.classList.add('mbopen');});bubble.setAttribute('aria-expanded','true');}function hide(){panel.classList.remove('mbopen');bubble.setAttribute('aria-expanded','false');setTimeout(function(){if(!panel.classList.contains('mbopen'))panel.style.display='none';},200);}bubble.addEventListener('click',function(){panel.classList.contains('mbopen')?hide():show();});closeBtn.addEventListener('click',function(e){e.stopPropagation();sessionStorage.setItem(SK,'1');hide();});document.addEventListener('click',function(e){if(panel.classList.contains('mbopen')&&!panel.contains(e.target)&&e.target!==bubble)hide();});snd.addEventListener('click',send);inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}});if(!sessionStorage.getItem(SK)){setTimeout(show,2000);}render();})();</script>
+<style>#__mb_bubble{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#1a2744;border:none;cursor:pointer;z-index:99999;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.22);padding:0;transition:transform .15s,box-shadow .15s}#__mb_bubble:hover{transform:scale(1.08)}#__mb_panel{position:fixed;bottom:96px;right:24px;width:380px;height:560px;border-radius:16px;background:#fff;z-index:99999;box-shadow:0 8px 32px rgba(0,0,0,.18);display:none;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(12px);transition:opacity .2s,transform .2s}#__mb_panel.mbopen{opacity:1;transform:translateY(0)}#__mb_close{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:#1a2744;border:none;color:#fff;font-size:18px;cursor:pointer;z-index:1;display:flex;align-items:center;justify-content:center;opacity:.85;padding:0}#__mb_hdr{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid #e5e7eb;flex-shrink:0}#__mb_hdot{width:10px;height:10px;border-radius:50%;background:#1a6b5a;display:inline-block;flex-shrink:0}#__mb_htitle{font-size:15px;font-weight:600;color:#111827;font-family:system-ui,sans-serif}#__mb_msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}.mb-ru{display:flex;justify-content:flex-end}.mb-rb{display:flex;justify-content:flex-start}.mb-b{max-width:72%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.55;word-break:break-word;white-space:pre-wrap;font-family:system-ui,sans-serif}.mb-bu{background:#1a6b5a;color:#fff;border-bottom-right-radius:4px}.mb-bb{background:#f3f4f6;color:#111827;border-bottom-left-radius:4px}.mb-td{display:flex;align-items:center;gap:5px;padding:12px 16px}.mb-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#9ca3af;animation:mb-bn 1s infinite ease-in-out}.mb-dot:nth-child(2){animation-delay:160ms}.mb-dot:nth-child(3){animation-delay:320ms}@keyframes mb-bn{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}@keyframes mb-bl{0%,100%{opacity:1}50%{opacity:0}}.mb-cur{display:inline-block;width:2px;height:1em;background:#6b7280;margin-left:2px;vertical-align:text-bottom;animation:mb-bl 1s step-end infinite}#__mb_bar{display:flex;align-items:flex-end;gap:8px;padding:12px 16px;border-top:1px solid #e5e7eb;background:#fff;flex-shrink:0}#__mb_inp{flex:1;resize:none;border:1px solid #d1d5db;border-radius:12px;padding:10px 14px;font-size:14px;font-family:system-ui,sans-serif;line-height:1.5;outline:none;background:#f9fafb;color:#111827;max-height:120px;overflow-y:auto}#__mb_inp:focus{border-color:#1a6b5a}#__mb_snd{flex-shrink:0;width:40px;height:40px;border-radius:12px;border:none;background:#1a6b5a;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}#__mb_snd:disabled{opacity:.4;cursor:default}@media(max-width:440px){#__mb_panel{width:calc(100vw - 16px);right:8px}}</style><button id="__mb_bubble" aria-label="Open meet mario chat" aria-expanded="false"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button><div id="__mb_panel"><button id="__mb_close" aria-label="Close chat">&#xD7;</button><div id="__mb_hdr"><span id="__mb_hdot"></span><span id="__mb_htitle"><a href="https://meetmario.ai" target="_blank" style="color:inherit;text-decoration:none;">meet mario</a></span></div><div id="__mb_msgs"></div><div id="__mb_bar"><textarea id="__mb_inp" placeholder="Skriv ett meddelande / Type a message" rows="1"></textarea><button id="__mb_snd" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div></div><script>(function(){if(window.__mbLoaded)return;window.__mbLoaded=true;var API='https://www.meetmario.ai/api/public-chat';var SK='__mbClosed';var GREET='Hej! Jag är Meet Mario. Hur kan jag hjälpa dig idag?\n/ Hello! I am Meet Mario. How can I help you today?';var msgs=[{role:'assistant',content:GREET}];var loading=false;var sid=(typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():Math.random().toString(36).slice(2);var panel=document.getElementById('__mb_panel');var bubble=document.getElementById('__mb_bubble');var closeBtn=document.getElementById('__mb_close');var msgsEl=document.getElementById('__mb_msgs');var inp=document.getElementById('__mb_inp');var snd=document.getElementById('__mb_snd');function render(){msgsEl.innerHTML='';msgs.forEach(function(m){var row=document.createElement('div');row.className=m.role==='user'?'mb-ru':'mb-rb';var bub=document.createElement('div');bub.className='mb-b '+(m.role==='user'?'mb-bu':'mb-bb');if(m.role==='user'){bub.textContent=m.content;}else{var t=m.content.replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" style="color:#1a6b5a;text-decoration:underline;">$1</a>');bub.innerHTML=t;}if(m.streaming){var c=document.createElement('span');c.className='mb-cur';bub.appendChild(c);}row.appendChild(bub);msgsEl.appendChild(row);});if(loading&&!msgs.some(function(m){return m.streaming;})){var tr=document.createElement('div');tr.className='mb-rb';var tb=document.createElement('div');tb.className='mb-b mb-bb mb-td';for(var i=0;i<3;i++){var d=document.createElement('span');d.className='mb-dot';tb.appendChild(d);}tr.appendChild(tb);msgsEl.appendChild(tr);}msgsEl.scrollTop=msgsEl.scrollHeight;}function send(){var t=inp.value.trim();if(!t||loading)return;msgs.push({role:'user',content:t});var sid2=Date.now();msgs.push({id:sid2,role:'assistant',content:'',streaming:true});inp.value='';loading=true;snd.disabled=true;render();var payload=JSON.stringify({messages:msgs.filter(function(m){return!m.streaming;}).map(function(m){return{role:m.role,content:m.content};}),sessionId:sid,pageUrl:window.location.href,pagePath:window.location.pathname});fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:payload}).then(function(res){if(!res.ok){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:'Something went wrong. Please try again.'}:m;});loading=false;snd.disabled=false;render();return;}var reader=res.body.getReader();var decoder=new TextDecoder();var raw='';function pump(){return reader.read().then(function(chunk){if(chunk.done){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:raw}:m;});loading=false;snd.disabled=false;render();return;}raw+=decoder.decode(chunk.value,{stream:true});msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:raw,streaming:true,id:sid2}:m;});render();return pump();});}return pump();}).catch(function(){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:'Connection error. Please try again.'}:m;});loading=false;snd.disabled=false;render();});}function show(){panel.style.display='flex';requestAnimationFrame(function(){panel.classList.add('mbopen');});bubble.setAttribute('aria-expanded','true');}function hide(){panel.classList.remove('mbopen');bubble.setAttribute('aria-expanded','false');setTimeout(function(){if(!panel.classList.contains('mbopen'))panel.style.display='none';},200);}bubble.addEventListener('click',function(){panel.classList.contains('mbopen')?hide():show();});closeBtn.addEventListener('click',function(e){e.stopPropagation();sessionStorage.setItem(SK,'1');hide();});document.addEventListener('click',function(e){if(panel.classList.contains('mbopen')&&!panel.contains(e.target)&&e.target!==bubble)hide();});snd.addEventListener('click',send);inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}});if(!sessionStorage.getItem(SK)){setTimeout(show,2000);}render();})();</script>
 </body>
 </html>
