@@ -59,9 +59,6 @@ header{position:sticky;top:0;z-index:100;background:rgba(250,252,254,.95);backdr
 header.scrolled{box-shadow:0 2px 20px rgba(11,29,51,.08);}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
 .logo{font-family:var(--font-body);font-size:1.1rem;font-weight:600;color:var(--navy);text-decoration:none;letter-spacing:.02em;}.logo span{color:var(--blue);}
-nav{display:flex;gap:1.8rem;align-items:center;}
-nav a{font-size:.82rem;font-weight:500;color:var(--text-mid);text-decoration:none;letter-spacing:.02em;transition:color .2s;}
-nav a:hover,nav a.active{color:var(--navy);}
 nav { display: flex; gap: 1.8rem; align-items: center; margin-left: 2.5rem; }
 nav a {
   font-size: 0.82rem;
@@ -576,7 +573,6 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
   <a href="/metabolomik/" onclick="closeMobile()" class="sub">Metabolomik</a>
   <a href="/sibo-test/" onclick="closeMobile()" class="sub">SIBO-test</a>
   <a href="/genova-hormontest/" onclick="closeMobile()" class="sub">Hormonpaneler</a>
-  <a href="/#behandling" onclick="closeMobile()">Behandling</a>
   <a href="/iv-terapi/" onclick="closeMobile()" class="sub">IV-Behandling</a>
   <a href="/#families" onclick="closeMobile()">Familjer</a>
   <a href="/forskning.html" onclick="closeMobile()">Forskning</a>
@@ -914,6 +910,33 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
   </div>
 </section>
 
+<!-- ── SAMPLE REPORT SECTION ── -->
+<section class="section" style="background:var(--bg-warm);padding:5rem 0;">
+  <div class="container">
+    <p class="section-eyebrow">Exempelrapport</p>
+    <h2 class="section-title">Så ser ditt svar ut</h2>
+    <p class="section-lead">GI Effects-rapporten ger dig en visuell översikt av din tarmhälsa uppdelad i fem kliniska domäner — varje domän med ett poängsystem och konkreta behandlingsrekommendationer.</p>
+    <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;margin-top:32px;">
+      <div style="flex:1;min-width:280px;max-width:480px;">
+        <img src="/downloads/gi-effects-sample-p1.jpg"
+             alt="GI Effects exempelrapport — funktionella obalanspoäng"
+             style="width:100%;border-radius:8px;box-shadow:0 4px 24px rgba(0,0,0,0.12);border:1px solid var(--border);">
+      </div>
+      <div style="flex:1;min-width:260px;">
+        <h3 style="font-size:1.1rem;color:var(--navy);margin:0 0 16px;">Fem kliniska domäner</h3>
+        <ul style="list-style:none;padding:0;margin:0 0 24px;">
+          <li style="font-size:.83rem;color:var(--text-mid);padding:.5rem 0;border-bottom:1px solid var(--border);">01 Maldigestion — Matsmältningsenzymer, pankreasfunktion, fettabsorption</li>
+          <li style="font-size:.83rem;color:var(--text-mid);padding:.5rem 0;border-bottom:1px solid var(--border);">02 Inflammation — Calprotectin, sekretoriskt IgA, EPX</li>
+          <li style="font-size:.83rem;color:var(--text-mid);padding:.5rem 0;border-bottom:1px solid var(--border);">03 Dysbios — PCR-baserad mikrobiomanalys mot frisk referenspopulation</li>
+          <li style="font-size:.83rem;color:var(--text-mid);padding:.5rem 0;border-bottom:1px solid var(--border);">04 Metabol obalans — Kortkedjade fettsyror, butyrat, beta-glukuronidase</li>
+          <li style="font-size:.83rem;color:var(--text-mid);padding:.5rem 0;">05 Infektion — Patogena bakterier, parasiter, svamp med känslighetstest</li>
+        </ul>
+        <a href="/downloads/gi-effects-sample-report.pdf" target="_blank" class="btn-secondary">Se fullständigt exempelsvar (PDF) →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── PROTOCOL SECTION ── -->
 <section class="protocol-section">
   <div class="container">
@@ -1025,12 +1048,12 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
     <div class="section-eyebrow">Relaterade tester</div>
     <h2 class="section-title">Kombineras ofta <em>med GI Effects</em></h2>
     <div class="also-grid">
-      <a href="/alcat-test/" class="also-card">
+      <a href="/alcat/" class="also-card">
         <div class="also-card-label">Immunreaktivitet · Cell Science Systems</div>
         <h4>ALCAT — Livsmedelsintolerans</h4>
         <p>GI Effects visar konsekvenserna av matdriven inflammation. ALCAT identifierar de specifika livsmedel som orsakar den. Kombinationen ger orsak och konsekvens.</p>
       </a>
-      <a href="/cellulara-naringsanalyser/" class="also-card">
+      <a href="/cma/" class="also-card">
         <div class="also-card-label">Intracellulär · Cell Science Systems</div>
         <h4>CMA — Cellulär Mikronäringsanalys</h4>
         <p>Tarminflammation driver malabsorption. CMA visar vilka intracellulära närstoffer som har utarmats och som behövs för slemhinnereparation.</p>
@@ -1050,10 +1073,11 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
     <div class="section-eyebrow">Nästa steg</div>
     <h2>Utreda din tarmhälsa<br><em>med precision.</em></h2>
     <p>GI Effects tolkas av Dr Mario Anthis i kontext med dina ALCAT- och CMA-fynd. Boka en konsultation för att avgöra vilken kombination av tester som är indicerad för din specifika presentation.</p>
-    <div class="cta-buttons">
-      <a href="/#booking" class="btn-primary">Boka Konsultation</a>
-      <a href="/genova-diagnostics/" class="btn-secondary">Alla Genova-tester →</a>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:32px;">
+      <a href="https://buy.stripe.com/9B6cN55X6gmE0kM3sGbMQ00" class="btn-primary" target="_blank">Beställ GI Effects&#174; Comprehensive — 8 500 kr</a>
+      <a href="/#booking" class="btn-secondary">Boka Konsultation</a>
     </div>
+    <p style="text-align:center;color:var(--text-mid);font-size:0.85rem;margin-top:16px;">Testkitet skickas hem till dig. Inkluderar 2 månaders tillgång till meet mario.</p>
   </div>
 </section>
 
