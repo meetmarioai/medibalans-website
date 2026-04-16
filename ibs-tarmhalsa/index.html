@@ -660,7 +660,6 @@ document.addEventListener('keydown', e => {
   var DELAY_MS   = 12000;
 
   // --- Guards ---
-  var SK = '__mbClosed';
   var VK = '__mbVisited';
   var BK = '__mbBubbleDismissed';
 
@@ -672,7 +671,7 @@ document.addEventListener('keydown', e => {
     sessionStorage.setItem(VK, JSON.stringify(visited));
   }
 
-  // Determine bubble message
+  // Determine bubble message (multi-page: visitor has seen 2+ pages)
   var isMultiPage = visited.length >= 2;
   var bubbleText = isMultiPage && visited.length === 2
     ? 'Du verkar jämföra tester — vilket hälsoproblem försöker du lösa?'
@@ -682,11 +681,24 @@ document.addEventListener('keydown', e => {
     : FOLLOWUP_Q;
   var delayMs = isMultiPage && visited.length === 2 ? 8000 : DELAY_MS;
 
+  // FIX 1: Only suppress if bubble was already shown on THIS page this session.
+  // Closing the bubble does NOT prevent it on other pages.
   function shouldShow() {
     if (sessionStorage.getItem(BK + currentPath)) return false;
-    var dismissed = parseInt(localStorage.getItem(SK + '_time') || '0');
-    if (Date.now() - dismissed < 10 * 60 * 1000) return false;
     return true;
+  }
+
+  // FIX 3: Inject Mario's follow-up as his own message (not user input)
+  function injectMarioMessage(text) {
+    var msgs = document.getElementById('__mb_msgs');
+    if (!msgs) return;
+    var div = document.createElement('div');
+    div.style.cssText = 'margin:8px 0;padding:10px 14px;' +
+      'background:#f0f4f8;border-radius:12px 12px 12px 4px;' +
+      'font-size:13px;color:#1a2744;max-width:85%;line-height:1.5;';
+    div.textContent = text;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
   }
 
   function showBubble() {
@@ -708,24 +720,25 @@ document.addEventListener('keydown', e => {
       removeBubble(bubble);
     }, 8000);
 
+    // Close button: dismiss this page only, no cross-page suppression
     document.getElementById('mb-bubble-x').addEventListener('click', function(e) {
       e.stopPropagation();
       clearTimeout(autoClose);
       removeBubble(bubble);
-      localStorage.setItem(SK + '_time', Date.now().toString());
     });
 
+    // FIX 3: Tap bubble → Mario sends follow-up as his own opening message
     bubble.addEventListener('click', function() {
       clearTimeout(autoClose);
       removeBubble(bubble);
+      sessionStorage.setItem('__mbProactiveOpen', followupText);
       var openBtn = document.getElementById('__mb_bubble');
       if (openBtn) openBtn.click();
       setTimeout(function() {
-        var inp = document.getElementById('__mb_inp');
-        if (inp) {
-          inp.value = followupText;
-          var sendBtn = document.getElementById('__mb_snd');
-          if (sendBtn) sendBtn.click();
+        var proactiveMsg = sessionStorage.getItem('__mbProactiveOpen');
+        if (proactiveMsg) {
+          sessionStorage.removeItem('__mbProactiveOpen');
+          injectMarioMessage(proactiveMsg);
         }
       }, 800);
     });
