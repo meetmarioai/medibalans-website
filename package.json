@@ -1,0 +1,12 @@
+{
+  "name": "medibalans-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MediBalans static site + Vercel serverless functions",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "stripe": "^17.0.0"
+  }
+}

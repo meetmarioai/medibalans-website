@@ -92,6 +92,184 @@
 
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','836514963742786');fbq('track','PageView');</script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=836514963742786&ev=PageView&noscript=1" alt=""></noscript>
+
+<!--
+  MediBalans Pixel events — combined Step 1.5 + 1.6 client-side
+  Pixel: 836514963742786
+  Place this in the GLOBAL FOOTER of medibalans.com, AFTER the Meta Pixel base code.
+  Replaces the original Step 1.5 snippet (do not paste both).
+
+  Fires:
+    ViewContent     — on Genova test page load (auto)
+    InitiateCheckout — on click of any buy.stripe.com link (auto)
+    Lead            — when window.mbFireLead() is called by the chat widget
+                      (one-line hook; see widget-integration.md)
+
+  Stamps client_reference_id on Stripe URLs so server-side Purchase
+  (api/stripe-webhook.js) deduplicates against browser InitiateCheckout via event_id.
+-->
+<script>
+(function () {
+  'use strict';
+
+  // --- Genova product mapping ---
+  // Stripe payment-link short codes (from buy.stripe.com/<code> URLs) → product info
+  var PRODUCTS = {
+    '9B6cN55X6gmE0kM3sGbMQ00': { name: 'GI Effects',            id: 'gi-effects',          price: 8500 },
+    'aFa4gz1GQ4DW8RibZcbMQ02': { name: 'NutrEval FMV',          id: 'nutreval',            price: 12200 },
+    'aFa00jetC3zSc3u3sGbMQ0c': { name: 'Metabolomix+',          id: 'metabolomix',         price: 8100 },
+    'fZu4gzetCb2kgjK1kybMQ04': { name: 'SIBO Andningstest',     id: 'sibo',                price: 3700 },
+    '7sY8wP0CM5I0d7y3sGbMQ0a': { name: "Women's Health+",       id: 'womens-health',       price: 6200 },
+    '00w7sLdpyeew8Rid3gbMQ0d': { name: 'Alzheimers-utredning',  id: 'alzheimers',          price: 6500 },
+    '5kQdR94T2gmEffGgfsbMQ05': { name: 'Essential Estrogens',   id: 'essential-estrogens', price: null },
+    'dRm9AT85eb2k0kM9R4bMQ07': { name: 'Menopause Plus',        id: 'menopause-plus',      price: null },
+    '00w6oHfxG2vOc3u5AObMQ06': { name: 'Adrenal Stress Profile', id: 'adrenal-stress',     price: 2100 },
+    '14A4gz5X6b2k6Ja9R4bMQ0b': { name: 'Organix',                id: 'organix',            price: 5600 },
+    'aFa6oH5X68Ucd7y5AObMQ0e': { name: 'Fettsyreanalys',         id: 'fatty-acids',        price: 3900 }
+  };
+
+  // URL path → product mapping (for ViewContent and Lead context)
+  // Swedish pages (canonical) and their English mirrors under /en/.
+  var PAGES = {
+    // --- Swedish pages ---
+    '/gi-effects-test/':    PRODUCTS['9B6cN55X6gmE0kM3sGbMQ00'],
+    '/nutreval-sverige/':   PRODUCTS['aFa4gz1GQ4DW8RibZcbMQ02'],
+    '/metabolomik/':        PRODUCTS['aFa00jetC3zSc3u3sGbMQ0c'],
+    '/sibo-test/':          PRODUCTS['fZu4gzetCb2kgjK1kybMQ04'],
+    '/kvinnohalsa/':        PRODUCTS['7sY8wP0CM5I0d7y3sGbMQ0a'],
+    '/genova-hormontest/':  PRODUCTS['7sY8wP0CM5I0d7y3sGbMQ0a'],
+    '/alzheimers-test/':    PRODUCTS['00w7sLdpyeew8Rid3gbMQ0d'],
+    '/essential-ostrogen/': PRODUCTS['5kQdR94T2gmEffGgfsbMQ05'],
+    '/menopaus-plus/':      PRODUCTS['dRm9AT85eb2k0kM9R4bMQ07'],
+    '/adrenal-stress/':     PRODUCTS['00w6oHfxG2vOc3u5AObMQ06'],
+    '/organix/':            PRODUCTS['14A4gz5X6b2k6Ja9R4bMQ0b'],
+    '/fettsyror/':          PRODUCTS['aFa6oH5X68Ucd7y5AObMQ0e'],
+
+    // --- English mirrors under /en/ ---
+    // Note: /en/gi-effects-test/ and /en/genova-hormones/ have no Stripe buy link
+    // in production today, but ViewContent still fires as a content-engagement signal.
+    '/en/gi-effects-test/':       PRODUCTS['9B6cN55X6gmE0kM3sGbMQ00'],
+    '/en/nutreval-test/':         PRODUCTS['aFa4gz1GQ4DW8RibZcbMQ02'],
+    '/en/metabolomics/':          PRODUCTS['aFa00jetC3zSc3u3sGbMQ0c'],
+    '/en/sibo-test/':             PRODUCTS['fZu4gzetCb2kgjK1kybMQ04'],
+    '/en/womens-health/':         PRODUCTS['7sY8wP0CM5I0d7y3sGbMQ0a'],
+    '/en/genova-hormones/':       PRODUCTS['7sY8wP0CM5I0d7y3sGbMQ0a'],
+    '/en/alzheimers-assessment/': PRODUCTS['00w7sLdpyeew8Rid3gbMQ0d'],
+    '/en/essential-estrogens/':   PRODUCTS['5kQdR94T2gmEffGgfsbMQ05'],
+    '/en/menopause-plus/':        PRODUCTS['dRm9AT85eb2k0kM9R4bMQ07'],
+    '/en/adrenal-stress/':        PRODUCTS['00w6oHfxG2vOc3u5AObMQ06'],
+    '/en/organix/':               PRODUCTS['14A4gz5X6b2k6Ja9R4bMQ0b'],
+    '/en/fatty-acids/':           PRODUCTS['aFa6oH5X68Ucd7y5AObMQ0e']
+  };
+
+  // Generate a unique event ID — used for Pixel ↔ CAPI deduplication
+  function eventId(prefix) {
+    return (prefix || 'mb') + '_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+  }
+
+  // Get product info for current page (or null if not a tracked test page)
+  function currentPageProduct() {
+    var path = window.location.pathname.replace(/\/+$/, '/') || '/';
+    return PAGES[path] || null;
+  }
+
+  // ── ViewContent (page load on Genova test pages) ───────────────────────────
+  function fireViewContent() {
+    if (typeof fbq !== 'function') return;
+    var product = currentPageProduct();
+    if (!product) return;
+
+    var id = eventId('mb_vc');
+    var params = {
+      content_name: product.name,
+      content_ids: [product.id],
+      content_category: 'Genova test',
+      content_type: 'product'
+    };
+    if (product.price) {
+      params.value = product.price;
+      params.currency = 'SEK';
+    }
+
+    fbq('track', 'ViewContent', params, { eventID: id });
+  }
+
+  // ── InitiateCheckout (click on buy.stripe.com link) ────────────────────────
+  function bindCheckoutTracking() {
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest && e.target.closest('a[href*="buy.stripe.com"]');
+      if (!link || typeof fbq !== 'function') return;
+
+      var match = link.href.match(/buy\.stripe\.com\/([^?#]+)/);
+      var stripePath = match ? match[1] : '';
+      var key = Object.keys(PRODUCTS).find(function (k) {
+        return stripePath.indexOf(k) !== -1;
+      });
+      var product = key ? PRODUCTS[key] : null;
+
+      var id = eventId('mb_ic');
+      var params = { content_type: 'product', num_items: 1 };
+      if (product) {
+        params.content_name = product.name;
+        params.content_ids = [product.id];
+        params.content_category = 'Genova test';
+        if (product.price) {
+          params.value = product.price;
+          params.currency = 'SEK';
+        }
+      }
+
+      fbq('track', 'InitiateCheckout', params, { eventID: id });
+
+      // Stamp Stripe URL with client_reference_id for server-side Purchase dedup.
+      // The webhook reads session.client_reference_id and uses it as the CAPI event_id,
+      // letting Meta dedupe browser InitiateCheckout against server Purchase.
+      try {
+        if (link.href.indexOf('client_reference_id=') === -1) {
+          var sep = link.href.indexOf('?') === -1 ? '?' : '&';
+          link.href = link.href + sep + 'client_reference_id=' + encodeURIComponent(id);
+        }
+      } catch (err) { /* non-critical */ }
+    }, true);
+  }
+
+  // ── Lead (chat widget engagement) ──────────────────────────────────────────
+  // The widget calls window.mbFireLead() on first user message.
+  // See widget-integration.md for the one-line hook in medibalansSystemPrompt.js.
+  // No value/currency on Lead — count-based optimization only (Lead → Purchase
+  // conversion rate is 1-5%, so 8500 SEK on a Lead would mislead value bidding).
+  var leadFiredThisLoad = false;
+  window.mbFireLead = function () {
+    if (leadFiredThisLoad) return;
+    if (typeof fbq !== 'function') return;
+    leadFiredThisLoad = true;
+
+    var product = currentPageProduct();
+    var id = eventId('mb_ld');
+    var params = { content_category: 'chat-engagement' };
+    if (product) {
+      params.content_name = product.name;
+      params.content_ids = [product.id];
+      params.content_type = 'product';
+    }
+
+    fbq('track', 'Lead', params, { eventID: id });
+  };
+
+  // ── Init ───────────────────────────────────────────────────────────────────
+  function init() {
+    fireViewContent();
+    bindCheckoutTracking();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X8ZN38EGYY"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-X8ZN38EGYY');</script>
 

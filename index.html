@@ -1298,6 +1298,184 @@ fbq('init','836514963742786');
 fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=836514963742786&ev=PageView&noscript=1" alt="Facebook pixel"></noscript>
+
+<!--
+  MediBalans Pixel events — combined Step 1.5 + 1.6 client-side
+  Pixel: 836514963742786
+  Place this in the GLOBAL FOOTER of medibalans.com, AFTER the Meta Pixel base code.
+  Replaces the original Step 1.5 snippet (do not paste both).
+
+  Fires:
+    ViewContent     — on Genova test page load (auto)
+    InitiateCheckout — on click of any buy.stripe.com link (auto)
+    Lead            — when window.mbFireLead() is called by the chat widget
+                      (one-line hook; see widget-integration.md)
+
+  Stamps client_reference_id on Stripe URLs so server-side Purchase
+  (api/stripe-webhook.js) deduplicates against browser InitiateCheckout via event_id.
+-->
+<script>
+(function () {
+  'use strict';
+
+  // --- Genova product mapping ---
+  // Stripe payment-link short codes (from buy.stripe.com/<code> URLs) → product info
+  var PRODUCTS = {
+    '9B6cN55X6gmE0kM3sGbMQ00': { name: 'GI Effects',            id: 'gi-effects',          price: 8500 },
+    'aFa4gz1GQ4DW8RibZcbMQ02': { name: 'NutrEval FMV',          id: 'nutreval',            price: 12200 },
+    'aFa00jetC3zSc3u3sGbMQ0c': { name: 'Metabolomix+',          id: 'metabolomix',         price: 8100 },
+    'fZu4gzetCb2kgjK1kybMQ04': { name: 'SIBO Andningstest',     id: 'sibo',                price: 3700 },
+    '7sY8wP0CM5I0d7y3sGbMQ0a': { name: "Women's Health+",       id: 'womens-health',       price: 6200 },
+    '00w7sLdpyeew8Rid3gbMQ0d': { name: 'Alzheimers-utredning',  id: 'alzheimers',          price: 6500 },
+    '5kQdR94T2gmEffGgfsbMQ05': { name: 'Essential Estrogens',   id: 'essential-estrogens', price: null },
+    'dRm9AT85eb2k0kM9R4bMQ07': { name: 'Menopause Plus',        id: 'menopause-plus',      price: null },
+    '00w6oHfxG2vOc3u5AObMQ06': { name: 'Adrenal Stress Profile', id: 'adrenal-stress',     price: 2100 },
+    '14A4gz5X6b2k6Ja9R4bMQ0b': { name: 'Organix',                id: 'organix',            price: 5600 },
+    'aFa6oH5X68Ucd7y5AObMQ0e': { name: 'Fettsyreanalys',         id: 'fatty-acids',        price: 3900 }
+  };
+
+  // URL path → product mapping (for ViewContent and Lead context)
+  // Swedish pages (canonical) and their English mirrors under /en/.
+  var PAGES = {
+    // --- Swedish pages ---
+    '/gi-effects-test/':    PRODUCTS['9B6cN55X6gmE0kM3sGbMQ00'],
+    '/nutreval-sverige/':   PRODUCTS['aFa4gz1GQ4DW8RibZcbMQ02'],
+    '/metabolomik/':        PRODUCTS['aFa00jetC3zSc3u3sGbMQ0c'],
+    '/sibo-test/':          PRODUCTS['fZu4gzetCb2kgjK1kybMQ04'],
+    '/kvinnohalsa/':        PRODUCTS['7sY8wP0CM5I0d7y3sGbMQ0a'],
+    '/genova-hormontest/':  PRODUCTS['7sY8wP0CM5I0d7y3sGbMQ0a'],
+    '/alzheimers-test/':    PRODUCTS['00w7sLdpyeew8Rid3gbMQ0d'],
+    '/essential-ostrogen/': PRODUCTS['5kQdR94T2gmEffGgfsbMQ05'],
+    '/menopaus-plus/':      PRODUCTS['dRm9AT85eb2k0kM9R4bMQ07'],
+    '/adrenal-stress/':     PRODUCTS['00w6oHfxG2vOc3u5AObMQ06'],
+    '/organix/':            PRODUCTS['14A4gz5X6b2k6Ja9R4bMQ0b'],
+    '/fettsyror/':          PRODUCTS['aFa6oH5X68Ucd7y5AObMQ0e'],
+
+    // --- English mirrors under /en/ ---
+    // Note: /en/gi-effects-test/ and /en/genova-hormones/ have no Stripe buy link
+    // in production today, but ViewContent still fires as a content-engagement signal.
+    '/en/gi-effects-test/':       PRODUCTS['9B6cN55X6gmE0kM3sGbMQ00'],
+    '/en/nutreval-test/':         PRODUCTS['aFa4gz1GQ4DW8RibZcbMQ02'],
+    '/en/metabolomics/':          PRODUCTS['aFa00jetC3zSc3u3sGbMQ0c'],
+    '/en/sibo-test/':             PRODUCTS['fZu4gzetCb2kgjK1kybMQ04'],
+    '/en/womens-health/':         PRODUCTS['7sY8wP0CM5I0d7y3sGbMQ0a'],
+    '/en/genova-hormones/':       PRODUCTS['7sY8wP0CM5I0d7y3sGbMQ0a'],
+    '/en/alzheimers-assessment/': PRODUCTS['00w7sLdpyeew8Rid3gbMQ0d'],
+    '/en/essential-estrogens/':   PRODUCTS['5kQdR94T2gmEffGgfsbMQ05'],
+    '/en/menopause-plus/':        PRODUCTS['dRm9AT85eb2k0kM9R4bMQ07'],
+    '/en/adrenal-stress/':        PRODUCTS['00w6oHfxG2vOc3u5AObMQ06'],
+    '/en/organix/':               PRODUCTS['14A4gz5X6b2k6Ja9R4bMQ0b'],
+    '/en/fatty-acids/':           PRODUCTS['aFa6oH5X68Ucd7y5AObMQ0e']
+  };
+
+  // Generate a unique event ID — used for Pixel ↔ CAPI deduplication
+  function eventId(prefix) {
+    return (prefix || 'mb') + '_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+  }
+
+  // Get product info for current page (or null if not a tracked test page)
+  function currentPageProduct() {
+    var path = window.location.pathname.replace(/\/+$/, '/') || '/';
+    return PAGES[path] || null;
+  }
+
+  // ── ViewContent (page load on Genova test pages) ───────────────────────────
+  function fireViewContent() {
+    if (typeof fbq !== 'function') return;
+    var product = currentPageProduct();
+    if (!product) return;
+
+    var id = eventId('mb_vc');
+    var params = {
+      content_name: product.name,
+      content_ids: [product.id],
+      content_category: 'Genova test',
+      content_type: 'product'
+    };
+    if (product.price) {
+      params.value = product.price;
+      params.currency = 'SEK';
+    }
+
+    fbq('track', 'ViewContent', params, { eventID: id });
+  }
+
+  // ── InitiateCheckout (click on buy.stripe.com link) ────────────────────────
+  function bindCheckoutTracking() {
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest && e.target.closest('a[href*="buy.stripe.com"]');
+      if (!link || typeof fbq !== 'function') return;
+
+      var match = link.href.match(/buy\.stripe\.com\/([^?#]+)/);
+      var stripePath = match ? match[1] : '';
+      var key = Object.keys(PRODUCTS).find(function (k) {
+        return stripePath.indexOf(k) !== -1;
+      });
+      var product = key ? PRODUCTS[key] : null;
+
+      var id = eventId('mb_ic');
+      var params = { content_type: 'product', num_items: 1 };
+      if (product) {
+        params.content_name = product.name;
+        params.content_ids = [product.id];
+        params.content_category = 'Genova test';
+        if (product.price) {
+          params.value = product.price;
+          params.currency = 'SEK';
+        }
+      }
+
+      fbq('track', 'InitiateCheckout', params, { eventID: id });
+
+      // Stamp Stripe URL with client_reference_id for server-side Purchase dedup.
+      // The webhook reads session.client_reference_id and uses it as the CAPI event_id,
+      // letting Meta dedupe browser InitiateCheckout against server Purchase.
+      try {
+        if (link.href.indexOf('client_reference_id=') === -1) {
+          var sep = link.href.indexOf('?') === -1 ? '?' : '&';
+          link.href = link.href + sep + 'client_reference_id=' + encodeURIComponent(id);
+        }
+      } catch (err) { /* non-critical */ }
+    }, true);
+  }
+
+  // ── Lead (chat widget engagement) ──────────────────────────────────────────
+  // The widget calls window.mbFireLead() on first user message.
+  // See widget-integration.md for the one-line hook in medibalansSystemPrompt.js.
+  // No value/currency on Lead — count-based optimization only (Lead → Purchase
+  // conversion rate is 1-5%, so 8500 SEK on a Lead would mislead value bidding).
+  var leadFiredThisLoad = false;
+  window.mbFireLead = function () {
+    if (leadFiredThisLoad) return;
+    if (typeof fbq !== 'function') return;
+    leadFiredThisLoad = true;
+
+    var product = currentPageProduct();
+    var id = eventId('mb_ld');
+    var params = { content_category: 'chat-engagement' };
+    if (product) {
+      params.content_name = product.name;
+      params.content_ids = [product.id];
+      params.content_type = 'product';
+    }
+
+    fbq('track', 'Lead', params, { eventID: id });
+  };
+
+  // ── Init ───────────────────────────────────────────────────────────────────
+  function init() {
+    fireViewContent();
+    bindCheckoutTracking();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
 <!-- End Facebook Pixel -->
 <!-- Google Analytics GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X8ZN38EGYY"></script>
@@ -2487,7 +2665,7 @@ function toggleFaq(btn) {
   document.querySelectorAll('.faq-item.active').forEach(i => i.classList.remove('active'));
   if (!isActive) item.classList.add('active');
 }
-</script><style>#__mb_bubble{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#1a2744;border:none;cursor:pointer;z-index:99999;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.22);padding:0;transition:transform .15s,box-shadow .15s}#__mb_bubble:hover{transform:scale(1.08)}#__mb_panel{position:fixed;bottom:96px;right:24px;width:380px;height:560px;border-radius:16px;background:#fff;z-index:99999;box-shadow:0 8px 32px rgba(0,0,0,.18);display:none;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(12px);transition:opacity .2s,transform .2s}#__mb_panel.mbopen{opacity:1;transform:translateY(0)}#__mb_close{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:#1a2744;border:none;color:#fff;font-size:18px;cursor:pointer;z-index:1;display:flex;align-items:center;justify-content:center;opacity:.85;padding:0}#__mb_hdr{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid #e5e7eb;flex-shrink:0}#__mb_hdot{width:10px;height:10px;border-radius:50%;background:#1a6b5a;display:inline-block;flex-shrink:0}#__mb_htitle{font-size:15px;font-weight:600;color:#111827;font-family:system-ui,sans-serif}#__mb_msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}.mb-ru{display:flex;justify-content:flex-end}.mb-rb{display:flex;justify-content:flex-start}.mb-b{max-width:72%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.55;word-break:break-word;white-space:pre-wrap;font-family:system-ui,sans-serif}.mb-bu{background:#1a6b5a;color:#fff;border-bottom-right-radius:4px}.mb-bb{background:#f3f4f6;color:#111827;border-bottom-left-radius:4px}.mb-td{display:flex;align-items:center;gap:5px;padding:12px 16px}.mb-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#9ca3af;animation:mb-bn 1s infinite ease-in-out}.mb-dot:nth-child(2){animation-delay:160ms}.mb-dot:nth-child(3){animation-delay:320ms}@keyframes mb-bn{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}@keyframes mb-bl{0%,100%{opacity:1}50%{opacity:0}}.mb-cur{display:inline-block;width:2px;height:1em;background:#6b7280;margin-left:2px;vertical-align:text-bottom;animation:mb-bl 1s step-end infinite}#__mb_bar{display:flex;align-items:flex-end;gap:8px;padding:12px 16px;border-top:1px solid #e5e7eb;background:#fff;flex-shrink:0}#__mb_inp{flex:1;resize:none;border:1px solid #d1d5db;border-radius:12px;padding:10px 14px;font-size:14px;font-family:system-ui,sans-serif;line-height:1.5;outline:none;background:#f9fafb;color:#111827;max-height:120px;overflow-y:auto}#__mb_inp:focus{border-color:#1a6b5a}#__mb_snd{flex-shrink:0;width:40px;height:40px;border-radius:12px;border:none;background:#1a6b5a;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}#__mb_snd:disabled{opacity:.4;cursor:default}@media(max-width:440px){#__mb_panel{width:calc(100vw - 16px);right:8px}}</style><button id="__mb_bubble" aria-label="Open meet mario chat" aria-expanded="false"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button><div id="__mb_panel"><button id="__mb_close" aria-label="Close chat">&#xD7;</button><div id="__mb_hdr"><span id="__mb_hdot"></span><span id="__mb_htitle"><a href="https://meetmario.ai" target="_blank" style="color:inherit;text-decoration:none;">meet mario</a></span></div><div id="__mb_msgs"></div><div id="__mb_bar"><textarea id="__mb_inp" placeholder="Skriv ett meddelande / Type a message" rows="1"></textarea><button id="__mb_snd" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div></div><script>(function(){if(window.__mbLoaded)return;window.__mbLoaded=true;var API='https://www.meetmario.ai/api/public-chat';var SK='__mbClosed';var GREET='Hej! Jag är Meet Mario. Hur kan jag hjälpa dig idag?\n/ Hello! I am Meet Mario. How can I help you today?';var msgs=[{role:'assistant',content:GREET}];var loading=false;var sid=(typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():Math.random().toString(36).slice(2);var panel=document.getElementById('__mb_panel');var bubble=document.getElementById('__mb_bubble');var closeBtn=document.getElementById('__mb_close');var msgsEl=document.getElementById('__mb_msgs');var inp=document.getElementById('__mb_inp');var snd=document.getElementById('__mb_snd');function render(){msgsEl.innerHTML='';msgs.forEach(function(m){var row=document.createElement('div');row.className=m.role==='user'?'mb-ru':'mb-rb';var bub=document.createElement('div');bub.className='mb-b '+(m.role==='user'?'mb-bu':'mb-bb');if(m.role==='user'){bub.textContent=m.content;}else{var t=m.content.replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" style="color:#1a6b5a;text-decoration:underline;">$1</a>');bub.innerHTML=t;}if(m.streaming){var c=document.createElement('span');c.className='mb-cur';bub.appendChild(c);}row.appendChild(bub);msgsEl.appendChild(row);});if(loading&&!msgs.some(function(m){return m.streaming;})){var tr=document.createElement('div');tr.className='mb-rb';var tb=document.createElement('div');tb.className='mb-b mb-bb mb-td';for(var i=0;i<3;i++){var d=document.createElement('span');d.className='mb-dot';tb.appendChild(d);}tr.appendChild(tb);msgsEl.appendChild(tr);}msgsEl.scrollTop=msgsEl.scrollHeight;}function send(){var t=inp.value.trim();if(!t||loading)return;msgs.push({role:'user',content:t});var sid2=Date.now();msgs.push({id:sid2,role:'assistant',content:'',streaming:true});inp.value='';loading=true;snd.disabled=true;render();var payload=JSON.stringify({messages:msgs.filter(function(m){return!m.streaming;}).map(function(m){return{role:m.role,content:m.content};}),sessionId:sid});fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:payload}).then(function(res){if(!res.ok){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:'Something went wrong. Please try again.'}:m;});loading=false;snd.disabled=false;render();return;}var reader=res.body.getReader();var decoder=new TextDecoder();var raw='';function pump(){return reader.read().then(function(chunk){if(chunk.done){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:raw}:m;});loading=false;snd.disabled=false;render();return;}raw+=decoder.decode(chunk.value,{stream:true});msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:raw,streaming:true,id:sid2}:m;});render();return pump();});}return pump();}).catch(function(){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:'Connection error. Please try again.'}:m;});loading=false;snd.disabled=false;render();});}function show(){panel.style.display='flex';requestAnimationFrame(function(){panel.classList.add('mbopen');});bubble.setAttribute('aria-expanded','true');}function hide(){panel.classList.remove('mbopen');bubble.setAttribute('aria-expanded','false');setTimeout(function(){if(!panel.classList.contains('mbopen'))panel.style.display='none';},200);}bubble.addEventListener('click',function(){panel.classList.contains('mbopen')?hide():show();});closeBtn.addEventListener('click',function(e){e.stopPropagation();sessionStorage.setItem(SK,'1');hide();});document.addEventListener('click',function(e){if(panel.classList.contains('mbopen')&&!panel.contains(e.target)&&e.target!==bubble)hide();});snd.addEventListener('click',send);inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}});if(!sessionStorage.getItem(SK)){setTimeout(show,2000);}render();})();</script>
+</script><style>#__mb_bubble{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#1a2744;border:none;cursor:pointer;z-index:99999;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.22);padding:0;transition:transform .15s,box-shadow .15s}#__mb_bubble:hover{transform:scale(1.08)}#__mb_panel{position:fixed;bottom:96px;right:24px;width:380px;height:560px;border-radius:16px;background:#fff;z-index:99999;box-shadow:0 8px 32px rgba(0,0,0,.18);display:none;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(12px);transition:opacity .2s,transform .2s}#__mb_panel.mbopen{opacity:1;transform:translateY(0)}#__mb_close{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:#1a2744;border:none;color:#fff;font-size:18px;cursor:pointer;z-index:1;display:flex;align-items:center;justify-content:center;opacity:.85;padding:0}#__mb_hdr{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid #e5e7eb;flex-shrink:0}#__mb_hdot{width:10px;height:10px;border-radius:50%;background:#1a6b5a;display:inline-block;flex-shrink:0}#__mb_htitle{font-size:15px;font-weight:600;color:#111827;font-family:system-ui,sans-serif}#__mb_msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}.mb-ru{display:flex;justify-content:flex-end}.mb-rb{display:flex;justify-content:flex-start}.mb-b{max-width:72%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.55;word-break:break-word;white-space:pre-wrap;font-family:system-ui,sans-serif}.mb-bu{background:#1a6b5a;color:#fff;border-bottom-right-radius:4px}.mb-bb{background:#f3f4f6;color:#111827;border-bottom-left-radius:4px}.mb-td{display:flex;align-items:center;gap:5px;padding:12px 16px}.mb-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#9ca3af;animation:mb-bn 1s infinite ease-in-out}.mb-dot:nth-child(2){animation-delay:160ms}.mb-dot:nth-child(3){animation-delay:320ms}@keyframes mb-bn{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}@keyframes mb-bl{0%,100%{opacity:1}50%{opacity:0}}.mb-cur{display:inline-block;width:2px;height:1em;background:#6b7280;margin-left:2px;vertical-align:text-bottom;animation:mb-bl 1s step-end infinite}#__mb_bar{display:flex;align-items:flex-end;gap:8px;padding:12px 16px;border-top:1px solid #e5e7eb;background:#fff;flex-shrink:0}#__mb_inp{flex:1;resize:none;border:1px solid #d1d5db;border-radius:12px;padding:10px 14px;font-size:14px;font-family:system-ui,sans-serif;line-height:1.5;outline:none;background:#f9fafb;color:#111827;max-height:120px;overflow-y:auto}#__mb_inp:focus{border-color:#1a6b5a}#__mb_snd{flex-shrink:0;width:40px;height:40px;border-radius:12px;border:none;background:#1a6b5a;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}#__mb_snd:disabled{opacity:.4;cursor:default}@media(max-width:440px){#__mb_panel{width:calc(100vw - 16px);right:8px}}</style><button id="__mb_bubble" aria-label="Open meet mario chat" aria-expanded="false"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button><div id="__mb_panel"><button id="__mb_close" aria-label="Close chat">&#xD7;</button><div id="__mb_hdr"><span id="__mb_hdot"></span><span id="__mb_htitle"><a href="https://meetmario.ai" target="_blank" style="color:inherit;text-decoration:none;">meet mario</a></span></div><div id="__mb_msgs"></div><div id="__mb_bar"><textarea id="__mb_inp" placeholder="Skriv ett meddelande / Type a message" rows="1"></textarea><button id="__mb_snd" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div></div><script>(function(){if(window.__mbLoaded)return;window.__mbLoaded=true;var API='https://www.meetmario.ai/api/public-chat';var SK='__mbClosed';var GREET='Hej! Jag är Meet Mario. Hur kan jag hjälpa dig idag?\n/ Hello! I am Meet Mario. How can I help you today?';var msgs=[{role:'assistant',content:GREET}];var loading=false;var sid=(typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():Math.random().toString(36).slice(2);var panel=document.getElementById('__mb_panel');var bubble=document.getElementById('__mb_bubble');var closeBtn=document.getElementById('__mb_close');var msgsEl=document.getElementById('__mb_msgs');var inp=document.getElementById('__mb_inp');var snd=document.getElementById('__mb_snd');function render(){msgsEl.innerHTML='';msgs.forEach(function(m){var row=document.createElement('div');row.className=m.role==='user'?'mb-ru':'mb-rb';var bub=document.createElement('div');bub.className='mb-b '+(m.role==='user'?'mb-bu':'mb-bb');if(m.role==='user'){bub.textContent=m.content;}else{var t=m.content.replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" style="color:#1a6b5a;text-decoration:underline;">$1</a>');bub.innerHTML=t;}if(m.streaming){var c=document.createElement('span');c.className='mb-cur';bub.appendChild(c);}row.appendChild(bub);msgsEl.appendChild(row);});if(loading&&!msgs.some(function(m){return m.streaming;})){var tr=document.createElement('div');tr.className='mb-rb';var tb=document.createElement('div');tb.className='mb-b mb-bb mb-td';for(var i=0;i<3;i++){var d=document.createElement('span');d.className='mb-dot';tb.appendChild(d);}tr.appendChild(tb);msgsEl.appendChild(tr);}msgsEl.scrollTop=msgsEl.scrollHeight;}function send(){var t=inp.value.trim();if(!t||loading)return;if(typeof window.mbFireLead==='function')window.mbFireLead();msgs.push({role:'user',content:t});var sid2=Date.now();msgs.push({id:sid2,role:'assistant',content:'',streaming:true});inp.value='';loading=true;snd.disabled=true;render();var payload=JSON.stringify({messages:msgs.filter(function(m){return!m.streaming;}).map(function(m){return{role:m.role,content:m.content};}),sessionId:sid});fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:payload}).then(function(res){if(!res.ok){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:'Something went wrong. Please try again.'}:m;});loading=false;snd.disabled=false;render();return;}var reader=res.body.getReader();var decoder=new TextDecoder();var raw='';function pump(){return reader.read().then(function(chunk){if(chunk.done){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:raw}:m;});loading=false;snd.disabled=false;render();return;}raw+=decoder.decode(chunk.value,{stream:true});msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:raw,streaming:true,id:sid2}:m;});render();return pump();});}return pump();}).catch(function(){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:'Connection error. Please try again.'}:m;});loading=false;snd.disabled=false;render();});}function show(){panel.style.display='flex';requestAnimationFrame(function(){panel.classList.add('mbopen');});bubble.setAttribute('aria-expanded','true');}function hide(){panel.classList.remove('mbopen');bubble.setAttribute('aria-expanded','false');setTimeout(function(){if(!panel.classList.contains('mbopen'))panel.style.display='none';},200);}bubble.addEventListener('click',function(){panel.classList.contains('mbopen')?hide():show();});closeBtn.addEventListener('click',function(e){e.stopPropagation();sessionStorage.setItem(SK,'1');hide();});document.addEventListener('click',function(e){if(panel.classList.contains('mbopen')&&!panel.contains(e.target)&&e.target!==bubble)hide();});snd.addEventListener('click',send);inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}});if(!sessionStorage.getItem(SK)){setTimeout(show,2000);}render();})();</script>
 <style>
 /* --- Proactive bubble notification --- */
 .mb-bubble {
