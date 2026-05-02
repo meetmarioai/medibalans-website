@@ -250,7 +250,7 @@ const SCHEMA_PAGES = [
       "provider": {
         "@type": "MedicalOrganization",
         "name": "MediBalans AB",
-        "address": { "@type": "PostalAddress", "streetAddress": "Karlavägen 89", "addressLocality": "Stockholm", "postalCode": "115 22", "addressCountry": "SE" }
+        "address": { "@type": "PostalAddress", "streetAddress": "Birger Jarlsgatan 10", "addressLocality": "Stockholm", "postalCode": "114 34", "addressCountry": "SE" }
       }
     }),
   },
@@ -265,7 +265,7 @@ const SCHEMA_PAGES = [
       "provider": {
         "@type": "MedicalOrganization",
         "name": "MediBalans AB",
-        "address": { "@type": "PostalAddress", "streetAddress": "Karlavägen 89", "addressLocality": "Stockholm", "postalCode": "115 22", "addressCountry": "SE" }
+        "address": { "@type": "PostalAddress", "streetAddress": "Birger Jarlsgatan 10", "addressLocality": "Stockholm", "postalCode": "114 34", "addressCountry": "SE" }
       }
     }),
   },
