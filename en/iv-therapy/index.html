@@ -1060,7 +1060,18 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
         </div>
       </div>
       <div class="booking-widget-wrap reveal reveal-d2">
-        <iframe src="https://booking.adoreal.com/?organization=victoriakliniken&adorealTheme=true&locationId=28" data-cookieconsent="ignore" frameborder="0" title="Booking form MediBalans" aria-label="Book appointment online"></iframe>
+        <iframe id='cliniko-80483102' src='https://medibalans.eu1.cliniko.com/bookings?embedded=true&locale=en' frameborder='0' scrolling='auto' width='100%' height='1000' style='pointer-events: auto;'></iframe>
+<script type='text/javascript'>
+  window.addEventListener('message', function handleIFrameMessage (e) {
+    var clinikoBookings = document.getElementById('cliniko-80483102');
+    if (typeof e.data !== 'string') return;
+    if (e.data.search('cliniko-bookings-resize') > -1) {
+      var height = Number(e.data.split(':')[1]);
+      clinikoBookings.style.height = height + 'px';
+    }
+    e.data.search('cliniko-bookings-page') > -1 && clinikoBookings.scrollIntoView();
+  });
+</script>
       </div>
     </div>
   </div>

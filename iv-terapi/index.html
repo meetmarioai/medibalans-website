@@ -1150,7 +1150,7 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
         <div class="clinical-note" role="note">
           <strong>Klinisk notering:</strong> En legitimerad läkare på kliniken bedömer alltid lämplighet och dosering innan behandling påbörjas. Ingen remiss eller föregående tester krävs, men kan rekommenderas för att optimera behandlingen.
         </div>
-        <a href="#bokning" class="btn-book" aria-label="Boka IV-terapi">
+        <a href="#booking" class="btn-book" aria-label="Boka IV-terapi">
           Boka konsultation
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
@@ -1254,7 +1254,7 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
         <div class="science-ref" style="margin-top:0.6rem;">
           Long COVID/ME/CFS: Komaroff AL & Bhupesh Prusty. (2021). Redox imbalance links COVID-19 and ME/CFS. <em>PNAS.</em> <a href="https://doi.org/10.1073/pnas.2024358118" target="_blank" rel="noopener" aria-label="PNAS 2021 redox ME/CFS Long COVID">doi:10.1073/pnas.2024358118</a>
         </div>
-        <a href="#bokning" class="btn-book-light" aria-label="Boka glutation IV Stockholm">
+        <a href="#booking" class="btn-book-light" aria-label="Boka glutation IV Stockholm">
           Boka Glutation IV
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
@@ -1393,7 +1393,7 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
 
     <p class="treatment-note reveal">Alla behandlingar föregås av individuell bedömning av legitimerad läkare. Ingen remiss krävs — boka konsultation direkt. Öppet mån–fre 08:00–17:00 på Banérgatan 10, Östermalm.</p>
     <div style="margin-top:1.5rem;">
-      <a href="#bokning" class="btn-book reveal" aria-label="Boka behandling">
+      <a href="#booking" class="btn-book reveal" aria-label="Boka behandling">
         Boka behandling
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
@@ -1594,7 +1594,7 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
 
     </div>
     <div style="margin-top:2.5rem;" class="reveal">
-      <a href="#bokning" class="btn-book" aria-label="Boka IV-terapi konsultation">
+      <a href="#booking" class="btn-book" aria-label="Boka IV-terapi konsultation">
         Boka konsultation — ingen remiss krävs
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
@@ -1659,7 +1659,18 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
         </div>
       </div>
       <div class="booking-widget-wrap reveal reveal-d2">
-        <iframe src="https://booking.adoreal.com/?organization=victoriakliniken&adorealTheme=true&locationId=28" data-cookieconsent="ignore" frameborder="0" title="Bokningsformulär MediBalans" aria-label="Boka tid online"></iframe>
+        <iframe id='cliniko-53063409' src='https://medibalans.eu1.cliniko.com/bookings?embedded=true&locale=sv' frameborder='0' scrolling='auto' width='100%' height='1000' style='pointer-events: auto;'></iframe>
+<script type='text/javascript'>
+  window.addEventListener('message', function handleIFrameMessage (e) {
+    var clinikoBookings = document.getElementById('cliniko-53063409');
+    if (typeof e.data !== 'string') return;
+    if (e.data.search('cliniko-bookings-resize') > -1) {
+      var height = Number(e.data.split(':')[1]);
+      clinikoBookings.style.height = height + 'px';
+    }
+    e.data.search('cliniko-bookings-page') > -1 && clinikoBookings.scrollIntoView();
+  });
+</script>
       </div>
     </div>
   </div>
