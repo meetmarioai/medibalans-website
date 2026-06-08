@@ -89,4 +89,4 @@ User-agent: *
 Allow: /
 
 # ── Sitemap ──
-Sitemap: https://medibalans.com/sitemap.xml
+Sitemap: https://www.medibalans.com/sitemap.xml

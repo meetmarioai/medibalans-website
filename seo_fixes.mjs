@@ -226,7 +226,7 @@ const SCHEMA_PAGES = [
       "@type": "Article",
       "headline": "Forskningsprogram & Patentportfölj — MediBalans Stockholm",
       "description": "MediBalans driver klinisk forskning inom precisionsmedicin, regenerativa terapier och biologisk åldringsmätning.",
-      "publisher": { "@type": "Organization", "name": "MediBalans AB", "url": "https://medibalans.com" }
+      "publisher": { "@type": "Organization", "name": "MediBalans AB", "url": "https://www.medibalans.com" }
     }),
   },
   {
@@ -266,7 +266,7 @@ const SCHEMA_PAGES = [
       "@type": "MedicalWebPage",
       "name": "Investigation Protocol — MediBalans Stockholm",
       "description": "MediBalans investigation protocol: from first consultation to personalised treatment using ALCAT, CMA, MethylDetox, HRV, microbiome and multi-omics.",
-      "publisher": { "@type": "MedicalOrganization", "name": "MediBalans AB", "url": "https://medibalans.com" }
+      "publisher": { "@type": "MedicalOrganization", "name": "MediBalans AB", "url": "https://www.medibalans.com" }
     }),
   },
   {
@@ -276,7 +276,7 @@ const SCHEMA_PAGES = [
       "@type": "Article",
       "headline": "Research Programme & Patent Portfolio — MediBalans Stockholm",
       "description": "MediBalans conducts clinical research in precision medicine, regenerative therapies and biological age measurement. 7 patents. Global Constraint Rule framework.",
-      "publisher": { "@type": "Organization", "name": "MediBalans AB", "url": "https://medibalans.com" }
+      "publisher": { "@type": "Organization", "name": "MediBalans AB", "url": "https://www.medibalans.com" }
     }),
   },
 ];

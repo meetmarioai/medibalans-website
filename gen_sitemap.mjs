@@ -8,7 +8,7 @@ import { dirname } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname);
-const BASE = 'https://medibalans.com';
+const BASE = 'https://www.medibalans.com';
 
 // Pages to exclude from sitemap
 const SKIP_DIRS = new Set([
