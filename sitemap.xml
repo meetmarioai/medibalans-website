@@ -176,12 +176,6 @@
   </url>
 
   <url>
-    <loc>https://medibalans.com/nls-skanning-och-utredning/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://medibalans.com/nutreval-sverige/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -351,12 +345,6 @@
 
   <url>
     <loc>https://medibalans.com/en/methylation-test/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://medibalans.com/en/nls-body-scan/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

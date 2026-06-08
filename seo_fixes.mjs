@@ -72,16 +72,6 @@ const fix2 = [
     }
   },
   {
-    rel: 'nls-skanning-och-utredning/index.html',
-    fn: (c) => {
-      const svMatch = c.match(/<link rel="alternate" hreflang="sv"[^\n]*/);
-      if (!svMatch) return c;
-      const svTag = svMatch[0];
-      const insertEN = '<link rel="alternate" hreflang="en" href="https://www.medibalans.com/en/nls-body-scan/">';
-      return c.replace(svTag, svTag + '\n' + insertEN);
-    }
-  },
-  {
     rel: 'en/baby-balans/index.html',
     fn: (c) => {
       // Missing both — insert after canonical
@@ -276,16 +266,6 @@ const SCHEMA_PAGES = [
       "@type": "MedicalWebPage",
       "name": "Investigation Protocol — MediBalans Stockholm",
       "description": "MediBalans investigation protocol: from first consultation to personalised treatment using ALCAT, CMA, MethylDetox, HRV, microbiome and multi-omics.",
-      "publisher": { "@type": "MedicalOrganization", "name": "MediBalans AB", "url": "https://medibalans.com" }
-    }),
-  },
-  {
-    rel: 'en/nls-body-scan/index.html',
-    schema: JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "name": "NLS Body Scan — MediBalans Stockholm",
-      "description": "NLS body scan at MediBalans Stockholm: non-invasive full body bioresonance analysis mapping 100+ organs and tissues.",
       "publisher": { "@type": "MedicalOrganization", "name": "MediBalans AB", "url": "https://medibalans.com" }
     }),
   },

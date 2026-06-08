@@ -2,6 +2,11 @@
 
 # HTTPS redirect
 RewriteEngine On
+
+# Removed NLS body-scan pages — return 410 Gone (SV + EN)
+RewriteRule ^nls-skanning-och-utredning/?$ - [G,L]
+RewriteRule ^en/nls-body-scan/?$ - [G,L]
+
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
