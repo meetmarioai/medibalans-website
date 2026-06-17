@@ -21,6 +21,7 @@
 <meta name="robots" content="index, follow">
 <link rel="alternate" hreflang="sv" href="https://www.medibalans.com/kroppsskanning/">
 <link rel="alternate" hreflang="en" href="https://www.medibalans.com/en/body-composition-analysis/">
+<link rel="alternate" hreflang="x-default" href="https://www.medibalans.com/kroppsskanning/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,6 +168,18 @@ footer{background:var(--navy);color:var(--text-light);padding:2.6rem 0;font-size
 footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
 footer .disc{max-width:60ch;line-height:1.6;color:rgba(216,234,245,.45);}
 footer a{color:var(--blue-light);text-decoration:none;}
+
+/* ---- reco badge (InBody design tokens) ---- */
+.reco-badge{display:inline-flex;align-items:center;gap:1rem;background:rgba(255,255,255,.06);border:1px solid rgba(216,234,245,.22);border-radius:10px;padding:.8rem 1.2rem;text-decoration:none;margin:0 0 2rem;transition:border-color .2s,background .2s;}
+.reco-badge:hover{border-color:var(--warm);background:rgba(255,255,255,.09);}
+.reco-rating{font-family:var(--font-display);font-size:1.9rem;color:#fff;line-height:1;}
+.reco-stars{display:flex;gap:1px;color:var(--warm);}
+.reco-details{display:flex;flex-direction:column;gap:.15rem;border-left:1px solid rgba(216,234,245,.18);padding-left:1rem;}
+.reco-top-line{font-size:.82rem;color:#fff;font-weight:500;line-height:1.3;}
+.reco-sub-line{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(216,234,245,.55);}
+.reco-logo-mark{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.05em;color:rgba(216,234,245,.7);border-left:1px solid rgba(216,234,245,.18);padding-left:1rem;display:flex;flex-direction:column;}
+.reco-logo-mark span{color:var(--warm);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;margin-top:.2rem;}
+@media(max-width:560px){.reco-badge{flex-wrap:wrap;gap:.6rem;}.reco-details,.reco-logo-mark{border-left:none;padding-left:0;}}
 </style>
 </head>
 <body>
@@ -195,6 +208,16 @@ footer a{color:var(--blue-light);text-decoration:none;}
     <p class="hero-eyebrow">Body composition · Östermalm, Stockholm</p>
     <h1 class="hero-title">See how your body <em>works</em> — not just how it looks.</h1>
     <p class="hero-lead">With the InBody we measure body composition, fluid balance and cellular health with medical precision. Objective biology you can track over time — radiation-free, in under a minute.</p>
+      <a href="https://www.reco.se/medibalans-christina-biri-ab" target="_blank" rel="noopener" class="reco-badge">
+        <div class="reco-rating">4,87</div>
+        <div class="reco-stars"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <div class="reco-details">
+          <div class="reco-top-line">Highest-rated health clinic in Sweden</div>
+          <div class="reco-sub-line">Based on verified patient reviews</div>
+        </div>
+        <div class="reco-logo-mark">Reco.se<span>Verified</span></div>
+      </a>
+
     <div class="hero-cta">
       <a class="btn-primary btn-light" href="#book">Book a body scan</a>
       <a class="btn-secondary btn-ghost" href="#measure">What do we measure?</a>
@@ -287,6 +310,7 @@ footer a{color:var(--blue-light);text-decoration:none;}
       <p class="section-eyebrow">InBody vs DEXA</p>
       <h2 class="section-title">Two methods — two different questions</h2>
       <p class="section-lead">DEXA (DXA) is the gold standard for bone mass and absolute body fat. InBody measures something DEXA does not — fluid distribution and phase angle — and is radiation-free, which makes it suitable to repeat often. The methods complement each other.</p>
+      <p class="section-lead" style="margin-top:1rem">How accurate is it? In studies comparing InBody with DXA, the methods agree closely — body-fat percentage differs by only about 3 % on average. And InBody gives almost exactly the same result every time you stand on it, which makes it ideal for tracking change over time. The InBody 580 is a clinical, FDA-cleared body composition analyzer (510(k), Class II) used in hospitals and medical practices.</p>
     </div>
     <table>
       <thead><tr><th>&nbsp;</th><th>InBody (BIA)</th><th>DEXA / DXA</th></tr></thead>
@@ -356,6 +380,7 @@ footer a{color:var(--blue-light);text-decoration:none;}
 
     <p class="handoff"><b>None of these markers makes a diagnosis.</b> They are non-specific signals that something systemic is underway — and the starting point for finding out why. That is where the MediBalans protocol takes over: we link the scan to your ALCAT, CMA, lab and genomic data to find the real cause, address it, and then measure that the body responds.</p>
 
+    <p class="disclaim" style="margin-bottom:1rem"><b style="color:var(--navy)">Selected research.</b> ~3 % deviation in body-fat % vs DXA: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11649400/">Front. Nutr. 2024</a>. High test-retest reliability (ICC ≥0.98): <a href="https://pubmed.ncbi.nlm.nih.gov/30472111/">J Clin Densitom 2018</a>. Strong InBody-vs-DXA agreement: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9323664/">Korean validation 2022</a>.</p>
     <p class="disclaim">Body composition scanning with InBody is a tool for analysing body composition, not a diagnostic instrument for any individual disease. The associations stated are general and based on published research. Interpretation is always done individually by a clinician together with your wider clinical picture.</p>
   </div>
 </section>
@@ -405,7 +430,7 @@ footer a{color:var(--blue-light);text-decoration:none;}
       </div>
       <a class="btn-primary" href="#book">Book a time</a>
     </div>
-    <p class="note" style="margin-top:1.1rem">InBody scan with a result walkthrough by a clinician. Price incl. VAT.</p>
+    <p class="note" style="margin-top:1.1rem">InBody scan with a result walkthrough by a clinician.</p>
   </div>
 </section>
 
@@ -443,7 +468,7 @@ footer a{color:var(--blue-light);text-decoration:none;}
 {
   "@context":"https://schema.org",
   "@graph":[
-    {"@type":"MedicalClinic","@id":"https://www.medibalans.com/#clinic","name":"MediBalans","url":"https://www.medibalans.com","telephone":"+46723195070","email":"info@medibalans.com","medicalSpecialty":"PreventiveMedicine","address":{"@type":"PostalAddress","streetAddress":"Banérgatan 10, 1 tr","postalCode":"115 23","addressLocality":"Stockholm","addressCountry":"SE"},"areaServed":"Stockholm","availableService":{"@type":"MedicalProcedure","name":"Body composition analysis — InBody","offers":{"@type":"Offer","price":"450","priceCurrency":"SEK","description":"15-minute clinical consultation included"}}},
+    {"@type":"MedicalClinic","@id":"https://www.medibalans.com/#clinic","name":"MediBalans","url":"https://www.medibalans.com","telephone":"+46723195070","email":"info@medibalans.com","medicalSpecialty":"PreventiveMedicine","address":{"@type":"PostalAddress","streetAddress":"Banérgatan 10, 1 tr","postalCode":"115 23","addressLocality":"Stockholm","addressCountry":"SE"},"areaServed":"Stockholm","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.87","bestRating":"5","ratingCount":"80","url":"https://www.reco.se/medibalans-christina-biri-ab"},"availableService":{"@type":"MedicalProcedure","name":"Body composition analysis — InBody","offers":{"@type":"Offer","price":"450","priceCurrency":"SEK","description":"15-minute clinical consultation included"}}},
     {"@type":"MedicalWebPage","name":"Body Composition Analysis Stockholm — InBody","url":"https://www.medibalans.com/en/body-composition-analysis/","inLanguage":"en","about":{"@type":"MedicalTest","name":"Bioelectrical impedance analysis (BIA) of body composition"},"provider":{"@id":"https://www.medibalans.com/#clinic"}},
     {"@type":"FAQPage","mainEntity":[
       {"@type":"Question","name":"What is the difference between a body scan and an ordinary scale?","acceptedAnswer":{"@type":"Answer","text":"An ordinary scale shows only total weight. A body composition scan with the InBody breaks weight down into muscle mass, fat mass, visceral fat and body water – segment by segment – and also measures fluid balance and cellular health, which a scale cannot show."}},
