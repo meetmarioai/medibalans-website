@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
     <loc>https://www.medibalans.com/</loc>
@@ -401,6 +402,26 @@
     <loc>https://www.medibalans.com/en/womens-health/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.medibalans.com/kroppsskanning/</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.medibalans.com/kroppsskanning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.medibalans.com/en/body-composition-analysis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.medibalans.com/kroppsskanning/"/>
+  </url>
+
+  <url>
+    <loc>https://www.medibalans.com/en/body-composition-analysis/</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.medibalans.com/kroppsskanning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.medibalans.com/en/body-composition-analysis/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.medibalans.com/kroppsskanning/"/>
   </url>
 
 </urlset>
