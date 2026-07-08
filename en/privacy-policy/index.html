@@ -420,11 +420,118 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
 <!-- Real legal text must be supplied by MediBalans; nothing      -->
 <!-- here is drafted or invented. Unpublished on branch until then.-->
 <!-- ============================================================ -->
-<main class="legal-page" style="max-width:760px;margin:0 auto;padding:6rem 1.5rem;min-height:55vh">
-  <h1 style="margin-bottom:1rem">Privacy Policy</h1>
-  <p style="opacity:.75"><em>Content coming soon.</em></p>
-  <p style="opacity:.5;font-size:.85rem;margin-top:.75rem">This page is a placeholder — legal text pending. Not to be published until reviewed copy is supplied.</p>
+<main class="legal-page" style="max-width:820px;margin:0 auto;padding:5rem 1.5rem;line-height:1.6">
+<style>
+  .legal-page h1{margin-bottom:1.25rem}
+  .legal-page h2{margin:2rem 0 .6rem;font-size:1.15rem}
+  .legal-page p,.legal-page li{font-size:.95rem}
+  .legal-page ul{padding-left:1.25rem;margin:.5rem 0}
+  .legal-review-banner{background:#fff8e1;border:1px solid #e0c86b;border-radius:8px;padding:1rem 1.25rem;margin-bottom:2.25rem;color:#5a4a1a;font-size:.9rem}
+  .review-flag{background:#ffe58a;color:#4a3a05;padding:.05rem .3rem;border-radius:3px;font-weight:600;font-size:.85em}
+  .legal-page table{border-collapse:collapse;width:100%;margin:.75rem 0;font-size:.9rem}
+  .legal-page th,.legal-page td{border:1px solid #ddd;padding:.5rem .6rem;text-align:left;vertical-align:top}
+  .legal-page th{background:#f5f5f5}
+</style>
+
+<!-- BANNER — keep until final legal sign-off -->
+<div class="legal-review-banner">
+  <strong>Under final legal review.</strong> This policy is current as of <em>[PUBLICATION DATE]</em> and is undergoing final legal review.
+  Lines marked <span class="review-flag">[MAX: confirm]</span> must be reviewed by a lawyer before being treated as final.
+  Remove this box and all [MAX: …] markers before publishing the final version.
+</div>
+
+<h1>Privacy Policy — MediBalans AB</h1>
+
+<h2>1. Data controller</h2>
+<p>MediBalans AB (company reg. no. 559249-7290) is the controller responsible for the processing of your personal data.</p>
+<ul>
+  <li><strong>Address:</strong> Banérgatan 10, 1 tr, 115 23 Stockholm, Sweden</li>
+  <li><strong>Email:</strong> info@medibalans.com</li>
+  <li><strong>Phone:</strong> +46 72 319 50 70</li>
+</ul>
+<p>This policy covers both the medibalans.com website and the Meet Mario service (meetmario.ai), operated by MediBalans AB. Meet Mario is part of the MediBalans care and analysis service.</p>
+
+<h2>2. What data we process</h2>
+<p><strong>Identity and contact data:</strong> name, email, phone number, and information you provide when booking and contacting us.</p>
+<p><strong>Sensitive personal data (special categories under GDPR Art. 9) — health data:</strong></p>
+<ul>
+  <li>Laboratory results: ALCAT (food reactivity), CMA (cellular micronutrient analysis), WGS/genomic data (whole-genome sequencing)</li>
+  <li>Symptoms, dietary information, clinical notes and protocol data</li>
+  <li>Your conversation with Ask Mario (the AI-based clinical assistant)</li>
+</ul>
+<p>Genomic data is the most sensitive category of personal data we process. It is processed solely within the scope of your care and analysis.</p>
+<p><strong>Payment and booking data:</strong> handled via our payment and booking providers (see section 6).</p>
+<p><strong>Technical and analytics data:</strong> when you visit the website, cookies and analytics tools may collect technical information (see section 7).</p>
+
+<h2>3. Purposes and legal basis</h2>
+<table>
+  <thead><tr><th>Purpose</th><th>Legal basis</th></tr></thead>
+  <tbody>
+    <tr><td>Providing care, analysis and treatment (incl. lab interpretation and protocols)</td><td>Art. 9(2)(h) — healthcare <span class="review-flag">[MAX: confirm that Art. 9(2)(h) is the correct basis for Meet Mario analysis, or alternatively explicit consent Art. 9(2)(a)]</span></td></tr>
+    <tr><td>Booking and administering visits</td><td>Performance of a contract (Art. 6(1)(b))</td></tr>
+    <tr><td>Handling payments</td><td>Performance of a contract + legal obligation (accounting)</td></tr>
+    <tr><td>Communication and support</td><td>Legitimate interest (Art. 6(1)(f))</td></tr>
+    <tr><td>Web analytics and marketing</td><td>Consent (Art. 6(1)(a)) — see cookies, section 7</td></tr>
+  </tbody>
+</table>
+<p>Processing of sensitive health data takes place under professional confidentiality and in accordance with the Swedish Patient Data Act (patientdatalagen, 2008:355). <span class="review-flag">[MAX: confirm that MediBalans is treated as a care provider under the Patient Data Act, and whether explicit consent is needed in addition to Art. 9(2)(h) for the AI analysis specifically]</span></p>
+
+<h2>4. Retention period</h2>
+<p>Medical-record and health data are retained for at least 10 years after the last entry, in accordance with the Patient Data Act (2008:355), Ch. 3 § 17. <span class="review-flag">[MAX: confirm 10 years / the correct statutory minimum period for MediBalans' type of operation]</span></p>
+<p>Accounting and payment data are retained for 7 years under the Swedish Bookkeeping Act. Contact and marketing data are deleted when the purpose has ended or when you withdraw consent.</p>
+
+<h2>5. Where your data is stored</h2>
+<p>Your clinical data is stored in a database within the EU/EEA (Frankfurt, Germany). Some providers (see section 6) may involve transfer to a third country (e.g. the USA). Such transfers take place with appropriate safeguards — the EU Standard Contractual Clauses (SCC) and/or the EU–US Data Privacy Framework. <span class="review-flag">[MAX: confirm the transfer mechanism for each US-based provider below before publishing]</span></p>
+
+<h2>6. Processors and recipients</h2>
+<p>We share data with the following providers who process personal data on our behalf, under data processing agreements:</p>
+<p><span class="review-flag">[MARIO: verify that this list exactly matches the services that medibalans.com and Meet Mario actually use in production today. Add/remove so the list is true. An inaccurate processor list is itself a deficiency.]</span></p>
+<table>
+  <thead><tr><th>Provider</th><th>Purpose</th><th>Location / third country</th></tr></thead>
+  <tbody>
+    <tr><td>Supabase</td><td>Database and storage of clinical data</td><td>EU (Frankfurt)</td></tr>
+    <tr><td>Cloudflare R2</td><td>File storage (e.g. lab documents)</td><td><span class="review-flag">[MAX/MARIO: confirm region]</span></td></tr>
+    <tr><td>Stripe</td><td>Payment processing</td><td>USA — SCC/DPF <span class="review-flag">[MAX: confirm]</span></td></tr>
+    <tr><td>Cliniko</td><td>Booking and record administration</td><td><span class="review-flag">[MAX/MARIO: confirm data residency]</span></td></tr>
+    <tr><td>Resend</td><td>Email delivery</td><td>USA — SCC/DPF <span class="review-flag">[MAX: confirm]</span></td></tr>
+    <tr><td>Anthropic</td><td>AI model powering Ask Mario / analysis</td><td>USA — SCC/DPF <span class="review-flag">[MAX: confirm; note that health data is processed via this service]</span></td></tr>
+    <tr><td>Google Analytics</td><td>Web analytics</td><td>USA — only with consent</td></tr>
+    <tr><td>Meta Pixel</td><td>Marketing analytics</td><td>USA — only with consent</td></tr>
+    <tr><td>Terra</td><td>Wearables data integration (if enabled)</td><td><span class="review-flag">[MAX/MARIO: confirm whether active in production]</span></td></tr>
+  </tbody>
+</table>
+<p>We never sell your data. Data is disclosed to authorities only when we are required to by law.</p>
+
+<h2>7. Cookies and analytics</h2>
+<p>The website uses cookies for functionality and, with your consent, for analytics and marketing (Google Analytics, Meta Pixel). <span class="review-flag">[MAX/MARIO: if Google Analytics/Meta Pixel are active, a consent banner (cookie consent) is required before they load — confirm this is in place; otherwise this is a separate item to address.]</span></p>
+
+<h2>8. Your rights</h2>
+<p>Under the GDPR you have the right to:</p>
+<ul>
+  <li>access your data (subject access request)</li>
+  <li>request rectification of inaccurate data</li>
+  <li>request erasure ("the right to be forgotten"), within the limits of statutory record-keeping obligations</li>
+  <li>request restriction of processing</li>
+  <li>object to processing</li>
+  <li>obtain your data (data portability)</li>
+  <li>withdraw consent you have given</li>
+</ul>
+<p>Contact us at info@medibalans.com to exercise your rights.</p>
+<p>You also have the right to lodge a complaint with the supervisory authority: <strong>the Swedish Authority for Privacy Protection (IMY)</strong>, Box 8114, 104 20 Stockholm, imy@imy.se.</p>
+
+<h2>9. Changes</h2>
+<p>We may update this policy. The latest version is always available at medibalans.com. We will inform you of any material changes.</p>
+
+<p style="margin-top:2rem;opacity:.6;font-size:.85rem"><em>Last updated: [DATE]</em></p>
 </main>
+<!-- ============================================================
+     NOTES FOR MARIO (remove before publishing):
+     - This is the EN translation of /integritetspolicy/.
+     - Verify the sub-processor table (section 6) against what the live site + app
+       actually load TODAY.
+     - Confirm a cookie-consent banner exists if GA/Meta Pixel are live (section 7).
+     - Every [MAX: confirm] is a lawyer-review line.
+============================================================ -->
 <footer>
   <div class="container">
     <div class="footer-grid">
