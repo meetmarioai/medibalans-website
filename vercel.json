@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/(.*skanning-och-utredning.*)", "destination": "/api/gone" },
+    { "source": "/en/(.*body-scan.*)", "destination": "/api/gone" }
+  ]
+}
