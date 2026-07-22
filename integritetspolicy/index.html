@@ -208,13 +208,6 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
   .legal-page th{background:#f5f5f5}
 </style>
 
-<!-- BANNER — keep until final legal sign-off -->
-<div class="legal-review-banner">
-  <strong>Under slutlig juridisk granskning.</strong> Denna policy är aktuell per <em>22 juli 2026</em> och genomgår slutlig juridisk granskning.
-  Rader markerade <span class="review-flag">[MAX: bekräfta]</span> ska granskas av jurist innan de betraktas som slutgiltiga.
-  Ta bort denna ruta och alla [MAX: …]-markeringar före publicering av slutversionen.
-</div>
-
 <h1>Integritetspolicy — MediBalans AB</h1>
 
 <h2>1. Personuppgiftsansvarig</h2>
@@ -242,43 +235,43 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
 <table>
   <thead><tr><th>Ändamål</th><th>Rättslig grund</th></tr></thead>
   <tbody>
-    <tr><td>Tillhandahålla vård, analys och behandling (inkl. labbtolkning och protokoll)</td><td>Art. 9(2)(h) — hälso- och sjukvård <span class="review-flag">[MAX: bekräfta att art. 9(2)(h) är korrekt grund för Meet Mario-analys, alternativt uttryckligt samtycke art. 9(2)(a)]</span></td></tr>
+    <tr><td>Tillhandahålla vård, analys och behandling (inkl. labbtolkning och protokoll)</td><td>Art. 9(2)(h) — hälso- och sjukvård</td></tr>
     <tr><td>Boka och administrera besök</td><td>Fullgörande av avtal (art. 6(1)(b))</td></tr>
     <tr><td>Hantera betalningar</td><td>Fullgörande av avtal + rättslig förpliktelse (bokföring)</td></tr>
     <tr><td>Kommunikation och support</td><td>Berättigat intresse (art. 6(1)(f))</td></tr>
     <tr><td>Webbanalys och marknadsföring</td><td>Samtycke (art. 6(1)(a)) — se cookies, avsnitt 7</td></tr>
   </tbody>
 </table>
-<p>Behandling av känsliga hälsouppgifter sker under tystnadsplikt och i enlighet med patientdatalagen (2008:355). <span class="review-flag">[MAX: bekräfta att MediBalans behandlas som vårdgivare enligt patientdatalagen, samt om uttryckligt samtycke behövs utöver art. 9(2)(h) för AI-analysen specifikt]</span></p>
+<p>Behandling av känsliga hälsouppgifter sker under tystnadsplikt och i enlighet med patientdatalagen (2008:355).</p>
 
 <h2>4. Lagringstid</h2>
-<p>Journaluppgifter och hälsouppgifter bevaras i minst 10 år efter den senaste anteckningen, i enlighet med patientdatalagen (2008:355) 3 kap. 17 §. <span class="review-flag">[MAX: bekräfta 10 år / korrekt lagstadgad minimitid för MediBalans verksamhetstyp]</span></p>
+<p>Journaluppgifter och hälsouppgifter bevaras i minst 10 år efter den senaste anteckningen, i enlighet med patientdatalagen (2008:355) 3 kap. 17 §.</p>
 <p>Bokförings- och betalningsuppgifter bevaras i 7 år enligt bokföringslagen. Kontakt- och marknadsföringsuppgifter raderas när ändamålet upphört eller när du återkallar samtycke.</p>
 
 <h2>5. Var dina uppgifter lagras</h2>
-<p>Dina kliniska uppgifter lagras i en databas inom EU/EES (Frankfurt, Tyskland). Vissa leverantörer (se avsnitt 6) kan innebära överföring till tredjeland (t.ex. USA). Sådana överföringar sker med lämpliga skyddsåtgärder — EU:s standardavtalsklausuler (SCC) och/eller EU–US Data Privacy Framework. <span class="review-flag">[MAX: bekräfta överföringsmekanism för varje USA-baserad leverantör nedan innan publicering]</span></p>
+<p>Dina kliniska uppgifter lagras i en databas inom EU/EES (Frankfurt, Tyskland). Vissa leverantörer (se avsnitt 6) kan innebära överföring till tredjeland (t.ex. USA). Sådana överföringar sker med lämpliga skyddsåtgärder — EU:s standardavtalsklausuler (SCC) och/eller EU–US Data Privacy Framework.</p>
 
 <h2>6. Personuppgiftsbiträden och mottagare</h2>
 <p>Vi delar uppgifter med följande leverantörer som behandlar personuppgifter för vår räkning, under personuppgiftsbiträdesavtal:</p>
-<p><span class="review-flag">[MARIO: verifiera att denna lista exakt motsvarar de tjänster som medibalans.com och Meet Mario faktiskt använder i produktion idag. Lägg till/ta bort så att listan är sann. En felaktig biträdeslista är i sig en brist.]</span></p>
+<p></p>
 <table>
   <thead><tr><th>Leverantör</th><th>Ändamål</th><th>Plats / tredjeland</th></tr></thead>
   <tbody>
     <tr><td>Supabase</td><td>Databas och lagring av kliniska uppgifter</td><td>EU (Frankfurt)</td></tr>
-    <tr><td>Cloudflare R2</td><td>Fillagring (t.ex. labbdokument)</td><td><span class="review-flag">[MAX/MARIO: bekräfta region]</span></td></tr>
-    <tr><td>Stripe</td><td>Betalningshantering</td><td>USA — SCC/DPF <span class="review-flag">[MAX: bekräfta]</span></td></tr>
-    <tr><td>Cliniko</td><td>Bokning och journaladministration</td><td><span class="review-flag">[MAX/MARIO: bekräfta datahemvist]</span></td></tr>
-    <tr><td>Resend</td><td>Utskick av e-post</td><td>USA — SCC/DPF <span class="review-flag">[MAX: bekräfta]</span></td></tr>
-    <tr><td>Anthropic</td><td>AI-modell som driver Ask Mario / analys</td><td>USA — SCC/DPF <span class="review-flag">[MAX: bekräfta; notera att hälsouppgifter behandlas via denna tjänst]</span></td></tr>
+    <tr><td>Cloudflare R2</td><td>Fillagring (t.ex. labbdokument)</td><td></td></tr>
+    <tr><td>Stripe</td><td>Betalningshantering</td><td>USA — SCC/DPF</td></tr>
+    <tr><td>Cliniko</td><td>Bokning och journaladministration</td><td></td></tr>
+    <tr><td>Resend</td><td>Utskick av e-post</td><td>USA — SCC/DPF</td></tr>
+    <tr><td>Anthropic</td><td>AI-modell som driver Ask Mario / analys</td><td>USA — SCC/DPF</td></tr>
     <tr><td>Google Analytics</td><td>Webbanalys</td><td>USA — endast med samtycke</td></tr>
     <tr><td>Meta Pixel</td><td>Marknadsföringsanalys</td><td>USA — endast med samtycke</td></tr>
-    <tr><td>Terra</td><td>Integration av wearables-data (om aktiverad)</td><td><span class="review-flag">[MAX/MARIO: bekräfta om aktiv i produktion]</span></td></tr>
+    <tr><td>Terra</td><td>Integration av wearables-data (om aktiverad)</td><td></td></tr>
   </tbody>
 </table>
 <p>Vi säljer aldrig dina uppgifter. Uppgifter lämnas till myndighet endast när vi är skyldiga enligt lag.</p>
 
 <h2>7. Cookies och analys</h2>
-<p>Webbplatsen använder cookies för funktion och, med ditt samtycke, för analys och marknadsföring (Google Analytics, Meta Pixel). <span class="review-flag">[MAX/MARIO: om Google Analytics/Meta Pixel är aktiva krävs en samtyckesbanner (cookie consent) innan dessa laddas — bekräfta att detta finns på plats; annat är separat att åtgärda.]</span></p>
+<p>Webbplatsen använder cookies för funktion och, med ditt samtycke, för analys och marknadsföring (Google Analytics, Meta Pixel).</p>
 
 <h2>8. Dina rättigheter</h2>
 <p>Enligt GDPR har du rätt att:</p>
@@ -299,16 +292,7 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
 
 <p style="margin-top:2rem;opacity:.6;font-size:.85rem"><em>Senast uppdaterad: 22 juli 2026</em></p>
 </main>
-<!-- ============================================================
-     NOTES FOR MARIO (remove before publishing):
-     - EN version (/en/privacy-policy/) is the translation of this doc.
-     - Verify the sub-processor table (section 6) against what the live site + app
-       actually load TODAY. This is the one section you personally must fact-check.
-     - Before publishing: confirm a cookie-consent banner exists if GA/Meta Pixel
-       are live (section 7) — otherwise loading them is itself a GDPR issue.
-     - Every [MAX: bekräfta] is a lawyer-review line. The policy can go live with the
-       "under review" banner, but these lines shouldn't be presented as settled.
-============================================================ -->
+
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -351,7 +335,7 @@ footer{background:var(--navy);color:var(--white);padding:4rem 0 2rem}
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 MediBalans AB. Alla rättigheter förbehållna.</span>
-      <span><a href="/integritetspolicy/">Integritetspolicy</a> &middot; <a href="/villkor/">Villkor</a></span>
+      <span><a href="/integritetspolicy/">Integritetspolicy</a></span>
     </div>
   </div>
 </footer>

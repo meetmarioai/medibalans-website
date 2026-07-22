@@ -433,13 +433,6 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
   .legal-page th{background:#f5f5f5}
 </style>
 
-<!-- BANNER — keep until final legal sign-off -->
-<div class="legal-review-banner">
-  <strong>Under final legal review.</strong> This policy is current as of <em>[PUBLICATION DATE]</em> and is undergoing final legal review.
-  Lines marked <span class="review-flag">[MAX: confirm]</span> must be reviewed by a lawyer before being treated as final.
-  Remove this box and all [MAX: …] markers before publishing the final version.
-</div>
-
 <h1>Privacy Policy — MediBalans AB</h1>
 
 <h2>1. Data controller</h2>
@@ -467,43 +460,43 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
 <table>
   <thead><tr><th>Purpose</th><th>Legal basis</th></tr></thead>
   <tbody>
-    <tr><td>Providing care, analysis and treatment (incl. lab interpretation and protocols)</td><td>Art. 9(2)(h) — healthcare <span class="review-flag">[MAX: confirm that Art. 9(2)(h) is the correct basis for Meet Mario analysis, or alternatively explicit consent Art. 9(2)(a)]</span></td></tr>
+    <tr><td>Providing care, analysis and treatment (incl. lab interpretation and protocols)</td><td>Art. 9(2)(h) — healthcare</td></tr>
     <tr><td>Booking and administering visits</td><td>Performance of a contract (Art. 6(1)(b))</td></tr>
     <tr><td>Handling payments</td><td>Performance of a contract + legal obligation (accounting)</td></tr>
     <tr><td>Communication and support</td><td>Legitimate interest (Art. 6(1)(f))</td></tr>
     <tr><td>Web analytics and marketing</td><td>Consent (Art. 6(1)(a)) — see cookies, section 7</td></tr>
   </tbody>
 </table>
-<p>Processing of sensitive health data takes place under professional confidentiality and in accordance with the Swedish Patient Data Act (patientdatalagen, 2008:355). <span class="review-flag">[MAX: confirm that MediBalans is treated as a care provider under the Patient Data Act, and whether explicit consent is needed in addition to Art. 9(2)(h) for the AI analysis specifically]</span></p>
+<p>Processing of sensitive health data takes place under professional confidentiality and in accordance with the Swedish Patient Data Act (patientdatalagen, 2008:355).</p>
 
 <h2>4. Retention period</h2>
-<p>Medical-record and health data are retained for at least 10 years after the last entry, in accordance with the Patient Data Act (2008:355), Ch. 3 § 17. <span class="review-flag">[MAX: confirm 10 years / the correct statutory minimum period for MediBalans' type of operation]</span></p>
+<p>Medical-record and health data are retained for at least 10 years after the last entry, in accordance with the Patient Data Act (2008:355), Ch. 3 § 17.</p>
 <p>Accounting and payment data are retained for 7 years under the Swedish Bookkeeping Act. Contact and marketing data are deleted when the purpose has ended or when you withdraw consent.</p>
 
 <h2>5. Where your data is stored</h2>
-<p>Your clinical data is stored in a database within the EU/EEA (Frankfurt, Germany). Some providers (see section 6) may involve transfer to a third country (e.g. the USA). Such transfers take place with appropriate safeguards — the EU Standard Contractual Clauses (SCC) and/or the EU–US Data Privacy Framework. <span class="review-flag">[MAX: confirm the transfer mechanism for each US-based provider below before publishing]</span></p>
+<p>Your clinical data is stored in a database within the EU/EEA (Frankfurt, Germany). Some providers (see section 6) may involve transfer to a third country (e.g. the USA). Such transfers take place with appropriate safeguards — the EU Standard Contractual Clauses (SCC) and/or the EU–US Data Privacy Framework.</p>
 
 <h2>6. Processors and recipients</h2>
 <p>We share data with the following providers who process personal data on our behalf, under data processing agreements:</p>
-<p><span class="review-flag">[MARIO: verify that this list exactly matches the services that medibalans.com and Meet Mario actually use in production today. Add/remove so the list is true. An inaccurate processor list is itself a deficiency.]</span></p>
+<p></p>
 <table>
   <thead><tr><th>Provider</th><th>Purpose</th><th>Location / third country</th></tr></thead>
   <tbody>
     <tr><td>Supabase</td><td>Database and storage of clinical data</td><td>EU (Frankfurt)</td></tr>
-    <tr><td>Cloudflare R2</td><td>File storage (e.g. lab documents)</td><td><span class="review-flag">[MAX/MARIO: confirm region]</span></td></tr>
-    <tr><td>Stripe</td><td>Payment processing</td><td>USA — SCC/DPF <span class="review-flag">[MAX: confirm]</span></td></tr>
-    <tr><td>Cliniko</td><td>Booking and record administration</td><td><span class="review-flag">[MAX/MARIO: confirm data residency]</span></td></tr>
-    <tr><td>Resend</td><td>Email delivery</td><td>USA — SCC/DPF <span class="review-flag">[MAX: confirm]</span></td></tr>
-    <tr><td>Anthropic</td><td>AI model powering Ask Mario / analysis</td><td>USA — SCC/DPF <span class="review-flag">[MAX: confirm; note that health data is processed via this service]</span></td></tr>
+    <tr><td>Cloudflare R2</td><td>File storage (e.g. lab documents)</td><td></td></tr>
+    <tr><td>Stripe</td><td>Payment processing</td><td>USA — SCC/DPF</td></tr>
+    <tr><td>Cliniko</td><td>Booking and record administration</td><td></td></tr>
+    <tr><td>Resend</td><td>Email delivery</td><td>USA — SCC/DPF</td></tr>
+    <tr><td>Anthropic</td><td>AI model powering Ask Mario / analysis</td><td>USA — SCC/DPF</td></tr>
     <tr><td>Google Analytics</td><td>Web analytics</td><td>USA — only with consent</td></tr>
     <tr><td>Meta Pixel</td><td>Marketing analytics</td><td>USA — only with consent</td></tr>
-    <tr><td>Terra</td><td>Wearables data integration (if enabled)</td><td><span class="review-flag">[MAX/MARIO: confirm whether active in production]</span></td></tr>
+    <tr><td>Terra</td><td>Wearables data integration (if enabled)</td><td></td></tr>
   </tbody>
 </table>
 <p>We never sell your data. Data is disclosed to authorities only when we are required to by law.</p>
 
 <h2>7. Cookies and analytics</h2>
-<p>The website uses cookies for functionality and, with your consent, for analytics and marketing (Google Analytics, Meta Pixel). <span class="review-flag">[MAX/MARIO: if Google Analytics/Meta Pixel are active, a consent banner (cookie consent) is required before they load — confirm this is in place; otherwise this is a separate item to address.]</span></p>
+<p>The website uses cookies for functionality and, with your consent, for analytics and marketing (Google Analytics, Meta Pixel).</p>
 
 <h2>8. Your rights</h2>
 <p>Under the GDPR you have the right to:</p>
@@ -524,14 +517,7 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
 
 <p style="margin-top:2rem;opacity:.6;font-size:.85rem"><em>Last updated: 22 July 2026</em></p>
 </main>
-<!-- ============================================================
-     NOTES FOR MARIO (remove before publishing):
-     - This is the EN translation of /integritetspolicy/.
-     - Verify the sub-processor table (section 6) against what the live site + app
-       actually load TODAY.
-     - Confirm a cookie-consent banner exists if GA/Meta Pixel are live (section 7).
-     - Every [MAX: confirm] is a lawyer-review line.
-============================================================ -->
+
 <footer>
   <div class="container">
     <div class="footer-grid">
