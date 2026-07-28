@@ -39,7 +39,19 @@ def extract_shell():
         pixel = m.group(0)
 
     body_open = re.search(r"<body[^>]*>", h).group(0)
-    header = h[h.index("<header"): h.index("</header>") + len("</header>")]
+
+    # VIKTIGT: mobilmenyn ligger UTANFÖR </header> på den här webbplatsen.
+    # Slutar extraktionen vid </header> får nya sidor en hamburgarknapp
+    # som inte öppnar någonting. Vi tar därför med mobilnav-blocket.
+    h_start = h.index("<header")
+    h_end = h.index("</header>") + len("</header>")
+    mn = h.find('id="mobileNav"', h_end)
+    if mn != -1:
+        m = re.search(r"</div>\s*(?=<(?!a\b)[a-zA-Z])", h[mn:])
+        header = h[h_start: mn + m.end()] if m else h[h_start:h_end]
+    else:
+        header = h[h_start:h_end]
+    assert 'id="mobileNav"' in header, "mobilnav saknas i extraherat skal"
     footer = h[h.index("<footer"): h.index("</footer>") + len("</footer>")]
     tail = h[h.index("</footer>") + len("</footer>"):]
 
