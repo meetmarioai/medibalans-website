@@ -753,19 +753,19 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
   <div class="container header-inner">
     <a href="/en/" class="logo" aria-label="MediBalans — home">Medi<span>Balans</span></a>
     <nav>
-      <a href="/en/#about">The Clinic</a>
+      <a href="/en/#about">Clinic</a>
       <a href="/en/#process">Method</a>
       <div class="nav-dropdown">
         <button class="nav-dd-btn" aria-expanded="false">Conditions <span class="dd-chevron">▾</span></button>
         <div class="dropdown-menu">
           <a href="/en/symptoms/">Symptom Guides</a>
-      <a href="/en/ibs-gut-health/">IBS &amp; Gut Health</a>
+          <a href="/en/ibs-gut-health/">IBS &amp; Gut Health</a>
           <a href="/en/chronic-fatigue/">Chronic Fatigue &amp; ME/CFS</a>
           <a href="/en/autoimmunity/">Autoimmunity</a>
-          <a href="/en/thyroid/">Thyroid Disorders</a>
           <a href="/en/skin-conditions/">Skin Conditions</a>
           <a href="/en/adhd-neuropsychiatry/">ADHD &amp; Neuropsychiatry</a>
-          <a href="/en/cognitive-health/">Cognitive Health</a>
+          <a href="/en/thyroid/">Thyroid &amp; Hormones</a>
+          <a href="/en/cognitive-health/">Cognitive Health &amp; Alzheimer's</a>
         </div>
       </div>
       <div class="nav-dropdown">
@@ -774,17 +774,16 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
           <a href="/en/alcat-test/">ALCAT — Food Intolerance</a>
           <a href="/en/cellular-nutrient-analysis/">CMA — Cellular Nutrients</a>
           <a href="/en/methylation-test/">MethylDetox — 38 Genes</a>
-          <a href="/en/biological-age/">Biological Age Panel</a>
+          <a href="/en/biological-age/">Biological Age</a>
           <a href="/en/alzheimers-assessment/">Alzheimer's Assessment</a>
           <a href="/en/hrv-analysis/">HRV Analysis</a>
-        
           <a href="/en/body-composition-analysis/">Body Composition — InBody</a>
         </div>
       </div>
       <div class="nav-dropdown">
         <button class="nav-dd-btn" aria-expanded="false">Genova <span class="dd-chevron">▾</span></button>
         <div class="dropdown-menu">
-          <a href="/en/genova-diagnostics/">All Tests</a>
+          <a href="/en/genova-diagnostics/">All tests</a>
           <a href="/en/gi-effects-test/">GI Effects&#174;</a>
           <a href="/en/nutreval-test/">NutrEval&#174;</a>
           <a href="/en/metabolomics/">Metabolomics</a>
@@ -795,19 +794,25 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
           <a href="/en/adrenal-stress/">Adrenal Stress</a>
           <a href="/en/essential-estrogens/">Essential Estrogens</a>
           <a href="/en/menopause-plus/">Menopause Plus</a>
-          <a href="/en/womens-health/">Women's Health+</a>
+          <a href="/en/womens-health/">Women's Health</a>
         </div>
       </div>
-      <div class="nav-dropdown"><button class="nav-dd-btn" aria-expanded="false">IV Therapy <span class="dd-chevron">▾</span></button><div class="dropdown-menu"><a href="/en/iv-therapy/">IV &amp; IM Therapy</a><a href="/en/iv-therapy/vitamin-d/">Vitamin D 100,000 IU</a></div></div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">IV Therapy <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/en/iv-therapy/">IV &amp; IM Therapy</a>
+          <a href="/en/iv-therapy/vitamin-d/">↳ Vitamin D 100,000 IU</a>
+        </div>
+      </div>
       <a href="/en/#families">Families</a>
       <div class="nav-dropdown">
         <button class="nav-dd-btn" aria-expanded="false">Research <span class="dd-chevron">▾</span></button>
         <div class="dropdown-menu">
+          <a href="/en/writings/">Writings — Mario Anthis</a>
           <a href="/en/research/">Research Programme</a>
-          <a href="/en/writings/">Writings</a>
-      <a href="/en/global-constraint-rule/">Global Constraint Rule</a>
-          <a href="/en/longevity-healthspan/">Longevity</a>
           <a href="/en/clinical-notes/">Clinical Notes</a>
+          <a href="/en/global-constraint-rule/">Global Constraint Rule</a>
+          <a href="/en/longevity-healthspan/">Longevity</a>
         </div>
       </div>
       <a href="/en/#faq">FAQ</a>
@@ -821,25 +826,52 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
 </header>
 
 <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
-  <a href="/en/" onclick="closeMobile()">Home</a>
-  <a href="/en/#about" onclick="closeMobile()">The Clinic</a>
-  <a href="/en/#testing" onclick="closeMobile()">Diagnostics</a>
-  <a href="/en/iv-therapy/" onclick="closeMobile()" style="color:var(--navy);font-weight:600;">IV &amp; IM Vitamin Therapy</a>
-      <a href="/en/iv-therapy/vitamin-d/" onclick="closeMobile()" class="mobile-sub">↳ Vitamin D 100,000 IU</a>
-  <a href="/en/iv-therapy/#glutathione" onclick="closeMobile()" class="mobile-sub">↳ Glutathione</a>
-  <a href="/en/iv-therapy/#treatments" onclick="closeMobile()" class="mobile-sub">↳ Price list</a>
-  <a href="/en/research/" onclick="closeMobile()">Research</a>
-  <a href="/en/writings/" onclick="closeMobile()" class="sub">Writings</a>
-      <a href="/en/global-constraint-rule/" onclick="closeMobile()" class="sub">Global Constraint Rule</a>
-  <a href="/en/longevity-healthspan/" onclick="closeMobile()" class="sub">Longevity</a>
+  <a href="/en/#about" onclick="closeMobile()">Clinic</a>
+  <a href="/en/#process" onclick="closeMobile()">Method</a>
+  <div class="mob-section-label">— Conditions —</div>
+  <a href="/en/symptoms/" onclick="closeMobile()" class="sub">Symptom Guides</a>
+  <a href="/en/ibs-gut-health/" onclick="closeMobile()" class="sub">IBS &amp; Gut Health</a>
+  <a href="/en/chronic-fatigue/" onclick="closeMobile()" class="sub">Chronic Fatigue &amp; ME/CFS</a>
+  <a href="/en/autoimmunity/" onclick="closeMobile()" class="sub">Autoimmunity</a>
+  <a href="/en/skin-conditions/" onclick="closeMobile()" class="sub">Skin Conditions</a>
+  <a href="/en/adhd-neuropsychiatry/" onclick="closeMobile()" class="sub">ADHD &amp; Neuropsychiatry</a>
+  <a href="/en/thyroid/" onclick="closeMobile()" class="sub">Thyroid &amp; Hormones</a>
+  <a href="/en/cognitive-health/" onclick="closeMobile()" class="sub">Cognitive Health &amp; Alzheimer's</a>
+  <div class="mob-section-label">— Diagnostics —</div>
+  <a href="/en/alcat-test/" onclick="closeMobile()" class="sub">ALCAT — Food Intolerance</a>
+  <a href="/en/cellular-nutrient-analysis/" onclick="closeMobile()" class="sub">CMA — Cellular Nutrients</a>
+  <a href="/en/methylation-test/" onclick="closeMobile()" class="sub">MethylDetox — 38 Genes</a>
+  <a href="/en/biological-age/" onclick="closeMobile()" class="sub">Biological Age</a>
+  <a href="/en/alzheimers-assessment/" onclick="closeMobile()" class="sub">Alzheimer's Assessment</a>
+  <a href="/en/hrv-analysis/" onclick="closeMobile()" class="sub">HRV Analysis</a>
+  <a href="/en/body-composition-analysis/" onclick="closeMobile()" class="sub">Body Composition — InBody</a>
+  <div class="mob-section-label">— Genova —</div>
+  <a href="/en/genova-diagnostics/" onclick="closeMobile()" class="sub">All tests</a>
+  <a href="/en/gi-effects-test/" onclick="closeMobile()" class="sub">GI Effects&#174;</a>
+  <a href="/en/nutreval-test/" onclick="closeMobile()" class="sub">NutrEval&#174;</a>
+  <a href="/en/metabolomics/" onclick="closeMobile()" class="sub">Metabolomics</a>
+  <a href="/en/sibo-test/" onclick="closeMobile()" class="sub">SIBO Breath Test</a>
+  <a href="/en/genova-hormones/" onclick="closeMobile()" class="sub">Hormonal Panels</a>
+  <a href="/en/organix/" onclick="closeMobile()" class="sub">Organix&#174;</a>
+  <a href="/en/fatty-acids/" onclick="closeMobile()" class="sub">Fatty Acids</a>
+  <a href="/en/adrenal-stress/" onclick="closeMobile()" class="sub">Adrenal Stress</a>
+  <a href="/en/essential-estrogens/" onclick="closeMobile()" class="sub">Essential Estrogens</a>
+  <a href="/en/menopause-plus/" onclick="closeMobile()" class="sub">Menopause Plus</a>
+  <a href="/en/womens-health/" onclick="closeMobile()" class="sub">Women's Health</a>
+  <div class="mob-section-label">— IV Therapy —</div>
+  <a href="/en/iv-therapy/" onclick="closeMobile()" class="sub">IV &amp; IM Therapy</a>
+  <a href="/en/iv-therapy/vitamin-d/" onclick="closeMobile()" class="mobile-sub">↳ Vitamin D 100,000 IU</a>
+  <a href="/en/#families" onclick="closeMobile()">Families</a>
+  <div class="mob-section-label">— Research —</div>
+  <a href="/en/writings/" onclick="closeMobile()" class="sub">Writings — Mario Anthis</a>
+  <a href="/en/research/" onclick="closeMobile()" class="sub">Research Programme</a>
   <a href="/en/clinical-notes/" onclick="closeMobile()" class="sub">Clinical Notes</a>
+  <a href="/en/global-constraint-rule/" onclick="closeMobile()" class="sub">Global Constraint Rule</a>
+  <a href="/en/longevity-healthspan/" onclick="closeMobile()" class="sub">Longevity</a>
   <a href="/en/#faq" onclick="closeMobile()">FAQ</a>
-  <a href="/en/iv-therapy/" onclick="closeMobile()">Svenska</a>
-  <a href="/en/#booking" onclick="closeMobile()" style="background:var(--navy);color:var(--white);border-radius:6px;text-align:center;margin-top:0.5rem;border-bottom:none;">Book Consultation</a>
-</div>
-
-
-<main>
+  <a href="/" onclick="closeMobile()" class="lang-link">SV — Svenska</a>
+  <a href="/en/#booking" onclick="closeMobile()" class="mob-cta">Book Consultation</a>
+</div><main>
 <article>
 <section class="hero" aria-label="IV and IM vitamin therapy Stockholm">
   <div class="container">
