@@ -31,7 +31,7 @@ aldrig har gjorts.
 
 Kör:  python3 scripts/build_homocystein.py
 """
-import json, os, sys
+import json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_new_sections import page, hero, toc, band, faq_html, faq_schema, ROOT, BASE
@@ -201,7 +201,13 @@ def build():
       "intracellulär status — och det avgör i sin tur vilken form och vilken dos som är rätt för dig.")}
 """
     extra = "\n.src{font-size:.87rem;color:var(--text-mid)}.src li{margin-bottom:.6rem}"
-    return page(title, desc, URL, schema, content).replace("</style>", extra + "\n</style>", 1)
+    html = page(title, desc, URL, schema, content).replace("</style>", extra + "\n</style>", 1)
+    m = re.search(r'<link rel="alternate" hreflang="sv" href="[^"]+">', html)
+    if m:
+        html = html.replace(
+            m.group(0),
+            m.group(0) + '\n<link rel="alternate" hreflang="en" href="https://www.medibalans.com/en/homocysteine/">', 1)
+    return html
 
 
 if __name__ == "__main__":

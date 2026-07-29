@@ -73,15 +73,12 @@ NAV_SV = [
     ("link", "Frågor", "/#faq", []),
 ]
 
-# OBS: Baby Balans saknas medvetet i den engelska menyn. /en/baby-balans/
-# är i dag en kopia av startsidan med canonical mot /en/ — att länka dit
-# från 50 sidor vore skadligt. Posten läggs tillbaka när den engelska
-# sidan är skriven på riktigt.
 NAV_EN = [
     ("link", "Clinic", "/en/#about", []),
     ("link", "Method", "/en/#process", []),
     ("menu", "Conditions", "/en/#investigate", [
         ("Symptom Guides", "/en/symptoms/", False),
+        ("Baby Balans — preconception", "/en/baby-balans/", False),
         ("IBS &amp; Gut Health", "/en/ibs-gut-health/", False),
         ("Chronic Fatigue &amp; ME/CFS", "/en/chronic-fatigue/", False),
         ("Autoimmunity", "/en/autoimmunity/", False),
@@ -119,10 +116,12 @@ NAV_EN = [
     ]),
     ("link", "Families", "/en/#families", []),
     ("menu", "Research", "/en/research/", [
+        ("Knowledge base — all articles", "/en/knowledge-base/", False),
         ("Writings — Mario Anthis", "/en/writings/", False),
         ("Theorems — propositions", "/en/theorems/", False),
         ("Research Programme", "/en/research/", False),
         ("Clinical Notes", "/en/clinical-notes/", False),
+        ("Homocysteine &amp; methylation", "/en/homocysteine/", False),
         ("Global Constraint Rule", "/en/global-constraint-rule/", False),
         ("Longevity", "/en/longevity-healthspan/", False),
     ]),

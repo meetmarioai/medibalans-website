@@ -26,9 +26,11 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build_new_sections import page, hero, band, ROOT, BASE
+from build_new_sections import page as sv_page, hero as sv_hero, band as sv_band, ROOT, BASE
+from build_content_en import page as en_page, hero as en_hero, band as en_band
 
-URL = f"{BASE}/kunskapsbank/"
+SV_URL = f"{BASE}/kunskapsbank/"
+EN_URL = f"{BASE}/en/knowledge-base/"
 ORG = {"@id": f"{BASE}/#organization"}
 
 # ------------------------------------------------------------------ kategorier
@@ -49,30 +51,62 @@ UTREDNINGAR = {
     "adhd-neuropsykiatri", "hypothyreos", "kognitiv-halsa", "baby-balans",
     "ibs-utredning-och-behandling", "longevitet-halsospann", "iv-terapi",
 }
+EN_KLINISKA = {
+    "micronutrient-test-comparison", "ibs-root-causes", "estrogen-metabolism-explained",
+    "gut-test-guide", "chronic-fatigue-biology", "investigation-protocol",
+    "global-constraint-rule", "homocysteine",
+}
+EN_DIAGNOSTIK = {
+    "alcat-test", "cellular-nutrient-analysis", "methylation-test", "biological-age",
+    "alzheimers-assessment", "hrv-analysis", "body-composition-analysis", "gi-effects-test",
+    "nutreval-test", "metabolomics", "sibo-test", "genova-hormones", "organix", "fatty-acids",
+    "adrenal-stress", "essential-estrogens", "menopause-plus", "womens-health",
+    "genova-diagnostics",
+}
+EN_UTREDNINGAR = {
+    "ibs-gut-health", "chronic-fatigue", "autoimmunity", "skin-conditions",
+    "adhd-neuropsychiatry", "thyroid", "cognitive-health", "baby-balans",
+    "ibs-investigation-and-treatment", "longevity-healthspan", "iv-therapy",
+}
+EN_UNDANTAG = {"privacy-policy", "clinical-notes", "symptoms", "writings", "research",
+               "theorems", "knowledge-base", "baby-balans"}
+
 # sidor som inte hör hemma i en kunskapsbank
 UNDANTAG = {".", "integritetspolicy", "clinical-notes", "symtom", "skrifter", "forskning"}
 
 FARG = {
-    "Symtomguide": "sym",
-    "Skrift": "skr",
-    "Klinisk notering": "kli",
-    "Diagnostik": "dia",
-    "Utredning": "utr",
+    "Symtomguide": "sym", "Symptom guide": "sym",
+    "Skrift": "skr", "Writing": "skr",
+    "Klinisk notering": "kli", "Clinical note": "kli",
+    "Diagnostik": "dia", "Diagnostics": "dia",
+    "Utredning": "utr", "Investigation": "utr",
 }
 
 
-def klassificera(slug):
+def klassificera(slug, lang="sv"):
     top = slug.split("/")[0]
-    if slug.startswith("symtom/"):
-        return "Symtomguide"
-    if slug.startswith("skrifter/"):
-        return "Skrift"
-    if top in KLINISKA_NOTERINGAR:
-        return "Klinisk notering"
-    if top in DIAGNOSTIK:
-        return "Diagnostik"
-    if top in UTREDNINGAR:
-        return "Utredning"
+    if lang == "sv":
+        if slug.startswith("symtom/"):
+            return "Symtomguide"
+        if slug.startswith("skrifter/"):
+            return "Skrift"
+        if top in KLINISKA_NOTERINGAR:
+            return "Klinisk notering"
+        if top in DIAGNOSTIK:
+            return "Diagnostik"
+        if top in UTREDNINGAR:
+            return "Utredning"
+        return None
+    if slug.startswith("symptoms/"):
+        return "Symptom guide"
+    if slug.startswith("writings/"):
+        return "Writing"
+    if top in EN_KLINISKA:
+        return "Clinical note"
+    if top in EN_DIAGNOSTIK:
+        return "Diagnostics"
+    if top in EN_UTREDNINGAR:
+        return "Investigation"
     return None
 
 
@@ -90,22 +124,26 @@ def las(p):
     return titel, desc, ord_
 
 
-def samla():
+def samla(lang="sv"):
     ut = []
-    for dp, dirs, fs in os.walk(ROOT):
+    rot = ROOT if lang == "sv" else os.path.join(ROOT, "en")
+    for dp, dirs, fs in os.walk(rot):
         dirs[:] = [d for d in dirs
                    if d not in (".git", "node_modules", "scripts", ".vercel",
-                                "api", "downloads", "en") and not d.startswith(".")]
+                                "api", "downloads") and not d.startswith(".")
+                   and not (lang == "sv" and d == "en")]
         for fn in fs:
             if fn != "index.html":
                 continue
             p = os.path.join(dp, fn)
             if os.path.getsize(p) < 3000:
                 continue
-            slug = os.path.relpath(dp, ROOT).replace("\\", "/")
-            if slug in UNDANTAG:
+            slug = os.path.relpath(dp, rot).replace("\\", "/")
+            if lang == "sv" and slug in UNDANTAG:
                 continue
-            kat = klassificera(slug)
+            if lang == "en" and (slug in EN_UNDANTAG or slug == "."):
+                continue
+            kat = klassificera(slug, lang)
             if not kat:
                 continue
             titel, desc, ord_ = las(p)
@@ -191,79 +229,121 @@ JS = """
 """
 
 
-def bygg():
-    poster = samla()
+def bygg(lang="sv"):
+    sv = lang == "sv"
+    url, other = (SV_URL, EN_URL) if sv else (EN_URL, SV_URL)
+    poster = samla(lang)
     kats = sorted({p["kat"] for p in poster})
+    pre = "" if sv else "en/"
 
-    chips = '<button class="kb-chip on" data-kat="alla">Alla</button>' + "".join(
+    L = dict(
+        alla="Alla" if sv else "All",
+        artikel="artikel" if sv else "article",
+        artiklar="artiklar" if sv else "articles",
+        ord="ord" if sv else "words",
+        sok=("Sök på symtom, analys eller nyckelord — t.ex. uppblåst, homocystein, MTHFR"
+             if sv else "Search by symptom, analysis or keyword — e.g. bloating, homocysteine, MTHFR"),
+        aria="Sök i kunskapsbanken" if sv else "Search the knowledge base",
+        tom=("Inga träffar. Pröva ett bredare sökord, eller "
+             '<a href="/#booking">boka en konsultation</a> så hjälper vi dig vidare.'
+             if sv else "No results. Try a broader term, or "
+             '<a href="/en/#booking">book a consultation</a> and we will help you further.'),
+        blad="Bläddra" if sv else "Browse",
+        boka="Boka konsultation" if sv else "Book a consultation",
+        other="English" if sv else "Svenska",
+    )
+
+    chips = f'<button class="kb-chip on" data-kat="alla">{L["alla"]}</button>' + "".join(
         f'<button class="kb-chip" data-kat="{H.escape(k)}">{H.escape(k)}</button>' for k in kats)
 
     kort = ""
     for p in poster:
         sok = H.escape(f'{p["titel"]} {p["desc"]} {p["kat"]} {p["slug"]}', quote=True)
+        antal = f'{p["ord"]:,}'.replace(",", " ")
         kort += (
-            f'<a class="kb-card" href="/{p["slug"]}/" data-kat="{H.escape(p["kat"])}" data-sok="{sok}">'
+            f'<a class="kb-card" href="/{pre}{p["slug"]}/" data-kat="{H.escape(p["kat"])}" data-sok="{sok}">'
             f'<span class="kb-tag {FARG[p["kat"]]}">{H.escape(p["kat"])}</span>'
             f'<h3>{H.escape(p["titel"])}</h3>'
             f'<p>{H.escape(p["desc"][:165])}{"…" if len(p["desc"]) > 165 else ""}</p>'
-            f'<div class="kb-meta">{p["ord"]:,} ord</div></a>'.replace(",", " "))
+            f'<div class="kb-meta">{antal} {L["ord"]}</div></a>')
 
     per_kat = {k: sum(1 for p in poster if p["kat"] == k) for k in kats}
 
     schema = ['<script type="application/ld+json">' + json.dumps({
         "@context": "https://schema.org", "@graph": [
-            {"@type": "CollectionPage", "@id": URL + "#page", "url": URL,
-             "name": "Kunskapsbank — MediBalans", "inLanguage": "sv-SE",
-             "description": "Samtliga kliniska noteringar, symtomguider, skrifter och diagnostiksidor.",
+            {"@type": "CollectionPage", "@id": url + "#page", "url": url,
+             "name": "Kunskapsbank — MediBalans" if sv else "Knowledge base — MediBalans",
+             "inLanguage": "sv-SE" if sv else "en-GB",
              "publisher": ORG, "isPartOf": {"@id": f"{BASE}/#website"}},
-            {"@type": "ItemList", "@id": URL + "#list",
-             "numberOfItems": len(poster),
+            {"@type": "ItemList", "@id": url + "#list", "numberOfItems": len(poster),
              "itemListElement": [
                  {"@type": "ListItem", "position": i + 1,
-                  "url": f'{BASE}/{p["slug"]}/', "name": p["titel"]}
+                  "url": f'{BASE}/{pre}{p["slug"]}/', "name": p["titel"]}
                  for i, p in enumerate(poster)]}]}, ensure_ascii=False) + "</script>"]
 
-    titel = "Kunskapsbank — kliniska noteringar, symtomguider och diagnostik | MediBalans"
-    desc = (f"Samtliga {len(poster)} artiklar och diagnostiksidor samlade och sökbara: "
-            "symtomguider, kliniska noteringar, skrifter av Mario Anthis och beskrivningar "
-            "av varje analys vi använder.")
+    if sv:
+        titel = "Kunskapsbank — kliniska noteringar, symtomguider och diagnostik | MediBalans"
+        desc = (f"Samtliga {len(poster)} artiklar och diagnostiksidor samlade och sökbara: "
+                "symtomguider, kliniska noteringar, skrifter av Mario Anthis och beskrivningar "
+                "av varje analys vi använder.")
+        eyebrow, h1, h1em = "Kunskapsbank", "Allt vi har skrivit, ", "på ett ställe."
+        lead = ("Kliniska noteringar, symtomguider, författade texter och beskrivningar av varje analys "
+                "vi arbetar med. Sök fritt eller filtrera på typ.")
+        fine = "Uppdateras allteftersom nya texter publiceras."
+        band_a, band_b = "Vet du inte", "var du ska börja"
+        band_p = ("Rätt utredning avgörs av din frågeställning, inte av hur många markörer en panel "
+                  "innehåller. En inledande konsultation ger ett tydligt nästa steg.")
+        stats = [(str(len(poster)), "Artiklar")] + [(str(v), k) for k, v in list(per_kat.items())[:3]]
+        booking = "/#booking"
+    else:
+        titel = "Knowledge base — clinical notes, symptom guides and diagnostics | MediBalans"
+        desc = (f"All {len(poster)} articles and diagnostic pages, collected and searchable: symptom "
+                "guides, clinical notes, writings by Mario Anthis and descriptions of every analysis we use.")
+        eyebrow, h1, h1em = "Knowledge base", "Everything we have written, ", "in one place."
+        lead = ("Clinical notes, symptom guides, authored texts and descriptions of every analysis we work "
+                "with. Search freely or filter by type.")
+        fine = "Updated as new texts are published."
+        band_a, band_b = "Not sure", "where to start"
+        band_p = ("The right investigation is determined by your clinical question, not by how many markers "
+                  "a panel contains. An initial consultation gives a clear next step.")
+        stats = [(str(len(poster)), "Articles")] + [(str(v), k) for k, v in list(per_kat.items())[:3]]
+        booking = "/en/#booking"
+
+    hero_f = sv_hero if sv else en_hero
+    band_f = sv_band if sv else en_band
 
     innehall = f"""
-{hero("Kunskapsbank", "Allt vi har skrivit, ", "på ett ställe.",
-      "Kliniska noteringar, symtomguider, författade texter och beskrivningar av varje analys vi arbetar med. "
-      "Sök fritt eller filtrera på typ.",
-      '<a class="btn-p" href="/#booking">Boka konsultation</a>'
-      '<a class="btn-s" href="#bank">Bläddra</a>',
-      "Uppdateras allteftersom nya texter publiceras.",
-      [(str(len(poster)), "Artiklar"),
-       (str(per_kat.get("Symtomguide", 0)), "Symtomguider"),
-       (str(per_kat.get("Klinisk notering", 0)), "Kliniska noteringar"),
-       (str(per_kat.get("Diagnostik", 0)), "Analyser")])}
+{hero_f(eyebrow, h1, h1em, lead,
+        f'<a class="btn-p" href="{booking}">{L["boka"]}</a><a class="btn-s" href="#bank">{L["blad"]}</a>',
+        fine, stats)}
 <div class="container" id="bank" style="padding-bottom:4rem">
   <div class="kb-tools">
-    <input class="kb-search" id="kbSearch" type="search" placeholder="Sök på symtom, analys eller nyckelord — t.ex. uppblåst, homocystein, MTHFR" aria-label="Sök i kunskapsbanken">
+    <input class="kb-search" id="kbSearch" type="search" placeholder="{H.escape(L['sok'])}" aria-label="{H.escape(L['aria'])}">
     <div class="kb-filters">{chips}</div>
   </div>
   <div class="kb-count" id="kbCount"></div>
   <div class="kb-grid">{kort}</div>
-  <div class="kb-empty" id="kbEmpty" style="display:none">
-    <p>Inga träffar. Pröva ett bredare sökord, eller <a href="/#booking">boka en konsultation</a> så hjälper vi dig vidare.</p>
-  </div>
+  <div class="kb-empty" id="kbEmpty" style="display:none"><p>{L["tom"]}</p></div>
+  <p style="margin-top:2rem"><a href="{other}">{L["other"]}</a></p>
 </div>
-{band("Vet du inte", "var du ska börja",
-      "Rätt utredning avgörs av din frågeställning, inte av hur många markörer en panel innehåller. "
-      "En inledande konsultation ger ett tydligt nästa steg.")}
+{band_f(band_a, band_b, band_p)}
 {JS}
 """
-    return page(titel, desc, URL, schema, innehall).replace(
-        "</style>", CSS + "\n</style>", 1), len(poster), per_kat
+    if sv:
+        html = sv_page(titel, desc, url, schema, innehall).replace("</style>", CSS + "\n</style>", 1)
+        m = re.search(r'<link rel="alternate" hreflang="sv" href="[^"]+">', html)
+        if m:
+            html = html.replace(m.group(0), m.group(0) + f'\n<link rel="alternate" hreflang="en" href="{other}">', 1)
+        return html, len(poster), per_kat
+    return en_page(titel, desc, url, other, schema, innehall).replace("</style>", CSS + "\n</style>", 1), len(poster), per_kat
 
 
 if __name__ == "__main__":
-    html, n, per_kat = bygg()
-    p = os.path.join(ROOT, "kunskapsbank", "index.html")
-    os.makedirs(os.path.dirname(p), exist_ok=True)
-    open(p, "w", encoding="utf-8").write(html)
-    print(f"   kunskapsbank/index.html — {n} artiklar")
-    for k, v in sorted(per_kat.items()):
-        print(f"      {k:20} {v}")
+    for lang, rel in (("sv", "kunskapsbank/index.html"), ("en", "en/knowledge-base/index.html")):
+        html, n, per_kat = bygg(lang)
+        p = os.path.join(ROOT, rel)
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        open(p, "w", encoding="utf-8").write(html)
+        print(f"   {rel} — {n} artiklar")
+        for k, v in sorted(per_kat.items()):
+            print(f"      {k:20} {v}")
