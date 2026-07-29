@@ -64,6 +64,7 @@ NAV_SV = [
         ("Skrifter — Mario Anthis", "/skrifter/", False),
         ("Forskningsprogram", "/forskning.html", False),
         ("Kliniska Noteringar", "/clinical-notes/", False),
+        ("Homocystein &amp; metylering", "/homocystein/", False),
         ("Global Constraint Rule", "/global-constraint-rule/", False),
         ("Longevitet", "/longevitet-halsospann/", False),
     ]),
