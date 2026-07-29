@@ -60,8 +60,8 @@ NAV_SV = [
         ("↳ D-vitamin 100 000 IE", "/iv-terapi/d-vitamin/", True),
     ]),
     ("link", "Familjer", "/#families", []),
+    ("link", "Kunskapsbank", "/kunskapsbank/", []),
     ("menu", "Forskning", "/forskning.html", [
-        ("Kunskapsbank — alla artiklar", "/kunskapsbank/", False),
         ("Skrifter — Mario Anthis", "/skrifter/", False),
         ("Teorem — falsifierbara satser", "/teorem/", False),
         ("Forskningsprogram", "/forskning.html", False),
@@ -116,8 +116,8 @@ NAV_EN = [
         ("↳ Vitamin D 100,000 IU", "/en/iv-therapy/vitamin-d/", True),
     ]),
     ("link", "Families", "/en/#families", []),
+    ("link", "Knowledge base", "/en/knowledge-base/", []),
     ("menu", "Research", "/en/research/", [
-        ("Knowledge base — all articles", "/en/knowledge-base/", False),
         ("Writings — Mario Anthis", "/en/writings/", False),
         ("Theorems — propositions", "/en/theorems/", False),
         ("Research Programme", "/en/research/", False),

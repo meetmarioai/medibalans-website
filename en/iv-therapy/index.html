@@ -763,6 +763,17 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
 }
 .mobile-nav.open{display:flex}
 </style>
+<style>/* kb-backlink */
+.kb-back{border-top:1px solid var(--border);background:var(--ice-faint);padding:2.2rem 0;margin-top:0}
+.kb-back .inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;gap:1.2rem;
+  align-items:center;justify-content:space-between;flex-wrap:wrap}
+.kb-back .txt{font-family:var(--font-body);color:var(--text-mid);font-size:.95rem;line-height:1.6;margin:0}
+.kb-back .txt strong{color:var(--navy)}
+.kb-back a.kb-link{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;
+  padding:.8rem 1.5rem;border-radius:4px;font-size:.9rem;font-weight:600;white-space:nowrap}
+.kb-back a.kb-link:hover{background:var(--navy-light,#1A3A5E)}
+@media(max-width:640px){.kb-back .inner{flex-direction:column;align-items:flex-start}}
+</style>
 </head>
 <body itemscope itemtype="https://schema.org/WebPage">
 
@@ -823,10 +834,10 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
         </div>
       </div>
       <a href="/en/#families">Families</a>
+      <a href="/en/knowledge-base/">Knowledge base</a>
       <div class="nav-dropdown">
         <button class="nav-dd-btn" aria-expanded="false">Research <span class="dd-chevron">▾</span></button>
         <div class="dropdown-menu">
-          <a href="/en/knowledge-base/">Knowledge base — all articles</a>
           <a href="/en/writings/">Writings — Mario Anthis</a>
           <a href="/en/theorems/">Theorems — propositions</a>
           <a href="/en/research/">Research Programme</a>
@@ -885,8 +896,8 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
   <a href="/en/iv-therapy/" onclick="closeMobile()" class="sub">IV &amp; IM Therapy</a>
   <a href="/en/iv-therapy/vitamin-d/" onclick="closeMobile()" class="mobile-sub">↳ Vitamin D 100,000 IU</a>
   <a href="/en/#families" onclick="closeMobile()">Families</a>
+  <a href="/en/knowledge-base/" onclick="closeMobile()">Knowledge base</a>
   <div class="mob-section-label">— Research —</div>
-  <a href="/en/knowledge-base/" onclick="closeMobile()" class="sub">Knowledge base — all articles</a>
   <a href="/en/writings/" onclick="closeMobile()" class="sub">Writings — Mario Anthis</a>
   <a href="/en/theorems/" onclick="closeMobile()" class="sub">Theorems — propositions</a>
   <a href="/en/research/" onclick="closeMobile()" class="sub">Research Programme</a>
@@ -1239,6 +1250,8 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
 </article>
 </main>
 
+
+<section class="kb-back"><div class="inner"><p class="txt"><strong>Keep reading.</strong> All 44 articles — symptom guides, clinical notes, writings and diagnostics — are collected and searchable in the knowledge base.</p><a class="kb-link" href="/en/knowledge-base/">Go to the knowledge base →</a></div></section>
 <footer role="contentinfo">
   <div class="container">
     <div class="footer-grid">
