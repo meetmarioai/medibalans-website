@@ -160,16 +160,24 @@ def desktop_html(lang):
 
 
 def mobile_html(lang):
+    """Mobilmenyn plattar ut varje dropdown till sina underposter. Om
+    ordningen följer desktop hamnar därför en toppnivålänk som ligger
+    efter dropdownsen på plats ~34 av 45 — bortom all rimlig scrollning.
+    Kunskapsbanken drabbades av exakt det. Enkla länkar emitteras därför
+    FÖRST i mobilen, sektionerna efter."""
     cfg = LANG[lang]
     out = []
+    enkla = [(l, h) for kind, l, h, _ in cfg["nav"] if kind == "link"
+             for l, h in [(l, h)]]
+    for label, href in enkla:
+        out.append(f'  <a href="{href}" onclick="closeMobile()">{label}</a>')
     for kind, label, href, kids in cfg["nav"]:
         if kind == "link":
-            out.append(f'  <a href="{href}" onclick="closeMobile()">{label}</a>')
-        else:
-            out.append(f'  <div class="mob-section-label">— {label} —</div>')
-            for k_label, k_href, sub in kids:
-                cls = "mobile-sub" if sub else "sub"
-                out.append(f'  <a href="{k_href}" onclick="closeMobile()" class="{cls}">{k_label}</a>')
+            continue
+        out.append(f'  <div class="mob-section-label">— {label} —</div>')
+        for k_label, k_href, sub in kids:
+            cls = "mobile-sub" if sub else "sub"
+            out.append(f'  <a href="{k_href}" onclick="closeMobile()" class="{cls}">{k_label}</a>')
     out.append(f'  <a href="{cfg["switch_href"]}" onclick="closeMobile()" class="lang-link">{cfg["switch_long"]}</a>')
     out.append(f'  <a href="{cfg["book_href"]}" onclick="closeMobile()" class="mob-cta">{cfg["book"]}</a>')
     return "\n".join(out)
