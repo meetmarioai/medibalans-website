@@ -1106,3 +1106,14 @@ document.addEventListener('DOMContentLoaded',()=>{
   setTimeout(showBubble, delayMs);
 })();
 </script>
+
+<script>
+/* nav-js-patch: closeMobile saknades — den kanoniska mobilmenyn anropar
+   den på varje länk. Toggle-handlern finns redan på denna sida. */
+function closeMobile(){
+  var m=document.getElementById('mobileNav');
+  var t=document.getElementById('mobileToggle');
+  if(m)m.classList.remove('active');
+  if(t)t.setAttribute('aria-expanded','false');
+}
+</script>
