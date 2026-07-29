@@ -23,6 +23,7 @@ NAV_SV = [
     ("link", "Metoden", "/#process", []),
     ("menu", "Utredningar", "/#investigate", [
         ("Symtomguider", "/symtom/", False),
+        ("Baby Balans — före graviditet", "/baby-balans/", False),
         ("IBS &amp; Tarmhälsa", "/ibs-tarmhalsa/", False),
         ("Kronisk Trötthet &amp; ME/CFS", "/utmattning/", False),
         ("Autoimmunitet", "/autoimmun/", False),
@@ -74,6 +75,7 @@ NAV_EN = [
     ("link", "Method", "/en/#process", []),
     ("menu", "Conditions", "/en/#investigate", [
         ("Symptom Guides", "/en/symptoms/", False),
+        ("Baby Balans — preconception", "/en/baby-balans/", False),
         ("IBS &amp; Gut Health", "/en/ibs-gut-health/", False),
         ("Chronic Fatigue &amp; ME/CFS", "/en/chronic-fatigue/", False),
         ("Autoimmunity", "/en/autoimmunity/", False),
