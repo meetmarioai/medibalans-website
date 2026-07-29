@@ -629,6 +629,23 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are NAD supplements (NMN/NR) dangerous for the heart?", "acceptedAnswer": {"@type": "Answer", "text": "Not in themselves, but the question is poorly studied for those who are susceptible. The reassuring human data come from short phase I trials (about 30 days) in Parkinson cohorts not stratified for methylation variants such as MTHFR, MTR, MTRR, AHCY or COMT. They say little about a slow methylariser on a long-term protocol, where NNMT-generated homocysteine can accumulate. That is why we measure homocysteine and methylation status rather than assume."}}, {"@type": "Question", "name": "Does niacinamide raise homocysteine?", "acceptedAnswer": {"@type": "Answer", "text": "It can. Niacinamide is methylated by NNMT with SAH, and therefore homocysteine, as a by-product. How much depends on dose and on how well homocysteine is recycled, which is governed by folate, B12 and MTHFR status."}}, {"@type": "Question", "name": "Why does MediBalans give NMN with cofactors instead of NAD alone?", "acceptedAnswer": {"@type": "Answer", "text": "Because the breakdown pathway consumes methyl groups and produces homocysteine. Supplying methyl donors such as TMG, methylfolate and B12 alongside NMN supports that pathway rather than burdening it. Substrate without cofactors is half the measure."}}, {"@type": "Question", "name": "Should I measure anything before taking NAD boosters?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — homocysteine, folate and B12, and ideally MTHFR and other methylation genes. It shows whether your methylation capacity matches the load you plan."}}, {"@type": "Question", "name": "What does MTHFR have to do with NAD supplements?", "acceptedAnswer": {"@type": "Answer", "text": "MTHFR governs the recycling of homocysteine to methionine. A slow variant with low folate limits that recycling, so homocysteine generated when NAD precursors are broken down is cleared less well. MTHFR is on the MethylDetox panel."}}]}
 </script>
+
+<style>/* nav-robust-css: ID-selektorer så att kaskaden inte kan slå ut menyn.
+   Bakgrund: nav-patchen på vissa sidor sätter .active medan sidans egen
+   CSS bara har .open. Båda stöds nu, och storleken på hamburgaren är
+   explicit så att den går att träffa med ett tryck. */
+#mobileNav{display:none}
+#mobileNav.active,#mobileNav.open{display:flex;flex-direction:column}
+#mobileToggle{display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:44px;height:44px;padding:10px;background:none;border:none;cursor:pointer}
+#mobileToggle span{display:block;width:22px;height:2px;background:var(--navy,#0B1D33);
+  border-radius:2px}
+@media(max-width:900px){
+  #mobileToggle{display:flex}
+  header nav{display:none}
+}
+.mobile-nav.open{display:flex}
+</style>
 </head>
 <body>
 

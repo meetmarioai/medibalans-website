@@ -560,6 +560,23 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
 @media(max-width:560px){.inbody .reco-badge{flex-wrap:wrap;gap:.6rem;}
 .inbody .reco-details, .inbody .reco-logo-mark{border-left:none;padding-left:0;}}
 </style>
+
+<style>/* nav-robust-css: ID-selektorer så att kaskaden inte kan slå ut menyn.
+   Bakgrund: nav-patchen på vissa sidor sätter .active medan sidans egen
+   CSS bara har .open. Båda stöds nu, och storleken på hamburgaren är
+   explicit så att den går att träffa med ett tryck. */
+#mobileNav{display:none}
+#mobileNav.active,#mobileNav.open{display:flex;flex-direction:column}
+#mobileToggle{display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:44px;height:44px;padding:10px;background:none;border:none;cursor:pointer}
+#mobileToggle span{display:block;width:22px;height:2px;background:var(--navy,#0B1D33);
+  border-radius:2px}
+@media(max-width:900px){
+  #mobileToggle{display:flex}
+  header nav{display:none}
+}
+.mobile-nav.open{display:flex}
+</style>
 </head>
 <body>
 <header id="header">

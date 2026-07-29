@@ -1492,6 +1492,23 @@ fbq('track','PageView');
 <meta name="twitter:image" content="https://www.medibalans.com/og-image.jpg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SiteNavigationElement","name":["IBS & Tarmhälsa","Kronisk Trötthet","Autoimmunitet","Hudsjukdomar","ADHD & Neuropsykiatri","Sköldkörtel & Hormoner","Kognitiv Hälsa & Alzheimer","Kvinnohälsa","GI Effects®","NutrEval®","Metabolomik","SIBO-test","Hormonpaneler","Alzheimer's Assessment","Global Constraint Rule"],"url":["https://www.medibalans.com/ibs-tarmhalsa/","https://www.medibalans.com/utmattning/","https://www.medibalans.com/autoimmun/","https://www.medibalans.com/hudsjukdomar/","https://www.medibalans.com/adhd-neuropsykiatri/","https://www.medibalans.com/hypothyreos/","https://www.medibalans.com/kognitiv-halsa/","https://www.medibalans.com/kvinnohalsa/","https://www.medibalans.com/gi-effects-test/","https://www.medibalans.com/nutreval-sverige/","https://www.medibalans.com/metabolomik/","https://www.medibalans.com/sibo-test/","https://www.medibalans.com/genova-hormontest/","https://www.medibalans.com/alzheimers-test/","https://www.medibalans.com/global-constraint-rule/"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"MediBalans","item":"https://www.medibalans.com/"}]}</script>
+
+<style>/* nav-robust-css: ID-selektorer så att kaskaden inte kan slå ut menyn.
+   Bakgrund: nav-patchen på vissa sidor sätter .active medan sidans egen
+   CSS bara har .open. Båda stöds nu, och storleken på hamburgaren är
+   explicit så att den går att träffa med ett tryck. */
+#mobileNav{display:none}
+#mobileNav.active,#mobileNav.open{display:flex;flex-direction:column}
+#mobileToggle{display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:44px;height:44px;padding:10px;background:none;border:none;cursor:pointer}
+#mobileToggle span{display:block;width:22px;height:2px;background:var(--navy,#0B1D33);
+  border-radius:2px}
+@media(max-width:900px){
+  #mobileToggle{display:flex}
+  header nav{display:none}
+}
+.mobile-nav.open{display:flex}
+</style>
 </head>
 <body>
 
