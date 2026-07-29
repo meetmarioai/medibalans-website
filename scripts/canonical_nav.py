@@ -61,6 +61,7 @@ NAV_SV = [
     ]),
     ("link", "Familjer", "/#families", []),
     ("menu", "Forskning", "/forskning.html", [
+        ("Kunskapsbank — alla artiklar", "/kunskapsbank/", False),
         ("Skrifter — Mario Anthis", "/skrifter/", False),
         ("Forskningsprogram", "/forskning.html", False),
         ("Kliniska Noteringar", "/clinical-notes/", False),
