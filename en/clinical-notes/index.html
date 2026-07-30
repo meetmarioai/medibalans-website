@@ -22,10 +22,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": [
-    "Blog",
-    "MedicalWebPage"
-  ],
+  "@type": "MedicalWebPage",
   "name": "Clinical Notes — MediBalans",
   "description": "Clinical observations, protocol updates and research commentary from Dr Mario Anthis, Founder and Medical Director at MediBalans Stockholm.",
   "url": "https://www.medibalans.com/en/clinical-notes/",
@@ -588,48 +585,28 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
 <meta name="twitter:description" content="Clinical observations and protocol updates by Dr Mario Anthis. HRV, GCR framework, biological age, methylation.">
 
 <script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.medibalans.com/en/"},
-      {"@type": "ListItem", "position": 2, "name": "Clinical Notes", "item": "https://www.medibalans.com/en/clinical-notes/"}
-    ]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the Global Constraint Rule and how is it applied clinically?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The Global Constraint Rule (GCR) is a clinical framework identifying the primary biological constraint behind a condition. Rather than treating secondary compensations — such as ALCAT reactivity or low HRV — GCR identifies the underlying bottleneck, corrects it, and allows the body to resolve the cascade naturally."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why is HRV an important diagnostic tool in precision medicine?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "HRV (heart rate variability) measures the adaptive capacity of the autonomic nervous system. In precision medicine, HRV is used as an objective marker of biological stress tolerance, inflammation load and treatment response — it is one of the few real-time measures integrating cellular, neurological and immunological status in a single value."
-        }
-      }
-    ]
-  }
-]
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.medibalans.com/en/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Clinical Notes",
+      "item": "https://www.medibalans.com/en/clinical-notes/"
+    }
+  ]
+}
 </script>
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What actually causes IBS?", "acceptedAnswer": {"@type": "Answer", "text": "IBS is multifactorial. It develops as a cascade: a disrupted microbiome, an innate immune response to food and microbial antigens, chronic inflammation, and a barrier that becomes permeable. Mitochondrial dysfunction in the gut lining is a downstream consequence of that burden — not the cause. Genetic and epigenetic susceptibility shapes how strongly each step fires."}}, {"@type": "Question", "name": "Is IBS a bowel disease?", "acceptedAnswer": {"@type": "Answer", "text": "IBS is not a structural bowel disease — there is no visible tissue damage. It is a functional condition arising from the interplay of microbiome, immune activation and barrier dysfunction."}}, {"@type": "Question", "name": "What is the role of leaky gut in IBS?", "acceptedAnswer": {"@type": "Answer", "text": "Increased intestinal permeability sits in the middle of the cascade: chronic inflammation degrades the tight junctions, the barrier leaks, more antigen crosses, and the immune response amplifies. It is a step in the chain, not the root."}}, {"@type": "Question", "name": "Is mitochondrial dysfunction the cause of IBS?", "acceptedAnswer": {"@type": "Answer", "text": "No — in this model it is a downstream consequence. The chronic oxidative and inflammatory load, and the energy cost of constant barrier repair, deplete the gut-lining mitochondria. It is measurable and worth correcting for symptom relief, but it is the casualty at the end of the cascade, not the trigger."}}, {"@type": "Question", "name": "What tests are relevant for IBS?", "acceptedAnswer": {"@type": "Answer", "text": "In causal order: GI Effects for the microbiome and barrier markers; WGS and MethylDetox for genetic/epigenetic susceptibility; ALCAT for immune reactivity; and CMA for the downstream intracellular nutrient and energy depletion."}}]}
-</script>
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is quercetin dangerous with slow COMT?", "acceptedAnswer": {"@type": "Answer", "text": "No — the question is dose and sequence, not danger. In a slow methylariser, high supplemental doses compete for COMT and the SAM pool. The answer is to map COMT and MTHFR genotype and methylation status, then individualise the dose."}}, {"@type": "Question", "name": "Should I avoid fisetin and senolytics if I have COMT Met/Met?", "acceptedAnswer": {"@type": "Answer", "text": "Not avoid — sequence. Optimise methylation first (folate/B12, homocysteine), know your genotype, then dose deliberately rather than stacking blind."}}, {"@type": "Question", "name": "Does this affect polyphenols in food, like tea, berries and olive oil?", "acceptedAnswer": {"@type": "Answer", "text": "No. Dietary polyphenols arrive at doses the system handles well and are beneficial. This concerns concentrated high-dose supplements."}}, {"@type": "Question", "name": "How do I know if I have slow COMT?", "acceptedAnswer": {"@type": "Answer", "text": "COMT rs4680 is included in the MethylDetox panel and in whole-genome sequencing, which also shows your MTHFR and other methylation genes."}}, {"@type": "Question", "name": "What is the link between MTHFR and COMT?", "acceptedAnswer": {"@type": "Answer", "text": "MTHFR-driven undermethylation lowers SAM and raises SAH, and SAH inhibits COMT. Slow COMT and undermethylation therefore compound one another. Both are on the MethylDetox panel."}}]}
-</script>
-<script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Are NAD supplements (NMN/NR) dangerous for the heart?", "acceptedAnswer": {"@type": "Answer", "text": "Not in themselves, but the question is poorly studied for those who are susceptible. The reassuring human data come from short phase I trials (about 30 days) in Parkinson cohorts not stratified for methylation variants such as MTHFR, MTR, MTRR, AHCY or COMT. They say little about a slow methylariser on a long-term protocol, where NNMT-generated homocysteine can accumulate. That is why we measure homocysteine and methylation status rather than assume."}}, {"@type": "Question", "name": "Does niacinamide raise homocysteine?", "acceptedAnswer": {"@type": "Answer", "text": "It can. Niacinamide is methylated by NNMT with SAH, and therefore homocysteine, as a by-product. How much depends on dose and on how well homocysteine is recycled, which is governed by folate, B12 and MTHFR status."}}, {"@type": "Question", "name": "Why does MediBalans give NMN with cofactors instead of NAD alone?", "acceptedAnswer": {"@type": "Answer", "text": "Because the breakdown pathway consumes methyl groups and produces homocysteine. Supplying methyl donors such as TMG, methylfolate and B12 alongside NMN supports that pathway rather than burdening it. Substrate without cofactors is half the measure."}}, {"@type": "Question", "name": "Should I measure anything before taking NAD boosters?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — homocysteine, folate and B12, and ideally MTHFR and other methylation genes. It shows whether your methylation capacity matches the load you plan."}}, {"@type": "Question", "name": "What does MTHFR have to do with NAD supplements?", "acceptedAnswer": {"@type": "Answer", "text": "MTHFR governs the recycling of homocysteine to methionine. A slow variant with low folate limits that recycling, so homocysteine generated when NAD precursors are broken down is cleared less well. MTHFR is on the MethylDetox panel."}}]}
-</script>
+
+
+
 
 <style>/* nav-robust-css: ID-selektorer så att kaskaden inte kan slå ut menyn.
    Bakgrund: nav-patchen på vissa sidor sätter .active medan sidans egen
@@ -647,6 +624,424 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
 }
 .mobile-nav.open{display:flex}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "https://www.medibalans.com/en/clinical-notes/#blog",
+  "url": "https://www.medibalans.com/en/clinical-notes/",
+  "name": "Clinical Notes — MediBalans",
+  "description": "Clinical observations, protocol updates and research commentary from Dr Mario Anthis, MediBalans Stockholm.",
+  "inLanguage": "en-GB",
+  "author": {
+    "@id": "https://www.medibalans.com/#mario-anthis"
+  },
+  "publisher": {
+    "@type": "MedicalClinic",
+    "name": "MediBalans",
+    "url": "https://www.medibalans.com"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.medibalans.com/en/clinical-notes/#cn-001-article",
+      "url": "https://www.medibalans.com/en/clinical-notes/#cn-001",
+      "headline": "HRV as a clinical metric — beyond the wellness myth",
+      "description": "Heart rate variability has been hijacked by the wellness industry. It is a precision measurement of autonomic nerve function with direct clinical relevance for cardiovascular risk, chronic inflammation and fatigue syndromes. Here is what we actually measure — and why it matters.",
+      "datePublished": "2026-02-28",
+      "dateModified": "2026-02-28",
+      "inLanguage": "en-GB",
+      "author": {
+        "@id": "https://www.medibalans.com/#mario-anthis"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "MediBalans",
+        "url": "https://www.medibalans.com"
+      },
+      "isPartOf": {
+        "@id": "https://www.medibalans.com/en/clinical-notes/#blog"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.medibalans.com/en/clinical-notes/#cn-002-article",
+      "url": "https://www.medibalans.com/en/clinical-notes/#cn-002",
+      "headline": "Global Constraint Rule — why the same symptom requires different treatment",
+      "description": "The clinical framework that governs MediBalans diagnostics and protocol design. Biological systems always adapt to their most limiting factor — not their most obvious one. Why this is decisive for complex chronic disease.",
+      "datePublished": "2026-02-28",
+      "dateModified": "2026-02-28",
+      "inLanguage": "en-GB",
+      "author": {
+        "@id": "https://www.medibalans.com/#mario-anthis"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "MediBalans",
+        "url": "https://www.medibalans.com"
+      },
+      "isPartOf": {
+        "@id": "https://www.medibalans.com/en/clinical-notes/#blog"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.medibalans.com/en/clinical-notes/#cn-003-article",
+      "url": "https://www.medibalans.com/en/clinical-notes/#cn-003",
+      "headline": "Biological age vs chronological age — what BioAge™ actually measures",
+      "description": "Your passport states your chronological age. Your biology tells a different story. RNA transcriptome analysis with 42,000 biomarkers, proteomic profiling and patented translational gap analysis — how we measure biological age with clinical precision.",
+      "datePublished": "2026-02-28",
+      "dateModified": "2026-02-28",
+      "inLanguage": "en-GB",
+      "author": {
+        "@id": "https://www.medibalans.com/#mario-anthis"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "MediBalans",
+        "url": "https://www.medibalans.com"
+      },
+      "isPartOf": {
+        "@id": "https://www.medibalans.com/en/clinical-notes/#blog"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.medibalans.com/en/clinical-notes/#cn-004-article",
+      "url": "https://www.medibalans.com/en/clinical-notes/#cn-004",
+      "headline": "What causes IBS? A cascade — from the microbiome to the gut's mitochondria",
+      "description": "IBS is a symptom diagnosis, not a single cause. It emerges from a cascade: disruption of the gut microbiome, an innate immune response to food and microbial antigens, chronic low-grade inflammation, and a barrier that becomes permeable. The mitochondria of the gut lining are where the damage finally",
+      "datePublished": "2026-03-01",
+      "dateModified": "2026-03-01",
+      "inLanguage": "en-GB",
+      "author": {
+        "@id": "https://www.medibalans.com/#mario-anthis"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "MediBalans",
+        "url": "https://www.medibalans.com"
+      },
+      "isPartOf": {
+        "@id": "https://www.medibalans.com/en/clinical-notes/#blog"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.medibalans.com/en/clinical-notes/#cn-005-article",
+      "url": "https://www.medibalans.com/en/clinical-notes/#cn-005",
+      "headline": "Chronic fatigue is not exhaustion — it is mitochondrial debt that cannot be repaid",
+      "description": "ME/CFS is the clinical manifestation of mitochondrial dysfunction made visible. The organ that fails first varies by patient — but the biochemical mechanism is the same: cells that cannot produce enough ATP to meet physiological demand.",
+      "datePublished": "2026-03-01",
+      "dateModified": "2026-03-01",
+      "inLanguage": "en-GB",
+      "author": {
+        "@id": "https://www.medibalans.com/#mario-anthis"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "MediBalans",
+        "url": "https://www.medibalans.com"
+      },
+      "isPartOf": {
+        "@id": "https://www.medibalans.com/en/clinical-notes/#blog"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.medibalans.com/en/clinical-notes/#cn-006-article",
+      "url": "https://www.medibalans.com/en/clinical-notes/#cn-006",
+      "headline": "Autoimmunity is not an immune malfunction — it is what happens when energy-starved immune cells lose tolerance",
+      "description": "Regulatory T cells (Tregs) are the immune system's tolerance guardians. They are also among the body's most mitochondrially dependent cells. When mitochondrial function fails, Tregs lose their suppressive capacity. Self-tolerance erodes. Autoimmunity is the consequence — not the cause.",
+      "datePublished": "2026-03-01",
+      "dateModified": "2026-03-01",
+      "inLanguage": "en-GB",
+      "author": {
+        "@id": "https://www.medibalans.com/#mario-anthis"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "MediBalans",
+        "url": "https://www.medibalans.com"
+      },
+      "isPartOf": {
+        "@id": "https://www.medibalans.com/en/clinical-notes/#blog"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.medibalans.com/en/clinical-notes/#cn-007-article",
+      "url": "https://www.medibalans.com/en/clinical-notes/#cn-007",
+      "headline": "Long COVID is acute mitochondrial injury — that never healed",
+      "description": "SARS-CoV-2 is the first viral pandemic where mitochondrial pathophysiology was documented in real time on a global scale. The virus directly attacks mitochondrial membranes, hijacks cellular energy production, and leaves — in a significant minority — a persistent mitochondrial dysfunction that manif",
+      "datePublished": "2026-03-01",
+      "dateModified": "2026-03-01",
+      "inLanguage": "en-GB",
+      "author": {
+        "@id": "https://www.medibalans.com/#mario-anthis"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "MediBalans",
+        "url": "https://www.medibalans.com"
+      },
+      "isPartOf": {
+        "@id": "https://www.medibalans.com/en/clinical-notes/#blog"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.medibalans.com/en/clinical-notes/#cn-008-article",
+      "url": "https://www.medibalans.com/en/clinical-notes/#cn-008",
+      "headline": "Insulin resistance is not a sugar problem — it is the metabolic signature of mitochondrial dysfunction in skeletal muscle",
+      "description": "Type 2 diabetes is treated as a sugar disease. That is a biochemical oversimplification — which explains why treating it with glucose-lowering agents doesn't stop disease progression. Insulin resistance arises when skeletal muscle mitochondria can no longer oxidise glucose and fatty acids with suffi",
+      "datePublished": "2026-03-01",
+      "dateModified": "2026-03-01",
+      "inLanguage": "en-GB",
+      "author": {
+        "@id": "https://www.medibalans.com/#mario-anthis"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "MediBalans",
+        "url": "https://www.medibalans.com"
+      },
+      "isPartOf": {
+        "@id": "https://www.medibalans.com/en/clinical-notes/#blog"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.medibalans.com/en/clinical-notes/#cn-009-article",
+      "url": "https://www.medibalans.com/en/clinical-notes/#cn-009",
+      "headline": "Senolytics, polyphenols and slow COMT — a methylation question",
+      "description": "Quercetin, fisetin and EGCG are catechol flavonoids — substrates for the same enzyme, COMT, that clears your catecholamines and oestrogens. In slow COMT, methylation capacity decides whether a longevity supplement helps or burdens. Why genetics, not trend, should set the protocol.",
+      "datePublished": "2026-06-22",
+      "dateModified": "2026-06-22",
+      "inLanguage": "en-GB",
+      "author": {
+        "@id": "https://www.medibalans.com/#mario-anthis"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "MediBalans",
+        "url": "https://www.medibalans.com"
+      },
+      "isPartOf": {
+        "@id": "https://www.medibalans.com/en/clinical-notes/#blog"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.medibalans.com/en/clinical-notes/#cn-010-article",
+      "url": "https://www.medibalans.com/en/clinical-notes/#cn-010",
+      "headline": "NAD boosters, methylation and homocysteine — a cardiovascular question",
+      "description": "NAD precursors — niacinamide, NR, NMN — are broken down by methylation. The enzyme NNMT spends a methyl group (SAM) per molecule and produces homocysteine, an established cardiovascular risk marker. At high dose or limited methylation capacity, substrate without cofactors can push the system the wro",
+      "datePublished": "2026-06-23",
+      "dateModified": "2026-06-23",
+      "inLanguage": "en-GB",
+      "author": {
+        "@id": "https://www.medibalans.com/#mario-anthis"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "MediBalans",
+        "url": "https://www.medibalans.com"
+      },
+      "isPartOf": {
+        "@id": "https://www.medibalans.com/en/clinical-notes/#blog"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.medibalans.com/en/clinical-notes/#cn-011-article",
+      "url": "https://www.medibalans.com/en/clinical-notes/#cn-011",
+      "headline": "Evolutionary mismatch — what the test actually measures",
+      "description": "The question I am asked most often is whether the patient has become allergic to food. Almost always the answer is no — and the question leads in the wrong direction. What a cellular reactivity test measures is not allergy. It is recognition — and a cellular reaction should be understood as evolutio",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-07-28",
+      "inLanguage": "en-GB",
+      "author": {
+        "@id": "https://www.medibalans.com/#mario-anthis"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "MediBalans",
+        "url": "https://www.medibalans.com"
+      },
+      "isPartOf": {
+        "@id": "https://www.medibalans.com/en/clinical-notes/#blog"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.medibalans.com/en/clinical-notes/#cn-012-article",
+      "url": "https://www.medibalans.com/en/clinical-notes/#cn-012",
+      "headline": "Glutathione and one-carbon metabolism — why oxidative load costs methylation",
+      "description": "Glutathione is almost always discussed as an antioxidant and almost never as a metabolic cost. But the cysteine it is built from is drawn through transsulfuration, directly downstream of homocysteine. Oxidative load therefore shifts flux at the homocysteine fork — and can mask a methylation problem ",
+      "datePublished": "2026-07-30",
+      "dateModified": "2026-07-30",
+      "inLanguage": "en-GB",
+      "author": {
+        "@id": "https://www.medibalans.com/#mario-anthis"
+      },
+      "publisher": {
+        "@type": "MedicalClinic",
+        "name": "MediBalans",
+        "url": "https://www.medibalans.com"
+      },
+      "isPartOf": {
+        "@id": "https://www.medibalans.com/en/clinical-notes/#blog"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://www.medibalans.com/en/clinical-notes/#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Global Constraint Rule and how is it applied clinically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Global Constraint Rule (GCR) is a clinical framework identifying the primary biological constraint behind a condition. Rather than treating secondary compensations — such as ALCAT reactivity or low HRV — GCR identifies the underlying bottleneck, corrects it, and allows the body to resolve the cascade naturally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is HRV an important diagnostic tool in precision medicine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "HRV (heart rate variability) measures the adaptive capacity of the autonomic nervous system. In precision medicine, HRV is used as an objective marker of biological stress tolerance, inflammation load and treatment response — it is one of the few real-time measures integrating cellular, neurological and immunological status in a single value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What actually causes IBS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IBS is multifactorial. It develops as a cascade: a disrupted microbiome, an innate immune response to food and microbial antigens, chronic inflammation, and a barrier that becomes permeable. Mitochondrial dysfunction in the gut lining is a downstream consequence of that burden — not the cause. Genetic and epigenetic susceptibility shapes how strongly each step fires."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is IBS a bowel disease?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IBS is not a structural bowel disease — there is no visible tissue damage. It is a functional condition arising from the interplay of microbiome, immune activation and barrier dysfunction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the role of leaky gut in IBS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Increased intestinal permeability sits in the middle of the cascade: chronic inflammation degrades the tight junctions, the barrier leaks, more antigen crosses, and the immune response amplifies. It is a step in the chain, not the root."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is mitochondrial dysfunction the cause of IBS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — in this model it is a downstream consequence. The chronic oxidative and inflammatory load, and the energy cost of constant barrier repair, deplete the gut-lining mitochondria. It is measurable and worth correcting for symptom relief, but it is the casualty at the end of the cascade, not the trigger."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What tests are relevant for IBS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In causal order: GI Effects for the microbiome and barrier markers; WGS and MethylDetox for genetic/epigenetic susceptibility; ALCAT for immune reactivity; and CMA for the downstream intracellular nutrient and energy depletion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is quercetin dangerous with slow COMT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — the question is dose and sequence, not danger. In a slow methylariser, high supplemental doses compete for COMT and the SAM pool. The answer is to map COMT and MTHFR genotype and methylation status, then individualise the dose."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I avoid fisetin and senolytics if I have COMT Met/Met?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not avoid — sequence. Optimise methylation first (folate/B12, homocysteine), know your genotype, then dose deliberately rather than stacking blind."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this affect polyphenols in food, like tea, berries and olive oil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Dietary polyphenols arrive at doses the system handles well and are beneficial. This concerns concentrated high-dose supplements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if I have slow COMT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "COMT rs4680 is included in the MethylDetox panel and in whole-genome sequencing, which also shows your MTHFR and other methylation genes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the link between MTHFR and COMT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MTHFR-driven undermethylation lowers SAM and raises SAH, and SAH inhibits COMT. Slow COMT and undermethylation therefore compound one another. Both are on the MethylDetox panel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are NAD supplements (NMN/NR) dangerous for the heart?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not in themselves, but the question is poorly studied for those who are susceptible. The reassuring human data come from short phase I trials (about 30 days) in Parkinson cohorts not stratified for methylation variants such as MTHFR, MTR, MTRR, AHCY or COMT. They say little about a slow methylariser on a long-term protocol, where NNMT-generated homocysteine can accumulate. That is why we measure homocysteine and methylation status rather than assume."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does niacinamide raise homocysteine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can. Niacinamide is methylated by NNMT with SAH, and therefore homocysteine, as a by-product. How much depends on dose and on how well homocysteine is recycled, which is governed by folate, B12 and MTHFR status."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does MediBalans give NMN with cofactors instead of NAD alone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because the breakdown pathway consumes methyl groups and produces homocysteine. Supplying methyl donors such as TMG, methylfolate and B12 alongside NMN supports that pathway rather than burdening it. Substrate without cofactors is half the measure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I measure anything before taking NAD boosters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — homocysteine, folate and B12, and ideally MTHFR and other methylation genes. It shows whether your methylation capacity matches the load you plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does MTHFR have to do with NAD supplements?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MTHFR governs the recycling of homocysteine to methionine. A slow variant with low folate limits that recycling, so homocysteine generated when NAD precursors are broken down is cleared less well. MTHFR is on the MethylDetox panel."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -2146,45 +2541,6 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
 <!-- ═══════════════════════════════════════════════════
      ARTICLE 11: EVOLUTIONARY MISMATCH
 ════════════════════════════════════════════════════ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": "https://www.medibalans.com/en/clinical-notes/#cn-011-article",
-  "url": "https://www.medibalans.com/en/clinical-notes/#cn-011",
-  "mainEntityOfPage": {
-    "@type": "MedicalWebPage",
-    "url": "https://www.medibalans.com/en/clinical-notes/"
-  },
-  "headline": "Evolutionary mismatch — what a cellular reactivity test actually measures",
-  "description": "The question is not whether you have become allergic to food, but what the immune system recognises. Mario Anthis on why cellular food reactivity should be understood as recognition rather than disease.",
-  "inLanguage": "en-GB",
-  "datePublished": "2026-07-28",
-  "dateModified": "2026-07-30",
-  "author": {
-    "@type": "Person",
-    "name": "Dr Mario Anthis",
-    "jobTitle": "Founder & Medical Director",
-    "worksFor": {
-      "@type": "MedicalClinic",
-      "name": "MediBalans",
-      "url": "https://www.medibalans.com"
-    },
-    "@id": "https://www.medibalans.com/#mario-anthis"
-  },
-  "publisher": {
-    "@type": "MedicalClinic",
-    "name": "MediBalans",
-    "url": "https://www.medibalans.com"
-  },
-  "isPartOf": {
-    "@type": "MedicalWebPage",
-    "name": "Clinical Notes — MediBalans",
-    "url": "https://www.medibalans.com/en/clinical-notes/"
-  },
-  "genre": "Clinical observation and hypothesis"
-}
-</script>
 <section class="article-section" id="cn-011">
   <div class="container">
     <div class="article-header reveal">
@@ -2279,45 +2635,6 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
   </div>
 </section>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "@id": "https://www.medibalans.com/en/clinical-notes/#cn-012-article",
-  "url": "https://www.medibalans.com/en/clinical-notes/#cn-012",
-  "mainEntityOfPage": {
-    "@type": "MedicalWebPage",
-    "url": "https://www.medibalans.com/en/clinical-notes/"
-  },
-  "headline": "Glutathione and one-carbon metabolism — why oxidative load costs methylation",
-  "description": "The cysteine used for glutathione synthesis is drawn through transsulfuration, directly downstream of homocysteine. Oxidative load shifts flux at the homocysteine fork, which can mask a methylation problem while creating one.",
-  "inLanguage": "en-GB",
-  "datePublished": "2026-07-30",
-  "dateModified": "2026-07-30",
-  "author": {
-    "@type": "Person",
-    "name": "Dr Mario Anthis",
-    "jobTitle": "Founder & Medical Director",
-    "worksFor": {
-      "@type": "MedicalClinic",
-      "name": "MediBalans",
-      "url": "https://www.medibalans.com"
-    },
-    "@id": "https://www.medibalans.com/#mario-anthis"
-  },
-  "publisher": {
-    "@type": "MedicalClinic",
-    "name": "MediBalans",
-    "url": "https://www.medibalans.com"
-  },
-  "isPartOf": {
-    "@type": "MedicalWebPage",
-    "name": "Clinical Notes — MediBalans",
-    "url": "https://www.medibalans.com/en/clinical-notes/"
-  },
-  "genre": "Clinical observation and hypothesis"
-}
-</script>
 <section class="article-section" id="cn-012">
   <div class="container">
     <div class="article-header reveal">
