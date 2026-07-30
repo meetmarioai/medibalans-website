@@ -1,5 +1,12 @@
 {
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "medibalans.com" }],
+      "destination": "https://www.medibalans.com/:path*",
+      "permanent": true
+    },
+
     { "source": "/skrifter/evolutionar-missmatchning", "destination": "/clinical-notes/#cn-011", "permanent": true },
     { "source": "/skrifter/evolutionar-missmatchning/", "destination": "/clinical-notes/#cn-011", "permanent": true },
     { "source": "/en/writings/evolutionary-mismatch", "destination": "/en/clinical-notes/#cn-011", "permanent": true },
