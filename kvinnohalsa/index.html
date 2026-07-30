@@ -21,19 +21,88 @@
 {
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
-  "name": "MediBalans — Kvinnohälsa & Hormonbalans Stockholm",
+  "name": "MediBalans",
   "description": "MediBalans utreder och behandlar PMS, PMDD, perimenopaus, PCOS, endometrios och kronisk trötthet hos kvinnor med avancerad precisionsmedicin, hormonal diagnostik och GCR-baserade behandlingsprotokoll.",
-  "url": "https://www.medibalans.com/kvinnohalsa/",
+  "url": "https://www.medibalans.com",
   "telephone": "+46723195070",
-  "address": {"@type":"PostalAddress","streetAddress":"Banérgatan 10","addressLocality":"Stockholm","postalCode":"115 23","addressCountry":"SE"},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Banérgatan 10, 1 tr",
+    "addressLocality": "Stockholm",
+    "addressRegion": "Stockholms län",
+    "postalCode": "115 23",
+    "addressCountry": "SE"
+  },
   "availableService": [
-    {"@type":"MedicalTest","name":"Genova Women's Health+","description":"Integrerad metabolisk och endokrin panel — hormoner, organiska syror och valfria SNPs."},
-    {"@type":"MedicalTest","name":"Genova Rhythm Plus™","description":"28-dagars salivbaserad cykelmappning av östradiol, progesteron och testosteron."},
-    {"@type":"MedicalTest","name":"Genova Adrenocortex Stress Profile","description":"Kortisolkurva och DHEA — HPA-axelns funktion."},
-    {"@type":"MedicalTest","name":"ALCAT — Immunreaktivitetstest","description":"Cellulär immunreaktivitet mot upp till 250 livsmedel och kemikalier."},
-    {"@type":"MedicalTest","name":"CMA — Cellulär Mikronäringsanalys","description":"55 intracellulära mikronäringsmarkörer."},
-    {"@type":"MedicalTest","name":"MethylDetox — 38-gens metyleringsanalys","description":"COMT, MTHFR och 36 ytterligare metyleringsrelaterade gener."}
-  ]
+    {
+      "@type": "MedicalTest",
+      "name": "Genova Women's Health+",
+      "description": "Integrerad metabolisk och endokrin panel — hormoner, organiska syror och valfria SNPs."
+    },
+    {
+      "@type": "MedicalTest",
+      "name": "Genova Rhythm Plus™",
+      "description": "28-dagars salivbaserad cykelmappning av östradiol, progesteron och testosteron."
+    },
+    {
+      "@type": "MedicalTest",
+      "name": "Genova Adrenocortex Stress Profile",
+      "description": "Kortisolkurva och DHEA — HPA-axelns funktion."
+    },
+    {
+      "@type": "MedicalTest",
+      "name": "ALCAT — Immunreaktivitetstest",
+      "description": "Cellulär immunreaktivitet mot upp till 250 livsmedel och kemikalier."
+    },
+    {
+      "@type": "MedicalTest",
+      "name": "CMA — Cellulär Mikronäringsanalys",
+      "description": "55 intracellulära mikronäringsmarkörer."
+    },
+    {
+      "@type": "MedicalTest",
+      "name": "MethylDetox — 38-gens metyleringsanalys",
+      "description": "COMT, MTHFR och 36 ytterligare metyleringsrelaterade gener."
+    }
+  ],
+  "@id": "https://www.medibalans.com/#clinic",
+  "email": "info@medibalans.com",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 59.3343,
+    "longitude": 18.0927
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  ],
+  "priceRange": "449–50000 SEK",
+  "currenciesAccepted": "SEK",
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Stockholm"
+    },
+    {
+      "@type": "Country",
+      "name": "Sverige"
+    }
+  ],
+  "sameAs": [
+    "https://www.reco.se/medibalans-christina-biri-ab",
+    "https://www.facebook.com/MediBalans/"
+  ],
+  "isAcceptingNewPatients": true
 }
 </script>
 

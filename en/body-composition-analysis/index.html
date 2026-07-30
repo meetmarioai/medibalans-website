@@ -408,18 +408,144 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
 </style>
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@graph":[
-    {"@type":"MedicalClinic","@id":"https://www.medibalans.com/#clinic","name":"MediBalans","url":"https://www.medibalans.com","telephone":"+46723195070","email":"info@medibalans.com","medicalSpecialty":"PreventiveMedicine","address":{"@type":"PostalAddress","streetAddress":"Banérgatan 10, 1 tr","postalCode":"115 23","addressLocality":"Stockholm","addressCountry":"SE"},"areaServed":"Stockholm","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.87","bestRating":"5","ratingCount":"86","url":"https://www.reco.se/medibalans-christina-biri-ab"},"availableService":{"@type":"MedicalProcedure","name":"Body composition analysis — InBody","offers":{"@type":"Offer","price":"450","priceCurrency":"SEK","description":"15-minute clinical consultation included"}}},
-    {"@type":"MedicalWebPage","name":"Body Composition Analysis Stockholm — InBody","url":"https://www.medibalans.com/en/body-composition-analysis/","inLanguage":"en","about":{"@type":"MedicalTest","name":"Bioelectrical impedance analysis (BIA) of body composition"},"provider":{"@id":"https://www.medibalans.com/#clinic"}},
-    {"@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":"What is the difference between a body scan and an ordinary scale?","acceptedAnswer":{"@type":"Answer","text":"An ordinary scale shows only total weight. A body composition scan with the InBody breaks weight down into muscle mass, fat mass, visceral fat and body water – segment by segment – and also measures fluid balance and cellular health, which a scale cannot show."}},
-      {"@type":"Question","name":"Does the scan hurt or involve any radiation?","acceptedAnswer":{"@type":"Answer","text":"No. The InBody uses a weak, imperceptible alternating current and involves no radiation. The scan takes about half a minute and is suited to regular follow-up."}},
-      {"@type":"Question","name":"What is phase angle and why does it matter?","acceptedAnswer":{"@type":"Answer","text":"The phase angle reflects cell membrane integrity and body cell mass. High values point to healthy cells, low values to cellular stress. It is well established in research as a marker of cellular health and often captures changes early."}},
-      {"@type":"Question","name":"Can a body scan show inflammation?","acceptedAnswer":{"@type":"Answer","text":"The InBody measures the ECW/TBW ratio (extracellular to total body water). An elevated ratio can signal fluid retention, oedema or inflammation and can be assessed both for the whole body and per segment. It is interpreted alongside the wider clinical picture."}},
-      {"@type":"Question","name":"Is InBody better than DEXA?","acceptedAnswer":{"@type":"Answer","text":"They answer different questions. DEXA is the gold standard for bone density and absolute body fat. InBody measures fluid distribution and phase angle, is radiation-free and fast, and is suited to tracking change over time. The methods complement each other."}},
-      {"@type":"Question","name":"How often should you have a body scan?","acceptedAnswer":{"@type":"Answer","text":"Because the method is radiation-free and takes under a minute, it is suited to regular follow-up. Within the MediBalans protocol we start from a baseline and re-scan at clinically relevant intervals."}}
-    ]}
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalClinic",
+      "@id": "https://www.medibalans.com/#clinic",
+      "name": "MediBalans",
+      "url": "https://www.medibalans.com",
+      "telephone": "+46723195070",
+      "email": "info@medibalans.com",
+      "medicalSpecialty": "PreventiveMedicine",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Banérgatan 10, 1 tr",
+        "addressLocality": "Stockholm",
+        "addressRegion": "Stockholms län",
+        "postalCode": "115 23",
+        "addressCountry": "SE"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Stockholm"
+        },
+        {
+          "@type": "Country",
+          "name": "Sverige"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.87",
+        "bestRating": "5",
+        "ratingCount": "86",
+        "url": "https://www.reco.se/medibalans-christina-biri-ab"
+      },
+      "availableService": {
+        "@type": "MedicalProcedure",
+        "name": "Body composition analysis — InBody",
+        "offers": {
+          "@type": "Offer",
+          "price": "450",
+          "priceCurrency": "SEK",
+          "description": "15-minute clinical consultation included"
+        }
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 59.3343,
+        "longitude": 18.0927
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ],
+      "priceRange": "449–50000 SEK",
+      "currenciesAccepted": "SEK",
+      "sameAs": [
+        "https://www.reco.se/medibalans-christina-biri-ab",
+        "https://www.facebook.com/MediBalans/"
+      ],
+      "isAcceptingNewPatients": true
+    },
+    {
+      "@type": "MedicalWebPage",
+      "name": "Body Composition Analysis Stockholm — InBody",
+      "url": "https://www.medibalans.com/en/body-composition-analysis/",
+      "inLanguage": "en",
+      "about": {
+        "@type": "MedicalTest",
+        "name": "Bioelectrical impedance analysis (BIA) of body composition"
+      },
+      "provider": {
+        "@id": "https://www.medibalans.com/#clinic"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between a body scan and an ordinary scale?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An ordinary scale shows only total weight. A body composition scan with the InBody breaks weight down into muscle mass, fat mass, visceral fat and body water – segment by segment – and also measures fluid balance and cellular health, which a scale cannot show."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the scan hurt or involve any radiation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The InBody uses a weak, imperceptible alternating current and involves no radiation. The scan takes about half a minute and is suited to regular follow-up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is phase angle and why does it matter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The phase angle reflects cell membrane integrity and body cell mass. High values point to healthy cells, low values to cellular stress. It is well established in research as a marker of cellular health and often captures changes early."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a body scan show inflammation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The InBody measures the ECW/TBW ratio (extracellular to total body water). An elevated ratio can signal fluid retention, oedema or inflammation and can be assessed both for the whole body and per segment. It is interpreted alongside the wider clinical picture."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is InBody better than DEXA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They answer different questions. DEXA is the gold standard for bone density and absolute body fat. InBody measures fluid distribution and phase angle, is radiation-free and fast, and is suited to tracking change over time. The methods complement each other."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should you have a body scan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the method is radiation-free and takes under a minute, it is suited to regular follow-up. Within the MediBalans protocol we start from a baseline and re-scan at clinically relevant intervals."
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
