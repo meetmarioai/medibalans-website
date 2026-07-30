@@ -57,6 +57,7 @@ NAV_SV = [
     ]),
     ("menu", "IV-Behandling", "/iv-terapi/", [
         ("IV- &amp; IM-terapi", "/iv-terapi/", False),
+        ("↳ Glutation IV 600 mg", "/glutation-iv/", True),
         ("↳ D-vitamin 100 000 IE", "/iv-terapi/d-vitamin/", True),
     ]),
     ("link", "Familjer", "/#families", []),
@@ -111,6 +112,7 @@ NAV_EN = [
     ]),
     ("menu", "IV Therapy", "/en/iv-therapy/", [
         ("IV &amp; IM Therapy", "/en/iv-therapy/", False),
+        ("↳ Glutathione IV 600 mg", "/en/glutathione-iv/", True),
         ("↳ Vitamin D 100,000 IU", "/en/iv-therapy/vitamin-d/", True),
     ]),
     ("link", "Families", "/en/#families", []),
