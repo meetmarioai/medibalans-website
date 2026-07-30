@@ -107,9 +107,9 @@
     {"@type":"ListItem","position":1,"item":{"@type":"MedicalTherapy","name":"Myers Cocktail IV infusion","description":"Vitamin C, B1, B6, B12 Hydroxocobalamin, magnesium and calcium. 30–60 minutes.","offers":{"@type":"Offer","price":"1349","priceCurrency":"SEK","availability":"https://schema.org/InStock"},"provider":{"@id":"https://www.medibalans.com/#clinic"}}},
     {"@type":"ListItem","position":2,"item":{"@type":"MedicalTherapy","name":"Glutathione IV infusion","description":"Intravenous glutathione. Antioxidant, liver detox, immune modulation.","offers":{"@type":"Offer","price":"1190","priceCurrency":"SEK","availability":"https://schema.org/InStock"},"provider":{"@id":"https://www.medibalans.com/#clinic"}}},
     {"@type":"ListItem","position":3,"item":{"@type":"MedicalTherapy","name":"Glutathione IM injection","description":"Intramuscular glutathione. Faster administration.","offers":{"@type":"Offer","price":"749","priceCurrency":"SEK","availability":"https://schema.org/InStock"},"provider":{"@id":"https://www.medibalans.com/#clinic"}}},
-    {"@type":"ListItem","position":4,"item":{"@type":"MedicalTherapy","name":"B12 Hydroxocobalamin IM injection","description":"1,500 mcg Hydroxocobalamin. Methylation, energy, neurological function.","offers":{"@type":"Offer","price":"449","priceCurrency":"SEK","availability":"https://schema.org/InStock"},"provider":{"@id":"https://www.medibalans.com/#clinic"}}},
+    {"@type":"ListItem","position":4,"item":{"@type":"MedicalTherapy","name":"B12 Hydroxocobalamin IM injection","description":"1000 or 1500 mcg Hydroxocobalamin — the physician selects the dose. Methylation, energy, neurological function.","offers":{"@type":"Offer","price":"449","priceCurrency":"SEK","availability":"https://schema.org/InStock"},"provider":{"@id":"https://www.medibalans.com/#clinic"}}},
     {"@type":"ListItem","position":5,"item":{"@type":"MedicalTherapy","name":"High-dose Vitamin C IV infusion","description":"750 mg vitamin C intravenously. Antioxidant, immune modulator, collagen synthesis.","offers":{"@type":"Offer","price":"449","priceCurrency":"SEK","availability":"https://schema.org/InStock"},"provider":{"@id":"https://www.medibalans.com/#clinic"}}},
-    {"@type":"ListItem","position":6,"item":{"@type":"MedicalTherapy","name":"B-vitamin complex IM injection","description":"B12 Hydroxocobalamin 1,500 mcg + B1 100 mg + B6 25 mg. Energy production and neurological function.","offers":{"@type":"Offer","price":"749","priceCurrency":"SEK","availability":"https://schema.org/InStock"},"provider":{"@id":"https://www.medibalans.com/#clinic"}}},
+    {"@type":"ListItem","position":6,"item":{"@type":"MedicalTherapy","name":"B-vitamin complex IM injection","description":"B12 Hydroxocobalamin 1000 or 1500 mcg + B1 100 mg + B6 25 mg. Energy production and neurological function.","offers":{"@type":"Offer","price":"749","priceCurrency":"SEK","availability":"https://schema.org/InStock"},"provider":{"@id":"https://www.medibalans.com/#clinic"}}},
     {"@type":"ListItem","position":7,"item":{"@type":"MedicalTherapy","name":"Magnesium IM injection","description":"2.5 g magnesium. Energy, muscle function, sleep regulation.","offers":{"@type":"Offer","price":"449","priceCurrency":"SEK","availability":"https://schema.org/InStock"},"provider":{"@id":"https://www.medibalans.com/#clinic"}}}
   ]
 }
@@ -134,6 +134,38 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is the glutathione given separately rather than in the same drip?",
+      "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vitamin C in solution partly oxidises to dehydroascorbate, and dehydroascorbate is reduced back to ascorbate at glutathione's expense. Mixing glutathione and vitamin C in the same infusion bag therefore consumes part of the glutathione dose before it reaches the patient. At MediBalans the glutathione is given as a slow intravenous push at the end of the infusion — through the same access, but never mixed with the vitamin solution. The access is also flushed with sterile sodium chloride before the glutathione is given, so no ascorbate residue remains in the line, the catheter or the vein at the access site as the GSH passes through. Together with the two-component preparation and fresh preparation immediately before treatment, this is how we can state that 600 mg of reduced GSH is actually reduced when it is administered."
+      }
+},
+    {
+      "@type": "Question",
+      "name": "Is 1200 mg of glutathione better than 600 mg?",
+      "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not necessarily. Milligrams state mass, not how much is in reduced, directly usable form when the infusion is given. MediBalans administers 600 mg of reduced glutathione (GSH) — the form the cell actually uses. Oxidised glutathione (GSSG) must first be opened into two GSH by glutathione reductase, and each of those reactions costs one NADPH. A higher number in oxidised form therefore means more units the body must pay for first, using reducing capacity that is frequently already depleted. Glutathione also oxidises rapidly in aqueous solution: a pre-mixed solution has been converting since it was filled, and the GSH fraction at administration is unknown."
+      }
+},
+    {
+      "@type": "Question",
+      "name": "How are your IV drips and injections prepared?",
+      "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every preparation is made at the clinic immediately before treatment — never pre-mixed or stored in solution. Glutathione is supplied as a two-component preparation: lyophilised powder in one ampoule and sterile solvent in another. Dry powder cannot oxidise, which is why the form is known at administration rather than assumed. Pharmaceutical raw materials come from licensed European manufacturers in Germany, Italy and Liechtenstein."
+      }
+},
+    {
+      "@type": "Question",
+      "name": "What additives or preservatives are in your drips?",
+      "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No preservatives. No buffers beyond what the active substance requires — pure active ingredient. This is possible precisely because each preparation is made fresh immediately before administration: preservatives exist so that solutions survive storage, and we do not store pre-mixed solutions."
+      }
+},
     {"@type":"Question","name":"What does IV therapy cost at MediBalans Stockholm?","acceptedAnswer":{"@type":"Answer","text":"IV therapy prices at MediBalans Stockholm: Myers Cocktail 1,349 SEK · Glutathione IV infusion 1,190 SEK · Glutathione IM injection 749 SEK · B-vitamin complex 749 SEK · B12 Hydroxocobalamin 449 SEK · High-dose Vitamin C IV 449 SEK · D3 vitamin 449 SEK · Magnesium 449 SEK. All prices include physician assessment. No referral required."}},
     {"@type":"Question","name":"What is IV vitamin therapy and how does it work?","acceptedAnswer":{"@type":"Answer","text":"IV vitamin therapy delivers vitamins, minerals and antioxidants directly into the bloodstream via intravenous infusion. Bioavailability is near 100%, compared to 10–30% with oral supplementation. At MediBalans Stockholm, a licensed physician always assesses which treatment is appropriate based on your clinical picture. No referral needed."}},
     {"@type":"Question","name":"What is glutathione and why is it given by IV or injection?","acceptedAnswer":{"@type":"Answer","text":"Glutathione (GSH) is the body's primary intracellular antioxidant — a tripeptide of glutamate, cysteine and glycine. It supports liver detoxification, reduces oxidative stress and modulates immune function. Oral glutathione is broken down by peptidases in the gut; under 5% is absorbed intact. IV infusion and IM injection deliver glutathione directly into systemic circulation. Price at MediBalans: IM injection 749 SEK, IV infusion 1,190 SEK."}},
@@ -189,7 +221,7 @@
   "url": "https://www.medibalans.com/en/iv-therapy/",
   "speakable": {
     "@type": "SpeakableSpecification",
-    "cssSelector": [".speakable-hero", ".speakable-prices", ".speakable-glutathione", ".speakable-booking"]
+    "cssSelector": [".speakable-hero", ".speakable-prices", ".speakable-glutathione", ".speakable-gsh", ".speakable-booking"]
   },
   "publisher": {"@id": "https://www.medibalans.com/#clinic"}
 }
@@ -659,7 +691,7 @@ section { padding: 7rem 0; }
 .quality-strip { background: var(--navy); padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.06); }
 .quality-strip-inner { display: grid; grid-template-columns: auto 1fr; gap: 3rem; align-items: center; }
 .quality-eyebrow { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(199,146,90,0.8); margin-bottom: 0.6rem; }
-.quality-heading { font-family: var(--font-display); font-size: 1.15rem; color: var(--white); font-weight: 400; line-height: 1.3; max-width: 320px; }
+.quality-heading { font-family: var(--font-display); font-size: 1.15rem; color: var(--white); font-weight: 400; line-height: 1.3; max-width: 320px; margin: 0; }
 .quality-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; }
 .quality-item { background: rgba(255,255,255,0.03); padding: 1.2rem 1.4rem; transition: background 0.2s; }
 .quality-item:hover { background: rgba(255,255,255,0.07); }
@@ -1034,45 +1066,38 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
   </div>
 </section>
 
-<section class="treatments-section" id="treatments" aria-labelledby="treatments-heading">
+<!-- ══ REDUCED GSH EDUCATION ══ -->
+<section class="philosophy-section" id="reduced-glutathione" aria-labelledby="gsh-heading-en" style="padding:5rem 0;background:var(--bg-warm);">
   <div class="container">
-    <div class="reveal"><div class="section-eyebrow">Price list · Stockholm</div><h2 class="section-title" id="treatments-heading">All IV &amp; IM treatments<br>with prices</h2><p style="font-size:0.95rem;color:var(--text-mid);font-weight:300;line-height:1.75;max-width:600px;margin-top:0.5rem;">A licensed physician assesses which treatment is appropriate. Prices per single treatment. No referral — book directly.</p></div>
-    <div class="therapy-grid reveal reveal-d1" role="list">
-      <div class="therapy-item featured" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy">
-        <div>
-          <div class="therapy-item-header"><h3 itemprop="name">Myers Cocktail</h3><span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="1349">1,349 SEK</span><meta itemprop="priceCurrency" content="SEK"></span></div>
-          <p itemprop="description">Multi-pathway IV infusion with vitamin C, B12 Hydroxocobalamin, B1 (thiamine), B6 (pyridoxine), magnesium and calcium. Addresses multiple nutrient pathways simultaneously. Indicated for chronic fatigue, immune suppression and verified intracellular depletion.</p>
-          <span class="therapy-type">IV infusion · 30–60 min</span>
-          <div class="science-ref-light">Ref: Gaby AR. (2002). Intravenous nutrient therapy: the "Myers' cocktail". <em>Altern Med Rev.</em> 7(5):389–403. <a href="https://pubmed.ncbi.nlm.nih.gov/12410623/" target="_blank" rel="noopener">PMID:12410623</a></div>
-        </div>
-        <div style="min-width:190px;"><div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.3rem;"><div style="font-family:var(--font-mono);font-size:0.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.7rem;">Contents</div><ul style="list-style:none;font-size:.8rem;color:var(--text-mid);line-height:2;font-weight:300;"><li>Vitamin C</li><li>B12 Hydroxocobalamin</li><li>B1 (Thiamine)</li><li>B6 (Pyridoxine)</li><li>Magnesium</li><li>Calcium</li></ul></div></div>
-      </div>
-      <div class="therapy-item" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy"><div class="therapy-item-header"><h3 itemprop="name">Glutathione</h3><span class="therapy-price">749–1,190 SEK</span></div><p itemprop="description">The body's primary intracellular antioxidant. Liver detoxification, oxidative stress, immune modulation. Oral glutathione is degraded in the gut — IV/IM ensures intact delivery.</p><span class="therapy-type">IM 749 SEK · IV infusion 1,190 SEK · dose adjusted individually</span></div>
-      <div class="therapy-item" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy"><div class="therapy-item-header"><h3 itemprop="name">High-dose Vitamin C IV</h3><span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="449">449 SEK</span><meta itemprop="priceCurrency" content="SEK"></span></div><p itemprop="description">750 mg vitamin C intravenously. Antioxidant, immune modulator, collagen synthesis. Oral absorption saturates at ~200 mg — IV bypasses this limitation entirely.</p><span class="therapy-type">IV infusion · 750 mg</span></div>
-      <div class="therapy-item" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy"><div class="therapy-item-header"><h3 itemprop="name">B12 Hydroxocobalamin</h3><span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="449">449 SEK</span><meta itemprop="priceCurrency" content="SEK"></span></div><p itemprop="description">1,500 mcg Hydroxocobalamin — the natural B12 form, free from cyanide conjugation, with a longer biological half-life. Methylation, energy metabolism, neurological function.</p><span class="therapy-type">IM injection · 1,500 mcg Hydroxocobalamin</span>
-          <div class="science-ref-light">Ref: Paul C & Brady DM. (2017). Comparative bioavailability and utilization of particular forms of B12. <em>Integr Med (Encinitas).</em> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5312744/" target="_blank" rel="noopener">PMC5312744</a></div></div>
-      <div class="therapy-item" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy"><div class="therapy-item-header"><h3 itemprop="name">B-vitamin Complex</h3><span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="749">749 SEK</span><meta itemprop="priceCurrency" content="SEK"></span></div><p itemprop="description">B12 Hydroxocobalamin 1,500 mcg + B1 100 mg + B6 25 mg. Energy production, neurological function and B-vitamin optimisation. Dose adjusted individually.</p><span class="therapy-type">IM injection · combination</span></div>
-      <div class="therapy-item" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy"><div class="therapy-item-header"><h3 itemprop="name">Vitamin D3</h3><span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="449">449 SEK</span><meta itemprop="priceCurrency" content="SEK"></span></div><p itemprop="description">100,000 IU D3 by injection for verified vitamin D deficiency. Recommended every 3 months during winter, or continuously if malnourished. Immune regulation, bone health and inflammation modulation.</p><span class="therapy-type">IM injection · 100,000 IU · every 3 months (winter) or continuously</span>
-          <div class="science-ref-light">Ref: Agarwal N, et al. (2024). IM injection demonstrated superior effectiveness vs oral — 100% of the IM group achieved vitamin D sufficiency at 12 weeks. <em>J Basic Clin Physiol Pharmacol.</em> <a href="https://pubmed.ncbi.nlm.nih.gov/39174041/" target="_blank" rel="noopener">doi:10.1515/jbcpp-2024-0018</a></div></div>
-      <div class="therapy-item" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy"><div class="therapy-item-header"><h3 itemprop="name">Magnesium</h3><span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="449">449 SEK</span><meta itemprop="priceCurrency" content="SEK"></span></div><p itemprop="description">2.5 g magnesium by injection. Co-factor in over 300 enzymatic processes — energy production, muscle function, nerve conduction, sleep regulation, cardiovascular regulation. Commonly depleted by chronic stress.</p><span class="therapy-type">IM injection · 2.5 g</span></div>
+    <div class="reveal">
+      <p class="section-eyebrow">Form &amp; dose</p>
+      <h2 class="section-title" id="gsh-heading-en">Why 600 mg of reduced glutathione<br>is not comparable to 1200 mg</h2>
     </div>
-    <p class="treatment-note reveal">All treatments are preceded by individual assessment by a licensed physician. No referral required — book directly. Open Mon–Fri 08:00–17:00 at Banérgatan 10, Östermalm.</p>
-    <div style="margin-top:1.5rem;">
-      <a href="#booking" class="btn-book reveal" aria-label="Book IV treatment">
-        Book Treatment
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-      </a>
+    <div class="reveal speakable-gsh" style="max-width:760px;margin-top:1.5rem;">
+      <p><strong>Short answer:</strong> the milligrams on a label state mass — not how much remains in reduced, directly usable form when the infusion is given. MediBalans administers 600 mg of reduced glutathione (GSH), prepared immediately before treatment.</p>
+    </div>
+    <div class="reveal" style="max-width:760px;margin-top:1.5rem;line-height:1.8;">
+      <p>Glutathione exists in two forms. <strong>Reduced glutathione (GSH)</strong> is the form the cell actually uses as an antioxidant. <strong>Oxidised glutathione (GSSG)</strong> is two GSH molecules bound together, and must first be converted back to GSH by the enzyme glutathione reductase — a reaction that costs NADPH.</p>
+      <p>This is where comparing stated doses becomes misleading. <strong>A label states what was put into solution, not what remains in reduced form when it is administered.</strong> Glutathione oxidises rapidly in aqueous solution. A pre-mixed solution has therefore been converting since it was filled, and the GSH fraction at administration is unknown to clinic and patient alike.</p>
+      <p><strong>Do the arithmetic.</strong> 600 mg of GSH (molar mass 307 g/mol) is roughly 1.95 mmol of glutathione in directly usable form. 1200 mg in oxidised form (GSSG, 613 g/mol) is roughly 1.96 mmol of GSSG — about 3.9 mmol of glutathione units, but every GSSG must first be opened into two GSH by glutathione reductase, and each of those reactions costs one NADPH. The doubled number is therefore not doubled effect. It is twice as many units the body must pay for first, in a currency that is frequently already scarce.</p>
+      <p>That is the reduction cost. Supplying oxidised glutathione means the body performs the reduction itself, paying in NADPH — the same reducing capacity that is often already depleted in the patients the treatment is aimed at. The principle is identical to why we do not offer NAD+ drips: do not add a load that consumes the very capacity you are trying to restore.</p>
+      <p><strong>Our preparation is two-component.</strong> Lyophilised glutathione in one ampoule, sterile solvent in another. Dry powder cannot oxidise — conversion only begins once glutathione is in solution. The two are combined at the clinic immediately before administration, which is the entire reason we can state the form and not merely the mass: 600 mg of reduced GSH is known at the moment it is given, not assumed from what was once filled.</p>
+      <p><strong>Glutathione is never mixed into the infusion bag.</strong> Vitamin C in solution partly oxidises to dehydroascorbate, and dehydroascorbate is reduced back to ascorbate at glutathione's expense — the same ascorbate–glutathione cycle that makes glutathione valuable in the body consumes it in the bag. Co-administering them in one solution therefore means part of the dose is spent before it reaches the patient. Instead we give the glutathione as a slow intravenous push at the end of the infusion, through the same access but separate from the vitamin solution. <strong>The access is flushed with sterile sodium chloride before the glutathione is given</strong>, so that no residue of the vitamin solution remains in the line, the catheter or the vein at the access site as the GSH passes through — otherwise the separation is incomplete, because ascorbate left in the access meets the glutathione on its way in.</p>
+      <p>That is why we state the form, not only the number. 600 mg of freshly prepared GSH is 600 mg of GSH at the moment it is given — lyophilised until preparation, prepared immediately before administration, and never mixed with ascorbate in solution.</p>
+      <div class="treatment-note" style="margin-top:2rem;">
+        <p style="font-size:0.85rem;line-height:1.7;margin:0;"><strong>Worth asking any clinic:</strong> is the glutathione reduced (GSH) or oxidised (GSSG)? When was the solution prepared? Can the form be documented? An answer that gives only milligrams answers none of these.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ══ QUALITY STRIP ══ -->
-<div class="quality-strip" role="complementary" aria-label="Quality and preparation">
+<section class="quality-strip" id="kvalitet" aria-labelledby="quality-heading-en">
   <div class="container">
     <div class="quality-strip-inner reveal">
       <div>
         <div class="quality-eyebrow">Quality &amp; Preparation</div>
-        <p class="quality-heading">Prepared at the clinic — immediately before every treatment</p>
+        <h2 class="quality-heading" id="quality-heading-en">Prepared at the clinic — immediately before every treatment</h2>
       </div>
       <div class="quality-grid" role="list">
         <div class="quality-item" role="listitem">
@@ -1094,7 +1119,39 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<section class="treatments-section" id="treatments" aria-labelledby="treatments-heading">
+  <div class="container">
+    <div class="reveal"><div class="section-eyebrow">Price list · Stockholm</div><h2 class="section-title" id="treatments-heading">All IV &amp; IM treatments<br>with prices</h2><p style="font-size:0.95rem;color:var(--text-mid);font-weight:300;line-height:1.75;max-width:600px;margin-top:0.5rem;">A licensed physician assesses which treatment is appropriate. Prices per single treatment. No referral — book directly.</p></div>
+    <div class="therapy-grid reveal reveal-d1" role="list">
+      <div class="therapy-item featured" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy">
+        <div>
+          <div class="therapy-item-header"><h3 itemprop="name">Myers Cocktail</h3><span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="1349">1,349 SEK</span><meta itemprop="priceCurrency" content="SEK"></span></div>
+          <p itemprop="description">Multi-pathway IV infusion with vitamin C, B12 Hydroxocobalamin, B1 (thiamine), B6 (pyridoxine), magnesium and calcium. Addresses multiple nutrient pathways simultaneously. Indicated for chronic fatigue, immune suppression and verified intracellular depletion.</p>
+          <span class="therapy-type">IV infusion · 30–60 min</span>
+          <div class="science-ref-light">Ref: Gaby AR. (2002). Intravenous nutrient therapy: the "Myers' cocktail". <em>Altern Med Rev.</em> 7(5):389–403. <a href="https://pubmed.ncbi.nlm.nih.gov/12410623/" target="_blank" rel="noopener">PMID:12410623</a></div>
+        </div>
+        <div style="min-width:190px;"><div style="background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.3rem;"><div style="font-family:var(--font-mono);font-size:0.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-bottom:.7rem;">Contents</div><ul style="list-style:none;font-size:.8rem;color:var(--text-mid);line-height:2;font-weight:300;"><li>Vitamin C</li><li>B12 Hydroxocobalamin</li><li>B1 (Thiamine)</li><li>B6 (Pyridoxine)</li><li>Magnesium</li><li>Calcium</li></ul></div></div>
+      </div>
+      <div class="therapy-item" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy"><div class="therapy-item-header"><h3 itemprop="name">Glutathione</h3><span class="therapy-price">749–1,190 SEK</span></div><p itemprop="description">The body's primary intracellular antioxidant. Liver detoxification, oxidative stress, immune modulation. Oral glutathione is degraded in the gut — IV/IM ensures intact delivery.</p><span class="therapy-type">600 mg reduced GSH · IM 749 SEK · IV infusion 1,190 SEK · dose adjusted individually</span></div>
+      <div class="therapy-item" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy"><div class="therapy-item-header"><h3 itemprop="name">High-dose Vitamin C IV</h3><span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="449">449 SEK</span><meta itemprop="priceCurrency" content="SEK"></span></div><p itemprop="description">750 mg vitamin C intravenously. Antioxidant, immune modulator, collagen synthesis. Oral absorption saturates at ~200 mg — IV bypasses this limitation entirely.</p><span class="therapy-type">IV infusion · 750 mg</span></div>
+      <div class="therapy-item" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy"><div class="therapy-item-header"><h3 itemprop="name">B12 Hydroxocobalamin</h3><span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="449">449 SEK</span><meta itemprop="priceCurrency" content="SEK"></span></div><p itemprop="description">1000 or 1500 mcg Hydroxocobalamin — the natural B12 form, free from cyanide conjugation, with a longer biological half-life. Methylation, energy metabolism, neurological function.</p><span class="therapy-type">IM injection · 1000 or 1500 mcg — physician selects dose</span>
+          <div class="science-ref-light">Ref: Paul C & Brady DM. (2017). Comparative bioavailability and utilization of particular forms of B12. <em>Integr Med (Encinitas).</em> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5312744/" target="_blank" rel="noopener">PMC5312744</a></div></div>
+      <div class="therapy-item" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy"><div class="therapy-item-header"><h3 itemprop="name">B-vitamin Complex</h3><span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="749">749 SEK</span><meta itemprop="priceCurrency" content="SEK"></span></div><p itemprop="description">B12 Hydroxocobalamin 1000 or 1500 mcg + B1 100 mg + B6 25 mg. Energy production, neurological function and B-vitamin optimisation. Dose adjusted individually.</p><span class="therapy-type">IM injection · combination</span></div>
+      <div class="therapy-item" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy"><div class="therapy-item-header"><h3 itemprop="name">Vitamin D3</h3><span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="449">449 SEK</span><meta itemprop="priceCurrency" content="SEK"></span></div><p itemprop="description">100,000 IU D3 by injection for verified vitamin D deficiency. Recommended every 3 months during winter, or continuously if malnourished. Immune regulation, bone health and inflammation modulation.</p><span class="therapy-type">IM injection · 100,000 IU · every 3 months (winter) or continuously</span>
+          <div class="science-ref-light">Ref: Agarwal N, et al. (2024). IM injection demonstrated superior effectiveness vs oral — 100% of the IM group achieved vitamin D sufficiency at 12 weeks. <em>J Basic Clin Physiol Pharmacol.</em> <a href="https://pubmed.ncbi.nlm.nih.gov/39174041/" target="_blank" rel="noopener">doi:10.1515/jbcpp-2024-0018</a></div></div>
+      <div class="therapy-item" role="listitem" itemscope itemtype="https://schema.org/MedicalTherapy"><div class="therapy-item-header"><h3 itemprop="name">Magnesium</h3><span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="449">449 SEK</span><meta itemprop="priceCurrency" content="SEK"></span></div><p itemprop="description">2.5 g magnesium by injection. Co-factor in over 300 enzymatic processes — energy production, muscle function, nerve conduction, sleep regulation, cardiovascular regulation. Commonly depleted by chronic stress.</p><span class="therapy-type">IM injection · 2.5 g</span></div>
+    </div>
+    <p class="treatment-note reveal">All treatments are preceded by individual assessment by a licensed physician. No referral required — book directly. Open Mon–Fri 08:00–17:00 at Banérgatan 10, Östermalm.</p>
+    <div style="margin-top:1.5rem;">
+      <a href="#booking" class="btn-book reveal" aria-label="Book IV treatment">
+        Book Treatment
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
 
 <section class="philosophy-section" id="nad-iron" aria-labelledby="nad-heading-en" style="padding:5rem 0;background:var(--ice-faint);">
   <div class="container">
@@ -1130,6 +1187,42 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
   <div class="container">
     <div class="reveal"><div class="section-eyebrow">Frequently asked questions</div><h2 class="section-title" id="faq-heading">Questions about IV therapy<br>in Stockholm</h2><p class="faq-intro">Answers to the most common questions about IV and IM vitamin therapy at MediBalans, Banérgatan 10, Östermalm.</p></div>
     <div class="faq-list reveal reveal-d1">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Why is the glutathione given separately rather than in the same drip?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Vitamin C in solution partly oxidises to dehydroascorbate, and dehydroascorbate is reduced back to ascorbate at glutathione's expense. Mixing glutathione and vitamin C in the same infusion bag therefore consumes part of the glutathione dose before it reaches the patient. At MediBalans the glutathione is given as a slow intravenous push at the end of the infusion — through the same access, but never mixed with the vitamin solution. The access is also flushed with sterile sodium chloride before the glutathione is given, so no ascorbate residue remains in the line, the catheter or the vein at the access site as the GSH passes through. Together with the two-component preparation and fresh preparation immediately before treatment, this is how we can state that 600 mg of reduced GSH is actually reduced when it is administered.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Is 1200 mg of glutathione better than 600 mg?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Not necessarily. Milligrams state mass, not how much is in reduced, directly usable form when the infusion is given. MediBalans administers 600 mg of reduced glutathione (GSH) — the form the cell actually uses. Oxidised glutathione (GSSG) must first be opened into two GSH by glutathione reductase, and each of those reactions costs one NADPH. A higher number in oxidised form therefore means more units the body must pay for first, using reducing capacity that is frequently already depleted. Glutathione also oxidises rapidly in aqueous solution: a pre-mixed solution has been converting since it was filled, and the GSH fraction at administration is unknown.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          How are your IV drips and injections prepared?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Every preparation is made at the clinic immediately before treatment — never pre-mixed or stored in solution. Glutathione is supplied as a two-component preparation: lyophilised powder in one ampoule and sterile solvent in another. Dry powder cannot oxidise, which is why the form is known at administration rather than assumed. Pharmaceutical raw materials come from licensed European manufacturers in Germany, Italy and Liechtenstein.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          What additives or preservatives are in your drips?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>No preservatives. No buffers beyond what the active substance requires — pure active ingredient. This is possible precisely because each preparation is made fresh immediately before administration: preservatives exist so that solutions survive storage, and we do not store pre-mixed solutions.</p>
+        </div>
+      </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
           What is a vitamin drip / nutrient drip?

@@ -165,7 +165,7 @@
       "item": {
         "@type": "MedicalTherapy",
         "name": "B12 Hydroxokobalamin IM-injektion",
-        "description": "1 500 μg Hydroxokobalamin. Energiomsättning, neurologisk funktion.",
+        "description": "1000 eller 1500 μg Hydroxokobalamin — läkaren väljer dos. Energiomsättning, neurologisk funktion.",
         "offers": {"@type": "Offer", "price": "449", "priceCurrency": "SEK", "availability": "https://schema.org/InStock"},
         "provider": {"@id": "https://www.medibalans.com/#clinic"}
       }
@@ -187,7 +187,7 @@
       "item": {
         "@type": "MedicalTherapy",
         "name": "B-vitaminkomplex IM-injektion",
-        "description": "B12 Hydroxokobalamin 1 500 μg + B1 100 mg + B6 25 mg. Energiproduktion och neurologisk funktion.",
+        "description": "B12 Hydroxokobalamin 1000 eller 1500 μg + B1 100 mg + B6 25 mg. Energiproduktion och neurologisk funktion.",
         "offers": {"@type": "Offer", "price": "749", "priceCurrency": "SEK", "availability": "https://schema.org/InStock"},
         "provider": {"@id": "https://www.medibalans.com/#clinic"}
       }
@@ -226,6 +226,38 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Varför ges glutationet separat och inte i samma dropp?",
+      "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vitamin C i lösning oxideras delvis till dehydroaskorbat, och dehydroaskorbat återförs till askorbat på glutationets bekostnad. Att blanda glutation och vitamin C i samma infusionspåse innebär därför att en del av glutationdosen förbrukas innan den nått patienten. På MediBalans ges glutationet som en långsam intravenös push i slutet av infusionen — via samma infart, men aldrig blandat med vitaminlösningen. Infarten spolas dessutom med steril natriumkloridlösning innan glutationet ges, så att ingen askorbatrest finns kvar i slang, kateter eller i venen vid injektionsstället när GSH passerar. Tillsammans med tvåkomponentberedningen och färsk beredning omedelbart före behandling är det så vi kan ange att 600 mg reducerat GSH faktiskt är reducerat när det ges."
+      }
+},
+    {
+      "@type": "Question",
+      "name": "Är 1200 mg glutation bättre än 600 mg?",
+      "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Inte nödvändigtvis. Milligram anger massa, inte hur mycket som är i reducerad, direkt användbar form när infusionen ges. MediBalans ger 600 mg reducerat glutation (GSH) — den form cellen faktiskt använder. Oxiderat glutation (GSSG) måste först öppnas till två GSH av enzymet glutationreduktas, och varje sådan reaktion kostar en NADPH. En högre siffra i oxiderad form innebär därför fler enheter som kroppen först måste betala för, med reduktionskapacitet som ofta redan är nedsatt. Dessutom oxiderar glutation snabbt i vattenlösning: en färdigblandad lösning har konverterat sedan den fylldes, och andelen GSH vid administrering är okänd."
+      }
+},
+    {
+      "@type": "Question",
+      "name": "Hur bereds era vitamindropp och injektioner?",
+      "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Varje beredning görs på kliniken omedelbart före behandlingen — aldrig i förväg lagrad i lösning. Glutation levereras som tvåkomponentberedning: frystorkat pulver i en ampull och sterilt lösningsmedel i en annan. Torrt pulver kan inte oxidera, vilket är skälet till att formen är känd vid administrering och inte antagen. Farmaceutiska råvaror kommer från licensierade europeiska tillverkare i Tyskland, Italien och Liechtenstein."
+      }
+},
+    {
+      "@type": "Question",
+      "name": "Vilka tillsatser och konserveringsmedel finns i era dropp?",
+      "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Inga konserveringsmedel. Inga buffrar utöver vad den aktiva substansen kräver — rent verksamt ämne. Det är möjligt just eftersom varje beredning görs färsk omedelbart före administrering: konserveringsmedel behövs för att lösningar ska tåla lagring, och vi lagrar inte färdigblandade lösningar."
+      }
+},
     {
       "@type": "Question",
       "name": "Vad är IV-vitaminterapi och hur fungerar det?",
@@ -337,7 +369,7 @@
   "url": "https://www.medibalans.com/iv-terapi/",
   "speakable": {
     "@type": "SpeakableSpecification",
-    "cssSelector": [".speakable-hero", ".speakable-prices", ".speakable-glutathione", ".speakable-booking"]
+    "cssSelector": [".speakable-hero", ".speakable-prices", ".speakable-glutathione", ".speakable-gsh", ".speakable-booking"]
   },
   "breadcrumb": {"@id": "https://www.medibalans.com/iv-terapi/#breadcrumb"},
   "mainEntity": {"@id": "https://www.medibalans.com/iv-terapi/#therapy"},
@@ -843,7 +875,7 @@ section { padding: 7rem 0; }
 .quality-strip { background: var(--navy); padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.06); }
 .quality-strip-inner { display: grid; grid-template-columns: auto 1fr; gap: 3rem; align-items: center; }
 .quality-eyebrow { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(199,146,90,0.8); margin-bottom: 0.6rem; }
-.quality-heading { font-family: var(--font-display); font-size: 1.15rem; color: var(--white); font-weight: 400; line-height: 1.3; max-width: 320px; }
+.quality-heading { font-family: var(--font-display); font-size: 1.15rem; color: var(--white); font-weight: 400; line-height: 1.3; max-width: 320px; margin: 0; }
 .quality-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; }
 .quality-item { background: rgba(255,255,255,0.03); padding: 1.2rem 1.4rem; transition: background 0.2s; }
 .quality-item:hover { background: rgba(255,255,255,0.07); }
@@ -1370,6 +1402,61 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
   </div>
 </section>
 
+<!-- ══ REDUCED GSH EDUCATION ══ -->
+<section class="philosophy-section" id="reducerat-glutation" aria-labelledby="gsh-heading" style="padding:5rem 0;background:var(--bg-warm);">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-eyebrow">Form &amp; dos</p>
+      <h2 class="section-title" id="gsh-heading">Varför 600 mg reducerat glutation<br>inte kan jämföras med 1200 mg</h2>
+    </div>
+    <div class="reveal speakable-gsh" style="max-width:760px;margin-top:1.5rem;">
+      <p><strong>Kort svar:</strong> milligram på etiketten anger massa — inte hur mycket som fortfarande är i reducerad, direkt användbar form när infusionen ges. MediBalans ger 600 mg reducerat glutation (GSH), färdigberett omedelbart före behandling.</p>
+    </div>
+    <div class="reveal" style="max-width:760px;margin-top:1.5rem;line-height:1.8;">
+      <p>Glutation förekommer i två former. <strong>Reducerat glutation (GSH)</strong> är den form cellen faktiskt använder som antioxidant. <strong>Oxiderat glutation (GSSG)</strong> är två GSH-molekyler bundna till varandra, och måste först återföras till GSH av enzymet glutationreduktas — en reaktion som kostar NADPH.</p>
+      <p>Det är där jämförelsen mellan dosangivelser blir missvisande. <strong>En etikett anger vad som fylldes i lösningen, inte vad som finns kvar i reducerad form när den administreras.</strong> Glutation oxideras snabbt i vattenlösning. En färdigblandad lösning har därför konverterat sedan den fylldes, och andelen GSH vid administrering är okänd för både klinik och patient.</p>
+      <p><strong>Räkna på det.</strong> 600 mg GSH (molmassa 307 g/mol) motsvarar cirka 1,95 mmol glutation i direkt användbar form. 1200 mg i oxiderad form (GSSG, 613 g/mol) motsvarar cirka 1,96 mmol GSSG — alltså ungefär 3,9 mmol glutationenheter, men varje GSSG måste först öppnas till två GSH av enzymet glutationreduktas, och varje sådan reaktion kostar en NADPH. Den dubbla siffran är därför inte dubbel effekt. Det är dubbelt så många enheter som kroppen först måste betala för, i en valuta som ofta redan är knapp.</p>
+      <p>Där ligger reduktionskostnaden. Att tillföra oxiderat glutation innebär att kroppen utför reduktionen själv, med NADPH som betalning — samma reduktionskapacitet som ofta redan är nedsatt hos de patienter behandlingen riktas mot. Principen är densamma som skälet till att vi inte ger NAD+-dropp: tillför inte en belastning som förbrukar just den kapacitet du försöker återställa.</p>
+      <p><strong>Vår beredning är tvåkomponent.</strong> Frystorkat glutation i en ampull, sterilt lösningsmedel i en annan. Torrt pulver kan inte oxidera — det är först i lösning glutation börjar konvertera. De två delarna blandas på kliniken omedelbart före administrering, vilket är hela skälet till att vi kan ange formen och inte bara massan: 600 mg reducerat GSH är känt vid den tidpunkt det ges, inte antaget utifrån vad som en gång fylldes.</p>
+      <p><strong>Glutation blandas aldrig i infusionspåsen.</strong> Vitamin C i lösning oxideras delvis till dehydroaskorbat, och dehydroaskorbat återförs till askorbat på glutationets bekostnad — samma askorbat–glutationcykel som gör glutation värdefullt i kroppen förbrukar det i påsen. Att samadministrera dem i samma lösning innebär därför att en del av dosen är spenderad innan den nått patienten. Vi ger istället glutationet som en långsam intravenös push i slutet av infusionen, via samma infart men separat från vitaminlösningen. <strong>Infarten spolas med steril natriumkloridlösning innan glutationet ges</strong>, så att ingen rest av vitaminlösningen finns kvar i slang, kateter eller i venen vid injektionsstället när GSH passerar — separationen är annars ofullständig, eftersom askorbat kvar i infarten möter glutationet på vägen in.</p>
+      <p>Därför anger vi formen, inte bara siffran. 600 mg färskberett GSH är 600 mg GSH vid den tidpunkt det ges — frystorkat fram till beredning, berett omedelbart före administrering och aldrig blandat med askorbat i lösning.</p>
+      <div class="treatment-note" style="margin-top:2rem;">
+        <p style="font-size:0.85rem;line-height:1.7;margin:0;"><strong>Att fråga vilken klinik som helst:</strong> är glutationet reducerat (GSH) eller oxiderat (GSSG)? När bereddes lösningen? Kan formen dokumenteras? Ett svar som bara anger milligram besvarar ingen av frågorna.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUALITY STRIP ══ -->
+<section class="quality-strip" id="kvalitet" aria-labelledby="quality-heading">
+  <div class="container">
+    <div class="quality-strip-inner reveal">
+      <div>
+        <div class="quality-eyebrow">Kvalitet &amp; Beredning</div>
+        <h2 class="quality-heading" id="quality-heading">Färdigberedd på kliniken — direkt före varje behandling</h2>
+      </div>
+      <div class="quality-grid" role="list">
+        <div class="quality-item" role="listitem">
+          <div class="quality-item-label">Beredning</div>
+          <div class="quality-item-value">Färdigberedd på kliniken omedelbart före varje behandling — aldrig i förväg lagrad i lösning</div>
+        </div>
+        <div class="quality-item" role="listitem">
+          <div class="quality-item-label">Tillsatser</div>
+          <div class="quality-item-value">Inga konserveringsmedel. Inga buffrar utöver den aktiva substansen. Rent verksamt ämne</div>
+        </div>
+        <div class="quality-item" role="listitem">
+          <div class="quality-item-label">Ursprung</div>
+          <div class="quality-item-value">Farmaceutiska råvaror från licensierade europeiska tillverkare — Tyskland, Italien, Liechtenstein</div>
+        </div>
+        <div class="quality-item" role="listitem">
+          <div class="quality-item-label">Klinisk relevans</div>
+          <div class="quality-item-value">Glutation oxideras snabbt i lösning — färsk beredning är inte en detalj, det är en förutsättning för effekt</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ ALL TREATMENTS ══ -->
 <section class="treatments-section" id="behandlingar" aria-labelledby="treatments-heading">
   <div class="container">
@@ -1414,8 +1501,8 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
           <h3 itemprop="name">Glutation</h3>
           <span class="therapy-price">749–1 190 kr</span>
         </div>
-        <p itemprop="description">Kroppens primära intracellulära antioxidant. Leveravgiftning, oxidativ stress, immunmodulering. Oral glutation bryts ned i tarmen — IV/IM säkerställer intakt leverans.</p>
-        <span class="therapy-type">IM 749 kr · IV-infusion 1 190 kr · dos justeras individuellt</span>
+        <p itemprop="description">600 mg <strong>reducerat glutation (GSH)</strong> — den form cellen faktiskt använder. Kroppens primära intracellulära antioxidant: leveravgiftning, oxidativ stress, immunmodulering. Oral glutation bryts ned i tarmen — IV/IM säkerställer intakt leverans.</p>
+        <span class="therapy-type">600 mg reducerat GSH · IM 749 kr · IV-infusion 1 190 kr · färdigberett före behandling</span>
       </div>
 
       <!-- C-vitamin -->
@@ -1434,8 +1521,8 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
           <h3 itemprop="name">B12 Hydroxokobalamin</h3>
           <span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="449">449 kr</span><meta itemprop="priceCurrency" content="SEK"></span>
         </div>
-        <p itemprop="description">1 500 μg Hydroxokobalamin — den naturliga B12-formen, fri från cyanidkonjugering, med längre biologisk halveringstid. Metylering, energiomsättning, neurologisk funktion.</p>
-        <span class="therapy-type">IM-injektion · 1 500 μg Hydroxokobalamin</span>
+        <p itemprop="description">1000 eller 1500 μg Hydroxokobalamin — den naturliga B12-formen, fri från cyanidkonjugering, med längre biologisk halveringstid. Metylering, energiomsättning, neurologisk funktion.</p>
+        <span class="therapy-type">IM-injektion · 1000 eller 1500 μg — läkaren väljer dos</span>
           <div class="science-ref-light">Ref: Paul C & Brady DM. (2017). Comparative bioavailability and utilization of particular forms of B12. <em>Integr Med (Encinitas).</em> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5312744/" target="_blank" rel="noopener">PMC5312744</a></div>
       </div>
 
@@ -1445,7 +1532,7 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
           <h3 itemprop="name">B-vitaminkomplex</h3>
           <span class="therapy-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer"><span itemprop="price" content="749">749 kr</span><meta itemprop="priceCurrency" content="SEK"></span>
         </div>
-        <p itemprop="description">B12 Hydroxokobalamin 1 500 μg + B1 100 mg + B6 25 mg. Energiproduktion, neurologisk funktion och B-vitaminoptimering. Dos och sammansättning justeras individuellt.</p>
+        <p itemprop="description">B12 Hydroxokobalamin 1000 eller 1500 μg + B1 100 mg + B6 25 mg. Energiproduktion, neurologisk funktion och B-vitaminoptimering. Dos och sammansättning justeras individuellt.</p>
         <span class="therapy-type">IM-injektion · kombination</span>
       </div>
 
@@ -1481,36 +1568,6 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
     </div>
   </div>
 </section>
-
-<!-- ══ QUALITY STRIP ══ -->
-<div class="quality-strip" role="complementary" aria-label="Kvalitet och beredning">
-  <div class="container">
-    <div class="quality-strip-inner reveal">
-      <div>
-        <div class="quality-eyebrow">Kvalitet &amp; Beredning</div>
-        <p class="quality-heading">Färdigberedd på kliniken — direkt före varje behandling</p>
-      </div>
-      <div class="quality-grid" role="list">
-        <div class="quality-item" role="listitem">
-          <div class="quality-item-label">Beredning</div>
-          <div class="quality-item-value">Färdigberedd på kliniken omedelbart före varje behandling — aldrig i förväg lagrad i lösning</div>
-        </div>
-        <div class="quality-item" role="listitem">
-          <div class="quality-item-label">Tillsatser</div>
-          <div class="quality-item-value">Inga konserveringsmedel. Inga buffrar utöver den aktiva substansen. Rent verksamt ämne</div>
-        </div>
-        <div class="quality-item" role="listitem">
-          <div class="quality-item-label">Ursprung</div>
-          <div class="quality-item-value">Farmaceutiska råvaror från licensierade europeiska tillverkare — Tyskland, Italien, Liechtenstein</div>
-        </div>
-        <div class="quality-item" role="listitem">
-          <div class="quality-item-label">Klinisk relevans</div>
-          <div class="quality-item-value">Glutation oxideras snabbt i lösning — färsk beredning är inte en detalj, det är en förutsättning för effekt</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ══ PROCESS ══ -->
 <section class="philosophy-section" id="nad-jarn" aria-labelledby="nad-heading" style="padding:5rem 0;background:var(--ice-faint);">
@@ -1571,6 +1628,42 @@ footer { background: var(--navy); padding: 4rem 0 2rem; }
     </div>
     <div class="faq-list reveal reveal-d1">
 
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Varför ges glutationet separat och inte i samma dropp?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Vitamin C i lösning oxideras delvis till dehydroaskorbat, och dehydroaskorbat återförs till askorbat på glutationets bekostnad. Att blanda glutation och vitamin C i samma infusionspåse innebär därför att en del av glutationdosen förbrukas innan den nått patienten. På MediBalans ges glutationet som en långsam intravenös push i slutet av infusionen — via samma infart, men aldrig blandat med vitaminlösningen. Infarten spolas dessutom med steril natriumkloridlösning innan glutationet ges, så att ingen askorbatrest finns kvar i slang, kateter eller i venen vid injektionsstället när GSH passerar. Tillsammans med tvåkomponentberedningen och färsk beredning omedelbart före behandling är det så vi kan ange att 600 mg reducerat GSH faktiskt är reducerat när det ges.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Är 1200 mg glutation bättre än 600 mg?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Inte nödvändigtvis. Milligram anger massa, inte hur mycket som är i reducerad, direkt användbar form när infusionen ges. MediBalans ger 600 mg reducerat glutation (GSH) — den form cellen faktiskt använder. Oxiderat glutation (GSSG) måste först öppnas till två GSH av enzymet glutationreduktas, och varje sådan reaktion kostar en NADPH. En högre siffra i oxiderad form innebär därför fler enheter som kroppen först måste betala för, med reduktionskapacitet som ofta redan är nedsatt. Dessutom oxiderar glutation snabbt i vattenlösning: en färdigblandad lösning har konverterat sedan den fylldes, och andelen GSH vid administrering är okänd.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Hur bereds era vitamindropp och injektioner?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Varje beredning görs på kliniken omedelbart före behandlingen — aldrig i förväg lagrad i lösning. Glutation levereras som tvåkomponentberedning: frystorkat pulver i en ampull och sterilt lösningsmedel i en annan. Torrt pulver kan inte oxidera, vilket är skälet till att formen är känd vid administrering och inte antagen. Farmaceutiska råvaror kommer från licensierade europeiska tillverkare i Tyskland, Italien och Liechtenstein.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          Vilka tillsatser och konserveringsmedel finns i era dropp?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer" hidden>
+          <p>Inga konserveringsmedel. Inga buffrar utöver vad den aktiva substansen kräver — rent verksamt ämne. Det är möjligt just eftersom varje beredning görs färsk omedelbart före administrering: konserveringsmedel behövs för att lösningar ska tåla lagring, och vi lagrar inte färdigblandade lösningar.</p>
+        </div>
+      </div>
       <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
           Vad är vitamindropp och näringsdropp?
