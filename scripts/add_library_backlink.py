@@ -50,11 +50,11 @@ CSS = """<style>/* {m} */
 def band(lang, antal):
     if lang == "sv":
         txt = (f"<strong>Fortsätt läsa.</strong> Samtliga {antal} artiklar — symtomguider, kliniska "
-               "noteringar, skrifter och diagnostik — är samlade och sökbara i kunskapsbanken.")
+               "noteringar, utredningar och diagnostik — är samlade och sökbara i kunskapsbanken.")
         cta, href = "Till kunskapsbanken", "/kunskapsbank/"
     else:
         txt = (f"<strong>Keep reading.</strong> All {antal} articles — symptom guides, clinical notes, "
-               "writings and diagnostics — are collected and searchable in the knowledge base.")
+               "investigations and diagnostics — are collected and searchable in the knowledge base.")
         cta, href = "Go to the knowledge base", "/en/knowledge-base/"
     return (f'\n<section class="kb-back"><div class="inner">'
             f'<p class="txt">{txt}</p>'

@@ -48,7 +48,8 @@
       "@type": "MedicalClinic",
       "name": "MediBalans",
       "url": "https://www.medibalans.com"
-    }
+    },
+    "@id": "https://www.medibalans.com/#mario-anthis"
   },
   "publisher": {
     "@type": "MedicalClinic",
@@ -702,7 +703,7 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
         <button class="nav-dd-btn" aria-expanded="false">IV Therapy <span class="dd-chevron">▾</span></button>
         <div class="dropdown-menu">
           <a href="/en/iv-therapy/">IV &amp; IM Therapy</a>
-          <a href="/en/glutathione-iv/">Glutathione IV 600 mg</a>
+          <a href="/en/glutathione-iv/">↳ Glutathione IV 600 mg</a>
           <a href="/en/iv-therapy/vitamin-d/">↳ Vitamin D 100,000 IU</a>
         </div>
       </div>
@@ -765,8 +766,8 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
   <a href="/en/womens-health/" onclick="closeMobile()" class="sub">Women's Health</a>
   <div class="mob-section-label">— IV Therapy —</div>
   <a href="/en/iv-therapy/" onclick="closeMobile()" class="sub">IV &amp; IM Therapy</a>
-  <a href="/en/glutathione-iv/">Glutathione IV 600 mg</a>
-          <a href="/en/iv-therapy/vitamin-d/" onclick="closeMobile()" class="mobile-sub">↳ Vitamin D 100,000 IU</a>
+  <a href="/en/glutathione-iv/" onclick="closeMobile()" class="mobile-sub">↳ Glutathione IV 600 mg</a>
+  <a href="/en/iv-therapy/vitamin-d/" onclick="closeMobile()" class="mobile-sub">↳ Vitamin D 100,000 IU</a>
   <div class="mob-section-label">— Research —</div>
   <a href="/en/research/" onclick="closeMobile()" class="sub">Research Programme</a>
   <a href="/en/clinical-notes/" onclick="closeMobile()" class="sub">Clinical Notes</a>
@@ -889,6 +890,13 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
         <div class="card-title">Evolutionary mismatch — what a cellular reactivity test actually measures</div>
         <div class="card-summary">The question is not whether you have become allergic to food, but what the immune system recognises. Why cellular food reactivity should be understood as recognition rather than disease — and why elimination is a time-limited tool, not a list of forbidden foods.</div>
         <div class="card-tags"><span class="card-tag">Immunology</span><span class="card-tag">ALCAT</span><span class="card-tag">Elimination</span></div>
+        <div class="card-read">Read article →</div>
+      </a>
+      <a href="#cn-012" class="index-card reveal reveal-d3">
+        <div class="card-issue">CN-012 · July 2026</div>
+        <div class="card-title">Glutathione and one-carbon metabolism — why oxidative load costs methylation</div>
+        <div class="card-summary">The cysteine glutathione is built from is drawn through transsulfuration, directly downstream of homocysteine. Oxidative load therefore shifts flux at the homocysteine fork — and can mask a methylation problem while creating one.</div>
+        <div class="card-meta"><span class="card-tag">Glutathione</span><span class="card-tag">Methylation</span></div>
         <div class="card-read">Read article →</div>
       </a>
 
@@ -2139,7 +2147,43 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
      ARTICLE 11: EVOLUTIONARY MISMATCH
 ════════════════════════════════════════════════════ -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","@id":"https://www.medibalans.com/en/clinical-notes/#cn-011-article","url":"https://www.medibalans.com/en/clinical-notes/#cn-011","mainEntityOfPage":{"@type":"MedicalWebPage","url":"https://www.medibalans.com/en/clinical-notes/"},"headline":"Evolutionary mismatch — what a cellular reactivity test actually measures","description":"The question is not whether you have become allergic to food, but what the immune system recognises. Mario Anthis on why cellular food reactivity should be understood as recognition rather than disease.","inLanguage":"en-GB","datePublished":"2026-07-28","dateModified":"2026-07-30","author":{"@type":"Person","name":"Dr Mario Anthis","jobTitle":"Founder & Medical Director","worksFor":{"@type":"MedicalClinic","name":"MediBalans","url":"https://www.medibalans.com"}},"publisher":{"@type":"MedicalClinic","name":"MediBalans","url":"https://www.medibalans.com"},"isPartOf":{"@type":"MedicalWebPage","name":"Clinical Notes — MediBalans","url":"https://www.medibalans.com/en/clinical-notes/"},"genre":"Clinical observation and hypothesis"}
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://www.medibalans.com/en/clinical-notes/#cn-011-article",
+  "url": "https://www.medibalans.com/en/clinical-notes/#cn-011",
+  "mainEntityOfPage": {
+    "@type": "MedicalWebPage",
+    "url": "https://www.medibalans.com/en/clinical-notes/"
+  },
+  "headline": "Evolutionary mismatch — what a cellular reactivity test actually measures",
+  "description": "The question is not whether you have become allergic to food, but what the immune system recognises. Mario Anthis on why cellular food reactivity should be understood as recognition rather than disease.",
+  "inLanguage": "en-GB",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-30",
+  "author": {
+    "@type": "Person",
+    "name": "Dr Mario Anthis",
+    "jobTitle": "Founder & Medical Director",
+    "worksFor": {
+      "@type": "MedicalClinic",
+      "name": "MediBalans",
+      "url": "https://www.medibalans.com"
+    },
+    "@id": "https://www.medibalans.com/#mario-anthis"
+  },
+  "publisher": {
+    "@type": "MedicalClinic",
+    "name": "MediBalans",
+    "url": "https://www.medibalans.com"
+  },
+  "isPartOf": {
+    "@type": "MedicalWebPage",
+    "name": "Clinical Notes — MediBalans",
+    "url": "https://www.medibalans.com/en/clinical-notes/"
+  },
+  "genre": "Clinical observation and hypothesis"
+}
 </script>
 <section class="article-section" id="cn-011">
   <div class="container">
@@ -2228,6 +2272,142 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
             <div class="ref-item"><span class="ref-num">[1]</span>Ali A, Weiss TR, McKee D, et al. Efficacy of individualised diets in patients with irritable bowel syndrome: a randomised controlled trial. BMJ Open Gastroenterology. 2017.</div>
             <div class="ref-item"><span class="ref-num">[2]</span>Garcia-Martinez I, Weiss TR, Yousaf MN, Ali A, Mehal WZ. A leukocyte activation test identifies food items which induce release of DNA by innate immune peripheral blood leucocytes. Nutrition &amp; Metabolism. 2018.</div>
             <div class="ref-item"><span class="ref-num">[3]</span>Kaats GR, Pullin D, Parker LK. The short term efficacy of the ALCAT test of food sensitivities to facilitate changes in body composition and self-reported disease symptoms. The Bariatrician. 1996.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://www.medibalans.com/en/clinical-notes/#cn-012-article",
+  "url": "https://www.medibalans.com/en/clinical-notes/#cn-012",
+  "mainEntityOfPage": {
+    "@type": "MedicalWebPage",
+    "url": "https://www.medibalans.com/en/clinical-notes/"
+  },
+  "headline": "Glutathione and one-carbon metabolism — why oxidative load costs methylation",
+  "description": "The cysteine used for glutathione synthesis is drawn through transsulfuration, directly downstream of homocysteine. Oxidative load shifts flux at the homocysteine fork, which can mask a methylation problem while creating one.",
+  "inLanguage": "en-GB",
+  "datePublished": "2026-07-30",
+  "dateModified": "2026-07-30",
+  "author": {
+    "@type": "Person",
+    "name": "Dr Mario Anthis",
+    "jobTitle": "Founder & Medical Director",
+    "worksFor": {
+      "@type": "MedicalClinic",
+      "name": "MediBalans",
+      "url": "https://www.medibalans.com"
+    },
+    "@id": "https://www.medibalans.com/#mario-anthis"
+  },
+  "publisher": {
+    "@type": "MedicalClinic",
+    "name": "MediBalans",
+    "url": "https://www.medibalans.com"
+  },
+  "isPartOf": {
+    "@type": "MedicalWebPage",
+    "name": "Clinical Notes — MediBalans",
+    "url": "https://www.medibalans.com/en/clinical-notes/"
+  },
+  "genre": "Clinical observation and hypothesis"
+}
+</script>
+<section class="article-section" id="cn-012">
+  <div class="container">
+    <div class="article-header reveal">
+      <div class="article-issue">CN-012 · July 2026 · 7 min read</div>
+      <h2 class="article-title">Glutathione and one-carbon metabolism —<br><em>why oxidative load costs methylation</em></h2>
+      <p class="article-deck">Glutathione is almost always discussed as an antioxidant and almost never as a metabolic cost. But the cysteine it is built from is drawn through transsulfuration, directly downstream of homocysteine. Oxidative load therefore shifts flux at the homocysteine fork — and can mask a methylation problem while simultaneously creating one.</p>
+      <div class="article-byline">
+        <span class="byline-author">Dr Mario Anthis</span>
+        <span class="byline-date">30 July 2026</span>
+        <span class="byline-read">7 min read</span>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <div class="article-prose reveal">
+
+        <h2>The fork at homocysteine</h2>
+        <p>Homocysteine is not an end product. It is a branch point with two exits, and which one is used determines what the system is prioritising.</p>
+        <p><strong>Remethylation</strong> converts homocysteine back to methionine — via MTR with B12 as cofactor and 5-methyltetrahydrofolate as methyl donor, or via BHMT with betaine. This preserves the methionine pool and therefore SAM, the cell's universal methyl donor.</p>
+        <p><strong>Transsulfuration</strong> runs the other way. CBS condenses homocysteine with serine to cystathionine, which is then cleaved to cysteine. Both steps depend on pyridoxal phosphate, the active form of B6. The cysteine produced is the rate-limiting building block in glutathione synthesis.</p>
+        <p>Which means <strong>glutathione and methylation draw on the same pool.</strong> Every molecule of homocysteine that goes to cysteine is one that was not remethylated to methionine. Under oxidative load, a quantitatively significant proportion of hepatic glutathione can be traced to homocysteine through this pathway <span class="ref">[1]</span>.</p>
+
+        <div class="clinical-note">
+          <p><strong>Clinical consequence:</strong> a normal homocysteine does not exclude a methylation problem. It can mean the homocysteine is being drained downward, toward cysteine and glutathione, rather than rising.</p>
+        </div>
+
+        <h2>Redox governs the fork</h2>
+        <p>The split between the two routes is not fixed. It is redox-regulated, and that regulation runs in a predictable direction: <strong>increased oxidative load shifts flux toward transsulfuration</strong> <span class="ref">[2]</span>.</p>
+        <p>Two mechanisms act at once. Demand for glutathione rises, which increases the draw on cysteine and therefore on homocysteine. And MTR is susceptible to oxidative inactivation — cobalamin in the enzyme's active site is oxidised, lowering remethylation capacity precisely when it would be needed. The draw increases while the recycling deteriorates.</p>
+        <p>SAM additionally acts as an allosteric activator of CBS. When methionine availability is good, transsulfuration opens further, which is purposeful — but it also means the system's prioritisation shifts without anything in the patient's measured values necessarily changing dramatically.</p>
+
+        <h2>Two patients, the same number</h2>
+        <p>Consider two people with homocysteine at 11 µmol/L.</p>
+        <p>The first has good remethylation and low oxidative load. The value reflects balanced turnover.</p>
+        <p>The second has impaired MTR function and high oxidative load. Remethylation works poorly, but transsulfuration is simultaneously open and pulling homocysteine downward toward cysteine. The net result is the same number — but the system is under strain at both ends, and methyl capacity is in practice lower than the value suggests.</p>
+        <p>The reverse case exists too. If CBS activity is low, or if B6 as pyridoxal phosphate is insufficient, the drain toward transsulfuration is narrow. Homocysteine then rises <em>and</em> glutathione synthesis is limited at the same time. That is the clinically unfavourable combination: elevated methyl load and reduced antioxidant capacity from the same cause.</p>
+
+        <div class="data-block">
+          <p><strong>This is why we never read homocysteine in isolation.</strong> The same value can mean opposite things depending on where the binding constraint sits. That is determined by genotype — MTR, MTRR, CBS, MTHFR — and by intracellular status for B6, B12, folate and riboflavin, not by the number alone. <a href="/en/homocysteine/">Homocysteine — a system, not a snapshot →</a></p>
+        </div>
+
+        <h2>Why methyl donors alone are often not enough</h2>
+        <p>The most common intervention for elevated homocysteine is to supply methylfolate and B12. That addresses remethylation — the upstream side.</p>
+        <p>But if the oxidative load persists, the system continues to prioritise cysteine production. Capacity is built upstream while the draw remains downstream. The patient describes an initial improvement that plateaus, which is the same pattern seen when <a href="/en/supplement-forms/">partial compensation moves the bottleneck</a> rather than resolving it.</p>
+        <p>Conversely, reducing oxidative load frees capacity across the whole system. If less cysteine is needed for glutathione, less homocysteine has to be spent, and more can be remethylated. It is one of the reasons we treat redox load and methylation as one system rather than two tracks.</p>
+
+        <h2>What this means for administered glutathione</h2>
+        <p>Here I should be explicit about what is established and what is reasoning.</p>
+        <p>Established: cysteine is rate-limiting for glutathione synthesis, transsulfuration is a quantitatively significant cysteine source, and the split is redox-regulated.</p>
+        <p>Reasoning: if glutathione is supplied ready-formed, the body does not need to build it from cysteine, which reduces the draw on homocysteine through transsulfuration and in theory frees capacity for remethylation. <strong>That is a hypothesis with a reasonable mechanistic basis, not an established effect</strong> — which is why we measure homocysteine before and after rather than assuming it.</p>
+        <p>It also connects to the question of form. If glutathione is supplied in oxidised form it must first be reduced by glutathione reductase, paying in NADPH, which moves the cost to a different reducing currency rather than relieving the system. <a href="/en/glutathione-iv/">This is why we state reduced GSH and the preparation, not merely milligrams →</a></p>
+
+        <h2>What this note does not claim</h2>
+        <p>It gives no doses. Which nodes should be supported, in which form and in which order, is a clinical judgement that follows measurement — genotype, intracellular status and homocysteine in context.</p>
+        <p>It does not claim that administering glutathione treats hyperhomocysteinaemia. It describes a relationship between two systems that are handled separately in practice, and argues that they should be assessed together.</p>
+        <p>And it does not replace investigation. A single homocysteine value without genotype and without intracellular status leaves unanswered precisely the question this note is about: which side of the fork is binding.</p>
+
+        <div class="article-footer">
+          <div class="af-tags">
+            <span class="af-tag">Glutathione</span>
+            <span class="af-tag">Homocysteine</span>
+            <span class="af-tag">Transsulfuration</span>
+            <span class="af-tag">Hypothesis</span>
+          </div>
+          <a href="/en/glutathione-iv/" class="af-cta">Read about glutathione IV — 600 mg reduced GSH →</a>
+        </div>
+      </div>
+
+      <div class="article-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-label">Contents</div>
+          <div class="sidebar-toc">
+            <a href="#cn-012" class="toc-item">The fork at homocysteine</a>
+            <a href="#cn-012" class="toc-item">Redox governs the fork</a>
+            <a href="#cn-012" class="toc-item">Two patients, the same number</a>
+            <a href="#cn-012" class="toc-item">Why methyl donors are not enough</a>
+            <a href="#cn-012" class="toc-item">What it means for administered GSH</a>
+          </div>
+        </div>
+        <div class="sidebar-cta">
+          <div class="sidebar-cta-title">Glutathione IV</div>
+          <p>600 mg of reduced glutathione (GSH), prepared immediately before treatment. We measure homocysteine and intracellular status before and after rather than assuming the effect.</p>
+          <a href="/en/glutathione-iv/">See Glutathione IV</a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-label">Key references</div>
+          <div class="sidebar-refs">
+            <div class="ref-item"><span class="ref-num">[1]</span>Mosharov E, Cranford MR, Banerjee R. The quantitatively important relationship between homocysteine metabolism and glutathione synthesis by the transsulfuration pathway and its regulation by redox changes. Biochemistry. 2000;39(42):13005–13011.</div>
+            <div class="ref-item"><span class="ref-num">[2]</span>Vitvitsky V, Mosharov E, Tritt M, Ataullakhanov F, Banerjee R. Redox regulation of homocysteine-dependent glutathione synthesis. Redox Report. 2003;8(1):57–63.</div>
+            <div class="ref-item"><span class="ref-num">[3]</span>Zou CG, Banerjee R. Homocysteine and redox signaling. Antioxidants &amp; Redox Signaling. 2005;7(5-6):547–559.</div>
           </div>
         </div>
       </div>

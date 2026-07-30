@@ -38,6 +38,7 @@ KLINISKA_NOTERINGAR = {
     "homocystein", "mikronaringstest-jamforelse", "ibs-grundorsaker",
     "ostrogenmetabolism-forklarad", "tarmtest-guide", "utmattningssyndrom-biologi",
     "utredningsprotokoll", "global-constraint-rule",
+    "d-vitamin-vinter", "d-vitamin-i-dropp", "clinical-notes",
 }
 DIAGNOSTIK = {
     "alcat", "cma", "methyldetox", "biologisk-alder", "alzheimers-test",
@@ -50,11 +51,13 @@ UTREDNINGAR = {
     "ibs-tarmhalsa", "utmattning", "autoimmun", "hudsjukdomar",
     "adhd-neuropsykiatri", "hypothyreos", "kognitiv-halsa", "baby-balans",
     "ibs-utredning-och-behandling", "longevitet-halsospann", "iv-terapi",
+    "glutation-iv",
 }
 EN_KLINISKA = {
     "micronutrient-test-comparison", "ibs-root-causes", "estrogen-metabolism-explained",
     "gut-test-guide", "chronic-fatigue-biology", "investigation-protocol",
     "global-constraint-rule", "homocysteine",
+    "vitamin-d-winter", "vitamin-d-in-iv-drips", "clinical-notes",
 }
 EN_DIAGNOSTIK = {
     "alcat-test", "cellular-nutrient-analysis", "methylation-test", "biological-age",
@@ -67,12 +70,13 @@ EN_UTREDNINGAR = {
     "ibs-gut-health", "chronic-fatigue", "autoimmunity", "skin-conditions",
     "adhd-neuropsychiatry", "thyroid", "cognitive-health", "baby-balans",
     "ibs-investigation-and-treatment", "longevity-healthspan", "iv-therapy",
+    "glutathione-iv",
 }
-EN_UNDANTAG = {"privacy-policy", "clinical-notes", "symptoms", "writings", "research",
-               "theorems", "knowledge-base", "baby-balans"}
+EN_UNDANTAG = {"privacy-policy", "symptoms", "research",
+               "knowledge-base", "baby-balans"}
 
 # sidor som inte hör hemma i en kunskapsbank
-UNDANTAG = {".", "integritetspolicy", "clinical-notes", "symtom", "skrifter", "forskning"}
+UNDANTAG = {".", "integritetspolicy", "symtom", "forskning"}
 
 FARG = {
     "Symtomguide": "sym", "Symptom guide": "sym",

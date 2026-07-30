@@ -555,7 +555,8 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
       "@type": "MedicalClinic",
       "name": "MediBalans",
       "url": "https://www.medibalans.com"
-    }
+    },
+    "@id": "https://www.medibalans.com/#mario-anthis"
   },
   "publisher": {
     "@type": "MedicalClinic",
@@ -563,9 +564,18 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
     "url": "https://www.medibalans.com"
   },
   "about": [
-    {"@type": "MedicalCondition", "name": "IBS"},
-    {"@type": "MedicalCondition", "name": "Kronisk trötthet"},
-    {"@type": "MedicalCondition", "name": "Autoimmunitet"}
+    {
+      "@type": "MedicalCondition",
+      "name": "IBS"
+    },
+    {
+      "@type": "MedicalCondition",
+      "name": "Kronisk trötthet"
+    },
+    {
+      "@type": "MedicalCondition",
+      "name": "Autoimmunitet"
+    }
   ],
   "medicalAudience": {
     "@type": "MedicalAudience",
@@ -679,7 +689,7 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
         <button class="nav-dd-btn" aria-expanded="false">IV-Behandling <span class="dd-chevron">▾</span></button>
         <div class="dropdown-menu">
           <a href="/iv-terapi/">IV- &amp; IM-terapi</a>
-          <a href="/glutation-iv/">Glutation IV 600 mg</a>
+          <a href="/glutation-iv/">↳ Glutation IV 600 mg</a>
           <a href="/iv-terapi/d-vitamin/">↳ D-vitamin 100 000 IE</a>
         </div>
       </div>
@@ -742,8 +752,8 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
   <a href="/kvinnohalsa/" onclick="closeMobile()" class="sub">Kvinnohälsa</a>
   <div class="mob-section-label">— IV-Behandling —</div>
   <a href="/iv-terapi/" onclick="closeMobile()" class="sub">IV- &amp; IM-terapi</a>
-  <a href="/glutation-iv/">Glutation IV 600 mg</a>
-          <a href="/iv-terapi/d-vitamin/" onclick="closeMobile()" class="mobile-sub">↳ D-vitamin 100 000 IE</a>
+  <a href="/glutation-iv/" onclick="closeMobile()" class="mobile-sub">↳ Glutation IV 600 mg</a>
+  <a href="/iv-terapi/d-vitamin/" onclick="closeMobile()" class="mobile-sub">↳ D-vitamin 100 000 IE</a>
   <div class="mob-section-label">— Forskning —</div>
   <a href="/forskning.html" onclick="closeMobile()" class="sub">Forskningsprogram</a>
   <a href="/clinical-notes/" onclick="closeMobile()" class="sub">Kliniska Noteringar</a>
@@ -867,6 +877,13 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
         <div class="card-title">Evolutionär missmatchning — vad ett cellulärt reaktivitetstest egentligen mäter</div>
         <div class="card-summary">Frågan är inte om du blivit allergisk mot mat, utan vad immunförsvaret känner igen. Varför cellulär födoämnesreaktivitet bör förstås som igenkänning snarare än sjukdom — och varför elimination är ett tidsbegränsat verktyg, inte en förbudslista.</div>
         <div class="card-tags"><span class="card-tag">Immunologi</span><span class="card-tag">ALCAT</span><span class="card-tag">Elimination</span></div>
+        <div class="card-read">Läs artikel →</div>
+      </a>
+      <a href="#cn-012" class="index-card reveal reveal-d3">
+        <div class="card-issue">CN-012 · Juli 2026</div>
+        <div class="card-title">Glutation och enkolsmetabolismen — varför oxidativ belastning kostar metylering</div>
+        <div class="card-summary">Cystein till glutation hämtas via transsulfurering, direkt nedströms homocystein. Oxidativ belastning flyttar därför flödet vid homocysteingaffeln — och kan dölja ett metyleringsproblem samtidigt som det skapar ett.</div>
+        <div class="card-meta"><span class="card-tag">Glutation</span><span class="card-tag">Metylering</span></div>
         <div class="card-read">Läs artikel →</div>
       </a>
 
@@ -1873,7 +1890,43 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
      ARTICLE 11: EVOLUTIONÄR MISSMATCHNING
 ════════════════════════════════════════════════════ -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","@id":"https://www.medibalans.com/clinical-notes/#cn-011-article","url":"https://www.medibalans.com/clinical-notes/#cn-011","mainEntityOfPage":{"@type":"MedicalWebPage","url":"https://www.medibalans.com/clinical-notes/"},"headline":"Evolutionär missmatchning — vad ett cellulärt reaktivitetstest egentligen mäter","description":"Frågan är inte om du blivit allergisk mot mat, utan vad immunförsvaret känner igen. Mario Anthis om varför cellulär födoämnesreaktivitet bör förstås som igenkänning snarare än sjukdom.","inLanguage":"sv-SE","datePublished":"2026-07-28","dateModified":"2026-07-30","author":{"@type":"Person","name":"Dr Mario Anthis","jobTitle":"Grundare & Medicinsk Direktör","worksFor":{"@type":"MedicalClinic","name":"MediBalans","url":"https://www.medibalans.com"}},"publisher":{"@type":"MedicalClinic","name":"MediBalans","url":"https://www.medibalans.com"},"isPartOf":{"@type":"MedicalWebPage","name":"Kliniska Noteringar — MediBalans","url":"https://www.medibalans.com/clinical-notes/"},"genre":"Klinisk observation och hypotes"}
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://www.medibalans.com/clinical-notes/#cn-011-article",
+  "url": "https://www.medibalans.com/clinical-notes/#cn-011",
+  "mainEntityOfPage": {
+    "@type": "MedicalWebPage",
+    "url": "https://www.medibalans.com/clinical-notes/"
+  },
+  "headline": "Evolutionär missmatchning — vad ett cellulärt reaktivitetstest egentligen mäter",
+  "description": "Frågan är inte om du blivit allergisk mot mat, utan vad immunförsvaret känner igen. Mario Anthis om varför cellulär födoämnesreaktivitet bör förstås som igenkänning snarare än sjukdom.",
+  "inLanguage": "sv-SE",
+  "datePublished": "2026-07-28",
+  "dateModified": "2026-07-30",
+  "author": {
+    "@type": "Person",
+    "name": "Dr Mario Anthis",
+    "jobTitle": "Grundare & Medicinsk Direktör",
+    "worksFor": {
+      "@type": "MedicalClinic",
+      "name": "MediBalans",
+      "url": "https://www.medibalans.com"
+    },
+    "@id": "https://www.medibalans.com/#mario-anthis"
+  },
+  "publisher": {
+    "@type": "MedicalClinic",
+    "name": "MediBalans",
+    "url": "https://www.medibalans.com"
+  },
+  "isPartOf": {
+    "@type": "MedicalWebPage",
+    "name": "Kliniska Noteringar — MediBalans",
+    "url": "https://www.medibalans.com/clinical-notes/"
+  },
+  "genre": "Klinisk observation och hypotes"
+}
 </script>
 <section class="article-section" id="cn-011">
   <div class="container">
@@ -1972,6 +2025,142 @@ footer{background:var(--navy);border-top:1px solid rgba(216,234,245,.08);padding
             <div class="ref-item"><span class="ref-num">[1]</span>Ali A, Weiss TR, McKee D, et al. Efficacy of individualised diets in patients with irritable bowel syndrome: a randomised controlled trial. BMJ Open Gastroenterology. 2017.</div>
             <div class="ref-item"><span class="ref-num">[2]</span>Garcia-Martinez I, Weiss TR, Yousaf MN, Ali A, Mehal WZ. A leukocyte activation test identifies food items which induce release of DNA by innate immune peripheral blood leucocytes. Nutrition &amp; Metabolism. 2018.</div>
             <div class="ref-item"><span class="ref-num">[3]</span>Kaats GR, Pullin D, Parker LK. The short term efficacy of the ALCAT test of food sensitivities to facilitate changes in body composition and self-reported disease symptoms. The Bariatrician. 1996.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://www.medibalans.com/clinical-notes/#cn-012-article",
+  "url": "https://www.medibalans.com/clinical-notes/#cn-012",
+  "mainEntityOfPage": {
+    "@type": "MedicalWebPage",
+    "url": "https://www.medibalans.com/clinical-notes/"
+  },
+  "headline": "Glutation och enkolsmetabolismen — varför oxidativ belastning kostar metylering",
+  "description": "Cystein till glutationsyntes hämtas via transsulfurering, direkt nedströms homocystein. Oxidativ belastning flyttar flödet vid homocysteingaffeln, vilket kan maskera ett metyleringsproblem samtidigt som det skapar ett.",
+  "inLanguage": "sv-SE",
+  "datePublished": "2026-07-30",
+  "dateModified": "2026-07-30",
+  "author": {
+    "@type": "Person",
+    "name": "Dr Mario Anthis",
+    "jobTitle": "Grundare & Medicinsk Direktör",
+    "worksFor": {
+      "@type": "MedicalClinic",
+      "name": "MediBalans",
+      "url": "https://www.medibalans.com"
+    },
+    "@id": "https://www.medibalans.com/#mario-anthis"
+  },
+  "publisher": {
+    "@type": "MedicalClinic",
+    "name": "MediBalans",
+    "url": "https://www.medibalans.com"
+  },
+  "isPartOf": {
+    "@type": "MedicalWebPage",
+    "name": "Kliniska Noteringar — MediBalans",
+    "url": "https://www.medibalans.com/clinical-notes/"
+  },
+  "genre": "Klinisk observation och hypotes"
+}
+</script>
+<section class="article-section" id="cn-012">
+  <div class="container">
+    <div class="article-header reveal">
+      <div class="article-issue">CN-012 · Juli 2026 · 7 min läsning</div>
+      <h2 class="article-title">Glutation och enkolsmetabolismen —<br><em>varför oxidativ belastning kostar metylering</em></h2>
+      <p class="article-deck">Glutation diskuteras nästan alltid som antioxidant och nästan aldrig som metabol kostnad. Men cysteinet som glutationet byggs av hämtas via transsulfurering, direkt nedströms homocystein. Oxidativ belastning flyttar därför flödet vid homocysteingaffeln — och kan maskera ett metyleringsproblem samtidigt som det skapar ett.</p>
+      <div class="article-byline">
+        <span class="byline-author">Dr Mario Anthis</span>
+        <span class="byline-date">30 juli 2026</span>
+        <span class="byline-read">7 min läsning</span>
+      </div>
+    </div>
+
+    <div class="article-body">
+      <div class="article-prose reveal">
+
+        <h2>Gaffeln vid homocystein</h2>
+        <p>Homocystein är inte en slutprodukt. Det är en förgreningspunkt med två utgångar, och vilken som används avgör vad systemet prioriterar.</p>
+        <p><strong>Återmetylering</strong> förvandlar homocystein tillbaka till metionin — via MTR med B12 som kofaktor och 5-metyltetrahydrofolat som metyldonator, eller via BHMT med betain. Det bevarar metioninpoolen och därmed SAM, cellens universella metyldonator.</p>
+        <p><strong>Transsulfurering</strong> går åt andra hållet. CBS kondenserar homocystein med serin till cystationin, som därefter klyvs till cystein. Båda stegen är beroende av pyridoxalfosfat, den aktiva formen av B6. Cysteinet som bildas är den hastighetsbegränsande byggstenen i glutationsyntes.</p>
+        <p>Det innebär att <strong>glutation och metylering hämtar ur samma pool.</strong> Varje molekyl homocystein som går till cystein är en molekyl som inte återmetylerades till metionin. Under oxidativ belastning kan en betydande andel av leverns glutation härledas till homocystein via denna väg <span class="ref">[1]</span>.</p>
+
+        <div class="clinical-note">
+          <p><strong>Klinisk konsekvens:</strong> ett normalt homocystein utesluter inte ett metyleringsproblem. Det kan betyda att homocysteinet dräneras nedåt, mot cystein och glutation, i stället för att stiga.</p>
+        </div>
+
+        <h2>Redox styr gaffeln</h2>
+        <p>Fördelningen mellan de två vägarna är inte fast. Den är redoxreglerad, och den regleringen går i en förutsägbar riktning: <strong>ökad oxidativ belastning skiftar flödet mot transsulfurering</strong> <span class="ref">[2]</span>.</p>
+        <p>Två mekanismer verkar samtidigt. Efterfrågan på glutation stiger, vilket ökar uttaget av cystein och därmed av homocystein. Och MTR är känsligt för oxidativ inaktivering — kobalamin i enzymets aktiva säte oxideras, vilket sänker återmetyleringskapaciteten just när den skulle behövas. Uttaget ökar medan återvinningen försämras.</p>
+        <p>SAM verkar dessutom allosteriskt aktiverande på CBS. När metionintillgången är god öppnas transsulfureringen ytterligare, vilket är ändamålsenligt — men det gör också att systemets prioritering skiftar utan att någonting i patientens uppmätta värden nödvändigtvis förändras dramatiskt.</p>
+
+        <h2>Två patienter, samma siffra</h2>
+        <p>Betrakta två personer med homocystein på 11 µmol/l.</p>
+        <p>Den första har god återmetylering och låg oxidativ belastning. Värdet speglar en balanserad omsättning.</p>
+        <p>Den andra har nedsatt MTR-funktion och hög oxidativ belastning. Återmetyleringen fungerar dåligt, men transsulfureringen är samtidigt öppen och drar homocystein nedåt mot cystein. Nettot blir samma siffra — men systemet är under belastning i båda ändar, och metylkapaciteten är i praktiken lägre än värdet antyder.</p>
+        <p>Det omvända fallet finns också. Är CBS-aktiviteten låg, eller är B6 som pyridoxalfosfat otillräckligt, blir avloppet mot transsulfurering trångt. Då stiger homocystein <em>och</em> glutationsyntesen begränsas samtidigt. Det är den kliniskt ogynnsamma kombinationen: förhöjd metylbelastning och nedsatt antioxidantkapacitet av samma orsak.</p>
+
+        <div class="data-block">
+          <p><strong>Därför läses homocystein aldrig isolerat hos oss.</strong> Samma värde kan betyda motsatta saker beroende på var den bindande restriktionen sitter. Det avgörs av genotyp — MTR, MTRR, CBS, MTHFR — och av intracellulär status för B6, B12, folat och riboflavin, inte av siffran ensam. <a href="/homocystein/">Homocystein — ett system, inte ett stickprov →</a></p>
+        </div>
+
+        <h2>Varför metyldonatorer ensamma ofta inte räcker</h2>
+        <p>Den vanligaste interventionen vid förhöjt homocystein är att tillföra metylfolat och B12. Det adresserar återmetyleringen — uppströmssidan.</p>
+        <p>Men om den oxidativa belastningen kvarstår fortsätter systemet att prioritera cysteinproduktion. Kapaciteten byggs uppströms medan uttaget består nedströms. Patienten beskriver en initial förbättring som planar ut, vilket är samma mönster som när <a href="/ratt-form-av-tillskott/">partiell kompensation flyttar flaskhalsen</a> i stället för att lösa den.</p>
+        <p>Omvänt gäller att sänkt oxidativ belastning frigör kapacitet i hela systemet. Behövs mindre cystein till glutation behöver mindre homocystein gå åt, och mer kan återmetyleras. Det är en av anledningarna till att vi behandlar redoxbelastning och metylering som ett system snarare än två spår.</p>
+
+        <h2>Vad det betyder för tillförd glutation</h2>
+        <p>Här bör jag vara tydlig om vad som är etablerat och vad som är resonemang.</p>
+        <p>Etablerat: cystein är hastighetsbegränsande för glutationsyntes, transsulfurering är en kvantitativt betydande cysteinkälla, och fördelningen är redoxreglerad.</p>
+        <p>Resonemang: tillförs glutation färdigbildat behöver kroppen inte bygga det av cystein, vilket minskar uttaget av homocystein via transsulfurering och i teorin friställer kapacitet för återmetylering. <strong>Det är en hypotes med rimlig mekanistisk grund, inte en fastställd effekt</strong> — och därför mäter vi homocystein före och efter i stället för att förutsätta den.</p>
+        <p>Det knyter också an till formfrågan. Tillförs glutation i oxiderad form måste det först reduceras av glutationreduktas med NADPH som betalning, vilket flyttar kostnaden till en annan reduktionsvaluta i stället för att avlasta systemet. <a href="/glutation-iv/">Därför anger vi reducerat GSH och beredningsform, inte bara milligram →</a></p>
+
+        <h2>Vad denna notering inte gör anspråk på</h2>
+        <p>Den anger inga doser. Vilka noder som ska stödjas, i vilken form och i vilken ordning är en klinisk bedömning som följer mätning — genotyp, intracellulär status och homocystein i sammanhang.</p>
+        <p>Den påstår inte att glutationtillförsel behandlar hyperhomocysteinemi. Den beskriver ett samband mellan två system som i praktiken hanteras separat, och argumenterar för att de bör bedömas tillsammans.</p>
+        <p>Och den ersätter inte utredning. Ett enskilt homocysteinvärde utan genotyp och utan intracellulär status lämnar just den fråga obesvarad som noteringen handlar om: vilken sida av gaffeln som klämmer.</p>
+
+        <div class="article-footer">
+          <div class="af-tags">
+            <span class="af-tag">Glutation</span>
+            <span class="af-tag">Homocystein</span>
+            <span class="af-tag">Transsulfurering</span>
+            <span class="af-tag">Hypotes</span>
+          </div>
+          <a href="/glutation-iv/" class="af-cta">Läs om glutation IV — 600 mg reducerat GSH →</a>
+        </div>
+      </div>
+
+      <div class="article-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-label">Innehåll</div>
+          <div class="sidebar-toc">
+            <a href="#cn-012" class="toc-item">Gaffeln vid homocystein</a>
+            <a href="#cn-012" class="toc-item">Redox styr gaffeln</a>
+            <a href="#cn-012" class="toc-item">Två patienter, samma siffra</a>
+            <a href="#cn-012" class="toc-item">Varför metyldonatorer inte räcker</a>
+            <a href="#cn-012" class="toc-item">Vad det betyder för tillförd glutation</a>
+          </div>
+        </div>
+        <div class="sidebar-cta">
+          <div class="sidebar-cta-title">Glutation IV</div>
+          <p>600 mg reducerat glutation (GSH), berett omedelbart före behandling. Vi mäter homocystein och intracellulär status före och efter i stället för att förutsätta effekten.</p>
+          <a href="/glutation-iv/">Se Glutation IV</a>
+        </div>
+        <div class="sidebar-card">
+          <div class="sidebar-label">Nyckelreferenser</div>
+          <div class="sidebar-refs">
+            <div class="ref-item"><span class="ref-num">[1]</span>Mosharov E, Cranford MR, Banerjee R. The quantitatively important relationship between homocysteine metabolism and glutathione synthesis by the transsulfuration pathway and its regulation by redox changes. Biochemistry. 2000;39(42):13005–13011.</div>
+            <div class="ref-item"><span class="ref-num">[2]</span>Vitvitsky V, Mosharov E, Tritt M, Ataullakhanov F, Banerjee R. Redox regulation of homocysteine-dependent glutathione synthesis. Redox Report. 2003;8(1):57–63.</div>
+            <div class="ref-item"><span class="ref-num">[3]</span>Zou CG, Banerjee R. Homocysteine and redox signaling. Antioxidants &amp; Redox Signaling. 2005;7(5-6):547–559.</div>
           </div>
         </div>
       </div>
