@@ -174,7 +174,7 @@ GUIDES = [
               "Inte utan att först testa för celiaki, eftersom det provet blir opålitligt när du slutat äta gluten. Långvariga elimineringar utan underlag smalnar av kosten och försämrar tarmflorans mångfald, vilket kan förvärra bilden på sikt.")],
         rel=[("gi-effects-test", "Utökat avföringsprov: inflammation, nedbrytning, mikrobiom och barriär."),
              ("sibo-test", "Väte- och metangasandningstest för bakteriell överväxt.")],
-        noter=[("Evolutionär missmatchning — vad testet egentligen mäter", "/skrifter/evolutionar-missmatchning/", "Skrift av Mario Anthis om varför reaktivitet bör förstås som igenkänning.")],
+        noter=[("Evolutionär missmatchning — vad testet egentligen mäter", "/clinical-notes/#cn-011", "Klinisk notering av Mario Anthis om varför reaktivitet bör förstås som igenkänning.")],
     ),
     dict(
         slug="hjarndimma",
@@ -491,7 +491,4 @@ if __name__ == "__main__":
     write("symtom/index.html", build_guides_index())
     for g in GUIDES:
         write(f"symtom/{g['slug']}/index.html", build_guide(g))
-    print("Skrifter:")
-    write("skrifter/index.html", build_skrifter_index())
-    write(f"skrifter/{ESSAY['slug']}/index.html", build_essay(ESSAY))
     print("\nKlart.")

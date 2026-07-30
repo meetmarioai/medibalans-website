@@ -62,8 +62,6 @@ NAV_SV = [
     ("link", "Familjer", "/#families", []),
     ("link", "Kunskapsbank", "/kunskapsbank/", []),
     ("menu", "Forskning", "/forskning.html", [
-        ("Skrifter — Mario Anthis", "/skrifter/", False),
-        ("Teorem — falsifierbara satser", "/teorem/", False),
         ("Forskningsprogram", "/forskning.html", False),
         ("Kliniska Noteringar", "/clinical-notes/", False),
         ("Homocystein &amp; metylering", "/homocystein/", False),
@@ -118,8 +116,6 @@ NAV_EN = [
     ("link", "Families", "/en/#families", []),
     ("link", "Knowledge base", "/en/knowledge-base/", []),
     ("menu", "Research", "/en/research/", [
-        ("Writings — Mario Anthis", "/en/writings/", False),
-        ("Theorems — propositions", "/en/theorems/", False),
         ("Research Programme", "/en/research/", False),
         ("Clinical Notes", "/en/clinical-notes/", False),
         ("Homocysteine &amp; methylation", "/en/homocysteine/", False),

@@ -28,14 +28,10 @@ DRY = "--dry" in sys.argv
 RULES_SV = [
     ("/symtom/", "Symtomguider",
      ["/ibs-tarmhalsa/", "/utmattning/", "/autoimmun/", "/alcat/"]),
-    ("/skrifter/", "Skrifter",
-     ["/global-constraint-rule/", "/longevitet-halsospann/", "/clinical-notes/", "/forskning.html"]),
 ]
 RULES_EN = [
     ("/en/symptoms/", "Symptom Guides",
      ["/en/ibs-gut-health/", "/en/chronic-fatigue/", "/en/autoimmunity/", "/en/alcat-test/"]),
-    ("/en/writings/", "Writings",
-     ["/en/global-constraint-rule/", "/en/longevity-healthspan/", "/en/clinical-notes/", "/en/research/"]),
 ]
 
 # regioner där insättning får ske

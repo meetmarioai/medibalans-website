@@ -247,9 +247,12 @@ def bygg(lang):
 
 
 if __name__ == "__main__":
-    for lang, rel in (("sv", "teorem/index.html"), ("en", "en/theorems/index.html")):
-        p = os.path.join(ROOT, rel)
-        os.makedirs(os.path.dirname(p), exist_ok=True)
-        open(p, "w", encoding="utf-8").write(bygg(lang))
-        print(f"   {rel}")
-    print(f"{len(TEOREM)} sats(er), två språk")
+    # RETIRERAD 2026-07-30. Teorem-sidorna (/teorem/, /en/theorems/) är
+    # permanent borttagna från webbplatsen och returnerar 410 Gone via
+    # vercel.json. Denna generator får INTE köras — den skulle återskapa
+    # sidorna och (via canonical_nav) återinföra menyposterna på alla sidor.
+    # Filen är kvar enbart som historik och kan tas bort med `git rm`.
+    raise SystemExit(
+        "build_teorem.py är retirerad: /teorem/ och /en/theorems/ är "
+        "borttagna (410 Gone). Kör inte denna generator."
+    )

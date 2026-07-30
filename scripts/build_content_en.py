@@ -403,7 +403,7 @@ def build_guide(g):
                  f'<td><a href="/en/{slug}/">{name}</a></td></tr>')
     cards = "".join(pcard(s, d) for s, d in g["rel"])
     if g.get("essay_link"):
-        cards += ('<a class="mb-card" href="/en/writings/evolutionary-mismatch/">'
+        cards += ('<a class="mb-card" href="/en/clinical-notes/#cn-011">'
                   '<span class="k">Writings</span><div class="t">Evolutionary mismatch — what the test actually measures</div>'
                   '<p class="d">Essay by Mario Anthis on reactivity as recognition rather than disease.</p></a>')
 
@@ -618,7 +618,4 @@ if __name__ == "__main__":
     write("en/symptoms/index.html", build_index())
     for g in GUIDES:
         write(f"en/symptoms/{g['slug']}/index.html", build_guide(g))
-    print("EN writings:")
-    write("en/writings/index.html", build_writings_index())
-    write("en/writings/evolutionary-mismatch/index.html", build_essay())
     print("\nDone.")

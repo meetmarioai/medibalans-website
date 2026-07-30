@@ -1,6 +1,25 @@
 {
+  "redirects": [
+    { "source": "/skrifter/evolutionar-missmatchning", "destination": "/clinical-notes/#cn-011", "permanent": true },
+    { "source": "/skrifter/evolutionar-missmatchning/", "destination": "/clinical-notes/#cn-011", "permanent": true },
+    { "source": "/en/writings/evolutionary-mismatch", "destination": "/en/clinical-notes/#cn-011", "permanent": true },
+    { "source": "/en/writings/evolutionary-mismatch/", "destination": "/en/clinical-notes/#cn-011", "permanent": true },
+
+    { "source": "/skrifter", "destination": "/clinical-notes/", "permanent": true },
+    { "source": "/skrifter/:path*", "destination": "/clinical-notes/", "permanent": true },
+    { "source": "/en/writings", "destination": "/en/clinical-notes/", "permanent": true },
+    { "source": "/en/writings/:path*", "destination": "/en/clinical-notes/", "permanent": true },
+
+    { "source": "/en-clinical-notes", "destination": "/en/clinical-notes/", "permanent": true },
+    { "source": "/en-clinical-notes/", "destination": "/en/clinical-notes/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/(.*skanning-och-utredning.*)", "destination": "/api/gone" },
-    { "source": "/en/(.*body-scan.*)", "destination": "/api/gone" }
+    { "source": "/en/(.*body-scan.*)", "destination": "/api/gone" },
+
+    { "source": "/teorem", "destination": "/api/gone" },
+    { "source": "/teorem/", "destination": "/api/gone" },
+    { "source": "/en/theorems", "destination": "/api/gone" },
+    { "source": "/en/theorems/", "destination": "/api/gone" }
   ]
 }

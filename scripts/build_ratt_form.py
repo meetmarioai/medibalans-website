@@ -148,7 +148,7 @@ SV_SECTIONS = [
     ]),
     ("noderna", "Nod för nod", None),
     ("full-kompensation", "Partiell kompensation flyttar bara flaskhalsen", [
-        "Här ligger textens egentliga innehåll, och det följer direkt av <a href=\"/teorem/#t1\">T1</a>: i ett "
+        "Här ligger textens egentliga innehåll, och det följer direkt av T1: i ett "
         "system av icke-substituerbara steg bestäms funktionen av det mest begränsande steget.",
         "Om folat är flaskhalsen och du tillför aktivt folat, stiger flödet — tills nästa steg blir "
         "begränsande. Har du samtidigt låg B12-status blir MTR den nya flaskhalsen. Är B6 lågt blir "
@@ -205,7 +205,7 @@ EN_SECTIONS = [
     ("nodes", "Node by node", None),
     ("full-compensation", "Partial compensation only moves the bottleneck", [
         "This is the real content of the text, and it follows directly from "
-        "<a href=\"/en/theorems/#t1\">T1</a>: in a system of non-substitutable steps, function is determined "
+        "T1: in a system of non-substitutable steps, function is determined "
         "by the most limiting step.",
         "If folate is the bottleneck and you supply active folate, flux rises — until the next step becomes "
         "limiting. If B12 status is low, MTR becomes the new bottleneck. If B6 is low, the drain toward "
@@ -373,7 +373,6 @@ def bygg(lang):
     hcy = "/homocystein/" if sv else "/en/homocysteine/"
     methyl = "/methyldetox/" if sv else "/en/methylation-test/"
     cma = "/cma/" if sv else "/en/cellular-nutrient-analysis/"
-    teorem = "/teorem/#t1" if sv else "/en/theorems/#t1"
 
     innehall = f"""
 {hero_f(eyebrow, h1, h1em, lead,
@@ -389,7 +388,7 @@ def bygg(lang):
 {body}
 <section id="faq"><h2>{"Vanliga" if sv else "Frequently asked"} <em>{"frågor" if sv else "questions"}</em></h2>{faq_html(faq)}</section>
 <section id="vidare"><h2>{src_head}</h2>
-<p><a href="{hcy}">{"Homocystein — ett system, inte ett stickprov" if sv else "Homocysteine — a system, not a snapshot"} →</a> · <a href="{teorem}">T1 — {"den bindande restriktionen" if sv else "the binding constraint"}</a> · <a href="{cma}">CMA</a> · <a href="{other}">{lbl_other}</a></p></section>
+<p><a href="{hcy}">{"Homocystein — ett system, inte ett stickprov" if sv else "Homocysteine — a system, not a snapshot"} →</a> · <a href="{cma}">CMA</a> · <a href="{other}">{lbl_other}</a></p></section>
 </div>
 {band_f(band_a, band_b, band_p)}
 """
