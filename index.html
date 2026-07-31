@@ -169,7 +169,7 @@
   --font-mono: 'IBM Plex Mono', monospace;
 }
 
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-padding-top: 80px; scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: var(--font-body);
@@ -276,7 +276,6 @@ nav a:hover { color: var(--navy); }
   width: 22px;
   height: 2px;
   background: var(--navy);
-  margin: 5px 0;
   transition: 0.3s;
 }
 .mobile-nav {
@@ -2884,6 +2883,8 @@ function toggleFaq(btn) {
     if (!shouldShow()) return;
     var panel = document.getElementById('__mb_panel');
     if (panel && panel.classList.contains('mbopen')) return;
+    var __mbnav = document.getElementById('mobileNav');
+    if (__mbnav && __mbnav.classList.contains('active')) return;
 
     var bubble = document.createElement('div');
     bubble.className = 'mb-bubble';

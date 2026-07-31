@@ -343,7 +343,7 @@
   --font-mono:'IBM Plex Mono',monospace;
   --rose:#8B4A6B;--rose-faint:#F5EBF1;--rose-mid:#B07090;
 }
-html{scroll-behavior:smooth;overflow-x:hidden;}
+html{ scroll-padding-top: 80px;scroll-behavior:smooth;overflow-x:hidden;}
 body{font-family:var(--font-body);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 .container{max-width:1100px;margin:0 auto;padding:0 2rem;}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);}
@@ -1577,6 +1577,8 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
     if (!shouldShow()) return;
     var panel = document.getElementById('__mb_panel');
     if (panel && panel.classList.contains('mbopen')) return;
+    var __mbnav = document.getElementById('mobileNav');
+    if (__mbnav && __mbnav.classList.contains('active')) return;
 
     var bubble = document.createElement('div');
     bubble.className = 'mb-bubble';
