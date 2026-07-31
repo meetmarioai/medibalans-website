@@ -182,7 +182,7 @@
   --font-mono: 'IBM Plex Mono', monospace;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-padding-top: 80px; scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
   color: var(--text);
@@ -246,7 +246,7 @@ nav a.active { color: var(--navy); }
 .lang-btn:hover:not(.active) { background: var(--ice-faint); color: var(--navy); }
 
 .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-.mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; transition: 0.3s; }
+.mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); transition: 0.3s; }
 .mobile-nav {
   display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0;
   background: var(--white); padding: 2rem; z-index: 99; flex-direction: column; gap: 0.5rem;

@@ -83,7 +83,7 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--navy:#0B1D33;--navy-mid:#132B4A;--navy-light:#1A3A5E;--blue:#2E6B9E;--blue-light:#4A9FD4;--ice:#D8EAF5;--ice-faint:#EDF5FA;--white:#FAFCFE;--warm:#C7925A;--bg-warm:#F5F0EB;--text:#1A2A3A;--text-mid:#4A5A6A;--text-muted:#7A8A9A;--border:#D0DBE5;--font-display:'DM Serif Display',Georgia,serif;--font-body:'IBM Plex Sans',-apple-system,sans-serif;--font-mono:'IBM Plex Mono',monospace}
-html{scroll-behavior:smooth}
+html{ scroll-padding-top: 80px;scroll-behavior:smooth}
 body{font-family:var(--font-body);color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .container{max-width:1200px;margin:0 auto;padding:0 2rem}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
@@ -109,7 +109,7 @@ nav a:hover{color:var(--navy)}
 .nav-cta{background:var(--navy);color:var(--white)!important;padding:.55rem 1.3rem;border-radius:6px;font-size:.8rem!important;letter-spacing:.04em;transition:background .2s!important}
 .nav-cta:hover{background:var(--navy-mid)!important}
 .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:.5rem}
-.mobile-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:5px 0}
+.mobile-toggle span{display:block;width:22px;height:2px;background:var(--navy);}
 .mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:var(--white);padding:2rem;z-index:99;flex-direction:column;gap:.5rem;overflow-y:auto}
 .mobile-nav.active{display:flex}
 .mobile-nav a{font-size:1rem;font-weight:500;color:var(--text);text-decoration:none;padding:.8rem 0;border-bottom:1px solid var(--border)}
@@ -835,6 +835,8 @@ document.addEventListener('keydown', e => {
     if (!shouldShow()) return;
     var panel = document.getElementById('__mb_panel');
     if (panel && panel.classList.contains('mbopen')) return;
+    var __mbnav = document.getElementById('mobileNav');
+    if (__mbnav && __mbnav.classList.contains('active')) return;
 
     var bubble = document.createElement('div');
     bubble.className = 'mb-bubble';

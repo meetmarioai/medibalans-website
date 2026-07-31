@@ -650,6 +650,8 @@ document.addEventListener('keydown', e => {
     if (!shouldShow()) return;
     var panel = document.getElementById('__mb_panel');
     if (panel && panel.classList.contains('mbopen')) return;
+    var __mbnav = document.getElementById('mobileNav');
+    if (__mbnav && __mbnav.classList.contains('active')) return;
 
     var bubble = document.createElement('div');
     bubble.className = 'mb-bubble';
