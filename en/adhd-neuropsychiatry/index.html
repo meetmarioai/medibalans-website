@@ -961,12 +961,10 @@ document.addEventListener('keydown', e => {
 
   // Determine bubble message (multi-page: visitor has seen 2+ pages)
   var isMultiPage = visited.length >= 2;
-  var bubbleText = isMultiPage && visited.length === 2
-    ? 'Du verkar jämföra tester — vilket hälsoproblem försöker du lösa?'
-    : BUBBLE_MSG;
-  var followupText = isMultiPage && visited.length === 2
-    ? 'Berätta om dina besvär så hjälper jag dig förstå vilket test som passar bäst.'
-    : FOLLOWUP_Q;
+  var MB_L = (document.documentElement.lang || '').indexOf('en') === 0 ? 'en' : 'sv';
+  var MB_MP = { sv: { b: 'Du verkar jämföra tester — vilket hälsoproblem försöker du lösa?', f: 'Berätta om dina besvär så hjälper jag dig förstå vilket test som passar bäst.' }, en: { b: 'You seem to be comparing tests — which health problem are you trying to solve?', f: 'Tell me about your symptoms and I will help you find which test fits best.' } }[MB_L];
+  var bubbleText = isMultiPage && visited.length === 2 ? MB_MP.b : BUBBLE_MSG;
+  var followupText = isMultiPage && visited.length === 2 ? MB_MP.f : FOLLOWUP_Q;
   var delayMs = isMultiPage && visited.length === 2 ? 8000 : DELAY_MS;
 
   // FIX 1: Only suppress if bubble was already shown on THIS page this session.
