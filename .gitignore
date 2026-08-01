@@ -10,3 +10,4 @@ add_iv_reverse_links.py
 __pycache__/
 *.pyc
 .mcp.json
+docs/halsodeklaration.md
