@@ -18,7 +18,29 @@
     { "source": "/en/writings/:path*", "destination": "/en/clinical-notes/", "permanent": true },
 
     { "source": "/en-clinical-notes", "destination": "/en/clinical-notes/", "permanent": true },
-    { "source": "/en-clinical-notes/", "destination": "/en/clinical-notes/", "permanent": true }
+    { "source": "/en-clinical-notes/", "destination": "/en/clinical-notes/", "permanent": true },
+
+    { "source": "/iv-och-im-vitaminterapi", "destination": "/iv-terapi/", "permanent": true },
+    { "source": "/iv-och-im-vitaminterapi/:path*", "destination": "/iv-terapi/", "permanent": true },
+    { "source": "/hrv-test", "destination": "/hrv-analys/", "permanent": true },
+    { "source": "/tarmmikrobiom-och-ibs", "destination": "/ibs-tarmhalsa/", "permanent": true },
+    { "source": "/genetiska-analyser", "destination": "/methyldetox/", "permanent": true },
+    { "source": "/telomere", "destination": "/biologisk-alder/", "permanent": true },
+
+    { "source": "/boka-ditt-besok", "destination": "/#booking", "permanent": true },
+    { "source": "/boka-konsultation", "destination": "/#booking", "permanent": true },
+    { "source": "/kontakta-oss", "destination": "/#booking", "permanent": true },
+    { "source": "/contact-us", "destination": "/en/#booking", "permanent": true },
+    { "source": "/om-oss", "destination": "/#about", "permanent": true },
+    { "source": "/filosofi-vision", "destination": "/#about", "permanent": true },
+    { "source": "/funktionsmedicin", "destination": "/#about", "permanent": true },
+    { "source": "/funtionsmedicin", "destination": "/#about", "permanent": true },
+    { "source": "/tjanster", "destination": "/utredningsprotokoll/", "permanent": true },
+    { "source": "/testprofiler", "destination": "/utredningsprotokoll/", "permanent": true },
+    { "source": "/skraddarsydda-vitaminer", "destination": "/ratt-form-av-tillskott/", "permanent": true },
+    { "source": "/fetma", "destination": "/symtom/", "permanent": true },
+    { "source": "/bio-hacking", "destination": "/kunskapsbank/", "permanent": true },
+    { "source": "/cica", "destination": "/kunskapsbank/", "permanent": true }
   ],
   "rewrites": [
     { "source": "/(.*skanning-och-utredning.*)", "destination": "/api/gone" },
