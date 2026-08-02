@@ -36,6 +36,9 @@
     sv: {
       pickDay: "Välj en dag",
       pick: "Välj en tid",
+      pickWho: "Välj läkare",
+      anyone: "Först ledig",
+      withWhom: "Läkare",
       prevMonth: "Föregående månad",
       nextMonth: "Nästa månad",
       noneThisMonth: "Inga lediga tider den här månaden. Bläddra framåt.",
@@ -73,6 +76,9 @@
     en: {
       pickDay: "Choose a day",
       pick: "Choose a time",
+      pickWho: "Choose a doctor",
+      anyone: "First available",
+      withWhom: "Doctor",
       prevMonth: "Previous month",
       nextMonth: "Next month",
       noneThisMonth: "No times available this month. Try the next one.",
@@ -147,6 +153,12 @@
       ".mb-bk__lead{font-size:.94rem;line-height:1.65;color:var(--text-mid,#4A5A6A);margin:0 0 1.5rem}",
       ".mb-bk__meta{font-family:var(--font-mono,monospace);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light,#7A8A9A);margin:0 0 .4rem}",
       ".mb-bk__h{font-family:var(--font-display,Georgia,serif);font-size:1.35rem;margin:0 0 .3rem;color:var(--navy,#0B1D33)}",
+      // ── practitioner selector ──
+      ".mb-bk__who{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.4rem}",
+      ".mb-bk__whobtn{font-family:inherit;font-size:.85rem;padding:.55rem 1rem;border:1px solid var(--border,#D0DBE5);border-radius:999px;background:var(--white,#FAFCFE);color:var(--navy,#0B1D33);cursor:pointer;transition:border-color .15s,background .15s}",
+      ".mb-bk__whobtn:hover{border-color:var(--blue,#2E6B9E);background:var(--ice-faint,#EDF5FA)}",
+      ".mb-bk__whobtn[aria-pressed=true]{background:var(--navy,#0B1D33);border-color:var(--navy,#0B1D33);color:#fff}",
+      ".mb-bk__slotwho{display:block;font-size:.62rem;letter-spacing:.06em;opacity:.7;margin-top:2px}",
       // ── calendar ──
       ".mb-bk__cal{margin:0 0 1.5rem}",
       ".mb-bk__calhead{display:flex;align-items:center;justify-content:space-between;margin:0 0 .9rem}",
@@ -206,6 +218,7 @@
       // Calendar position. `month` is the first of the month being shown;
       // `day` is the selected date key, or null while the grid is up.
       month: null, day: null, cache: {},
+      practitioners: [], who: null,
     };
 
     var MAX_MONTHS_AHEAD = 6;
@@ -234,7 +247,7 @@
 
     /** Fetch one month, from today onward. Cached — arrows should be instant. */
     function loadMonth(monthStart) {
-      var key = ymd(monthStart);
+      var key = ymd(monthStart) + "|" + (state.who || "all");
       state.month = monthStart;
 
       if (state.cache[key]) {
@@ -251,7 +264,8 @@
 
       set('<p class="mb-bk__spin">' + t.loading + "</p>");
       var url = API + "/api/booking/slots?from=" + ymd(from) + "&to=" + ymd(last) +
-        (slug ? "&service=" + encodeURIComponent(slug) : "");
+        (slug ? "&service=" + encodeURIComponent(slug) : "") +
+        (state.who ? "&practitioner=" + encodeURIComponent(state.who) : "");
 
       fetch(url, { headers: { Accept: "application/json" } })
         .then(function (r) {
@@ -267,6 +281,7 @@
           state.type = d.appointmentType || state.type;
           state.practitionerId = d.practitionerId || state.practitionerId;
           state.service = d.service || state.service;
+          if (d.practitioners && d.practitioners.length) state.practitioners = d.practitioners;
           renderCalendar();
         })
         .catch(function (e) {
@@ -332,8 +347,23 @@
           : '<div class="mb-bk__cell" aria-hidden="true">' + d + "</div>";
       }
 
+      var who = "";
+      if (state.practitioners.length > 1) {
+        who =
+          '<p class="mb-bk__meta">' + t.pickWho + "</p>" +
+          '<div class="mb-bk__who">' +
+          '<button type="button" class="mb-bk__whobtn" data-who="" aria-pressed="' +
+            (state.who ? "false" : "true") + '">' + esc(t.anyone) + "</button>" +
+          state.practitioners.map(function (p) {
+            return '<button type="button" class="mb-bk__whobtn" data-who="' + esc(p.id) +
+              '" aria-pressed="' + (state.who === p.id ? "true" : "false") + '">' +
+              esc(p.name) + "</button>";
+          }).join("") +
+          "</div>";
+      }
+
       set(
-        serviceHead() +
+        serviceHead() + who +
         '<p class="mb-bk__meta">' + t.pickDay + "</p>" +
         '<div class="mb-bk__cal">' +
           '<div class="mb-bk__calhead">' +
@@ -358,6 +388,15 @@
       if (prev && !atStart) prev.addEventListener("click", function () { loadMonth(addMonths(month, -1)); });
       if (next && !atEnd) next.addEventListener("click", function () { loadMonth(addMonths(month, 1)); });
 
+      root.querySelectorAll("[data-who]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var v = b.getAttribute("data-who");
+          state.who = v || null;
+          state.cache = {};   // availability differs per clinician
+          loadMonth(state.month);
+        });
+      });
+
       root.querySelectorAll("[data-day]").forEach(function (b) {
         b.addEventListener("click", function () {
           state.day = b.getAttribute("data-day");
@@ -379,8 +418,11 @@
         '<button type="button" class="mb-bk__link" data-back>' + t.backToCalendar + "</button></div>" +
         '<div class="mb-bk__times">' +
         list.map(function (sl) {
+          var whoLabel = (!state.who && state.practitioners.length > 1 && sl.practitionerName)
+            ? '<span class="mb-bk__slotwho">' + esc(sl.practitionerName) + "</span>" : "";
           return '<button type="button" class="mb-bk__slot" aria-pressed="false" data-utc="' +
-            esc(sl.startsAtUtc) + '">' + esc(hhmm(sl.startsAtUtc)) + "</button>";
+            esc(sl.startsAtUtc) + '" data-prac="' + esc(sl.practitionerId || "") + '">' +
+            esc(hhmm(sl.startsAtUtc)) + whoLabel + "</button>";
         }).join("") +
         "</div>"
       );
@@ -388,8 +430,14 @@
       root.querySelector("[data-back]").addEventListener("click", renderCalendar);
       root.querySelectorAll(".mb-bk__slot").forEach(function (b) {
         b.addEventListener("click", function () {
+          // Match on time AND practitioner. With two doctors both free at
+          // 10:00, matching on time alone silently books whichever the server
+          // happened to list first — the patient clicks one name and gets the
+          // other, and nothing anywhere disagrees.
+          var utc = b.getAttribute("data-utc");
+          var prac = b.getAttribute("data-prac") || "";
           state.chosen = state.slots.filter(function (x) {
-            return x.startsAtUtc === b.getAttribute("data-utc");
+            return x.startsAtUtc === utc && (!prac || String(x.practitionerId || "") === prac);
           })[0];
           renderForm();
         });
@@ -478,7 +526,11 @@
           email: v.email, phone: v.phone,
           startsAtUtc: state.chosen.startsAtUtc,
           appointmentTypeId: state.type && state.type.id,
-          practitionerId: state.practitionerId,
+          // Whoever owns the slot that was clicked. With "Först ledig" the
+          // patient never named a doctor, so the page has no single answer —
+          // only the slot does. The server re-checks it against its own
+          // allow-list regardless.
+          practitionerId: (state.chosen && state.chosen.practitionerId) || state.practitionerId,
           service: slug || undefined,
           pagePath: location.pathname,
         }),
@@ -520,6 +572,9 @@
       set(
         '<div class="mb-bk__ok"><h3>' + t.confirmedTitle + "</h3>" +
         '<p class="mb-bk__when">' + esc(d.startsAtLabel || d.startsAtLocal || "") + "</p>" +
+        ((state.chosen && state.chosen.practitionerName)
+          ? '<p class="mb-bk__meta" style="margin:0 0 .8rem">' + esc(t.withWhom) + ": " +
+            esc(state.chosen.practitionerName) + "</p>" : "") +
         "<p>" + msg + "</p></div>"
       );
       root.scrollIntoView({ behavior: "smooth", block: "center" });
