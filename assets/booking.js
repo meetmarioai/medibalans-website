@@ -34,7 +34,12 @@
   // ── Copy ──────────────────────────────────────────────────────────────────
   var T = {
     sv: {
+      pickDay: "Välj en dag",
       pick: "Välj en tid",
+      prevMonth: "Föregående månad",
+      nextMonth: "Nästa månad",
+      noneThisMonth: "Inga lediga tider den här månaden. Bläddra framåt.",
+      backToCalendar: "Byt dag",
       loading: "Hämtar lediga tider…",
       noSlots:
         "Inga tider är lediga just nu. Ring 072-319 50 70 så hittar vi en tid åt dig.",
@@ -66,7 +71,12 @@
         "Dina uppgifter används endast för att boka och bekräfta ditt besök.",
     },
     en: {
+      pickDay: "Choose a day",
       pick: "Choose a time",
+      prevMonth: "Previous month",
+      nextMonth: "Next month",
+      noneThisMonth: "No times available this month. Try the next one.",
+      backToCalendar: "Change day",
       loading: "Loading available times…",
       noSlots:
         "No times are free right now. Call +46 72 319 50 70 and we will find you one.",
@@ -137,6 +147,23 @@
       ".mb-bk__lead{font-size:.94rem;line-height:1.65;color:var(--text-mid,#4A5A6A);margin:0 0 1.5rem}",
       ".mb-bk__meta{font-family:var(--font-mono,monospace);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light,#7A8A9A);margin:0 0 .4rem}",
       ".mb-bk__h{font-family:var(--font-display,Georgia,serif);font-size:1.35rem;margin:0 0 .3rem;color:var(--navy,#0B1D33)}",
+      // ── calendar ──
+      ".mb-bk__cal{margin:0 0 1.5rem}",
+      ".mb-bk__calhead{display:flex;align-items:center;justify-content:space-between;margin:0 0 .9rem}",
+      ".mb-bk__month{font-family:var(--font-display,Georgia,serif);font-size:1.1rem;color:var(--navy,#0B1D33);text-transform:capitalize}",
+      ".mb-bk__nav{display:flex;gap:.4rem}",
+      ".mb-bk__navbtn{width:34px;height:34px;border:1px solid var(--border,#D0DBE5);border-radius:8px;background:var(--white,#FAFCFE);color:var(--navy,#0B1D33);cursor:pointer;font-size:1rem;line-height:1;display:flex;align-items:center;justify-content:center}",
+      ".mb-bk__navbtn:hover:not(:disabled){border-color:var(--blue,#2E6B9E);background:var(--ice-faint,#EDF5FA)}",
+      ".mb-bk__navbtn:disabled{opacity:.3;cursor:default}",
+      ".mb-bk__grid{display:grid;grid-template-columns:repeat(7,1fr);gap:.35rem}",
+      ".mb-bk__dow{font-family:var(--font-mono,monospace);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light,#7A8A9A);text-align:center;padding:.3rem 0}",
+      ".mb-bk__cell{aspect-ratio:1;border:1px solid transparent;border-radius:8px;background:none;font-family:var(--font-mono,monospace);font-size:.85rem;color:var(--text-light,#7A8A9A);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:0}",
+      ".mb-bk__cell--open{border-color:var(--border,#D0DBE5);background:var(--white,#FAFCFE);color:var(--navy,#0B1D33);cursor:pointer;transition:border-color .15s,background .15s}",
+      ".mb-bk__cell--open:hover{border-color:var(--blue,#2E6B9E);background:var(--ice-faint,#EDF5FA)}",
+      ".mb-bk__cell--open:focus-visible{outline:2px solid var(--blue,#2E6B9E);outline-offset:2px}",
+      ".mb-bk__cell[aria-pressed=true]{background:var(--navy,#0B1D33);border-color:var(--navy,#0B1D33);color:#fff}",
+      ".mb-bk__cell[aria-pressed=true] .mb-bk__dot{background:#fff}",
+      ".mb-bk__dot{width:4px;height:4px;border-radius:50%;background:var(--blue,#2E6B9E)}",
       ".mb-bk__day{margin:0 0 1.25rem}",
       ".mb-bk__dayname{font-family:var(--font-mono,monospace);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light,#7A8A9A);margin:0 0 .5rem}",
       ".mb-bk__times{display:flex;flex-wrap:wrap;gap:.5rem}",
@@ -174,38 +201,73 @@
   function Booking(root) {
     var t = T[lang()];
     var slug = root.getAttribute("data-service") || "";
-    var state = { slots: [], type: null, practitionerId: null, service: null, chosen: null };
+    var state = {
+      slots: [], type: null, practitionerId: null, service: null, chosen: null,
+      // Calendar position. `month` is the first of the month being shown;
+      // `day` is the selected date key, or null while the grid is up.
+      month: null, day: null, cache: {},
+    };
+
+    var MAX_MONTHS_AHEAD = 6;
 
     function set(html) { root.innerHTML = html; }
 
-    function dayKey(iso) {
-      return new Date(iso).toLocaleDateString(lang() === "en" ? "en-GB" : "sv-SE", {
-        timeZone: "Europe/Stockholm", weekday: "long", day: "numeric", month: "long",
-      });
-    }
     function hhmm(iso) {
       return new Date(iso).toLocaleTimeString(lang() === "en" ? "en-GB" : "sv-SE", {
         timeZone: "Europe/Stockholm", hour: "2-digit", minute: "2-digit",
       });
     }
 
-    function load() {
+    // ── Dates ─────────────────────────────────────────────────────────────
+    // Stockholm, not the visitor's timezone. A patient in London must not be
+    // shown a slot on the wrong day because their browser is an hour behind.
+    var TZ = "Europe/Stockholm";
+    function dayKeyOf(iso) {
+      return new Date(iso).toLocaleDateString("sv-SE", { timeZone: TZ });
+    }
+    function ymd(d) {
+      return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") +
+        "-" + String(d.getDate()).padStart(2, "0");
+    }
+    function firstOfMonth(d) { return new Date(d.getFullYear(), d.getMonth(), 1); }
+    function addMonths(d, n) { return new Date(d.getFullYear(), d.getMonth() + n, 1); }
+
+    /** Fetch one month, from today onward. Cached — arrows should be instant. */
+    function loadMonth(monthStart) {
+      var key = ymd(monthStart);
+      state.month = monthStart;
+
+      if (state.cache[key]) {
+        state.slots = state.cache[key];
+        renderCalendar();
+        return;
+      }
+
+      var today = new Date();
+      var from = monthStart < firstOfMonth(today) ? today : monthStart;
+      // Clamp to today so we never ask for, or display, a time in the past.
+      if (from < today) from = today;
+      var last = new Date(monthStart.getFullYear(), monthStart.getMonth() + 1, 0);
+
       set('<p class="mb-bk__spin">' + t.loading + "</p>");
-      var url = API + "/api/booking/slots" + (slug ? "?service=" + encodeURIComponent(slug) : "");
+      var url = API + "/api/booking/slots?from=" + ymd(from) + "&to=" + ymd(last) +
+        (slug ? "&service=" + encodeURIComponent(slug) : "");
+
       fetch(url, { headers: { Accept: "application/json" } })
         .then(function (r) {
           // A failed fetch must never render as "no times available" — an empty
-          // list means fully booked, which is a different thing and a lie.
+          // month means fully booked, which is a different thing and a lie.
           if (!r.ok) throw new Error("HTTP " + r.status);
           return r.json();
         })
         .then(function (d) {
           if (d.error) throw new Error(d.error);
           state.slots = d.slots || [];
-          state.type = d.appointmentType || null;
-          state.practitionerId = d.practitionerId || null;
-          state.service = d.service || null;
-          renderSlots();
+          state.cache[key] = state.slots;
+          state.type = d.appointmentType || state.type;
+          state.practitionerId = d.practitionerId || state.practitionerId;
+          state.service = d.service || state.service;
+          renderCalendar();
         })
         .catch(function (e) {
           if (window.console) console.warn("[mb-booking]", e.message);
@@ -214,37 +276,116 @@
             '<button class="mb-bk__btn" data-retry>' + t.retry + "</button>"
           );
           var b = root.querySelector("[data-retry]");
-          if (b) b.addEventListener("click", load);
+          if (b) b.addEventListener("click", function () { loadMonth(state.month); });
         });
     }
 
-    function renderSlots() {
+    function load() { loadMonth(firstOfMonth(new Date())); }
+
+    function serviceHead() {
       var s = state.service;
-      var head = "";
-      if (s) {
-        head =
-          '<p class="mb-bk__meta">' + esc(s.location && (s.location[lang()] || s.location.sv)) + "</p>" +
-          '<h3 class="mb-bk__h">' + esc(s.title && (s.title[lang()] || s.title.sv)) + "</h3>" +
-          '<p class="mb-bk__lead">' + esc(s.blurb && (s.blurb[lang()] || s.blurb.sv)) + "</p>";
-      }
-      if (!state.slots.length) {
-        set(head + '<div class="mb-bk__alert">' + t.noSlots + "</div>");
-        return;
-      }
-      var days = {};
+      if (!s) return "";
+      return (
+        '<p class="mb-bk__meta">' + esc(s.location && (s.location[lang()] || s.location.sv)) + "</p>" +
+        '<h3 class="mb-bk__h">' + esc(s.title && (s.title[lang()] || s.title.sv)) + "</h3>" +
+        '<p class="mb-bk__lead">' + esc(s.blurb && (s.blurb[lang()] || s.blurb.sv)) + "</p>"
+      );
+    }
+
+    /** Slots for the current month, grouped by Stockholm date. */
+    function byDay() {
+      var m = {};
       state.slots.forEach(function (sl) {
-        (days[dayKey(sl.startsAtUtc)] = days[dayKey(sl.startsAtUtc)] || []).push(sl);
+        var k = dayKeyOf(sl.startsAtUtc);
+        (m[k] = m[k] || []).push(sl);
       });
-      var html = head + '<p class="mb-bk__meta">' + t.pick + "</p>";
-      Object.keys(days).forEach(function (d) {
-        html +=
-          '<div class="mb-bk__day"><p class="mb-bk__dayname">' + esc(d) + '</p><div class="mb-bk__times">' +
-          days[d].map(function (sl) {
-            return '<button type="button" class="mb-bk__slot" aria-pressed="false" data-utc="' +
-              esc(sl.startsAtUtc) + '">' + esc(hhmm(sl.startsAtUtc)) + "</button>";
-          }).join("") + "</div></div>";
+      return m;
+    }
+
+    function renderCalendar() {
+      var locale = lang() === "en" ? "en-GB" : "sv-SE";
+      var days = byDay();
+      var month = state.month;
+      var monthName = month.toLocaleDateString(locale, { month: "long", year: "numeric" });
+
+      var thisMonth = firstOfMonth(new Date());
+      var atStart = month <= thisMonth;
+      var atEnd = month >= addMonths(thisMonth, MAX_MONTHS_AHEAD);
+
+      // Monday-first, as Sweden and the UK both read it.
+      var dow = lang() === "en"
+        ? ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        : ["Mån", "Tis", "Ons", "Tor", "Fre", "Lör", "Sön"];
+
+      var firstWeekday = (new Date(month.getFullYear(), month.getMonth(), 1).getDay() + 6) % 7;
+      var daysInMonth = new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate();
+
+      var cells = "";
+      for (var i = 0; i < firstWeekday; i++) cells += '<div class="mb-bk__cell"></div>';
+      for (var d = 1; d <= daysInMonth; d++) {
+        var key = ymd(new Date(month.getFullYear(), month.getMonth(), d));
+        var open = (days[key] || []).length;
+        cells += open
+          ? '<button type="button" class="mb-bk__cell mb-bk__cell--open" aria-pressed="false" ' +
+            'data-day="' + key + '" aria-label="' + key + ", " + open + ' tider">' +
+            d + '<span class="mb-bk__dot"></span></button>'
+          : '<div class="mb-bk__cell" aria-hidden="true">' + d + "</div>";
+      }
+
+      set(
+        serviceHead() +
+        '<p class="mb-bk__meta">' + t.pickDay + "</p>" +
+        '<div class="mb-bk__cal">' +
+          '<div class="mb-bk__calhead">' +
+            '<span class="mb-bk__month">' + esc(monthName) + "</span>" +
+            '<span class="mb-bk__nav">' +
+              '<button type="button" class="mb-bk__navbtn" data-prev aria-label="' + t.prevMonth + '"' +
+                (atStart ? " disabled" : "") + ">&#8249;</button>" +
+              '<button type="button" class="mb-bk__navbtn" data-next aria-label="' + t.nextMonth + '"' +
+                (atEnd ? " disabled" : "") + ">&#8250;</button>" +
+            "</span>" +
+          "</div>" +
+          '<div class="mb-bk__grid">' +
+            dow.map(function (w) { return '<div class="mb-bk__dow">' + w + "</div>"; }).join("") +
+            cells +
+          "</div>" +
+        "</div>" +
+        (Object.keys(days).length ? "" : '<div class="mb-bk__alert">' + t.noneThisMonth + "</div>")
+      );
+
+      var prev = root.querySelector("[data-prev]");
+      var next = root.querySelector("[data-next]");
+      if (prev && !atStart) prev.addEventListener("click", function () { loadMonth(addMonths(month, -1)); });
+      if (next && !atEnd) next.addEventListener("click", function () { loadMonth(addMonths(month, 1)); });
+
+      root.querySelectorAll("[data-day]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          state.day = b.getAttribute("data-day");
+          renderTimes();
+        });
       });
-      set(html);
+    }
+
+    function renderTimes() {
+      var days = byDay();
+      var list = days[state.day] || [];
+      var heading = new Date(list[0] ? list[0].startsAtUtc : state.day)
+        .toLocaleDateString(lang() === "en" ? "en-GB" : "sv-SE",
+          { timeZone: TZ, weekday: "long", day: "numeric", month: "long" });
+
+      set(
+        '<div class="mb-bk__chosen"><span><span class="mb-bk__meta" style="margin:0">' + t.pick +
+        '</span><br><b>' + esc(heading) + "</b></span>" +
+        '<button type="button" class="mb-bk__link" data-back>' + t.backToCalendar + "</button></div>" +
+        '<div class="mb-bk__times">' +
+        list.map(function (sl) {
+          return '<button type="button" class="mb-bk__slot" aria-pressed="false" data-utc="' +
+            esc(sl.startsAtUtc) + '">' + esc(hhmm(sl.startsAtUtc)) + "</button>";
+        }).join("") +
+        "</div>"
+      );
+
+      root.querySelector("[data-back]").addEventListener("click", renderCalendar);
       root.querySelectorAll(".mb-bk__slot").forEach(function (b) {
         b.addEventListener("click", function () {
           state.chosen = state.slots.filter(function (x) {
@@ -265,7 +406,10 @@
     }
 
     function renderForm() {
-      var when = dayKey(state.chosen.startsAtUtc) + " " + hhmm(state.chosen.startsAtUtc);
+      var when = new Date(state.chosen.startsAtUtc).toLocaleDateString(
+        lang() === "en" ? "en-GB" : "sv-SE",
+        { timeZone: TZ, weekday: "long", day: "numeric", month: "long" }
+      ) + " " + hhmm(state.chosen.startsAtUtc);
       set(
         '<div class="mb-bk__chosen"><span><span class="mb-bk__meta" style="margin:0">' + t.chosen +
         '</span><br><b>' + esc(when) + "</b></span>" +
@@ -286,7 +430,7 @@
         '<p class="mb-bk__note">' + t.integrity + "</p>" +
         "</form>"
       );
-      root.querySelector("[data-back]").addEventListener("click", renderSlots);
+      root.querySelector("[data-back]").addEventListener("click", renderTimes);
       root.querySelector("form").addEventListener("submit", submit);
     }
 
