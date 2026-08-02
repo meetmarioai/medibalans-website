@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="sv">
+<!DOCTYPE html>
+<html lang="sv" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+
+
+
+<!-- ══ AEO ══ -->
+
+
+<!-- ══ OG ══ -->
+<meta property="og:type" content="website">
+
+
+
+<meta property="og:image" content="https://www.medibalans.com/og-image.jpg">
+<meta property="og:locale" content="sv_SE">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- ══ STRUCTURED DATA ══ -->
+
+
+
+
+
+
+<!-- ══ GA4 ══ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X8ZN38EGYY"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-X8ZN38EGYY');</script>
+
+<!-- ══ FACEBOOK PIXEL ══ -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','836514963742786');fbq('track','PageView');</script>
+
+<!--
+  MediBalans Pixel events — combined Step 1.5 + 1.6 client-side
+  Pixel: 836514963742786
+  Place this in the GLOBAL FOOTER of medibalans.com, AFTER the Meta Pixel base code.
+  Replaces the original Step 1.5 snippet (do not paste both).
+
+  Fires:
+    ViewContent     — on Genova test page load (auto)
+    InitiateCheckout — on click of any buy.stripe.com link (auto)
+    Lead            — when window.mbFireLead() is called by the chat widget
+                      (one-line hook; see widget-integration.md)
+
+  Stamps client_reference_id on Stripe URLs so server-side Purchase
+  (api/stripe-webhook.js) deduplicates against browser InitiateCheckout via event_id.
+-->
+<script>
+(function () {
+  'use strict';
+
+  // --- Genova product mapping ---
+  // Stripe payment-link short codes (from buy.stripe.com/<code> URLs) → product info
+  var PRODUCTS = {
+    '9B6cN55X6gmE0kM3sGbMQ00': { name: 'GI Effects',            id: 'gi-effects',          price: 8500 },
+    'aFa4gz1GQ4DW8RibZcbMQ02': { name: 'NutrEval FMV',          id: 'nutreval',            price: 12200 },
+    'aFa00jetC3zSc3u3sGbMQ0c': { name: 'Metabolomix+',          id: 'metabolomix',         price: 8100 },
+    'fZu4gzetCb2kgjK1kybMQ04': { name: 'SIBO Andningstest',     id: 'sibo',                price: 3700 },
+    '7sY8wP0CM5I0d7y3sGbMQ0a': { name: "Women's Health+",       id: 'womens-health',       price: 6200 },
+    '00w7sLdpyeew8Rid3gbMQ0d': { name: 'Alzheimers-utredning',  id: 'alzheimers',          price: 6500 },
+    '5kQdR94T2gmEffGgfsbMQ05': { name: 'Essential Estrogens',   id: 'essential-estrogens', price: null },
+    'dRm9AT85eb2k0kM9R4bMQ07': { name: 'Menopause Plus',        id: 'menopause-plus',      price: null },
+    '00w6oHfxG2vOc3u5AObMQ06': { name: 'Adrenal Stress Profile', id: 'adrenal-stress',     price: 2100 },
+    '14A4gz5X6b2k6Ja9R4bMQ0b': { name: 'Organix',                id: 'organix',            price: 5600 },
+    'aFa6oH5X68Ucd7y5AObMQ0e': { name: 'Fettsyreanalys',         id: 'fatty-acids',        price: 3900 }
+  };
+
+  // URL path → product mapping (for ViewContent and Lead context)
+  // Swedish pages (canonical) and their English mirrors under /en/.
+  var PAGES = {
+    // --- Swedish pages ---
+    '/gi-effects-test/':    PRODUCTS['9B6cN55X6gmE0kM3sGbMQ00'],
+    '/nutreval-sverige/':   PRODUCTS['aFa4gz1GQ4DW8RibZcbMQ02'],
+    '/metabolomik/':        PRODUCTS['aFa00jetC3zSc3u3sGbMQ0c'],
+    '/sibo-test/':          PRODUCTS['fZu4gzetCb2kgjK1kybMQ04'],
+    '/kvinnohalsa/':        PRODUCTS['7sY8wP0CM5I0d7y3sGbMQ0a'],
+    '/genova-hormontest/':  PRODUCTS['7sY8wP0CM5I0d7y3sGbMQ0a'],
+    '/alzheimers-test/':    PRODUCTS['00w7sLdpyeew8Rid3gbMQ0d'],
+    '/essential-ostrogen/': PRODUCTS['5kQdR94T2gmEffGgfsbMQ05'],
+    '/menopaus-plus/':      PRODUCTS['dRm9AT85eb2k0kM9R4bMQ07'],
+    '/adrenal-stress/':     PRODUCTS['00w6oHfxG2vOc3u5AObMQ06'],
+    '/organix/':            PRODUCTS['14A4gz5X6b2k6Ja9R4bMQ0b'],
+    '/fettsyror/':          PRODUCTS['aFa6oH5X68Ucd7y5AObMQ0e'],
+
+    // --- English mirrors under /en/ ---
+    // Note: /en/gi-effects-test/ and /en/genova-hormones/ have no Stripe buy link
+    // in production today, but ViewContent still fires as a content-engagement signal.
+    '/en/gi-effects-test/':       PRODUCTS['9B6cN55X6gmE0kM3sGbMQ00'],
+    '/en/nutreval-test/':         PRODUCTS['aFa4gz1GQ4DW8RibZcbMQ02'],
+    '/en/metabolomics/':          PRODUCTS['aFa00jetC3zSc3u3sGbMQ0c'],
+    '/en/sibo-test/':             PRODUCTS['fZu4gzetCb2kgjK1kybMQ04'],
+    '/en/womens-health/':         PRODUCTS['7sY8wP0CM5I0d7y3sGbMQ0a'],
+    '/en/genova-hormones/':       PRODUCTS['7sY8wP0CM5I0d7y3sGbMQ0a'],
+    '/en/alzheimers-assessment/': PRODUCTS['00w7sLdpyeew8Rid3gbMQ0d'],
+    '/en/essential-estrogens/':   PRODUCTS['5kQdR94T2gmEffGgfsbMQ05'],
+    '/en/menopause-plus/':        PRODUCTS['dRm9AT85eb2k0kM9R4bMQ07'],
+    '/en/adrenal-stress/':        PRODUCTS['00w6oHfxG2vOc3u5AObMQ06'],
+    '/en/organix/':               PRODUCTS['14A4gz5X6b2k6Ja9R4bMQ0b'],
+    '/en/fatty-acids/':           PRODUCTS['aFa6oH5X68Ucd7y5AObMQ0e']
+  };
+
+  // Generate a unique event ID — used for Pixel ↔ CAPI deduplication
+  function eventId(prefix) {
+    return (prefix || 'mb') + '_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+  }
+
+  // Get product info for current page (or null if not a tracked test page)
+  function currentPageProduct() {
+    var path = window.location.pathname.replace(/\/+$/, '/') || '/';
+    return PAGES[path] || null;
+  }
+
+  // ── ViewContent (page load on Genova test pages) ───────────────────────────
+  function fireViewContent() {
+    if (typeof fbq !== 'function') return;
+    var product = currentPageProduct();
+    if (!product) return;
+
+    var id = eventId('mb_vc');
+    var params = {
+      content_name: product.name,
+      content_ids: [product.id],
+      content_category: 'Genova test',
+      content_type: 'product'
+    };
+    if (product.price) {
+      params.value = product.price;
+      params.currency = 'SEK';
+    }
+
+    fbq('track', 'ViewContent', params, { eventID: id });
+  }
+
+  // ── InitiateCheckout (click on buy.stripe.com link) ────────────────────────
+  function bindCheckoutTracking() {
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest && e.target.closest('a[href*="buy.stripe.com"]');
+      if (!link || typeof fbq !== 'function') return;
+
+      var match = link.href.match(/buy\.stripe\.com\/([^?#]+)/);
+      var stripePath = match ? match[1] : '';
+      var key = Object.keys(PRODUCTS).find(function (k) {
+        return stripePath.indexOf(k) !== -1;
+      });
+      var product = key ? PRODUCTS[key] : null;
+
+      var id = eventId('mb_ic');
+      var params = { content_type: 'product', num_items: 1 };
+      if (product) {
+        params.content_name = product.name;
+        params.content_ids = [product.id];
+        params.content_category = 'Genova test';
+        if (product.price) {
+          params.value = product.price;
+          params.currency = 'SEK';
+        }
+      }
+
+      fbq('track', 'InitiateCheckout', params, { eventID: id });
+
+      // Stamp Stripe URL with client_reference_id for server-side Purchase dedup.
+      // The webhook reads session.client_reference_id and uses it as the CAPI event_id,
+      // letting Meta dedupe browser InitiateCheckout against server Purchase.
+      try {
+        if (link.href.indexOf('client_reference_id=') === -1) {
+          var sep = link.href.indexOf('?') === -1 ? '?' : '&';
+          link.href = link.href + sep + 'client_reference_id=' + encodeURIComponent(id);
+        }
+      } catch (err) { /* non-critical */ }
+    }, true);
+  }
+
+  // ── Lead (chat widget engagement) ──────────────────────────────────────────
+  // The widget calls window.mbFireLead() on first user message.
+  // See widget-integration.md for the one-line hook in medibalansSystemPrompt.js.
+  // No value/currency on Lead — count-based optimization only (Lead → Purchase
+  // conversion rate is 1-5%, so 8500 SEK on a Lead would mislead value bidding).
+  var leadFiredThisLoad = false;
+  window.mbFireLead = function () {
+    if (leadFiredThisLoad) return;
+    if (typeof fbq !== 'function') return;
+    leadFiredThisLoad = true;
+
+    var product = currentPageProduct();
+    var id = eventId('mb_ld');
+    var params = { content_category: 'chat-engagement' };
+    if (product) {
+      params.content_name = product.name;
+      params.content_ids = [product.id];
+      params.content_type = 'product';
+    }
+
+    fbq('track', 'Lead', params, { eventID: id });
+  };
+
+  // ── Init ───────────────────────────────────────────────────────────────────
+  function init() {
+    fireViewContent();
+    bindCheckoutTracking();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #0B1D33; --navy-mid: #132B4A; --navy-light: #1A3A5E;
+  --blue: #2E6B9E; --blue-light: #4A9FD4;
+  --ice: #D8EAF5; --ice-faint: #EDF5FA;
+  --white: #FAFCFE; --warm: #C7925A; --warm-light: #E8C89A;
+  --text: #1A2A3A; --text-mid: #4A5A6A; --text-light: #7A8A9A;
+  --border: #D0DBE5;
+  --green: #2ECC94; --red: #E05C5C;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+html { scroll-padding-top: 80px; scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.no-js .reveal { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: 0.1s; } .reveal-d2 { transition-delay: 0.2s; } .reveal-d3 { transition-delay: 0.3s; }
+
+/* ── HEADER ── */
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,252,254,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(208,219,229,0.4); transition: box-shadow 0.3s; }
+header.scrolled { box-shadow: 0 1px 20px rgba(11,29,51,0.06); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.logo { font-family: var(--font-body); font-weight: 600; font-size: 1.15rem; color: var(--navy); text-decoration: none; letter-spacing: -0.02em; }
+.logo span { color: var(--blue); }
+nav { display: flex; align-items: center; gap: 0.15rem; }
+nav a { font-size: 0.85rem; font-weight: 500; color: var(--text-mid); text-decoration: none; padding: 0.4rem 0.7rem; border-radius: 5px; transition: color 0.2s; }
+nav a:hover { color: var(--navy); }
+.nav-cta { background: var(--navy); color: var(--white) !important; padding: 0.5rem 1.1rem !important; border-radius: 6px; font-weight: 600 !important; }
+.nav-cta:hover { background: var(--navy-light) !important; }
+.nav-dropdown { position: relative; }
+.nav-dropdown > a::after { content: '▾'; font-size: .6rem; opacity: .5; margin-left: .3rem; }
+.dropdown-menu { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%) translateY(-6px); background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0; min-width: 210px; opacity: 0; visibility: hidden; transition: opacity .2s, transform .2s, visibility .2s; z-index: 200; box-shadow: 0 8px 32px rgba(11,29,51,0.1); }
+.nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.dropdown-menu a { display: block; padding: .55rem 1.1rem; font-size: .8rem; color: var(--text-mid); white-space: nowrap; }
+.dropdown-menu a:hover { background: var(--ice-faint); color: var(--navy); }
+.mobile-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+.mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; }
+.mobile-nav { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 1rem 2rem 1.5rem; z-index: 99; box-shadow: 0 8px 32px rgba(11,29,51,0.1); }
+.mobile-nav a { display: block; padding: 0.6rem 0; font-size: 0.95rem; font-weight: 500; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border); }
+.mobile-nav.open { display: block; }
+
+/* ── BREADCRUMB ── */
+.breadcrumb { background: var(--ice-faint); border-bottom: 1px solid var(--border); padding: 0.6rem 0; margin-top: 68px; }
+.breadcrumb-inner { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--text-mid); }
+.breadcrumb-inner a { color: var(--blue); text-decoration: none; }
+
+/* ── HERO ── */
+.hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 60%, #1e3f5c 100%); color: var(--white); padding: 5rem 0 4rem; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(46,107,158,0.2) 0%, transparent 60%); }
+.hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+.hero-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(216,234,245,0.7); margin-bottom: 1.2rem; }
+.hero-title { font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1.1; margin-bottom: 1.5rem; }
+.hero-title em { color: var(--warm-light); font-style: italic; }
+.hero-sub { font-size: 1.05rem; line-height: 1.7; color: rgba(216,234,245,0.85); max-width: 580px; margin-bottom: 2.2rem; font-weight: 300; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--warm); color: var(--white); padding: 0.85rem 1.8rem; border-radius: 7px; font-weight: 600; font-size: 0.92rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+.btn-primary:hover { background: #b8833f; transform: translateY(-1px); }
+.btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: var(--ice); padding: 0.85rem 1.8rem; border-radius: 7px; font-weight: 500; font-size: 0.92rem; text-decoration: none; border: 1px solid rgba(216,234,245,0.3); transition: all 0.2s; }
+.btn-secondary:hover { border-color: rgba(216,234,245,0.7); }
+
+/* ── HRV VISUAL ── */
+.hrv-visual { background: rgba(255,255,255,0.06); border: 1px solid rgba(216,234,245,0.15); border-radius: 16px; padding: 2rem; }
+.hrv-visual-title { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(216,234,245,0.4); margin-bottom: 1.5rem; }
+.hrv-wave { width: 100%; height: 60px; margin-bottom: 1.5rem; }
+.hrv-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.hrv-metric { text-align: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(216,234,245,0.1); border-radius: 8px; padding: 1rem 0.5rem; }
+.hrv-metric-val { font-family: var(--font-display); font-size: 1.8rem; color: var(--white); line-height: 1; }
+.hrv-metric-val.low { color: #E05C5C; }
+.hrv-metric-val.high { color: var(--green); }
+.hrv-metric-label { font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(216,234,245,0.4); margin-top: 0.3rem; }
+.hrv-metric-sub { font-size: 0.72rem; color: rgba(216,234,245,0.5); margin-top: 0.2rem; }
+
+/* ── SECTIONS ── */
+section { padding: 4.5rem 0; }
+.section-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.8rem; }
+.section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--navy); line-height: 1.15; margin-bottom: 1rem; }
+.section-title em { color: var(--blue); font-style: italic; }
+.section-sub { font-size: 1rem; color: var(--text-mid); line-height: 1.7; max-width: 640px; font-weight: 300; }
+.section-alt { background: var(--ice-faint); }
+
+/* ── EXPLAINER ── */
+.explainer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.explainer-text p { font-size: 0.97rem; line-height: 1.8; color: var(--text-mid); margin-bottom: 1.2rem; font-weight: 300; }
+.explainer-text strong { color: var(--navy); font-weight: 600; }
+
+/* ── HRV TABLE ── */
+.hrv-table-wrap { background: var(--navy); border-radius: 16px; padding: 2rem; color: var(--white); }
+.hrv-table-title { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(216,234,245,0.4); margin-bottom: 1.4rem; }
+.hrv-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.hrv-table th { padding: 0.6rem 0.8rem; text-align: left; font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; color: rgba(216,234,245,0.4); border-bottom: 1px solid rgba(216,234,245,0.1); }
+.hrv-table td { padding: 0.7rem 0.8rem; border-bottom: 1px solid rgba(216,234,245,0.06); color: rgba(216,234,245,0.8); vertical-align: middle; }
+.hrv-table tr:last-child td { border-bottom: none; }
+.hrv-badge { display: inline-block; font-family: var(--font-mono); font-size: 0.68rem; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 500; }
+.hrv-badge.low { background: rgba(224,92,92,0.2); color: #E05C5C; border: 1px solid rgba(224,92,92,0.3); }
+.hrv-badge.mid { background: rgba(199,146,90,0.2); color: var(--warm-light); border: 1px solid rgba(199,146,90,0.3); }
+.hrv-badge.high { background: rgba(46,204,148,0.2); color: var(--green); border: 1px solid rgba(46,204,148,0.3); }
+.hrv-table-note { font-size: 0.75rem; color: rgba(216,234,245,0.35); margin-top: 1rem; font-style: italic; }
+
+/* ── LOW HRV SECTION ── */
+.low-hrv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.low-hrv-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem; border-top: 3px solid var(--blue); }
+.low-hrv-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+.low-hrv-card p { font-size: 0.83rem; color: var(--text-mid); line-height: 1.6; font-weight: 300; }
+
+/* ── CLINICAL vs CONSUMER ── */
+.versus-wrap { overflow-x: auto; }
+.versus-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.versus-table th { padding: 1rem 1.2rem; text-align: left; font-weight: 600; font-size: 0.8rem; border-bottom: 2px solid var(--border); }
+.versus-table th.hc { background: var(--navy); color: var(--white); border-radius: 8px 8px 0 0; text-align: center; }
+.versus-table td { padding: 0.9rem 1.2rem; border-bottom: 1px solid var(--border); color: var(--text-mid); }
+.versus-table td.hc { background: var(--ice-faint); text-align: center; font-weight: 600; color: var(--navy); border-left: 1px solid var(--ice); border-right: 1px solid var(--ice); }
+.versus-table tr:last-child td { border-bottom: none; }
+.check { color: var(--green); } .cross { color: var(--red); }
+
+/* ── GCR ── */
+.gcr-block { background: var(--navy); border-radius: 16px; padding: 3rem; color: var(--white); }
+.gcr-block h2 { font-family: var(--font-display); font-size: 1.8rem; color: var(--white); margin-bottom: 1rem; }
+.gcr-block h2 em { color: var(--warm-light); font-style: italic; }
+.gcr-block p { font-size: 0.97rem; line-height: 1.8; color: rgba(216,234,245,0.8); font-weight: 300; margin-bottom: 1rem; }
+.gcr-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 2rem; }
+.gcr-step { background: rgba(255,255,255,0.06); border: 1px solid rgba(216,234,245,0.12); border-radius: 10px; padding: 1.2rem; }
+.gcr-step-num { font-family: var(--font-mono); font-size: 0.7rem; color: var(--warm-light); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.5rem; }
+.gcr-step h4 { font-size: 0.9rem; color: var(--white); font-weight: 600; margin-bottom: 0.4rem; }
+.gcr-step p { font-size: 0.8rem; color: rgba(216,234,245,0.55); line-height: 1.5; margin-bottom: 0; }
+
+/* ── FAQ ── */
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q { width: 100%; background: none; border: none; text-align: left; padding: 1.2rem 0; font-family: var(--font-body); font-size: 0.97rem; font-weight: 600; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.faq-q::after { content: '+'; font-size: 1.3rem; color: var(--blue); flex-shrink: 0; transition: transform 0.3s; font-weight: 300; }
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+.faq-a p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; padding-bottom: 1.2rem; font-weight: 300; }
+.faq-item.open .faq-a { max-height: 400px; }
+
+/* ── BOOKING ── */
+.booking-section { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 5rem 0; text-align: center; color: var(--white); }
+.booking-section h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 1rem; }
+.booking-section h2 em { color: var(--warm-light); font-style: italic; }
+.booking-section p { font-size: 1rem; color: rgba(216,234,245,0.75); font-weight: 300; max-width: 520px; margin: 0 auto 2.2rem; line-height: 1.7; }
+.booking-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.booking-meta { margin-top: 1.8rem; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+.booking-meta-item { font-size: 0.82rem; color: rgba(216,234,245,0.55); display: flex; align-items: center; gap: 0.4rem; }
+.booking-meta-item::before { content: '✓'; color: var(--green); }
+
+/* ── FOOTER ── */
+footer { background: var(--navy); color: rgba(216,234,245,0.5); padding: 2.5rem 0; font-size: 0.82rem; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: var(--font-body); font-weight: 600; color: var(--white); font-size: 1rem; }
+.footer-logo span { color: var(--blue-light); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { color: rgba(216,234,245,0.5); text-decoration: none; }
+.footer-links a:hover { color: var(--white); }
+
+@media (max-width: 900px) {
+  nav { display: none; } .mobile-toggle { display: flex; }
+  .hero-layout, .explainer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .low-hrv-grid { grid-template-columns: repeat(2,1fr); }
+  .gcr-steps { grid-template-columns: repeat(2,1fr); }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+@media (max-width: 600px) {
+  .low-hrv-grid, .gcr-steps { grid-template-columns: 1fr; }
+  .hrv-metrics { grid-template-columns: repeat(3,1fr); }
+}
+</style>
+
+<style>/* nav-robust-css: ID-selektorer så att kaskaden inte kan slå ut menyn.
+   Bakgrund: nav-patchen på vissa sidor sätter .active medan sidans egen
+   CSS bara har .open. Båda stöds nu, och storleken på hamburgaren är
+   explicit så att den går att träffa med ett tryck. */
+#mobileNav{display:none}
+#mobileNav.active,#mobileNav.open{display:flex;flex-direction:column}
+#mobileToggle{display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:44px;height:44px;padding:10px;background:none;border:none;cursor:pointer}
+#mobileToggle span{display:block;width:22px;height:2px;background:var(--navy,#0B1D33);
+  border-radius:2px}
+@media(max-width:900px){
+  #mobileToggle{display:flex}
+  header nav{display:none}
+}
+.mobile-nav.active{display:block}
+</style>
+<style>/* kb-backlink */
+.kb-back{border-top:1px solid var(--border);background:var(--ice-faint);padding:2.2rem 0;margin-top:0}
+.kb-back .inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;gap:1.2rem;
+  align-items:center;justify-content:space-between;flex-wrap:wrap}
+.kb-back .txt{font-family:var(--font-body);color:var(--text-mid);font-size:.95rem;line-height:1.6;margin:0}
+.kb-back .txt strong{color:var(--navy)}
+.kb-back a.kb-link{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;
+  padding:.8rem 1.5rem;border-radius:4px;font-size:.9rem;font-weight:600;white-space:nowrap}
+.kb-back a.kb-link:hover{background:var(--navy-light,#1A3A5E)}
+@media(max-width:640px){.kb-back .inner{flex-direction:column;align-items:flex-start}}
+</style>
+
+<title>Boka digital konsultation — MediBalans</title>
+<meta name="description" content="Boka 45 minuter med legitimerad läkare som videosamtal. Vi tar emot patienter från hela Sverige och internationellt — provtagning kan ske nära dig.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://www.medibalans.com/boka/konsultation-digitalt/">
+<meta name="answer" content="MediBalans digitala konsultation är 45 minuter med legitimerad läkare via videosamtal, tillgänglig i hela Sverige och internationellt. Ingen remiss krävs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.medibalans.com/boka/konsultation-digitalt/">
+<meta property="og:title" content="Boka digital konsultation — MediBalans">
+<meta property="og:description" content="Boka 45 minuter med legitimerad läkare som videosamtal. Vi tar emot patienter från hela Sverige och internationellt — provtagning kan ske nära dig.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "MediBalans",
+  "url": "https://www.medibalans.com/boka/konsultation-digitalt/",
+  "telephone": "+46723195070",
+  "email": "info@medibalans.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Banérgatan 10, 1 tr",
+    "postalCode": "115 23",
+    "addressLocality": "Stockholm",
+    "addressCountry": "SE"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "08:00",
+    "closes": "17:00"
+  },
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.medibalans.com/boka/konsultation-digitalt/",
+      "actionPlatform": ["http://schema.org/DesktopWebPlatform","http://schema.org/MobileWebPlatform"]
+    },
+    "result": { "@type": "Reservation", "name": "Boka digital konsultation — MediBalans" }
+  }
+}
+</script>
+</head>
+<body>
+<nav>
+      <a href="/#about">Kliniken</a>
+      <a href="/#process">Metoden</a>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Utredningar <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/symtom/">Symtomguider</a>
+          <a href="/baby-balans/">Baby Balans — före graviditet</a>
+          <a href="/ibs-tarmhalsa/">IBS &amp; Tarmhälsa</a>
+          <a href="/utmattning/">Kronisk Trötthet &amp; ME/CFS</a>
+          <a href="/autoimmun/">Autoimmunitet</a>
+          <a href="/hudsjukdomar/">Hudsjukdomar</a>
+          <a href="/adhd-neuropsykiatri/">ADHD &amp; Neuropsykiatri</a>
+          <a href="/hypothyreos/">Sköldkörtel &amp; Hormoner</a>
+          <a href="/kognitiv-halsa/">Kognitiv Hälsa &amp; Alzheimer</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Diagnostik <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/alcat/">ALCAT — Livsmedelsintolerans</a>
+          <a href="/cma/">CMA — Cellulär Mikronäring</a>
+          <a href="/methyldetox/">MethylDetox — 38 Gener</a>
+          <a href="/biologisk-alder/">Biologisk Ålder</a>
+          <a href="/alzheimers-test/">Alzheimers-utredning</a>
+          <a href="/hrv-analys/">HRV-Analys</a>
+          <a href="/kroppsskanning/">Kroppsskanning — InBody</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Genova <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/genova-diagnostics/">Alla tester</a>
+          <a href="/gi-effects-test/">GI Effects&#174;</a>
+          <a href="/nutreval-sverige/">NutrEval&#174;</a>
+          <a href="/metabolomik/">Metabolomik</a>
+          <a href="/sibo-test/">SIBO-test</a>
+          <a href="/genova-hormontest/">Hormonpaneler</a>
+          <a href="/organix/">Organix&#174;</a>
+          <a href="/fettsyror/">Fettsyror</a>
+          <a href="/adrenal-stress/">Adrenal Stress</a>
+          <a href="/essential-ostrogen/">Essential Östrogen</a>
+          <a href="/menopaus-plus/">Menopaus Plus</a>
+          <a href="/kvinnohalsa/">Kvinnohälsa</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">IV-Behandling <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/iv-terapi/">IV- &amp; IM-terapi</a>
+          <a href="/glutation-iv/">↳ Glutation IV 600 mg</a>
+          <a href="/iv-terapi/d-vitamin/">↳ D-vitamin 100 000 IE</a>
+        </div>
+      </div>
+      <a href="/#families">Familjer</a>
+      <a href="/kunskapsbank/">Kunskapsbank</a>
+      <div class="nav-dropdown">
+        <button class="nav-dd-btn" aria-expanded="false">Forskning <span class="dd-chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="/forskning.html">Forskningsprogram</a>
+          <a href="/clinical-notes/">Kliniska Noteringar</a>
+          <a href="/homocystein/">Homocystein &amp; metylering</a>
+          <a href="/ratt-form-av-tillskott/">Rätt form av tillskott</a>
+          <a href="/global-constraint-rule/">Global Constraint Rule</a>
+          <a href="/longevitet-halsospann/">Longevitet</a>
+        </div>
+      </div>
+      <a href="/#faq">Frågor</a>
+      <a href="/en/" class="lang-toggle">EN</a>
+      <a href="/#booking" class="nav-cta">Boka Konsultation</a>
+    </nav>
+
+<section class="booking-section" id="booking" style="padding-top:7rem;">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-eyebrow" style="color:rgba(216,234,245,0.5);margin-bottom:1rem;">Videosamtal · Hela Sverige och internationellt</div>
+      <h2>Boka din <em>digitala konsultation</em></h2>
+      <p>Samma 45 minuter med läkare, som videosamtal. Vi tar emot patienter från hela Sverige och internationellt, och provtagningen kan ske nära dig. Ingen remiss krävs.</p>
+    </div>
+  </div>
+</section>
+
+<section id="boka" style="padding:4rem 0;">
+  <div class="container" style="max-width:720px;">
+    <div class="reveal" data-mb-booking data-service="konsultation-digitalt"></div>
+    <p style="margin-top:2rem;font-size:.82rem;color:var(--text-light);line-height:1.7;">
+      Föredrar du att prata med oss? Ring <a href="tel:+46723195070">072-319 50 70</a>
+      eller mejla <a href="mailto:info@medibalans.com">info@medibalans.com</a>.
+      Vi svarar måndag–fredag 08:00–17:00.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">Medi<span>Balans</span></div>
+    <div>Banérgatan 10, 1 tr, 115 23 Stockholm · 072-319 50 70 · info@medibalans.com</div>
+    <div class="footer-links">
+      <a href="/">Startsida</a>
+      <a href="/methyldetox/">MethylDetox</a>
+      <a href="/iv-terapi/">IV-terapi</a>
+      <a href="/forskning.html">Forskning</a>
+      <a href="/en/">English</a>
+      <a href="/symtom/">Symtomguider</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+document.documentElement.classList.remove('no-js');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+const toggle = document.getElementById('mobileToggle');
+const mobileNav = document.getElementById('mobileNav');
+toggle.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); toggle.setAttribute('aria-expanded', open); });
+function closeMobile() { mobileNav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Dropdown — click/touch support (works on both desktop and mobile)
+document.querySelectorAll('.nav-dropdown').forEach(dd => {
+  const btn = dd.querySelector('.nav-dd-btn');
+  const menu = dd.querySelector('.dropdown-menu');
+  if (!btn || !menu) return;
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dd.classList.contains('open');
+    // Close all others
+    document.querySelectorAll('.nav-dropdown.open').forEach(other => {
+      if (other !== dd) {
+        other.classList.remove('open');
+        other.querySelector('.nav-dd-btn')?.setAttribute('aria-expanded', 'false');
+      }
+    });
+    dd.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', !isOpen);
+  });
+});
+// Close dropdowns on outside click
+document.addEventListener('click', () => {
+  document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+    dd.classList.remove('open');
+    dd.querySelector('.nav-dd-btn')?.setAttribute('aria-expanded', 'false');
+  });
+});
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.nav-dropdown.open').forEach(dd => dd.classList.remove('open'));
+    closeMobile();
+  }
+});
+</script>
+<style>#__mb_bubble{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:#1a2744;border:none;cursor:pointer;z-index:99999;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.22);padding:0;transition:transform .15s,box-shadow .15s}#__mb_bubble:hover{transform:scale(1.08)}#__mb_panel{position:fixed;bottom:96px;right:24px;width:380px;height:560px;border-radius:16px;background:#fff;z-index:99999;box-shadow:0 8px 32px rgba(0,0,0,.18);display:none;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(12px);transition:opacity .2s,transform .2s}#__mb_panel.mbopen{opacity:1;transform:translateY(0)}#__mb_close{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:#1a2744;border:none;color:#fff;font-size:18px;cursor:pointer;z-index:1;display:flex;align-items:center;justify-content:center;opacity:.85;padding:0}#__mb_hdr{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid #e5e7eb;flex-shrink:0}#__mb_hdot{width:10px;height:10px;border-radius:50%;background:#1a6b5a;display:inline-block;flex-shrink:0}#__mb_htitle{font-size:15px;font-weight:600;color:#111827;font-family:system-ui,sans-serif}#__mb_msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}.mb-ru{display:flex;justify-content:flex-end}.mb-rb{display:flex;justify-content:flex-start}.mb-b{max-width:72%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.55;word-break:break-word;white-space:pre-wrap;font-family:system-ui,sans-serif}.mb-bu{background:#1a6b5a;color:#fff;border-bottom-right-radius:4px}.mb-bb{background:#f3f4f6;color:#111827;border-bottom-left-radius:4px}.mb-td{display:flex;align-items:center;gap:5px;padding:12px 16px}.mb-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#9ca3af;animation:mb-bn 1s infinite ease-in-out}.mb-dot:nth-child(2){animation-delay:160ms}.mb-dot:nth-child(3){animation-delay:320ms}@keyframes mb-bn{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}@keyframes mb-bl{0%,100%{opacity:1}50%{opacity:0}}.mb-cur{display:inline-block;width:2px;height:1em;background:#6b7280;margin-left:2px;vertical-align:text-bottom;animation:mb-bl 1s step-end infinite}#__mb_bar{display:flex;align-items:flex-end;gap:8px;padding:12px 16px;border-top:1px solid #e5e7eb;background:#fff;flex-shrink:0}#__mb_inp{flex:1;resize:none;border:1px solid #d1d5db;border-radius:12px;padding:10px 14px;font-size:14px;font-family:system-ui,sans-serif;line-height:1.5;outline:none;background:#f9fafb;color:#111827;max-height:120px;overflow-y:auto}#__mb_inp:focus{border-color:#1a6b5a}#__mb_snd{flex-shrink:0;width:40px;height:40px;border-radius:12px;border:none;background:#1a6b5a;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}#__mb_snd:disabled{opacity:.4;cursor:default}@media(max-width:440px){#__mb_panel{width:calc(100vw - 16px);right:8px}}</style><button id="__mb_bubble" aria-label="Open meet mario chat" aria-expanded="false"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button><div id="__mb_panel"><button id="__mb_close" aria-label="Close chat">&#xD7;</button><div id="__mb_hdr"><span id="__mb_hdot"></span><span id="__mb_htitle"><a href="https://meetmario.ai" target="_blank" style="color:inherit;text-decoration:none;">meet mario</a></span></div><div id="__mb_msgs"></div><div id="__mb_bar"><textarea id="__mb_inp" placeholder="Skriv ett meddelande / Type a message" rows="1"></textarea><button id="__mb_snd" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button></div></div><script>(function(){if(window.__mbLoaded)return;window.__mbLoaded=true;var API='https://www.meetmario.ai/api/public-chat';var SK='__mbClosed';var GREET='Hej! Jag är Meet Mario. Hur kan jag hjälpa dig idag?\n/ Hello! I am Meet Mario. How can I help you today?';var msgs=[{role:'assistant',content:GREET}];var loading=false;var sid=(typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():Math.random().toString(36).slice(2);var panel=document.getElementById('__mb_panel');var bubble=document.getElementById('__mb_bubble');var closeBtn=document.getElementById('__mb_close');var msgsEl=document.getElementById('__mb_msgs');var inp=document.getElementById('__mb_inp');var snd=document.getElementById('__mb_snd');function render(){msgsEl.innerHTML='';msgs.forEach(function(m){var row=document.createElement('div');row.className=m.role==='user'?'mb-ru':'mb-rb';var bub=document.createElement('div');bub.className='mb-b '+(m.role==='user'?'mb-bu':'mb-bb');if(m.role==='user'){bub.textContent=m.content;}else{var t=m.content.replace(/(https?:\/\/[^\s<]+)/g,'<a href="$1" target="_blank" style="color:#1a6b5a;text-decoration:underline;">$1</a>');bub.innerHTML=t;}if(m.streaming){var c=document.createElement('span');c.className='mb-cur';bub.appendChild(c);}row.appendChild(bub);msgsEl.appendChild(row);});if(loading&&!msgs.some(function(m){return m.streaming;})){var tr=document.createElement('div');tr.className='mb-rb';var tb=document.createElement('div');tb.className='mb-b mb-bb mb-td';for(var i=0;i<3;i++){var d=document.createElement('span');d.className='mb-dot';tb.appendChild(d);}tr.appendChild(tb);msgsEl.appendChild(tr);}msgsEl.scrollTop=msgsEl.scrollHeight;}function send(){var t=inp.value.trim();if(!t||loading)return;if(typeof window.mbFireLead==='function')window.mbFireLead();msgs.push({role:'user',content:t});var sid2=Date.now();msgs.push({id:sid2,role:'assistant',content:'',streaming:true});inp.value='';loading=true;snd.disabled=true;render();var payload=JSON.stringify({messages:msgs.filter(function(m){return!m.streaming;}).map(function(m){return{role:m.role,content:m.content};}),sessionId:sid});fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:payload}).then(function(res){if(!res.ok){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:'Something went wrong. Please try again.'}:m;});loading=false;snd.disabled=false;render();return;}var reader=res.body.getReader();var decoder=new TextDecoder();var raw='';function pump(){return reader.read().then(function(chunk){if(chunk.done){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:raw}:m;});loading=false;snd.disabled=false;render();return;}raw+=decoder.decode(chunk.value,{stream:true});msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:raw,streaming:true,id:sid2}:m;});render();return pump();});}return pump();}).catch(function(){msgs=msgs.map(function(m){return m.id===sid2?{role:'assistant',content:'Connection error. Please try again.'}:m;});loading=false;snd.disabled=false;render();});}function show(){panel.style.display='flex';requestAnimationFrame(function(){panel.classList.add('mbopen');});bubble.setAttribute('aria-expanded','true');}function hide(){panel.classList.remove('mbopen');bubble.setAttribute('aria-expanded','false');setTimeout(function(){if(!panel.classList.contains('mbopen'))panel.style.display='none';},200);}bubble.addEventListener('click',function(){panel.classList.contains('mbopen')?hide():show();});closeBtn.addEventListener('click',function(e){e.stopPropagation();sessionStorage.setItem(SK,'1');hide();});document.addEventListener('click',function(e){if(panel.classList.contains('mbopen')&&!panel.contains(e.target)&&e.target!==bubble)hide();});snd.addEventListener('click',send);inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}});if(!sessionStorage.getItem(SK)){setTimeout(show,2000);}render();})();</script>
+
+<script src="/assets/booking.js" defer></script>
+</body>
+</html>
