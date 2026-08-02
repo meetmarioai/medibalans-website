@@ -11,3 +11,8 @@ __pycache__/
 *.pyc
 .mcp.json
 docs/halsodeklaration.md
+
+# Written by scripts/swap-booking-block.mjs when the iframe is swapped out.
+# Holds the exact removed markup so --revert restores it verbatim rather than
+# reconstructing it. Local recovery state, not source.
+scripts/.iframe-backup.json

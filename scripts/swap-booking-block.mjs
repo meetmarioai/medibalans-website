@@ -68,19 +68,36 @@ const blockFor = (page) =>
   `        <div ${MARKER} data-service="${slugFor(page)}"></div>
         <script src="/assets/booking.js" defer></script>`;
 
-const IFRAME_HTML = (id) =>
-  `        <iframe id='cliniko-${id}' src='https://medibalans.eu1.cliniko.com/bookings?embedded=true&locale=sv' frameborder='0' scrolling='auto' width='100%' height='1000' style='pointer-events: auto;'></iframe>
-<script type='text/javascript'>
-  window.addEventListener('message', function handleIFrameMessage (e) {
-    var clinikoBookings = document.getElementById('cliniko-${id}');
-    if (typeof e.data !== 'string') return;
-    if (e.data.search('cliniko-bookings-resize') > -1) {
-      var height = Number(e.data.split(':')[1]);
-      clinikoBookings.style.height = height + 'px';
-    }
-    e.data.search('cliniko-bookings-page') > -1 && clinikoBookings.scrollIntoView();
-  });
-</script>`;
+/**
+ * Where the removed iframes are kept so --revert can restore them EXACTLY.
+ *
+ * The first version of this script reconstructed the iframe from a hardcoded
+ * template on revert. That was wrong twice over, and both only surfaced because
+ * the files were diffed against production:
+ *
+ *   - the English pages use a DIFFERENT Cliniko widget, cliniko-80483102 with
+ *     locale=en. Reverting wrote the Swedish widget's id and locale into both,
+ *     so an English visitor would have been shown a Swedish booking form.
+ *   - baby-balans had no leading indentation on its iframe; the template added
+ *     eight spaces.
+ *
+ * A revert that quietly changes the thing it restores is worse than no revert,
+ * because it is trusted in exactly the moment nobody has time to check it. So
+ * nothing is reconstructed now: the original block is stashed verbatim at swap
+ * time and written back byte for byte.
+ *
+ * Kept in a sidecar rather than an HTML comment so production pages carry no
+ * dead markup.
+ */
+const BACKUP = join(ROOT, "scripts", ".iframe-backup.json");
+
+function readBackup() {
+  try {
+    return JSON.parse(readFileSync(BACKUP, "utf8"));
+  } catch {
+    return {};
+  }
+}
 
 const args = process.argv.slice(2);
 const apply = args.includes("--apply");
@@ -88,6 +105,7 @@ const revert = args.includes("--revert");
 
 let changed = 0;
 let skipped = 0;
+const backup = readBackup();
 
 for (const page of PAGES) {
   const path = join(ROOT, page);
@@ -106,9 +124,18 @@ for (const page of PAGES) {
       skipped++;
       continue;
     }
+    const original = backup[page];
+    if (typeof original !== "string" || !original.includes("<iframe")) {
+      console.error(
+        `  FAILED   ${page} — no stashed original in scripts/.iframe-backup.json. ` +
+        `Restore with: git checkout -- ${page}`
+      );
+      process.exitCode = 1;
+      continue;
+    }
     const out = html.replace(
       new RegExp(`[ \\t]*<div ${MARKER}[^>]*></div>\\s*<script src="/assets/booking\\.js" defer></script>`),
-      IFRAME_HTML("53063409")
+      () => original // function form: $-sequences in the HTML are not substitutions
     );
     if (out === html) {
       console.error(`  FAILED   ${page} — block found but not replaced`);
@@ -116,7 +143,7 @@ for (const page of PAGES) {
       continue;
     }
     if (apply) writeFileSync(path, out, "utf8");
-    console.log(`  revert   ${page}`);
+    console.log(`  revert   ${page} — restored verbatim from backup`);
     changed++;
     continue;
   }
@@ -132,10 +159,24 @@ for (const page of PAGES) {
     continue;
   }
 
-  const out = html.replace(IFRAME_RE, blockFor(page));
+  // Stash the exact bytes being removed BEFORE removing them. This is what
+  // makes --revert lossless; without it the restore is a guess.
+  const [originalBlock] = html.match(IFRAME_RE);
+  backup[page] = originalBlock;
+
+  const out = html.replace(IFRAME_RE, () => blockFor(page));
   if (apply) writeFileSync(path, out, "utf8");
-  console.log(`  swap     ${page}  → data-service="${slugFor(page)}"`);
+  const id = originalBlock.match(/cliniko-(\d+)/)?.[1] ?? "?";
+  const loc = originalBlock.match(/locale=([a-z]+)/)?.[1] ?? "?";
+  console.log(`  swap     ${page}  → data-service="${slugFor(page)}"   (stashed cliniko-${id}, locale=${loc})`);
   changed++;
+}
+
+// Written after the loop so a partial run cannot leave a backup that claims
+// more than it holds.
+if (apply && !revert && changed > 0) {
+  writeFileSync(BACKUP, JSON.stringify(backup, null, 2), "utf8");
+  console.log(`\nstashed ${Object.keys(backup).length} original block(s) in scripts/.iframe-backup.json`);
 }
 
 console.log(
