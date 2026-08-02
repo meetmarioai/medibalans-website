@@ -586,10 +586,46 @@
     load();
   }
 
+  /**
+   * Stop the site chat widget opening itself on top of the booking form.
+   *
+   * The widget is inlined into all 111 pages and schedules `setTimeout(show,
+   * 2000)` on load. Everywhere else that is a friendly nudge; on a booking page
+   * it drops a fixed 380×560 panel over the bottom-right of the viewport, which
+   * is where the calendar and the submit button live. A patient who came to
+   * book has to dismiss a chat window first, and some will simply leave.
+   *
+   * The bubble stays — anyone who wants Mario can still open him, and on this
+   * page he is genuinely useful. Only the automatic opening is suppressed.
+   *
+   * Done from here rather than by editing 111 files, and it has to be after the
+   * fact: the widget is inline and evaluates its condition before this deferred
+   * script runs, so the timer is already scheduled by the time we get control.
+   * Setting the widget's own session key stops it coming back.
+   */
+  function suppressChatAutoOpen() {
+    try {
+      sessionStorage.setItem("__mbClosed", "1");
+    } catch (e) { /* private browsing — fall through to the close below */ }
+
+    var tries = 0;
+    var timer = setInterval(function () {
+      var panel = document.getElementById("__mb_panel");
+      if (panel && panel.classList.contains("mbopen")) {
+        var close = document.getElementById("__mb_close");
+        if (close) close.click();
+        clearInterval(timer);
+      }
+      // The widget opens at 2s; stop watching a little after that.
+      if (++tries > 30) clearInterval(timer);
+    }, 100);
+  }
+
   function init() {
     var nodes = document.querySelectorAll("[data-mb-booking]");
     if (!nodes.length) return;
     injectStyles();
+    suppressChatAutoOpen();
     nodes.forEach(function (n) { Booking(n); });
   }
 
