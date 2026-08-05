@@ -62,9 +62,15 @@
       back: "Byt tid",
       chosen: "Vald tid",
       confirmedTitle: "Din tid är bokad",
-      confirmedBoth: "Vi har skickat en bekräftelse till din e-post och ditt mobilnummer.",
-      confirmedEmail: "Vi har skickat en bekräftelse till din e-post.",
-      confirmedSms: "Vi har skickat en bekräftelse till ditt mobilnummer.",
+      // Future tense, deliberately. The API returns the channel it INTENDS to
+      // use, not one it has used — the confirmation is sent in the background
+      // after the response has gone out. On 2026-08-05 a real booking reported
+      // "vi har skickat" for an email that was never sent, because the
+      // serverless function ended before the send completed. "Är på väg" is
+      // true whether it has left yet or not.
+      confirmedBoth: "En bekräftelse är på väg till din e-post och ditt mobilnummer.",
+      confirmedEmail: "En bekräftelse är på väg till din e-post.",
+      confirmedSms: "En bekräftelse är på väg till ditt mobilnummer.",
       confirmedNone: "Skriv gärna upp tiden — bekräftelsen kunde inte skickas.",
       taken: "Den tiden blev precis bokad av någon annan. Välj en annan tid.",
       rateLimited: "För många försök. Vänta en stund och försök igen.",
@@ -102,9 +108,10 @@
       back: "Change time",
       chosen: "Chosen time",
       confirmedTitle: "Your appointment is booked",
-      confirmedBoth: "We have sent a confirmation to your email and your mobile.",
-      confirmedEmail: "We have sent a confirmation to your email.",
-      confirmedSms: "We have sent a confirmation to your mobile.",
+      // Future tense — see the Swedish block above for why.
+      confirmedBoth: "A confirmation is on its way to your email and your mobile.",
+      confirmedEmail: "A confirmation is on its way to your email.",
+      confirmedSms: "A confirmation is on its way to your mobile.",
       confirmedNone: "Please note the time down — the confirmation could not be sent.",
       taken: "That time was just taken by someone else. Please choose another.",
       rateLimited: "Too many attempts. Please wait a moment and try again.",
